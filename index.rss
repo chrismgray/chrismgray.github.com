@@ -22,7 +22,7 @@
 
 
 	<pubDate>Fri, 11 Nov 2011 07:23:38 -0700</pubDate>
-	<dcterms:modified>2011-11-11T15:22:07Z</dcterms:modified>
+	<dcterms:modified>2011-11-11T15:40:52Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;
