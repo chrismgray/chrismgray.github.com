@@ -304,28 +304,6 @@ So what can be done about this?  Here are some options:
 	<comments>/posts/rationals-in-cljs/#comments</comments>
 
 </item>
-<item>
-
-	<title>first</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/first/</guid>
-
-	<link>http://chrismgray.github.com//posts/first/</link>
-
-	<pubDate>Tue, 08 Nov 2011 23:49:03 -0700</pubDate>
-	<dcterms:modified>2011-11-09T06:49:03Z</dcterms:modified>
-
-	<description>
-&lt;p&gt;This is the first post of the glorious blog.  I am sure that it will
-be great.
-&lt;/p&gt;
-</description>
-
-
-	<comments>/posts/first/#comments</comments>
-
-</item>
 
 </channel>
 </rss>

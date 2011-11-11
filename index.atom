@@ -344,34 +344,5 @@ So what can be done about this?  Here are some options:
 	<link rel="comments" href="/posts/rationals-in-cljs/comments.atom" type="application/atom+xml" />
 
 </entry>
-<entry>
-	<title>first</title>
-
-	<id>http://chrismgray.github.com//posts/first/</id>
-
-	<link href="http://chrismgray.github.com//posts/first/"/>
-
-
-
-
-
-	<updated>2011-11-09T06:49:03Z</updated>
-	<published>2011-11-09T06:49:03Z</published>
-
-	<content type="html" xml:lang="en">
-	
-&lt;p&gt;This is the first post of the glorious blog.  I am sure that it will
-be great.
-&lt;/p&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/first/#comments" type="text/html" />
-
-
-	<link rel="comments" href="/posts/first/comments.atom" type="application/atom+xml" />
-
-</entry>
 
 </feed>
