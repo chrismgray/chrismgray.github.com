@@ -2,8 +2,8 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>pages tagged clojure</title>
-<link href="http://driftwood/~cmg/blog/tags/clojure/"/>
-<link href="http://driftwood/~cmg/blog/tags/clojure/index.atom" rel="self" type="application/atom+xml"/>
+<link href="http://chrismgray.github.com//tags/clojure/"/>
+<link href="http://chrismgray.github.com//tags/clojure/index.atom" rel="self" type="application/atom+xml"/>
 <author>
 
 <name>Hiking and Coding</name>
@@ -13,7 +13,7 @@
 
 
 
-<id>http://driftwood/~cmg/blog/tags/clojure/</id>
+<id>http://chrismgray.github.com//tags/clojure/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
@@ -21,9 +21,9 @@
 <entry>
 	<title>more-rationals</title>
 
-	<id>http://driftwood/~cmg/blog/posts/more-rationals/</id>
+	<id>http://chrismgray.github.com//posts/more-rationals/</id>
 
-	<link href="http://driftwood/~cmg/blog/posts/more-rationals/"/>
+	<link href="http://chrismgray.github.com//posts/more-rationals/"/>
 
 
 
@@ -72,18 +72,18 @@
 	</content>
 
 
-	<link rel="comments" href="/~cmg/blog/posts/more-rationals/#comments" type="text/html" />
+	<link rel="comments" href="/posts/more-rationals/#comments" type="text/html" />
 
 
-	<link rel="comments" href="/~cmg/blog/posts/more-rationals/comments.atom" type="application/atom+xml" />
+	<link rel="comments" href="/posts/more-rationals/comments.atom" type="application/atom+xml" />
 
 </entry>
 <entry>
 	<title>rationals-followup</title>
 
-	<id>http://driftwood/~cmg/blog/posts/rationals-followup/</id>
+	<id>http://chrismgray.github.com//posts/rationals-followup/</id>
 
-	<link href="http://driftwood/~cmg/blog/posts/rationals-followup/"/>
+	<link href="http://chrismgray.github.com//posts/rationals-followup/"/>
 
 
 
@@ -117,18 +117,18 @@
 	</content>
 
 
-	<link rel="comments" href="/~cmg/blog/posts/rationals-followup/#comments" type="text/html" />
+	<link rel="comments" href="/posts/rationals-followup/#comments" type="text/html" />
 
 
-	<link rel="comments" href="/~cmg/blog/posts/rationals-followup/comments.atom" type="application/atom+xml" />
+	<link rel="comments" href="/posts/rationals-followup/comments.atom" type="application/atom+xml" />
 
 </entry>
 <entry>
 	<title>rationals-in-cljs</title>
 
-	<id>http://driftwood/~cmg/blog/posts/rationals-in-cljs/</id>
+	<id>http://chrismgray.github.com//posts/rationals-in-cljs/</id>
 
-	<link href="http://driftwood/~cmg/blog/posts/rationals-in-cljs/"/>
+	<link href="http://chrismgray.github.com//posts/rationals-in-cljs/"/>
 
 
 
@@ -247,10 +247,10 @@ So what can be done about this?  Here are some options:
 	</content>
 
 
-	<link rel="comments" href="/~cmg/blog/posts/rationals-in-cljs/#comments" type="text/html" />
+	<link rel="comments" href="/posts/rationals-in-cljs/#comments" type="text/html" />
 
 
-	<link rel="comments" href="/~cmg/blog/posts/rationals-in-cljs/comments.atom" type="application/atom+xml" />
+	<link rel="comments" href="/posts/rationals-in-cljs/comments.atom" type="application/atom+xml" />
 
 </entry>
 

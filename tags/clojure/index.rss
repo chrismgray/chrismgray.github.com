@@ -4,16 +4,16 @@
      xmlns:dcterms="http://purl.org/dc/terms/" >
 <channel>
 <title>pages tagged clojure</title>
-<link>http://driftwood/~cmg/blog/tags/clojure/</link>
+<link>http://chrismgray.github.com//tags/clojure/</link>
 <description>Hiking and Coding</description>
 <item>
 
 	<title>more-rationals</title>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/posts/more-rationals/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/more-rationals/</guid>
 
-	<link>http://driftwood/~cmg/blog/posts/more-rationals/</link>
+	<link>http://chrismgray.github.com//posts/more-rationals/</link>
 
 
 	<category>clojure</category>
@@ -56,7 +56,7 @@
 </description>
 
 
-	<comments>/~cmg/blog/posts/more-rationals/#comments</comments>
+	<comments>/posts/more-rationals/#comments</comments>
 
 </item>
 <item>
@@ -64,9 +64,9 @@
 	<title>rationals-followup</title>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/posts/rationals-followup/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-followup/</guid>
 
-	<link>http://driftwood/~cmg/blog/posts/rationals-followup/</link>
+	<link>http://chrismgray.github.com//posts/rationals-followup/</link>
 
 
 	<category>clojure</category>
@@ -94,7 +94,7 @@
 </description>
 
 
-	<comments>/~cmg/blog/posts/rationals-followup/#comments</comments>
+	<comments>/posts/rationals-followup/#comments</comments>
 
 </item>
 <item>
@@ -102,9 +102,9 @@
 	<title>rationals-in-cljs</title>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/posts/rationals-in-cljs/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-in-cljs/</guid>
 
-	<link>http://driftwood/~cmg/blog/posts/rationals-in-cljs/</link>
+	<link>http://chrismgray.github.com//posts/rationals-in-cljs/</link>
 
 
 	<category>clojure</category>
@@ -217,7 +217,7 @@ So what can be done about this?  Here are some options:
 </description>
 
 
-	<comments>/~cmg/blog/posts/rationals-in-cljs/#comments</comments>
+	<comments>/posts/rationals-in-cljs/#comments</comments>
 
 </item>
 

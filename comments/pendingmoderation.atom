@@ -2,8 +2,8 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>comments</title>
-<link href="http://driftwood/~cmg/blog/comments/"/>
-<link href="http://driftwood/~cmg/blog/comments/pendingmoderation.atom" rel="self" type="application/atom+xml"/>
+<link href="http://chrismgray.github.com//comments/"/>
+<link href="http://chrismgray.github.com//comments/pendingmoderation.atom" rel="self" type="application/atom+xml"/>
 <author>
 
 <name>Hiking and Coding</name>
@@ -13,7 +13,7 @@
 
 
 
-<id>http://driftwood/~cmg/blog/comments/</id>
+<id>http://chrismgray.github.com//comments/</id>
 
 <subtitle type="html">comments pending moderation</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>

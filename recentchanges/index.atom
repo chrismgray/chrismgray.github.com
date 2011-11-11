@@ -2,8 +2,8 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>RecentChanges</title>
-<link href="http://driftwood/~cmg/blog/recentchanges/"/>
-<link href="http://driftwood/~cmg/blog/recentchanges/index.atom" rel="self" type="application/atom+xml"/>
+<link href="http://chrismgray.github.com//recentchanges/"/>
+<link href="http://chrismgray.github.com//recentchanges/index.atom" rel="self" type="application/atom+xml"/>
 <author>
 
 <name>Hiking and Coding</name>
@@ -13,17 +13,423 @@
 
 
 
-<id>http://driftwood/~cmg/blog/recentchanges/</id>
+<id>http://chrismgray.github.com//recentchanges/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-11T01:42:42Z</updated>
+<updated>2011-11-11T02:14:08Z</updated>
+<entry>
+	<title>change to tags/hiking on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_9907a20010e3e936f1e0b2328e88d75502a82059/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-9907a20010e3e936f1e0b2328e88d75502a82059"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T02:14:08Z</updated>
+	<published>2011-11-11T02:14:08Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-9907a20010e3e936f1e0b2328e88d75502a82059&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/hiking
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/hiking&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to tags/emacs on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_310d177b91bf24058ecbfaa1b627b18002e3224b/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-310d177b91bf24058ecbfaa1b627b18002e3224b"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T02:14:08Z</updated>
+	<published>2011-11-11T02:14:08Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-310d177b91bf24058ecbfaa1b627b18002e3224b&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/emacs
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/emacs&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to tags/blogging on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_8f32b362895692536c2e146207676fcae53148aa/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-8f32b362895692536c2e146207676fcae53148aa"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T02:14:08Z</updated>
+	<published>2011-11-11T02:14:08Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-8f32b362895692536c2e146207676fcae53148aa&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/blogging
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/blogging&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to tags/org-mode on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_0aa22ce5025a4fcdcec4dade546c775ea343ffde/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-0aa22ce5025a4fcdcec4dade546c775ea343ffde"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T02:14:08Z</updated>
+	<published>2011-11-11T02:14:08Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-0aa22ce5025a4fcdcec4dade546c775ea343ffde&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/org-mode
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/org-mode&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to tags/ikiwiki on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_ed197ca757012a054b043e4679415a5d0dc748f2/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-ed197ca757012a054b043e4679415a5d0dc748f2"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T02:14:08Z</updated>
+	<published>2011-11-11T02:14:08Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-ed197ca757012a054b043e4679415a5d0dc748f2&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/ikiwiki
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/ikiwiki&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to tags/git on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_9e89373a9e7f93c7c08cc1928071b09fe30b4547/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-9e89373a9e7f93c7c08cc1928071b09fe30b4547"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T02:14:08Z</updated>
+	<published>2011-11-11T02:14:08Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-9e89373a9e7f93c7c08cc1928071b09fe30b4547&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/git
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/git&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/blogging-about-blogging on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_1d8f27683b3b9dd2f7f505b987fef620475e195a/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-1d8f27683b3b9dd2f7f505b987fef620475e195a"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T02:14:04Z</updated>
+	<published>2011-11-11T02:14:04Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-1d8f27683b3b9dd2f7f505b987fef620475e195a&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/blogging-about-blogging
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:04 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Post giving the blog&amp;#39;s &amp;quot;mission statement&amp;quot;&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_259c7cceb9b06b8c286e5b80e6a310019aaf0764/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_259c7cceb9b06b8c286e5b80e6a310019aaf0764/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-259c7cceb9b06b8c286e5b80e6a310019aaf0764"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-259c7cceb9b06b8c286e5b80e6a310019aaf0764"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -79,9 +485,9 @@ Changed the URL again&lt;br /&gt;
 <entry>
 	<title>change to sidebar on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_2576d8a76d224464472d317242a146cba1e3d4fe/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_2576d8a76d224464472d317242a146cba1e3d4fe/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-2576d8a76d224464472d317242a146cba1e3d4fe"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-2576d8a76d224464472d317242a146cba1e3d4fe"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -137,9 +543,9 @@ Twitter isn&amp;#39;t showing up&lt;br /&gt;
 <entry>
 	<title>change to local.css on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_a26e7ab506fd1888c340bf1c360f2cb72f4c356b/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_a26e7ab506fd1888c340bf1c360f2cb72f4c356b/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-a26e7ab506fd1888c340bf1c360f2cb72f4c356b"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-a26e7ab506fd1888c340bf1c360f2cb72f4c356b"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -195,9 +601,9 @@ Didn&amp;#39;t like the look of the new tags&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-followup on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_f4fb0d3f88c83a93eb61e4214e536814ca6d08b6/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_f4fb0d3f88c83a93eb61e4214e536814ca6d08b6/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-f4fb0d3f88c83a93eb61e4214e536814ca6d08b6"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-f4fb0d3f88c83a93eb61e4214e536814ca6d08b6"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -253,9 +659,9 @@ To quote Rick Perry, &amp;quot;Oops.&amp;quot;&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-followup posts/rationals-in-cljs on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_92d4479203c8ca5bff688381da206972f97e8c6a/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_92d4479203c8ca5bff688381da206972f97e8c6a/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-92d4479203c8ca5bff688381da206972f97e8c6a"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-92d4479203c8ca5bff688381da206972f97e8c6a"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -313,9 +719,9 @@ Added some more tags&lt;br /&gt;
 <entry>
 	<title>change to tags/clojure on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -371,9 +777,9 @@ creating tag page tags/clojure&lt;br /&gt;
 <entry>
 	<title>change to tags/clojurescript on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_bf8dae6c17837c465158de2536bb72435a26aa8e/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_bf8dae6c17837c465158de2536bb72435a26aa8e/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-bf8dae6c17837c465158de2536bb72435a26aa8e"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-bf8dae6c17837c465158de2536bb72435a26aa8e"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -429,9 +835,9 @@ creating tag page tags/clojurescript&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_05b6921db11461fe7f932e7c1f9e15ba861c6b61/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_05b6921db11461fe7f932e7c1f9e15ba861c6b61/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-05b6921db11461fe7f932e7c1f9e15ba861c6b61"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-05b6921db11461fe7f932e7c1f9e15ba861c6b61"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -487,9 +893,9 @@ Attempted to add a couple of tags&lt;br /&gt;
 <entry>
 	<title>change to sidebar on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_f842354424eceb8a1087bdfe74528d9223c62a4b/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_f842354424eceb8a1087bdfe74528d9223c62a4b/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-f842354424eceb8a1087bdfe74528d9223c62a4b"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-f842354424eceb8a1087bdfe74528d9223c62a4b"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -545,9 +951,9 @@ Added a sparkline to the sidebar&lt;br /&gt;
 <entry>
 	<title>change to index sidebar on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_5133ea17818baf262c32e987d42fbff8bfc466c8/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_5133ea17818baf262c32e987d42fbff8bfc466c8/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-5133ea17818baf262c32e987d42fbff8bfc466c8"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-5133ea17818baf262c32e987d42fbff8bfc466c8"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -605,9 +1011,9 @@ Try again&lt;br /&gt;
 <entry>
 	<title>change to index on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -663,9 +1069,9 @@ Maybe enabled twitter&lt;br /&gt;
 <entry>
 	<title>change to local.css on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_0943ac1c98c9d562b1afbb739f5a3e74c3bac532/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_0943ac1c98c9d562b1afbb739f5a3e74c3bac532/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-0943ac1c98c9d562b1afbb739f5a3e74c3bac532"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-0943ac1c98c9d562b1afbb739f5a3e74c3bac532"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -721,9 +1127,9 @@ Fun background stuff&lt;br /&gt;
 <entry>
 	<title>change to local.css shasta.jpg on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_424201882ff25d97067193da570ceab6ca595619/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_424201882ff25d97067193da570ceab6ca595619/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-424201882ff25d97067193da570ceab6ca595619"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-424201882ff25d97067193da570ceab6ca595619"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -781,9 +1187,9 @@ Image a bit smaller and put it in the CSS&lt;br /&gt;
 <entry>
 	<title>change to shasta.jpg on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_698ed1f82e0284c3a05c216d6d8987f9702dbc12/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_698ed1f82e0284c3a05c216d6d8987f9702dbc12/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-698ed1f82e0284c3a05c216d6d8987f9702dbc12"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-698ed1f82e0284c3a05c216d6d8987f9702dbc12"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -839,9 +1245,9 @@ Smaller still&lt;br /&gt;
 <entry>
 	<title>change to shasta.jpg on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_4b729d59d9c9b381d3555950d3f618e763081f0f/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_4b729d59d9c9b381d3555950d3f618e763081f0f/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-4b729d59d9c9b381d3555950d3f618e763081f0f"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-4b729d59d9c9b381d3555950d3f618e763081f0f"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -897,9 +1303,9 @@ Made the photo a bit smaller&lt;br /&gt;
 <entry>
 	<title>change to shasta.jpg on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_88ea91611e52d5086500583ff9a1d8e49fac7bb3/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_88ea91611e52d5086500583ff9a1d8e49fac7bb3/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-88ea91611e52d5086500583ff9a1d8e49fac7bb3"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-88ea91611e52d5086500583ff9a1d8e49fac7bb3"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -955,9 +1361,9 @@ Wrong photo&lt;br /&gt;
 <entry>
 	<title>change to shasta.jpg on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1013,9 +1419,9 @@ A picture that will be the backdrop&lt;br /&gt;
 <entry>
 	<title>change to local.css on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_a083b091d61212ade6a16421eccfd777e5aa0cf4/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_a083b091d61212ade6a16421eccfd777e5aa0cf4/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-a083b091d61212ade6a16421eccfd777e5aa0cf4"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-a083b091d61212ade6a16421eccfd777e5aa0cf4"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1071,9 +1477,9 @@ Made the sidebar as wide as it really is&lt;br /&gt;
 <entry>
 	<title>change to index local.css on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_abaf711cd833108f5d775256e0a5e147f2dcd47a/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_abaf711cd833108f5d775256e0a5e147f2dcd47a/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-abaf711cd833108f5d775256e0a5e147f2dcd47a"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-abaf711cd833108f5d775256e0a5e147f2dcd47a"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1131,9 +1537,9 @@ Got rid of the edit links finally&lt;br /&gt;
 <entry>
 	<title>change to index on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1189,9 +1595,9 @@ And again&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_da770f73117d6a71017bb446e55e1d8650265690/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_da770f73117d6a71017bb446e55e1d8650265690/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-da770f73117d6a71017bb446e55e1d8650265690"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-da770f73117d6a71017bb446e55e1d8650265690"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1247,9 +1653,9 @@ Yet another&lt;br /&gt;
 <entry>
 	<title>change to index on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_f30aca2563145b1fa1ad80d0194e52f447ebc5be/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_f30aca2563145b1fa1ad80d0194e52f447ebc5be/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-f30aca2563145b1fa1ad80d0194e52f447ebc5be"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-f30aca2563145b1fa1ad80d0194e52f447ebc5be"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1305,9 +1711,9 @@ Another try&lt;br /&gt;
 <entry>
 	<title>change to index on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_0c5d55e5c52d9ffa5df41122964a7422b5109990/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_0c5d55e5c52d9ffa5df41122964a7422b5109990/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-0c5d55e5c52d9ffa5df41122964a7422b5109990"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-0c5d55e5c52d9ffa5df41122964a7422b5109990"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1363,9 +1769,9 @@ Does this work?&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_84de36d2d1062d2e9793f39baae0c29b2b0bec20/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_84de36d2d1062d2e9793f39baae0c29b2b0bec20/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-84de36d2d1062d2e9793f39baae0c29b2b0bec20"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-84de36d2d1062d2e9793f39baae0c29b2b0bec20"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1421,9 +1827,9 @@ Try again&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_f94554c78d9ac9ad9c756eeb3a901a265b147b13/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_f94554c78d9ac9ad9c756eeb3a901a265b147b13/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-f94554c78d9ac9ad9c756eeb3a901a265b147b13"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-f94554c78d9ac9ad9c756eeb3a901a265b147b13"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1479,9 +1885,9 @@ Spurious diff to get page recompiled&lt;br /&gt;
 <entry>
 	<title>change to index on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_e2e6cd1a002241b9c9790d6b9c2065fea8a11c06/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_e2e6cd1a002241b9c9790d6b9c2065fea8a11c06/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-e2e6cd1a002241b9c9790d6b9c2065fea8a11c06"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-e2e6cd1a002241b9c9790d6b9c2065fea8a11c06"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1537,9 +1943,9 @@ Nothing&lt;br /&gt;
 <entry>
 	<title>change to index on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1595,9 +2001,9 @@ Seeing what happens if I remove actions&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_3ccf880a445ec1a25a3db5b310924783fd47e646/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_3ccf880a445ec1a25a3db5b310924783fd47e646/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-3ccf880a445ec1a25a3db5b310924783fd47e646"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-3ccf880a445ec1a25a3db5b310924783fd47e646"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1653,9 +2059,9 @@ Really fixed this time&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_38f67f5d4df1424bbd04da37276fd4fb10970dc1/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_38f67f5d4df1424bbd04da37276fd4fb10970dc1/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-38f67f5d4df1424bbd04da37276fd4fb10970dc1"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-38f67f5d4df1424bbd04da37276fd4fb10970dc1"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1711,9 +2117,9 @@ Tried again to fix link&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_a7c461c0d195fcea2c76bc47055b06a10ac4b6a3/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_a7c461c0d195fcea2c76bc47055b06a10ac4b6a3/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-a7c461c0d195fcea2c76bc47055b06a10ac4b6a3"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-a7c461c0d195fcea2c76bc47055b06a10ac4b6a3"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1769,9 +2175,9 @@ Fixed link&lt;br /&gt;
 <entry>
 	<title>change to posts/more-rationals on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_ff73d3f5e129bae2176e648ca23e09b13795aa12/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_ff73d3f5e129bae2176e648ca23e09b13795aa12/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-ff73d3f5e129bae2176e648ca23e09b13795aa12"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-ff73d3f5e129bae2176e648ca23e09b13795aa12"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1827,9 +2233,9 @@ New post&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-followup on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_7ee087016186fd4d30d62dadd61a62f61674a790/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_7ee087016186fd4d30d62dadd61a62f61674a790/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-7ee087016186fd4d30d62dadd61a62f61674a790"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-7ee087016186fd4d30d62dadd61a62f61674a790"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1885,9 +2291,9 @@ New post&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 posts/rationals-in-cljs/comment_3_3024a4cd58bda538af44a55d1a436abe on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_fff1dd7cfb59259fc9d07a530b8585ed93fcbc05/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_fff1dd7cfb59259fc9d07a530b8585ed93fcbc05/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-fff1dd7cfb59259fc9d07a530b8585ed93fcbc05"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-fff1dd7cfb59259fc9d07a530b8585ed93fcbc05"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -1947,9 +2353,9 @@ Deleted the dumb comments that I made.&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs/comment_3_3024a4cd58bda538af44a55d1a436abe on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_2063d6cb515d69314bdbdd5f9689637d95257afa/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_2063d6cb515d69314bdbdd5f9689637d95257afa/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-2063d6cb515d69314bdbdd5f9689637d95257afa"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-2063d6cb515d69314bdbdd5f9689637d95257afa"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2005,9 +2411,9 @@ Another comment&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_ca22b58f6be02eeaad3a463125f5e100ca7f472e/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_ca22b58f6be02eeaad3a463125f5e100ca7f472e/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-ca22b58f6be02eeaad3a463125f5e100ca7f472e"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-ca22b58f6be02eeaad3a463125f5e100ca7f472e"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2069,9 +2475,9 @@ Another try at getting comments to show up&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_b1c271095aeb3e284b44fbe0429968635abd9dae/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_b1c271095aeb3e284b44fbe0429968635abd9dae/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-b1c271095aeb3e284b44fbe0429968635abd9dae"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-b1c271095aeb3e284b44fbe0429968635abd9dae"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2127,9 +2533,9 @@ Another new comment&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_e55465053574a6716fd248cbb280e9561dfe8080/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_e55465053574a6716fd248cbb280e9561dfe8080/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-e55465053574a6716fd248cbb280e9561dfe8080"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-e55465053574a6716fd248cbb280e9561dfe8080"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2187,9 +2593,9 @@ Maybe my dumb comment will show up now&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_6fc0defd770fda69853e70e3d6c54d84e6e37955/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_6fc0defd770fda69853e70e3d6c54d84e6e37955/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-6fc0defd770fda69853e70e3d6c54d84e6e37955"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-6fc0defd770fda69853e70e3d6c54d84e6e37955"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2245,9 +2651,9 @@ Added my dumb comment&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_ab5b3a72ff91d233dd47ee0386fbd06863602eed/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_ab5b3a72ff91d233dd47ee0386fbd06863602eed/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-ab5b3a72ff91d233dd47ee0386fbd06863602eed"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-ab5b3a72ff91d233dd47ee0386fbd06863602eed"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2303,9 +2709,9 @@ That didn&amp;#39;t work&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2361,9 +2767,9 @@ Another try at tags&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_1b1e941a6b3ec5ebe58d1a10feb912654e919b3c/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_1b1e941a6b3ec5ebe58d1a10feb912654e919b3c/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-1b1e941a6b3ec5ebe58d1a10feb912654e919b3c"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-1b1e941a6b3ec5ebe58d1a10feb912654e919b3c"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2419,9 +2825,9 @@ Tried adding some tags&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_c98ec72924468fc680c3c87bee69204d9d12d518/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_c98ec72924468fc680c3c87bee69204d9d12d518/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-c98ec72924468fc680c3c87bee69204d9d12d518"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-c98ec72924468fc680c3c87bee69204d9d12d518"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2477,9 +2883,9 @@ Fix some errors in the post&lt;br /&gt;
 <entry>
 	<title>change to posts/rationals-in-cljs on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_aed9d7c6d2c3170c562e0ebc77437c7338369d99/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_aed9d7c6d2c3170c562e0ebc77437c7338369d99/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-aed9d7c6d2c3170c562e0ebc77437c7338369d99"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-aed9d7c6d2c3170c562e0ebc77437c7338369d99"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2535,9 +2941,9 @@ New post about rationals in Clojurescript&lt;br /&gt;
 <entry>
 	<title>change to .gitignore on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2593,9 +2999,9 @@ Ignore backup files&lt;br /&gt;
 <entry>
 	<title>change to posts/first on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_864fcc451778eea5f710d0c943e2681c95769299/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_864fcc451778eea5f710d0c943e2681c95769299/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-864fcc451778eea5f710d0c943e2681c95769299"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-864fcc451778eea5f710d0c943e2681c95769299"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2651,9 +3057,9 @@ New post&lt;br /&gt;
 <entry>
 	<title>change to posts/Discussion posts/first_post on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_0c5c2919142eb9b882393948fef49c4ef9ce9061/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_0c5c2919142eb9b882393948fef49c4ef9ce9061/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-0c5c2919142eb9b882393948fef49c4ef9ce9061"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-0c5c2919142eb9b882393948fef49c4ef9ce9061"/>
 
 	<author><name>chrismgray</name></author>
 
@@ -2711,9 +3117,9 @@ Deleted example posts&lt;br /&gt;
 <entry>
 	<title>change to .gitignore archives comments index posts posts/Discussion posts/first_post sidebar tags on Hiking and Coding</title>
 
-	<id>http://driftwood/~cmg/blog/recentchanges/change_b61a298dd03027b5b09de18e8767ab097007ef92/</id>
+	<id>http://chrismgray.github.com//recentchanges/change_b61a298dd03027b5b09de18e8767ab097007ef92/</id>
 
-	<link href="http://driftwood/~cmg/blog/recentchanges/#change-b61a298dd03027b5b09de18e8767ab097007ef92"/>
+	<link href="http://chrismgray.github.com/recentchanges/#change-b61a298dd03027b5b09de18e8767ab097007ef92"/>
 
 	<author><name>chrismgray</name></author>
 

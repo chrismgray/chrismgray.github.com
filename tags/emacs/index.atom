@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>pages tagged emacs</title>
+<link href="http://chrismgray.github.com//tags/emacs/"/>
+<link href="http://chrismgray.github.com//tags/emacs/index.atom" rel="self" type="application/atom+xml"/>
+<author>
+
+<name>Hiking and Coding</name>
+
+</author>
+
+
+
+
+<id>http://chrismgray.github.com//tags/emacs/</id>
+
+<subtitle type="html">Hiking and Coding</subtitle>
+<generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
+<updated>2011-11-11T02:13:21Z</updated>
+<entry>
+	<title>blogging-about-blogging</title>
+
+	<id>http://chrismgray.github.com//posts/blogging-about-blogging/</id>
+
+	<link href="http://chrismgray.github.com//posts/blogging-about-blogging/"/>
+
+
+
+
+
+
+	<category term="blogging" />
+
+	<category term="emacs" />
+
+	<category term="git" />
+
+	<category term="hiking" />
+
+	<category term="ikiwiki" />
+
+	<category term="org-mode" />
+
+
+	<updated>2011-11-11T02:13:21Z</updated>
+	<published>2011-11-11T02:13:21Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A new system &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  This is the obligatory post about how the new blogging system
+  works.  Isn&#39;t that exciting?
+&lt;/p&gt;
+&lt;p&gt;
+  By my standards, this is a fairly simple system.  It is based on
+  &lt;a href=&quot;http://ikiwiki.info&quot;&gt;ikiwiki&lt;/a&gt;, which allows me to use &lt;a href=&quot;http://orgmode&quot;&gt;org-mode&lt;/a&gt; to edit my posts and &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; as
+  the version control system.  Since I already know those tools, I
+  don&#39;t have to think about them and can just focus on writing.
+&lt;/p&gt;
+&lt;p&gt;
+  I&#39;m less comfortable with making web pages look nice, but I took the
+  CSS file from &lt;a href=&quot;https://github.com/AntPortal/ikiwiked/raw/master/theme/gray-orange/local.css&quot;&gt;the nice people at antportal.com&lt;/a&gt; and added my own
+  panoramic photo that I took while hiking.  I think the output is
+  simple and looks pretty good.
+&lt;/p&gt;
+&lt;p&gt;
+  Finally, I am currently hosting the pages on &lt;a href=&quot;http://github.com&quot;&gt;github&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What I intend to write about &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  The blog is currently called &quot;Hiking and Coding&quot;.  So far I&#39;ve only
+  written about the latter, but I&#39;m planning some posts about the
+  former.  My current objective is to write once a day as a way to
+  solidify what I&#39;m thinking about for the day, so my posts will
+  likely be about what I&#39;m working on.  As such, expect them to be
+  really boring.  I&#39;m okay with that.  I&#39;m also okay with you not
+  subscribing.
+&lt;/p&gt;
+&lt;p&gt;
+  I will try to write about adventures I had while hiking on days that
+  I&#39;m not really working on anything.  Those posts will be tagged with
+  the hiking tag.  They might be more exciting (though they might
+  not).
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/blogging-about-blogging/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/blogging-about-blogging/comments.atom" type="application/atom+xml" />
+
+</entry>
+
+</feed>

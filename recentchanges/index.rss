@@ -4,17 +4,381 @@
      xmlns:dcterms="http://purl.org/dc/terms/" >
 <channel>
 <title>RecentChanges</title>
-<link>http://driftwood/~cmg/blog/recentchanges/</link>
+<link>http://chrismgray.github.com//recentchanges/</link>
 <description>Hiking and Coding</description>
+<item>
+
+	<title>chrismgray: change to tags/hiking on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_9907a20010e3e936f1e0b2328e88d75502a82059/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-9907a20010e3e936f1e0b2328e88d75502a82059</link>
+
+	<pubDate>Thu, 10 Nov 2011 19:14:08 -0700</pubDate>
+	<dcterms:modified>2011-11-11T02:14:08Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-9907a20010e3e936f1e0b2328e88d75502a82059&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/hiking
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/hiking&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to tags/emacs on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_310d177b91bf24058ecbfaa1b627b18002e3224b/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-310d177b91bf24058ecbfaa1b627b18002e3224b</link>
+
+	<pubDate>Thu, 10 Nov 2011 19:14:08 -0700</pubDate>
+	<dcterms:modified>2011-11-11T02:14:08Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-310d177b91bf24058ecbfaa1b627b18002e3224b&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/emacs
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/emacs&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to tags/blogging on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_8f32b362895692536c2e146207676fcae53148aa/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-8f32b362895692536c2e146207676fcae53148aa</link>
+
+	<pubDate>Thu, 10 Nov 2011 19:14:08 -0700</pubDate>
+	<dcterms:modified>2011-11-11T02:14:08Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-8f32b362895692536c2e146207676fcae53148aa&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/blogging
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/blogging&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to tags/org-mode on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_0aa22ce5025a4fcdcec4dade546c775ea343ffde/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-0aa22ce5025a4fcdcec4dade546c775ea343ffde</link>
+
+	<pubDate>Thu, 10 Nov 2011 19:14:08 -0700</pubDate>
+	<dcterms:modified>2011-11-11T02:14:08Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-0aa22ce5025a4fcdcec4dade546c775ea343ffde&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/org-mode
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/org-mode&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to tags/ikiwiki on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_ed197ca757012a054b043e4679415a5d0dc748f2/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-ed197ca757012a054b043e4679415a5d0dc748f2</link>
+
+	<pubDate>Thu, 10 Nov 2011 19:14:08 -0700</pubDate>
+	<dcterms:modified>2011-11-11T02:14:08Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-ed197ca757012a054b043e4679415a5d0dc748f2&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/ikiwiki
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/ikiwiki&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to tags/git on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_9e89373a9e7f93c7c08cc1928071b09fe30b4547/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-9e89373a9e7f93c7c08cc1928071b09fe30b4547</link>
+
+	<pubDate>Thu, 10 Nov 2011 19:14:08 -0700</pubDate>
+	<dcterms:modified>2011-11-11T02:14:08Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-9e89373a9e7f93c7c08cc1928071b09fe30b4547&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/git
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:08 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/git&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to posts/blogging-about-blogging on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_1d8f27683b3b9dd2f7f505b987fef620475e195a/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-1d8f27683b3b9dd2f7f505b987fef620475e195a</link>
+
+	<pubDate>Thu, 10 Nov 2011 19:14:04 -0700</pubDate>
+	<dcterms:modified>2011-11-11T02:14:04Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-1d8f27683b3b9dd2f7f505b987fef620475e195a&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/blogging-about-blogging
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:14:04 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Post giving the blog&amp;#39;s &amp;quot;mission statement&amp;quot;&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
 <item>
 
 	<title>chrismgray: change to posts/more-rationals on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_259c7cceb9b06b8c286e5b80e6a310019aaf0764/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_259c7cceb9b06b8c286e5b80e6a310019aaf0764/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-259c7cceb9b06b8c286e5b80e6a310019aaf0764</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-259c7cceb9b06b8c286e5b80e6a310019aaf0764</link>
 
 	<pubDate>Thu, 10 Nov 2011 18:42:42 -0700</pubDate>
 	<dcterms:modified>2011-11-11T01:42:42Z</dcterms:modified>
@@ -64,9 +428,9 @@ Changed the URL again&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_2576d8a76d224464472d317242a146cba1e3d4fe/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_2576d8a76d224464472d317242a146cba1e3d4fe/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-2576d8a76d224464472d317242a146cba1e3d4fe</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-2576d8a76d224464472d317242a146cba1e3d4fe</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:32:30 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:32:30Z</dcterms:modified>
@@ -116,9 +480,9 @@ Twitter isn&amp;#39;t showing up&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_a26e7ab506fd1888c340bf1c360f2cb72f4c356b/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_a26e7ab506fd1888c340bf1c360f2cb72f4c356b/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-a26e7ab506fd1888c340bf1c360f2cb72f4c356b</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-a26e7ab506fd1888c340bf1c360f2cb72f4c356b</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:30:13 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:30:13Z</dcterms:modified>
@@ -168,9 +532,9 @@ Didn&amp;#39;t like the look of the new tags&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_f4fb0d3f88c83a93eb61e4214e536814ca6d08b6/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_f4fb0d3f88c83a93eb61e4214e536814ca6d08b6/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-f4fb0d3f88c83a93eb61e4214e536814ca6d08b6</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-f4fb0d3f88c83a93eb61e4214e536814ca6d08b6</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:27:26 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:27:26Z</dcterms:modified>
@@ -220,9 +584,9 @@ To quote Rick Perry, &amp;quot;Oops.&amp;quot;&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_92d4479203c8ca5bff688381da206972f97e8c6a/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_92d4479203c8ca5bff688381da206972f97e8c6a/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-92d4479203c8ca5bff688381da206972f97e8c6a</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-92d4479203c8ca5bff688381da206972f97e8c6a</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:26:07 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:26:07Z</dcterms:modified>
@@ -274,9 +638,9 @@ Added some more tags&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:24:06 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:24:06Z</dcterms:modified>
@@ -326,9 +690,9 @@ creating tag page tags/clojure&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_bf8dae6c17837c465158de2536bb72435a26aa8e/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_bf8dae6c17837c465158de2536bb72435a26aa8e/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-bf8dae6c17837c465158de2536bb72435a26aa8e</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-bf8dae6c17837c465158de2536bb72435a26aa8e</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:24:06 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:24:06Z</dcterms:modified>
@@ -378,9 +742,9 @@ creating tag page tags/clojurescript&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_05b6921db11461fe7f932e7c1f9e15ba861c6b61/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_05b6921db11461fe7f932e7c1f9e15ba861c6b61/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-05b6921db11461fe7f932e7c1f9e15ba861c6b61</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-05b6921db11461fe7f932e7c1f9e15ba861c6b61</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:23:59 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:23:59Z</dcterms:modified>
@@ -430,9 +794,9 @@ Attempted to add a couple of tags&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_f842354424eceb8a1087bdfe74528d9223c62a4b/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_f842354424eceb8a1087bdfe74528d9223c62a4b/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-f842354424eceb8a1087bdfe74528d9223c62a4b</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-f842354424eceb8a1087bdfe74528d9223c62a4b</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:19:26 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:19:26Z</dcterms:modified>
@@ -482,9 +846,9 @@ Added a sparkline to the sidebar&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_5133ea17818baf262c32e987d42fbff8bfc466c8/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_5133ea17818baf262c32e987d42fbff8bfc466c8/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-5133ea17818baf262c32e987d42fbff8bfc466c8</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-5133ea17818baf262c32e987d42fbff8bfc466c8</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:12:10 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:12:10Z</dcterms:modified>
@@ -536,9 +900,9 @@ Try again&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5</link>
 
 	<pubDate>Thu, 10 Nov 2011 13:10:39 -0700</pubDate>
 	<dcterms:modified>2011-11-10T20:10:39Z</dcterms:modified>
@@ -588,9 +952,9 @@ Maybe enabled twitter&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_0943ac1c98c9d562b1afbb739f5a3e74c3bac532/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_0943ac1c98c9d562b1afbb739f5a3e74c3bac532/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-0943ac1c98c9d562b1afbb739f5a3e74c3bac532</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-0943ac1c98c9d562b1afbb739f5a3e74c3bac532</link>
 
 	<pubDate>Thu, 10 Nov 2011 12:10:49 -0700</pubDate>
 	<dcterms:modified>2011-11-10T19:10:49Z</dcterms:modified>
@@ -640,9 +1004,9 @@ Fun background stuff&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_424201882ff25d97067193da570ceab6ca595619/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_424201882ff25d97067193da570ceab6ca595619/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-424201882ff25d97067193da570ceab6ca595619</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-424201882ff25d97067193da570ceab6ca595619</link>
 
 	<pubDate>Thu, 10 Nov 2011 11:56:55 -0700</pubDate>
 	<dcterms:modified>2011-11-10T18:56:55Z</dcterms:modified>
@@ -694,9 +1058,9 @@ Image a bit smaller and put it in the CSS&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_698ed1f82e0284c3a05c216d6d8987f9702dbc12/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_698ed1f82e0284c3a05c216d6d8987f9702dbc12/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-698ed1f82e0284c3a05c216d6d8987f9702dbc12</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-698ed1f82e0284c3a05c216d6d8987f9702dbc12</link>
 
 	<pubDate>Thu, 10 Nov 2011 11:53:20 -0700</pubDate>
 	<dcterms:modified>2011-11-10T18:53:20Z</dcterms:modified>
@@ -746,9 +1110,9 @@ Smaller still&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_4b729d59d9c9b381d3555950d3f618e763081f0f/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_4b729d59d9c9b381d3555950d3f618e763081f0f/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-4b729d59d9c9b381d3555950d3f618e763081f0f</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-4b729d59d9c9b381d3555950d3f618e763081f0f</link>
 
 	<pubDate>Thu, 10 Nov 2011 11:50:44 -0700</pubDate>
 	<dcterms:modified>2011-11-10T18:50:44Z</dcterms:modified>
@@ -798,9 +1162,9 @@ Made the photo a bit smaller&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_88ea91611e52d5086500583ff9a1d8e49fac7bb3/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_88ea91611e52d5086500583ff9a1d8e49fac7bb3/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-88ea91611e52d5086500583ff9a1d8e49fac7bb3</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-88ea91611e52d5086500583ff9a1d8e49fac7bb3</link>
 
 	<pubDate>Thu, 10 Nov 2011 11:43:12 -0700</pubDate>
 	<dcterms:modified>2011-11-10T18:43:12Z</dcterms:modified>
@@ -850,9 +1214,9 @@ Wrong photo&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-d5cbb83f0de01feb5d2e909aa2f35d8dc47d13be</link>
 
 	<pubDate>Thu, 10 Nov 2011 11:37:44 -0700</pubDate>
 	<dcterms:modified>2011-11-10T18:37:44Z</dcterms:modified>
@@ -902,9 +1266,9 @@ A picture that will be the backdrop&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_a083b091d61212ade6a16421eccfd777e5aa0cf4/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_a083b091d61212ade6a16421eccfd777e5aa0cf4/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-a083b091d61212ade6a16421eccfd777e5aa0cf4</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-a083b091d61212ade6a16421eccfd777e5aa0cf4</link>
 
 	<pubDate>Thu, 10 Nov 2011 11:27:45 -0700</pubDate>
 	<dcterms:modified>2011-11-10T18:27:45Z</dcterms:modified>
@@ -954,9 +1318,9 @@ Made the sidebar as wide as it really is&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_abaf711cd833108f5d775256e0a5e147f2dcd47a/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_abaf711cd833108f5d775256e0a5e147f2dcd47a/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-abaf711cd833108f5d775256e0a5e147f2dcd47a</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-abaf711cd833108f5d775256e0a5e147f2dcd47a</link>
 
 	<pubDate>Thu, 10 Nov 2011 11:13:23 -0700</pubDate>
 	<dcterms:modified>2011-11-10T18:13:23Z</dcterms:modified>
@@ -1008,9 +1372,9 @@ Got rid of the edit links finally&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-d64aa22d1527eeeb074afb7f56f2dc6ba0a04ebf</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:53:27 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:53:27Z</dcterms:modified>
@@ -1060,9 +1424,9 @@ And again&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_da770f73117d6a71017bb446e55e1d8650265690/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_da770f73117d6a71017bb446e55e1d8650265690/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-da770f73117d6a71017bb446e55e1d8650265690</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-da770f73117d6a71017bb446e55e1d8650265690</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:49:33 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:49:33Z</dcterms:modified>
@@ -1112,9 +1476,9 @@ Yet another&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_f30aca2563145b1fa1ad80d0194e52f447ebc5be/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_f30aca2563145b1fa1ad80d0194e52f447ebc5be/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-f30aca2563145b1fa1ad80d0194e52f447ebc5be</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-f30aca2563145b1fa1ad80d0194e52f447ebc5be</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:40:29 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:40:29Z</dcterms:modified>
@@ -1164,9 +1528,9 @@ Another try&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_0c5d55e5c52d9ffa5df41122964a7422b5109990/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_0c5d55e5c52d9ffa5df41122964a7422b5109990/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-0c5d55e5c52d9ffa5df41122964a7422b5109990</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-0c5d55e5c52d9ffa5df41122964a7422b5109990</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:38:49 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:38:49Z</dcterms:modified>
@@ -1216,9 +1580,9 @@ Does this work?&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_84de36d2d1062d2e9793f39baae0c29b2b0bec20/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_84de36d2d1062d2e9793f39baae0c29b2b0bec20/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-84de36d2d1062d2e9793f39baae0c29b2b0bec20</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-84de36d2d1062d2e9793f39baae0c29b2b0bec20</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:35:27 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:35:27Z</dcterms:modified>
@@ -1268,9 +1632,9 @@ Try again&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_f94554c78d9ac9ad9c756eeb3a901a265b147b13/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_f94554c78d9ac9ad9c756eeb3a901a265b147b13/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-f94554c78d9ac9ad9c756eeb3a901a265b147b13</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-f94554c78d9ac9ad9c756eeb3a901a265b147b13</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:32:45 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:32:45Z</dcterms:modified>
@@ -1320,9 +1684,9 @@ Spurious diff to get page recompiled&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_e2e6cd1a002241b9c9790d6b9c2065fea8a11c06/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_e2e6cd1a002241b9c9790d6b9c2065fea8a11c06/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-e2e6cd1a002241b9c9790d6b9c2065fea8a11c06</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-e2e6cd1a002241b9c9790d6b9c2065fea8a11c06</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:07:00 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:07:00Z</dcterms:modified>
@@ -1372,9 +1736,9 @@ Nothing&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:06:06 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:06:06Z</dcterms:modified>
@@ -1424,9 +1788,9 @@ Seeing what happens if I remove actions&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_3ccf880a445ec1a25a3db5b310924783fd47e646/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_3ccf880a445ec1a25a3db5b310924783fd47e646/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-3ccf880a445ec1a25a3db5b310924783fd47e646</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-3ccf880a445ec1a25a3db5b310924783fd47e646</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:02:42 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:02:42Z</dcterms:modified>
@@ -1476,9 +1840,9 @@ Really fixed this time&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_38f67f5d4df1424bbd04da37276fd4fb10970dc1/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_38f67f5d4df1424bbd04da37276fd4fb10970dc1/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-38f67f5d4df1424bbd04da37276fd4fb10970dc1</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-38f67f5d4df1424bbd04da37276fd4fb10970dc1</link>
 
 	<pubDate>Thu, 10 Nov 2011 10:00:59 -0700</pubDate>
 	<dcterms:modified>2011-11-10T17:00:59Z</dcterms:modified>
@@ -1528,9 +1892,9 @@ Tried again to fix link&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_a7c461c0d195fcea2c76bc47055b06a10ac4b6a3/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_a7c461c0d195fcea2c76bc47055b06a10ac4b6a3/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-a7c461c0d195fcea2c76bc47055b06a10ac4b6a3</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-a7c461c0d195fcea2c76bc47055b06a10ac4b6a3</link>
 
 	<pubDate>Thu, 10 Nov 2011 09:59:22 -0700</pubDate>
 	<dcterms:modified>2011-11-10T16:59:22Z</dcterms:modified>
@@ -1580,9 +1944,9 @@ Fixed link&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_ff73d3f5e129bae2176e648ca23e09b13795aa12/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_ff73d3f5e129bae2176e648ca23e09b13795aa12/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-ff73d3f5e129bae2176e648ca23e09b13795aa12</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-ff73d3f5e129bae2176e648ca23e09b13795aa12</link>
 
 	<pubDate>Thu, 10 Nov 2011 09:55:33 -0700</pubDate>
 	<dcterms:modified>2011-11-10T16:55:33Z</dcterms:modified>
@@ -1632,9 +1996,9 @@ New post&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_7ee087016186fd4d30d62dadd61a62f61674a790/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_7ee087016186fd4d30d62dadd61a62f61674a790/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-7ee087016186fd4d30d62dadd61a62f61674a790</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-7ee087016186fd4d30d62dadd61a62f61674a790</link>
 
 	<pubDate>Wed, 09 Nov 2011 15:04:17 -0700</pubDate>
 	<dcterms:modified>2011-11-09T22:04:17Z</dcterms:modified>
@@ -1684,9 +2048,9 @@ New post&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_fff1dd7cfb59259fc9d07a530b8585ed93fcbc05/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_fff1dd7cfb59259fc9d07a530b8585ed93fcbc05/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-fff1dd7cfb59259fc9d07a530b8585ed93fcbc05</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-fff1dd7cfb59259fc9d07a530b8585ed93fcbc05</link>
 
 	<pubDate>Wed, 09 Nov 2011 11:12:13 -0700</pubDate>
 	<dcterms:modified>2011-11-09T18:12:13Z</dcterms:modified>
@@ -1740,9 +2104,9 @@ Deleted the dumb comments that I made.&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_2063d6cb515d69314bdbdd5f9689637d95257afa/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_2063d6cb515d69314bdbdd5f9689637d95257afa/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-2063d6cb515d69314bdbdd5f9689637d95257afa</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-2063d6cb515d69314bdbdd5f9689637d95257afa</link>
 
 	<pubDate>Wed, 09 Nov 2011 11:11:06 -0700</pubDate>
 	<dcterms:modified>2011-11-09T18:11:06Z</dcterms:modified>
@@ -1792,9 +2156,9 @@ Another comment&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_ca22b58f6be02eeaad3a463125f5e100ca7f472e/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_ca22b58f6be02eeaad3a463125f5e100ca7f472e/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-ca22b58f6be02eeaad3a463125f5e100ca7f472e</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-ca22b58f6be02eeaad3a463125f5e100ca7f472e</link>
 
 	<pubDate>Wed, 09 Nov 2011 11:07:35 -0700</pubDate>
 	<dcterms:modified>2011-11-09T18:07:35Z</dcterms:modified>
@@ -1850,9 +2214,9 @@ Another try at getting comments to show up&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_b1c271095aeb3e284b44fbe0429968635abd9dae/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_b1c271095aeb3e284b44fbe0429968635abd9dae/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-b1c271095aeb3e284b44fbe0429968635abd9dae</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-b1c271095aeb3e284b44fbe0429968635abd9dae</link>
 
 	<pubDate>Wed, 09 Nov 2011 11:05:19 -0700</pubDate>
 	<dcterms:modified>2011-11-09T18:05:19Z</dcterms:modified>
@@ -1902,9 +2266,9 @@ Another new comment&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_e55465053574a6716fd248cbb280e9561dfe8080/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_e55465053574a6716fd248cbb280e9561dfe8080/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-e55465053574a6716fd248cbb280e9561dfe8080</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-e55465053574a6716fd248cbb280e9561dfe8080</link>
 
 	<pubDate>Wed, 09 Nov 2011 11:02:43 -0700</pubDate>
 	<dcterms:modified>2011-11-09T18:02:43Z</dcterms:modified>
@@ -1956,9 +2320,9 @@ Maybe my dumb comment will show up now&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_6fc0defd770fda69853e70e3d6c54d84e6e37955/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_6fc0defd770fda69853e70e3d6c54d84e6e37955/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-6fc0defd770fda69853e70e3d6c54d84e6e37955</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-6fc0defd770fda69853e70e3d6c54d84e6e37955</link>
 
 	<pubDate>Wed, 09 Nov 2011 11:00:08 -0700</pubDate>
 	<dcterms:modified>2011-11-09T18:00:08Z</dcterms:modified>
@@ -2008,9 +2372,9 @@ Added my dumb comment&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_ab5b3a72ff91d233dd47ee0386fbd06863602eed/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_ab5b3a72ff91d233dd47ee0386fbd06863602eed/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-ab5b3a72ff91d233dd47ee0386fbd06863602eed</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-ab5b3a72ff91d233dd47ee0386fbd06863602eed</link>
 
 	<pubDate>Wed, 09 Nov 2011 10:26:38 -0700</pubDate>
 	<dcterms:modified>2011-11-09T17:26:38Z</dcterms:modified>
@@ -2060,9 +2424,9 @@ That didn&amp;#39;t work&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-71dbc2d42fe996ccf8bc94db46b39b0ef92fbc5a</link>
 
 	<pubDate>Wed, 09 Nov 2011 10:26:03 -0700</pubDate>
 	<dcterms:modified>2011-11-09T17:26:03Z</dcterms:modified>
@@ -2112,9 +2476,9 @@ Another try at tags&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_1b1e941a6b3ec5ebe58d1a10feb912654e919b3c/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_1b1e941a6b3ec5ebe58d1a10feb912654e919b3c/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-1b1e941a6b3ec5ebe58d1a10feb912654e919b3c</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-1b1e941a6b3ec5ebe58d1a10feb912654e919b3c</link>
 
 	<pubDate>Wed, 09 Nov 2011 10:19:39 -0700</pubDate>
 	<dcterms:modified>2011-11-09T17:19:39Z</dcterms:modified>
@@ -2164,9 +2528,9 @@ Tried adding some tags&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_c98ec72924468fc680c3c87bee69204d9d12d518/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_c98ec72924468fc680c3c87bee69204d9d12d518/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-c98ec72924468fc680c3c87bee69204d9d12d518</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-c98ec72924468fc680c3c87bee69204d9d12d518</link>
 
 	<pubDate>Wed, 09 Nov 2011 10:15:55 -0700</pubDate>
 	<dcterms:modified>2011-11-09T17:15:55Z</dcterms:modified>
@@ -2216,9 +2580,9 @@ Fix some errors in the post&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_aed9d7c6d2c3170c562e0ebc77437c7338369d99/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_aed9d7c6d2c3170c562e0ebc77437c7338369d99/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-aed9d7c6d2c3170c562e0ebc77437c7338369d99</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-aed9d7c6d2c3170c562e0ebc77437c7338369d99</link>
 
 	<pubDate>Wed, 09 Nov 2011 10:14:06 -0700</pubDate>
 	<dcterms:modified>2011-11-09T17:14:06Z</dcterms:modified>
@@ -2268,9 +2632,9 @@ New post about rationals in Clojurescript&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-a18a2afbe8d75ba26ae3a07fd14ce80ce886bbbe</link>
 
 	<pubDate>Wed, 09 Nov 2011 10:13:50 -0700</pubDate>
 	<dcterms:modified>2011-11-09T17:13:50Z</dcterms:modified>
@@ -2320,9 +2684,9 @@ Ignore backup files&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_864fcc451778eea5f710d0c943e2681c95769299/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_864fcc451778eea5f710d0c943e2681c95769299/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-864fcc451778eea5f710d0c943e2681c95769299</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-864fcc451778eea5f710d0c943e2681c95769299</link>
 
 	<pubDate>Tue, 08 Nov 2011 23:49:15 -0700</pubDate>
 	<dcterms:modified>2011-11-09T06:49:15Z</dcterms:modified>
@@ -2372,9 +2736,9 @@ New post&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_0c5c2919142eb9b882393948fef49c4ef9ce9061/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_0c5c2919142eb9b882393948fef49c4ef9ce9061/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-0c5c2919142eb9b882393948fef49c4ef9ce9061</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-0c5c2919142eb9b882393948fef49c4ef9ce9061</link>
 
 	<pubDate>Tue, 08 Nov 2011 23:48:16 -0700</pubDate>
 	<dcterms:modified>2011-11-09T06:48:16Z</dcterms:modified>
@@ -2426,9 +2790,9 @@ Deleted example posts&lt;br /&gt;
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
-	<guid isPermaLink="false">http://driftwood/~cmg/blog/recentchanges/change_b61a298dd03027b5b09de18e8767ab097007ef92/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_b61a298dd03027b5b09de18e8767ab097007ef92/</guid>
 
-	<link>http://driftwood/~cmg/blog/recentchanges/#change-b61a298dd03027b5b09de18e8767ab097007ef92</link>
+	<link>http://chrismgray.github.com/recentchanges/#change-b61a298dd03027b5b09de18e8767ab097007ef92</link>
 
 	<pubDate>Tue, 08 Nov 2011 23:43:03 -0700</pubDate>
 	<dcterms:modified>2011-11-09T06:43:03Z</dcterms:modified>
