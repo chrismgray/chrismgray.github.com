@@ -8,6 +8,125 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>cljs-name-resolving</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving/</guid>
+
+	<link>http://chrismgray.github.com//posts/cljs-name-resolving/</link>
+
+
+	<category>clojure</category>
+
+	<category>clojurescript</category>
+
+
+	<pubDate>Fri, 11 Nov 2011 07:23:38 -0700</pubDate>
+	<dcterms:modified>2011-11-11T15:22:07Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I think I found the bug in the Clojurescript compiler that I was
+  &lt;a href=&quot;http://chrismgray.github.com/more-rationals&quot;&gt;looking for yesterday&lt;/a&gt;.  Just to refresh the memory, when defining a
+  function that has a function of the same name in &lt;code&gt;cljs.core&lt;/code&gt;, the
+  compiler will assume that you are trying to redefine the function
+  from &lt;code&gt;cljs.core&lt;/code&gt;, rather than the function in the namespace that you
+  are actually in.  Since I am trying to redefine functions like &lt;code&gt;/&lt;/code&gt;
+  and &lt;code&gt;*&lt;/code&gt;, this is a problem.
+&lt;/p&gt;
+&lt;p&gt;
+  Let&#39;s look at the evidence.  First, there&#39;s this:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;(defmethod parse &#39;def
+  [op env form name]
+  (let [pfn (fn ([_ sym] {:sym sym})
+              ([_ sym init] {:sym sym :init init})
+              ([_ sym doc init] {:sym sym :doc doc :init init}))
+        args (apply pfn form)
+        sym (:sym args)]
+    (assert (not (namespace sym)) &quot;Can&#39;t def ns-qualified name&quot;)
+    (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  The important line there is the last: when defining a new name,
+  &lt;code&gt;resolve-var&lt;/code&gt; is called on the symbol.  Let&#39;s have a look at that
+  function.  There is a &lt;code&gt;cond&lt;/code&gt;, and when none of the tests return
+  true, the following is done:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;(munge (symbol (str
+                (if (core-name? env sym)
+                  &#39;cljs.core
+                  (-&amp;gt; env :ns :name))
+                &quot;.&quot; (munge (name sym))))))]
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  This is seeing if the symbol name is in &lt;code&gt;cljs.core&lt;/code&gt;, and if it is
+  setting the namespace of the symbol to &lt;code&gt;cljs.core&lt;/code&gt;.  Normally that
+  would be correct &amp;ndash; one doesn&#39;t want to need to &lt;code&gt;use&lt;/code&gt; &lt;code&gt;cljs.core&lt;/code&gt; in
+  every file &amp;ndash; but it doesn&#39;t allow for redefinition of functions
+  that are in &lt;code&gt;cljs.core&lt;/code&gt; (at least without completely shadowing
+  them).
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What to do &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  So what can we do about this?  The first thing that seems odd to me
+  is that the symbol being defined is being resolved first.  Every
+  symbol that is defined is defined within its own namespace, so there
+  should be no need to resolve it.  That suggests that we should be
+  able to take the part of &lt;code&gt;resolve-var&lt;/code&gt; that doesn&#39;t have a special
+  case for &lt;code&gt;cljs.core&lt;/code&gt; and put it into the &lt;code&gt;parse&lt;/code&gt; method.  Something
+  like
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;(let [name (munge (:name (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (name sym))))))])
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  might work in the &lt;code&gt;parse&lt;/code&gt; method.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/cljs-name-resolving/#comments</comments>
+
+</item>
+<item>
+
 	<title>more-rationals</title>
 
 

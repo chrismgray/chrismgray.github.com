@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>cljs-name-resolving</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+cljs-name-resolving
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Resolving names as they are compiled in Clojurescript </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I think I found the bug in the Clojurescript compiler that I was
+  <a href="http://chrismgray.github.com/more-rationals">looking for yesterday</a>.  Just to refresh the memory, when defining a
+  function that has a function of the same name in <code>cljs.core</code>, the
+  compiler will assume that you are trying to redefine the function
+  from <code>cljs.core</code>, rather than the function in the namespace that you
+  are actually in.  Since I am trying to redefine functions like <code>/</code>
+  and <code>*</code>, this is a problem.
+</p>
+<p>
+  Let's look at the evidence.  First, there's this:
+</p>
+
+
+
+<pre class="example">(defmethod parse 'def
+  [op env form name]
+  (let [pfn (fn ([_ sym] {:sym sym})
+              ([_ sym init] {:sym sym :init init})
+              ([_ sym doc init] {:sym sym :doc doc :init init}))
+        args (apply pfn form)
+        sym (:sym args)]
+    (assert (not (namespace sym)) "Can't def ns-qualified name")
+    (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))
+</pre>
+
+
+
+
+<p>
+  The important line there is the last: when defining a new name,
+  <code>resolve-var</code> is called on the symbol.  Let's have a look at that
+  function.  There is a <code>cond</code>, and when none of the tests return
+  true, the following is done:
+</p>
+
+
+
+<pre class="example">(munge (symbol (str
+                (if (core-name? env sym)
+                  'cljs.core
+                  (-&gt; env :ns :name))
+                "." (munge (name sym))))))]
+</pre>
+
+
+
+
+<p>
+  This is seeing if the symbol name is in <code>cljs.core</code>, and if it is
+  setting the namespace of the symbol to <code>cljs.core</code>.  Normally that
+  would be correct &ndash; one doesn't want to need to <code>use</code> <code>cljs.core</code> in
+  every file &ndash; but it doesn't allow for redefinition of functions
+  that are in <code>cljs.core</code> (at least without completely shadowing
+  them).
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">What to do </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  So what can we do about this?  The first thing that seems odd to me
+  is that the symbol being defined is being resolved first.  Every
+  symbol that is defined is defined within its own namespace, so there
+  should be no need to resolve it.  That suggests that we should be
+  able to take the part of <code>resolve-var</code> that doesn't have a special
+  case for <code>cljs.core</code> and put it into the <code>parse</code> method.  Something
+  like
+</p>
+
+
+
+<pre class="example">(let [name (munge (:name (symbol (str (-&gt; env :ns :name) "." (munge (name sym))))))])
+</pre>
+
+
+
+
+<p>
+  might work in the <code>parse</code> method.
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+<div id="comments">
+
+
+
+
+<div class="addcomment">Comments on this page are closed.</div>
+
+</div>
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/clojurescript/" rel="tag">clojurescript</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Fri Nov 11 08:22:07 2011</span>
+<!-- Created <span class="date">Fri Nov 11 07:23:38 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

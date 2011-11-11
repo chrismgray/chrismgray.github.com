@@ -17,7 +17,413 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-11T04:00:25Z</updated>
+<updated>2011-11-11T15:22:29Z</updated>
+<entry>
+	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_2753368627b07358f4a33c69bff87a3775e18dad/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-2753368627b07358f4a33c69bff87a3775e18dad"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T15:22:29Z</updated>
+	<published>2011-11-11T15:22:29Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-2753368627b07358f4a33c69bff87a3775e18dad&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:22:29 11/11/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Removed spurious word from the end of the src blocks&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_509314fd7d11550b0269667d249265274ab33887/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-509314fd7d11550b0269667d249265274ab33887"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T15:21:13Z</updated>
+	<published>2011-11-11T15:21:13Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-509314fd7d11550b0269667d249265274ab33887&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:21:13 11/11/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+And another&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_6b62d1bb574eddbc23c009fe92467383945521dc/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-6b62d1bb574eddbc23c009fe92467383945521dc"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T15:19:54Z</updated>
+	<published>2011-11-11T15:19:54Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-6b62d1bb574eddbc23c009fe92467383945521dc&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:19:54 11/11/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+And another&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_85f61dc939d855d1564b30dc6c3597fd30732b33/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-85f61dc939d855d1564b30dc6c3597fd30732b33"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T15:15:26Z</updated>
+	<published>2011-11-11T15:15:26Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-85f61dc939d855d1564b30dc6c3597fd30732b33&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:15:26 11/11/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Another recompile&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_1d4992d7e849923318aef38b26fa33520a5a737b/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-1d4992d7e849923318aef38b26fa33520a5a737b"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T15:13:08Z</updated>
+	<published>2011-11-11T15:13:08Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-1d4992d7e849923318aef38b26fa33520a5a737b&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:13:08 11/11/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Want to recompile page&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_a5dc90e3ec8228cdaffc1d4f0fcbb618c1f40000/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-a5dc90e3ec8228cdaffc1d4f0fcbb618c1f40000"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T15:04:43Z</updated>
+	<published>2011-11-11T15:04:43Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-a5dc90e3ec8228cdaffc1d4f0fcbb618c1f40000&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:04:43 11/11/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Added tags&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_3279fd27769a0fd063ae09e961d0e87e533c2618/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-3279fd27769a0fd063ae09e961d0e87e533c2618"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-11T15:04:21Z</updated>
+	<published>2011-11-11T15:04:21Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-3279fd27769a0fd063ae09e961d0e87e533c2618&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:04:21 11/11/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post about clojurescript&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to tags/blogging on Hiking and Coding</title>
 
