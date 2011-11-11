@@ -44,14 +44,14 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defmethod parse &#39;def
+&lt;pre class=&quot;src src-clojure&quot;&gt;(defmethod parse &#39;def
   [op env form name]
   (let [pfn (fn ([_ sym] {:sym sym})
               ([_ sym init] {:sym sym :init init})
               ([_ sym doc init] {:sym sym :doc doc :init init}))
         args (apply pfn form)
         sym (:sym args)]
-    (assert (not (namespace sym)) &quot;Can&#39;t def ns-qualified name&quot;)
+    (assert (not (namespace sym)) &lt;span&gt;&quot;Can&#39;t def ns-qualified name&quot;&lt;/span&gt;)
     (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))
 &lt;/pre&gt;
 
@@ -67,11 +67,11 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(munge (symbol (str
+&lt;pre class=&quot;src src-clojure&quot;&gt;(munge (symbol (str
                 (if (core-name? env sym)
                   &#39;cljs.core
                   (-&amp;gt; env :ns :name))
-                &quot;.&quot; (munge (name sym))))))]
+                &lt;span&gt;&quot;.&quot;&lt;/span&gt; (munge (name sym))))))]
 &lt;/pre&gt;
 
 
@@ -106,7 +106,7 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let [name (munge (:name (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (name sym))))))])
+&lt;pre class=&quot;src src-clojure&quot;&gt;(let [name (munge (:name (symbol (str (-&amp;gt; env :ns :name) &lt;span&gt;&quot;.&quot;&lt;/span&gt; (munge (name sym))))))])
 &lt;/pre&gt;
 
 

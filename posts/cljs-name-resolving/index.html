@@ -50,7 +50,11 @@ cljs-name-resolving
 
 
 
+<li>
 
+<a href="">Comment</a>
+
+</li>
 
 </ul>
 </div>
@@ -85,14 +89,14 @@ cljs-name-resolving
 
 
 
-<pre class="example">(defmethod parse 'def
+<pre class="src src-clojure">(defmethod parse 'def
   [op env form name]
   (let [pfn (fn ([_ sym] {:sym sym})
               ([_ sym init] {:sym sym :init init})
               ([_ sym doc init] {:sym sym :doc doc :init init}))
         args (apply pfn form)
         sym (:sym args)]
-    (assert (not (namespace sym)) "Can't def ns-qualified name")
+    (assert (not (namespace sym)) <span>"Can't def ns-qualified name"</span>)
     (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))
 </pre>
 
@@ -108,11 +112,11 @@ cljs-name-resolving
 
 
 
-<pre class="example">(munge (symbol (str
+<pre class="src src-clojure">(munge (symbol (str
                 (if (core-name? env sym)
                   'cljs.core
                   (-&gt; env :ns :name))
-                "." (munge (name sym))))))]
+                <span>"."</span> (munge (name sym))))))]
 </pre>
 
 
@@ -147,7 +151,7 @@ cljs-name-resolving
 
 
 
-<pre class="example">(let [name (munge (:name (symbol (str (-&gt; env :ns :name) "." (munge (name sym))))))])
+<pre class="src src-clojure">(let [name (munge (:name (symbol (str (-&gt; env :ns :name) <span>"."</span> (munge (name sym))))))])
 </pre>
 
 
@@ -163,20 +167,23 @@ cljs-name-resolving
 
 </div>
 
-
-
-<div id="comments">
-
-
-
-
-<div class="addcomment">Comments on this page are closed.</div>
-
 </div>
 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-</div>
 
 <div id="footer" class="pagefooter">
 
