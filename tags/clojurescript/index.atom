@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-10T20:27:13Z</updated>
+<updated>2011-11-11T01:42:26Z</updated>
 <entry>
 	<title>more-rationals</title>
 
@@ -35,7 +35,7 @@
 	<category term="clojurescript" />
 
 
-	<updated>2011-11-10T20:23:40Z</updated>
+	<updated>2011-11-11T01:42:26Z</updated>
 	<published>2011-11-10T16:55:06Z</published>
 
 	<content type="html" xml:lang="en">
@@ -45,7 +45,7 @@
 
 
 &lt;p&gt;
-  While attempting to implement &lt;a href=&quot;http://driftwood/~cmg/blog/posts/rationals-in-cljs/&quot;&gt;support for rationals&lt;/a&gt; yesterday, I
+  While attempting to implement &lt;a href=&quot;http://chrismgray.github.com/posts/rationals-in-cljs/&quot;&gt;support for rationals&lt;/a&gt; yesterday, I
   stumbled on what is (or at least, seems to me to be) a bug in the
   Clojure compiler itself.  That is, one can not refer to the function
   &lt;code&gt;/&lt;/code&gt; in namespaces other than &lt;code&gt;clojure.core&lt;/code&gt;.  Now, this is probably
