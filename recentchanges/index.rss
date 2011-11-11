@@ -8,6 +8,72 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to tags/blogging tags/clojure tags/clojurescript tags/emacs tags/git tags/hiking tags/ikiwiki tags/org-mode on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_950e739221dec9835b5157ac1d9847cf29ddb490/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-950e739221dec9835b5157ac1d9847cf29ddb490</link>
+
+	<pubDate>Thu, 10 Nov 2011 20:59:14 -0700</pubDate>
+	<dcterms:modified>2011-11-11T03:59:14Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-950e739221dec9835b5157ac1d9847cf29ddb490&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/blogging
+
+tags/clojure
+
+tags/clojurescript
+
+tags/emacs
+
+tags/git
+
+tags/hiking
+
+tags/ikiwiki
+
+tags/org-mode
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;20:59:14 11/10/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Rebuild the tags pages&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/first on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
