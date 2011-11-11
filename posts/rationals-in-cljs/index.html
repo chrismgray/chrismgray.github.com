@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rationals-in-cljs</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+rationals-in-cljs
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Rationals in Clojurescript </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+Last night, I uploaded some code to compute the <a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi Diagram</a> of a
+set of points to <a href="https://github.com/chrismgray/voronoi-diagram/">github</a>.  This post is not directly about that code --
+I'll write about that when it is completely working &ndash; but rather
+about something that I noticed when I tried to convert the code to
+<a href="https://github.com/clojure/clojurescript">Clojurescript</a>.
+</p>
+<p>
+There are a few things that are known not to work in Clojurescript
+that work in Clojure: I had to convert calls from <code>lazy-cat</code> to
+<code>concat</code>, for example.  However, the one difference that really broke
+things for me was the lack of support for rational arithmetic in
+Clojurescript.
+</p>
+<p>
+One major element of my algorithm is a test to determine whether a
+given point is on a given line segment.  With integer coordinates for
+the sites that determine the Voronoi Diagram and the bounding box,
+everything about this test can be represented as a rational number.
+Since Clojure gives you rational numbers by default, while
+Clojurescript simply uses Javascript's arithmetic facilities, the test
+works in Clojure but not in Clojurescript.
+</p>
+<p>
+So what can be done about this?  Here are some options:
+</p>
+<ul>
+<li id="sec-1-1">Use floats, but more smartly <br/>
+
+<p>
+     Probably the simplest option, here we would not test for <i>equality</i>,
+     but for <i>almost equality</i>.  That is, if the distance between two
+     points is a very small number (<i>e.g.</i> a millionth), and all of the
+     input is integer, then the two points are probably the same.  This
+     option is obviously not too satisfying from a theoretical
+     standpoint, especially if the small number is hardcoded.  I am
+     fairly sure that there has been research to determine what the exact
+     value of the small number should be, but that would take the code
+     out of the realm of simplicity.
+</p>
+</li>
+</ul>
+<ul>
+<li id="sec-1-2">Implement rationals in Clojurescript <br/>
+
+<p>
+     I am not sure how possible this option is.  However, it is currently
+     the most appealing to me.  Rational arithmetic is not so difficult
+     to implement, especially in the limited use case that I need it for:
+     I am pretty sure that I could get away with <code>/</code>, <code>*</code>, <code>+</code>, <code>-</code>, and
+     the comparison operators.  These are currently implemented as
+     <a href="https://github.com/clojure/clojurescript/blob/3c83c62d973b0153a9e28bea7beb73794fbf9065/src/clj/cljs/core.clj#L51">macros</a> in Clojurescript, which means that they take the
+     Clojurescript code and change it Javascript code.  This allows
+     the Clojurescript compiler to take the prefix syntax of
+     Clojurescript and change it to the infix syntax of Javascript.
+</p>
+<p>
+     If we were to redefine the operators to be functions, we might
+     have a chance to run different code given different types of
+     input.  The <code>defmulti</code> and <code>defmethod</code> macros seem perfect for
+     this.  The major question is whether it is possible to shadow the
+     names of the operators but use them nevertheless.  That is, will
+     I be able to add <code>(:require-macros [clojure.core :as core])</code> to
+     my namespace and then use, for example, <code>core/*</code>?
+</p>
+<p>
+     The other downside, beyond the potential difficulties, is the
+     fact that the generated Javascript will no longer be quite as
+     pretty.  What used to be infix notation will be converted to
+     function calls.  Additionally, there will be a fairly high
+     penalty for doing arithmetic &ndash; three or four function calls per
+     arithmetic operation (assuming the polymorphic solution I have in
+     mind works) rather than the current single operation.
+</p>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Conclusion </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  I am going to try to implement the rationals in Clojurescript
+  first.  At the very least, I will learn a bit more about how
+  multimethods work in Clojure. 
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+<div id="comments">
+
+
+
+
+<div class="addcomment">Comments on this page are closed.</div>
+
+</div>
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/clojurescript/" rel="tag">clojurescript</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Thu Nov 10 13:25:36 2011</span>
+<!-- Created <span class="date">Wed Nov  9 10:13:06 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

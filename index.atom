@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>Hiking and Coding</title>
+<link href="http://driftwood/~cmg/blog/"/>
+<link href="http://driftwood/~cmg/blog/index.atom" rel="self" type="application/atom+xml"/>
+<author>
+
+<name>Hiking and Coding</name>
+
+</author>
+
+
+
+
+<id>http://driftwood/~cmg/blog/</id>
+
+<subtitle type="html">Hiking and Coding</subtitle>
+<generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
+<updated>2011-11-10T20:27:13Z</updated>
+<entry>
+	<title>more-rationals</title>
+
+	<id>http://driftwood/~cmg/blog/posts/more-rationals/</id>
+
+	<link href="http://driftwood/~cmg/blog/posts/more-rationals/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+
+	<updated>2011-11-10T20:23:40Z</updated>
+	<published>2011-11-10T16:55:06Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;More about rationals &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  While attempting to implement &lt;a href=&quot;http://driftwood/~cmg/blog/posts/rationals-in-cljs/&quot;&gt;support for rationals&lt;/a&gt; yesterday, I
+  stumbled on what is (or at least, seems to me to be) a bug in the
+  Clojure compiler itself.  That is, one can not refer to the function
+  &lt;code&gt;/&lt;/code&gt; in namespaces other than &lt;code&gt;clojure.core&lt;/code&gt;.  Now, this is probably
+  the first time that anyone has wanted to do this, so it&#39;s not
+  surprising that no one had seen the bug before.  But what was
+  surprising to me was that I could fix it fairly easily.  I submitted
+  my patch, and I should be a real-life contributor to Clojure pretty
+  soon.  As a person who doesn&#39;t see himself as a compiler guy, that&#39;s
+  pretty exciting.
+&lt;/p&gt;
+&lt;p&gt;
+  The next problem that I&#39;m having is that redefining the basic
+  arithmetic operations does not seem to work properly in
+  Clojurescript.  The compiled javascript is trying (at least as far
+  as I can tell) to redefine &lt;code&gt;cljs.core/+&lt;/code&gt; rather than &lt;code&gt;rationals/+&lt;/code&gt;,
+  for example.  This is the problem that I am going to try to solve
+  today.  
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/~cmg/blog/posts/more-rationals/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/~cmg/blog/posts/more-rationals/comments.atom" type="application/atom+xml" />
+
+</entry>
+<entry>
+	<title>rationals-followup</title>
+
+	<id>http://driftwood/~cmg/blog/posts/rationals-followup/</id>
+
+	<link href="http://driftwood/~cmg/blog/posts/rationals-followup/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+
+	<updated>2011-11-10T20:27:13Z</updated>
+	<published>2011-11-09T22:03:16Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A small followup &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  My previous post said that I would be using the macros defined in
+  Clojurescript&#39;s &lt;code&gt;core.clj&lt;/code&gt;.  It turns out that doesn&#39;t make a lot of
+  sense.  I am using the functions defined in &lt;code&gt;core.cljs&lt;/code&gt; instead.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/~cmg/blog/posts/rationals-followup/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/~cmg/blog/posts/rationals-followup/comments.atom" type="application/atom+xml" />
+
+</entry>
+<entry>
+	<title>rationals-in-cljs</title>
+
+	<id>http://driftwood/~cmg/blog/posts/rationals-in-cljs/</id>
+
+	<link href="http://driftwood/~cmg/blog/posts/rationals-in-cljs/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+
+	<updated>2011-11-10T20:25:36Z</updated>
+	<published>2011-11-09T17:13:06Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+Last night, I uploaded some code to compute the &lt;a href=&quot;http://en.wikipedia.org/wiki/Voronoi_diagram&quot;&gt;Voronoi Diagram&lt;/a&gt; of a
+set of points to &lt;a href=&quot;https://github.com/chrismgray/voronoi-diagram/&quot;&gt;github&lt;/a&gt;.  This post is not directly about that code --
+I&#39;ll write about that when it is completely working &amp;ndash; but rather
+about something that I noticed when I tried to convert the code to
+&lt;a href=&quot;https://github.com/clojure/clojurescript&quot;&gt;Clojurescript&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+There are a few things that are known not to work in Clojurescript
+that work in Clojure: I had to convert calls from &lt;code&gt;lazy-cat&lt;/code&gt; to
+&lt;code&gt;concat&lt;/code&gt;, for example.  However, the one difference that really broke
+things for me was the lack of support for rational arithmetic in
+Clojurescript.
+&lt;/p&gt;
+&lt;p&gt;
+One major element of my algorithm is a test to determine whether a
+given point is on a given line segment.  With integer coordinates for
+the sites that determine the Voronoi Diagram and the bounding box,
+everything about this test can be represented as a rational number.
+Since Clojure gives you rational numbers by default, while
+Clojurescript simply uses Javascript&#39;s arithmetic facilities, the test
+works in Clojure but not in Clojurescript.
+&lt;/p&gt;
+&lt;p&gt;
+So what can be done about this?  Here are some options:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li id=&quot;sec-1-1&quot;&gt;Use floats, but more smartly &lt;br/&gt;
+
+&lt;p&gt;
+     Probably the simplest option, here we would not test for &lt;i&gt;equality&lt;/i&gt;,
+     but for &lt;i&gt;almost equality&lt;/i&gt;.  That is, if the distance between two
+     points is a very small number (&lt;i&gt;e.g.&lt;/i&gt; a millionth), and all of the
+     input is integer, then the two points are probably the same.  This
+     option is obviously not too satisfying from a theoretical
+     standpoint, especially if the small number is hardcoded.  I am
+     fairly sure that there has been research to determine what the exact
+     value of the small number should be, but that would take the code
+     out of the realm of simplicity.
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li id=&quot;sec-1-2&quot;&gt;Implement rationals in Clojurescript &lt;br/&gt;
+
+&lt;p&gt;
+     I am not sure how possible this option is.  However, it is currently
+     the most appealing to me.  Rational arithmetic is not so difficult
+     to implement, especially in the limited use case that I need it for:
+     I am pretty sure that I could get away with &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, and
+     the comparison operators.  These are currently implemented as
+     &lt;a href=&quot;https://github.com/clojure/clojurescript/blob/3c83c62d973b0153a9e28bea7beb73794fbf9065/src/clj/cljs/core.clj#L51&quot;&gt;macros&lt;/a&gt; in Clojurescript, which means that they take the
+     Clojurescript code and change it Javascript code.  This allows
+     the Clojurescript compiler to take the prefix syntax of
+     Clojurescript and change it to the infix syntax of Javascript.
+&lt;/p&gt;
+&lt;p&gt;
+     If we were to redefine the operators to be functions, we might
+     have a chance to run different code given different types of
+     input.  The &lt;code&gt;defmulti&lt;/code&gt; and &lt;code&gt;defmethod&lt;/code&gt; macros seem perfect for
+     this.  The major question is whether it is possible to shadow the
+     names of the operators but use them nevertheless.  That is, will
+     I be able to add &lt;code&gt;(:require-macros [clojure.core :as core])&lt;/code&gt; to
+     my namespace and then use, for example, &lt;code&gt;core/*&lt;/code&gt;?
+&lt;/p&gt;
+&lt;p&gt;
+     The other downside, beyond the potential difficulties, is the
+     fact that the generated Javascript will no longer be quite as
+     pretty.  What used to be infix notation will be converted to
+     function calls.  Additionally, there will be a fairly high
+     penalty for doing arithmetic &amp;ndash; three or four function calls per
+     arithmetic operation (assuming the polymorphic solution I have in
+     mind works) rather than the current single operation.
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I am going to try to implement the rationals in Clojurescript
+  first.  At the very least, I will learn a bit more about how
+  multimethods work in Clojure. 
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/~cmg/blog/posts/rationals-in-cljs/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/~cmg/blog/posts/rationals-in-cljs/comments.atom" type="application/atom+xml" />
+
+</entry>
+<entry>
+	<title>first</title>
+
+	<id>http://driftwood/~cmg/blog/posts/first/</id>
+
+	<link href="http://driftwood/~cmg/blog/posts/first/"/>
+
+
+
+
+
+	<updated>2011-11-09T06:49:03Z</updated>
+	<published>2011-11-09T06:49:03Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;This is the first post of the glorious blog.  I am sure that it will
+be great.
+&lt;/p&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/~cmg/blog/posts/first/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/~cmg/blog/posts/first/comments.atom" type="application/atom+xml" />
+
+</entry>
+
+</feed>
