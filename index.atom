@@ -17,7 +17,119 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-11T15:40:52Z</updated>
+<updated>2011-11-12T01:28:40Z</updated>
+<entry>
+	<title>cljs-name-resolving-2</title>
+
+	<id>http://chrismgray.github.com//posts/cljs-name-resolving-2/</id>
+
+	<link href="http://chrismgray.github.com//posts/cljs-name-resolving-2/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+	<category term="rationals" />
+
+
+	<updated>2011-11-12T01:28:40Z</updated>
+	<published>2011-11-12T01:07:52Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I was close with my guess in the last post.  What ended up working
+  was
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(let [name (munge (symbol (str (-&amp;gt; env :ns :name) &lt;span&gt;&quot;.&quot;&lt;/span&gt; (munge (str sym)))))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  For some reason, &lt;code&gt;(name sym)&lt;/code&gt; would crash the compiler from the
+  &lt;code&gt;parse&lt;/code&gt; method but it wouldn&#39;t from other functions caled from the
+  &lt;code&gt;parse&lt;/code&gt; method.  I finally gave up worrying about that and just used
+  &lt;code&gt;(str sym)&lt;/code&gt; instead, since that is guaranteed to be the same in this
+  case &amp;ndash; there is an &lt;code&gt;(assert (not (namespace sym)))&lt;/code&gt; just before the
+  &lt;code&gt;let&lt;/code&gt; line.  I gave up on worrying about it, but someone who knows
+  more about the compiler than me might want to try to figure out why
+  it is.
+&lt;/p&gt;
+&lt;p&gt;
+  I also needed to allow names defined in &lt;code&gt;cljs.core&lt;/code&gt; but redefined in
+  another namespace to be called or referred to.  This involved
+  changing the &lt;code&gt;resolve-existing-var&lt;/code&gt; function.  Again, &lt;code&gt;cljs.core&lt;/code&gt; is
+  hardcoded:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&amp;gt; env :ns :name) :defs sym])))
+                &#39;cljs.core
+                (-&amp;gt; env :ns :name))]
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  I added the second test: it simply asks whether the variable has
+  been defined in the namespace.  If it hasn&#39;t, and the variable is
+  defined in &lt;code&gt;cljs.core&lt;/code&gt;, only then is the namespace set to
+  &lt;code&gt;cljs.core&lt;/code&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Remove the macros &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  It was also necessary to remove many of the macros from &lt;code&gt;core.clj&lt;/code&gt;
+  in order to redefine the functions that I needed to in my project.
+  As I noted earlier, my project is to implement rationals in
+  Clojurescript, so I need to redefine most of the functions that work
+  with numbers.  (At least, that is the way I am implementing it --
+  there may be a better way that I don&#39;t know about.)  Many of these
+  functions were implemented twice: once as a macro in &lt;code&gt;core.clj&lt;/code&gt; and
+  once as a function in &lt;code&gt;core.cljs&lt;/code&gt;.  I am obviously biased towards
+  being able to redefine these functions, so I think the macros should
+  be removed, but at least one of the implementations is redundant.
+&lt;/p&gt;
+
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/cljs-name-resolving-2/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/cljs-name-resolving-2/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>cljs-name-resolving</title>
 
@@ -34,8 +146,12 @@
 
 	<category term="clojurescript" />
 
+	<category term="lab-notes" />
 
-	<updated>2011-11-11T15:40:52Z</updated>
+	<category term="rationals" />
+
+
+	<updated>2011-11-12T01:25:21Z</updated>
 	<published>2011-11-11T14:23:38Z</published>
 
 	<content type="html" xml:lang="en">
@@ -251,8 +367,12 @@
 
 	<category term="clojurescript" />
 
+	<category term="lab-notes" />
 
-	<updated>2011-11-11T01:42:26Z</updated>
+	<category term="rationals" />
+
+
+	<updated>2011-11-12T01:24:52Z</updated>
 	<published>2011-11-10T16:55:06Z</published>
 
 	<content type="html" xml:lang="en">
@@ -311,8 +431,12 @@
 
 	<category term="clojurescript" />
 
+	<category term="lab-notes" />
 
-	<updated>2011-11-10T20:27:13Z</updated>
+	<category term="rationals" />
+
+
+	<updated>2011-11-12T01:24:45Z</updated>
 	<published>2011-11-09T22:03:16Z</published>
 
 	<content type="html" xml:lang="en">
@@ -356,8 +480,14 @@
 
 	<category term="clojurescript" />
 
+	<category term="lab-notes" />
 
-	<updated>2011-11-10T20:25:36Z</updated>
+	<category term="rationals" />
+
+	<category term="voronoi-diagram" />
+
+
+	<updated>2011-11-12T01:24:35Z</updated>
 	<published>2011-11-09T17:13:06Z</published>
 
 	<content type="html" xml:lang="en">

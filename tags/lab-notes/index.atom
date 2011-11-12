@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-<title>pages tagged clojure</title>
-<link href="http://chrismgray.github.com//tags/clojure/"/>
-<link href="http://chrismgray.github.com//tags/clojure/index.atom" rel="self" type="application/atom+xml"/>
+<title>pages tagged lab-notes</title>
+<link href="http://chrismgray.github.com//tags/lab-notes/"/>
+<link href="http://chrismgray.github.com//tags/lab-notes/index.atom" rel="self" type="application/atom+xml"/>
 <author>
 
 <name>Hiking and Coding</name>
@@ -13,7 +13,7 @@
 
 
 
-<id>http://chrismgray.github.com//tags/clojure/</id>
+<id>http://chrismgray.github.com//tags/lab-notes/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>

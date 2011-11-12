@@ -92,7 +92,7 @@ Hiking and Coding
         <td class="month-calendar-day-nolink Tuesday">8</td>
         <td class="month-calendar-day-link Wednesday"><a href="./posts/rationals-in-cljs/" title="rationals-in-cljs">9</a></td>
         <td class="month-calendar-day-link Thursday"><a href="./posts/blogging-about-blogging/" title="blogging-about-blogging">10</a></td>
-        <td class="month-calendar-day-this-day Friday"><a href="./posts/cljs-name-resolving/" title="cljs-name-resolving">11</a></td>
+        <td class="month-calendar-day-this-day Friday"><a href="./posts/cljs-name-resolving-2/" title="cljs-name-resolving-2">11</a></td>
         <td class="month-calendar-day-future Saturday">12</td>
     </tr>
     <tr>
@@ -130,20 +130,23 @@ Hiking and Coding
 <p><a href="./tags/">Tags</a>:</p>
 
 <ul class="list">
-<li><span class="smallPC"><a href="./tags/blogging/">blogging</a></span>
+<li><span class="smallestPC"><a href="./tags/blogging/">blogging</a></span>
 </li><li><span class="biggestPC"><a href="./tags/clojure/">clojure</a></span>
 </li><li><span class="biggestPC"><a href="./tags/clojurescript/">clojurescript</a></span>
-</li><li><span class="smallPC"><a href="./tags/emacs/">emacs</a></span>
-</li><li><span class="smallPC"><a href="./tags/git/">git</a></span>
-</li><li><span class="smallPC"><a href="./tags/hiking/">hiking</a></span>
-</li><li><span class="smallPC"><a href="./tags/ikiwiki/">ikiwiki</a></span>
-</li><li><span class="smallPC"><a href="./tags/org-mode/">org-mode</a></span>
+</li><li><span class="smallestPC"><a href="./tags/emacs/">emacs</a></span>
+</li><li><span class="smallestPC"><a href="./tags/git/">git</a></span>
+</li><li><span class="smallestPC"><a href="./tags/hiking/">hiking</a></span>
+</li><li><span class="smallestPC"><a href="./tags/ikiwiki/">ikiwiki</a></span>
+</li><li><span class="biggestPC"><a href="./tags/lab-notes/">lab-notes</a></span>
+</li><li><span class="smallestPC"><a href="./tags/org-mode/">org-mode</a></span>
+</li><li><span class="biggestPC"><a href="./tags/rationals/">rationals</a></span>
+</li><li><span class="smallestPC"><a href="./tags/voronoi-diagram/">voronoi-diagram</a></span>
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-1a3e384834ec5e95f9faf7ad738f4be22d015915.png" alt="graph" /></p>
+<img src="./sidebar/sparkline-f7f35abb369e2171c6a933046c57a3df6b96f303.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Fri Nov 11 09:15:04 2011</span> (22 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Fri Nov 11 18:30:03 2011</span> (22 posts)</p>
 
 <div class="microblog">
 
@@ -322,6 +325,128 @@ frogmanjack: This morning I've already submitted a patch to an open-source proje
 
 <span class="header">
 
+<a href="./posts/cljs-name-resolving-2/">cljs-name-resolving-2</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Done! </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I was close with my guess in the last post.  What ended up working
+  was
+</p>
+
+
+
+<pre class="src src-clojure">(let [name (munge (symbol (str (-&gt; env :ns :name) <span>"."</span> (munge (str sym)))))
+</pre>
+
+
+
+
+<p>
+  For some reason, <code>(name sym)</code> would crash the compiler from the
+  <code>parse</code> method but it wouldn't from other functions caled from the
+  <code>parse</code> method.  I finally gave up worrying about that and just used
+  <code>(str sym)</code> instead, since that is guaranteed to be the same in this
+  case &ndash; there is an <code>(assert (not (namespace sym)))</code> just before the
+  <code>let</code> line.  I gave up on worrying about it, but someone who knows
+  more about the compiler than me might want to try to figure out why
+  it is.
+</p>
+<p>
+  I also needed to allow names defined in <code>cljs.core</code> but redefined in
+  another namespace to be called or referred to.  This involved
+  changing the <code>resolve-existing-var</code> function.  Again, <code>cljs.core</code> is
+  hardcoded:
+</p>
+
+
+
+<pre class="src src-clojure">(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&gt; env :ns :name) :defs sym])))
+                'cljs.core
+                (-&gt; env :ns :name))]
+</pre>
+
+
+
+
+<p>
+  I added the second test: it simply asks whether the variable has
+  been defined in the namespace.  If it hasn't, and the variable is
+  defined in <code>cljs.core</code>, only then is the namespace set to
+  <code>cljs.core</code>.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Remove the macros </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  It was also necessary to remove many of the macros from <code>core.clj</code>
+  in order to redefine the functions that I needed to in my project.
+  As I noted earlier, my project is to implement rationals in
+  Clojurescript, so I need to redefine most of the functions that work
+  with numbers.  (At least, that is the way I am implementing it --
+  there may be a better way that I don't know about.)  Many of these
+  functions were implemented twice: once as a macro in <code>core.clj</code> and
+  once as a function in <code>core.cljs</code>.  I am obviously biased towards
+  being able to redefine these functions, so I think the macros should
+  be removed, but at least one of the implementations is redundant.
+</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/clojure/" rel="tag">clojure</a>
+
+<a href="./tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/rationals/" rel="tag">rationals</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
 <a href="./posts/cljs-name-resolving/">cljs-name-resolving</a>
 
 </span>
@@ -439,6 +564,10 @@ Tags:
 <a href="./tags/clojure/" rel="tag">clojure</a>
 
 <a href="./tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/rationals/" rel="tag">rationals</a>
 
 </span>
 
@@ -611,6 +740,10 @@ Tags:
 
 <a href="./tags/clojurescript/" rel="tag">clojurescript</a>
 
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/rationals/" rel="tag">rationals</a>
+
 </span>
 
 
@@ -665,6 +798,10 @@ Tags:
 <a href="./tags/clojure/" rel="tag">clojure</a>
 
 <a href="./tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/rationals/" rel="tag">rationals</a>
 
 </span>
 
@@ -805,6 +942,12 @@ Tags:
 <a href="./tags/clojure/" rel="tag">clojure</a>
 
 <a href="./tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/rationals/" rel="tag">rationals</a>
+
+<a href="./tags/voronoi-diagram/" rel="tag">voronoi-diagram</a>
 
 </span>
 

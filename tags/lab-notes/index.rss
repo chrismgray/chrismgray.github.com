@@ -1,49 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
+<rss version="2.0"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dcterms="http://purl.org/dc/terms/" >
+<channel>
+<title>pages tagged lab-notes</title>
+<link>http://chrismgray.github.com//tags/lab-notes/</link>
+<description>Hiking and Coding</description>
+<item>
 
-<feed xmlns="http://www.w3.org/2005/Atom">
-<title>pages tagged clojure</title>
-<link href="http://chrismgray.github.com//tags/clojure/"/>
-<link href="http://chrismgray.github.com//tags/clojure/index.atom" rel="self" type="application/atom+xml"/>
-<author>
-
-<name>Hiking and Coding</name>
-
-</author>
-
-
-
-
-<id>http://chrismgray.github.com//tags/clojure/</id>
-
-<subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-12T01:28:40Z</updated>
-<entry>
 	<title>cljs-name-resolving-2</title>
 
-	<id>http://chrismgray.github.com//posts/cljs-name-resolving-2/</id>
 
-	<link href="http://chrismgray.github.com//posts/cljs-name-resolving-2/"/>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving-2/</guid>
 
-
-
+	<link>http://chrismgray.github.com//posts/cljs-name-resolving-2/</link>
 
 
+	<category>clojure</category>
 
-	<category term="clojure" />
+	<category>clojurescript</category>
 
-	<category term="clojurescript" />
+	<category>lab-notes</category>
 
-	<category term="lab-notes" />
-
-	<category term="rationals" />
+	<category>rationals</category>
 
 
-	<updated>2011-11-12T01:28:40Z</updated>
-	<published>2011-11-12T01:07:52Z</published>
+	<pubDate>Fri, 11 Nov 2011 18:07:52 -0700</pubDate>
+	<dcterms:modified>2011-11-12T01:28:40Z</dcterms:modified>
 
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
@@ -120,42 +105,35 @@
 
 &lt;/div&gt;
 &lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/cljs-name-resolving-2/#comments" type="text/html" />
+</description>
 
 
-	<link rel="comments" href="/posts/cljs-name-resolving-2/comments.atom" type="application/atom+xml" />
+	<comments>/posts/cljs-name-resolving-2/#comments</comments>
 
-</entry>
-<entry>
+</item>
+<item>
+
 	<title>cljs-name-resolving</title>
 
-	<id>http://chrismgray.github.com//posts/cljs-name-resolving/</id>
 
-	<link href="http://chrismgray.github.com//posts/cljs-name-resolving/"/>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving/</guid>
 
-
-
+	<link>http://chrismgray.github.com//posts/cljs-name-resolving/</link>
 
 
+	<category>clojure</category>
 
-	<category term="clojure" />
+	<category>clojurescript</category>
 
-	<category term="clojurescript" />
+	<category>lab-notes</category>
 
-	<category term="lab-notes" />
-
-	<category term="rationals" />
+	<category>rationals</category>
 
 
-	<updated>2011-11-12T01:25:21Z</updated>
-	<published>2011-11-11T14:23:38Z</published>
+	<pubDate>Fri, 11 Nov 2011 07:23:38 -0700</pubDate>
+	<dcterms:modified>2011-11-12T01:25:21Z</dcterms:modified>
 
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
@@ -250,42 +228,35 @@
 
 &lt;/div&gt;
 &lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/cljs-name-resolving/#comments" type="text/html" />
+</description>
 
 
-	<link rel="comments" href="/posts/cljs-name-resolving/comments.atom" type="application/atom+xml" />
+	<comments>/posts/cljs-name-resolving/#comments</comments>
 
-</entry>
-<entry>
+</item>
+<item>
+
 	<title>more-rationals</title>
 
-	<id>http://chrismgray.github.com//posts/more-rationals/</id>
 
-	<link href="http://chrismgray.github.com//posts/more-rationals/"/>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/more-rationals/</guid>
 
-
-
+	<link>http://chrismgray.github.com//posts/more-rationals/</link>
 
 
+	<category>clojure</category>
 
-	<category term="clojure" />
+	<category>clojurescript</category>
 
-	<category term="clojurescript" />
+	<category>lab-notes</category>
 
-	<category term="lab-notes" />
-
-	<category term="rationals" />
+	<category>rationals</category>
 
 
-	<updated>2011-11-12T01:24:52Z</updated>
-	<published>2011-11-10T16:55:06Z</published>
+	<pubDate>Thu, 10 Nov 2011 09:55:06 -0700</pubDate>
+	<dcterms:modified>2011-11-12T01:24:52Z</dcterms:modified>
 
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;More about rationals &lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
@@ -314,42 +285,35 @@
 
 &lt;/div&gt;
 &lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/more-rationals/#comments" type="text/html" />
+</description>
 
 
-	<link rel="comments" href="/posts/more-rationals/comments.atom" type="application/atom+xml" />
+	<comments>/posts/more-rationals/#comments</comments>
 
-</entry>
-<entry>
+</item>
+<item>
+
 	<title>rationals-followup</title>
 
-	<id>http://chrismgray.github.com//posts/rationals-followup/</id>
 
-	<link href="http://chrismgray.github.com//posts/rationals-followup/"/>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-followup/</guid>
 
-
-
+	<link>http://chrismgray.github.com//posts/rationals-followup/</link>
 
 
+	<category>clojure</category>
 
-	<category term="clojure" />
+	<category>clojurescript</category>
 
-	<category term="clojurescript" />
+	<category>lab-notes</category>
 
-	<category term="lab-notes" />
-
-	<category term="rationals" />
+	<category>rationals</category>
 
 
-	<updated>2011-11-12T01:24:45Z</updated>
-	<published>2011-11-09T22:03:16Z</published>
+	<pubDate>Wed, 09 Nov 2011 15:03:16 -0700</pubDate>
+	<dcterms:modified>2011-11-12T01:24:45Z</dcterms:modified>
 
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;A small followup &lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
@@ -363,44 +327,37 @@
 
 &lt;/div&gt;
 &lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/rationals-followup/#comments" type="text/html" />
+</description>
 
 
-	<link rel="comments" href="/posts/rationals-followup/comments.atom" type="application/atom+xml" />
+	<comments>/posts/rationals-followup/#comments</comments>
 
-</entry>
-<entry>
+</item>
+<item>
+
 	<title>rationals-in-cljs</title>
 
-	<id>http://chrismgray.github.com//posts/rationals-in-cljs/</id>
 
-	<link href="http://chrismgray.github.com//posts/rationals-in-cljs/"/>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-in-cljs/</guid>
 
-
-
+	<link>http://chrismgray.github.com//posts/rationals-in-cljs/</link>
 
 
+	<category>clojure</category>
 
-	<category term="clojure" />
+	<category>clojurescript</category>
 
-	<category term="clojurescript" />
+	<category>lab-notes</category>
 
-	<category term="lab-notes" />
+	<category>rationals</category>
 
-	<category term="rationals" />
-
-	<category term="voronoi-diagram" />
+	<category>voronoi-diagram</category>
 
 
-	<updated>2011-11-12T01:24:35Z</updated>
-	<published>2011-11-09T17:13:06Z</published>
+	<pubDate>Wed, 09 Nov 2011 10:13:06 -0700</pubDate>
+	<dcterms:modified>2011-11-12T01:24:35Z</dcterms:modified>
 
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
@@ -499,15 +456,12 @@ So what can be done about this?  Here are some options:
 
 &lt;/div&gt;
 &lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/rationals-in-cljs/#comments" type="text/html" />
+</description>
 
 
-	<link rel="comments" href="/posts/rationals-in-cljs/comments.atom" type="application/atom+xml" />
+	<comments>/posts/rationals-in-cljs/#comments</comments>
 
-</entry>
+</item>
 
-</feed>
+</channel>
+</rss>

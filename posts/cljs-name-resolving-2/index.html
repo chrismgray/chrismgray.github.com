@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>cljs-name-resolving-2</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+cljs-name-resolving-2
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Done! </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I was close with my guess in the last post.  What ended up working
+  was
+</p>
+
+
+
+<pre class="src src-clojure">(let [name (munge (symbol (str (-&gt; env :ns :name) <span>"."</span> (munge (str sym)))))
+</pre>
+
+
+
+
+<p>
+  For some reason, <code>(name sym)</code> would crash the compiler from the
+  <code>parse</code> method but it wouldn't from other functions caled from the
+  <code>parse</code> method.  I finally gave up worrying about that and just used
+  <code>(str sym)</code> instead, since that is guaranteed to be the same in this
+  case &ndash; there is an <code>(assert (not (namespace sym)))</code> just before the
+  <code>let</code> line.  I gave up on worrying about it, but someone who knows
+  more about the compiler than me might want to try to figure out why
+  it is.
+</p>
+<p>
+  I also needed to allow names defined in <code>cljs.core</code> but redefined in
+  another namespace to be called or referred to.  This involved
+  changing the <code>resolve-existing-var</code> function.  Again, <code>cljs.core</code> is
+  hardcoded:
+</p>
+
+
+
+<pre class="src src-clojure">(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&gt; env :ns :name) :defs sym])))
+                'cljs.core
+                (-&gt; env :ns :name))]
+</pre>
+
+
+
+
+<p>
+  I added the second test: it simply asks whether the variable has
+  been defined in the namespace.  If it hasn't, and the variable is
+  defined in <code>cljs.core</code>, only then is the namespace set to
+  <code>cljs.core</code>.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Remove the macros </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  It was also necessary to remove many of the macros from <code>core.clj</code>
+  in order to redefine the functions that I needed to in my project.
+  As I noted earlier, my project is to implement rationals in
+  Clojurescript, so I need to redefine most of the functions that work
+  with numbers.  (At least, that is the way I am implementing it --
+  there may be a better way that I don't know about.)  Many of these
+  functions were implemented twice: once as a macro in <code>core.clj</code> and
+  once as a function in <code>core.cljs</code>.  I am obviously biased towards
+  being able to redefine these functions, so I think the macros should
+  be removed, but at least one of the implementations is redundant.
+</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="../../tags/rationals/" rel="tag">rationals</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Fri Nov 11 18:28:40 2011</span>
+<!-- Created <span class="date">Fri Nov 11 18:07:52 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>
