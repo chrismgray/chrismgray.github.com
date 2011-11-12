@@ -22,7 +22,7 @@
 
 
 	<pubDate>Sat, 12 Nov 2011 09:27:15 -0700</pubDate>
-	<dcterms:modified>2011-11-12T17:43:31Z</dcterms:modified>
+	<dcterms:modified>2011-11-12T22:36:54Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
@@ -52,17 +52,23 @@
   The other goals are:
 &lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;Efficiency
+
+&lt;p&gt;    
     Adding a new timestep should be a \(O(1)\) operation.
-&lt;/li&gt;
+&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Ease of debugging
+
+&lt;p&gt;    
     If an error occurs in computing the next timestep, the stack trace
     should be easily comprehensible and show the current state of the
     time series.
-&lt;/li&gt;
+&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Traceability
+
+&lt;p&gt;    
     It should be possible to see the differences between two different
     functions.  
-&lt;/li&gt;
+&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 

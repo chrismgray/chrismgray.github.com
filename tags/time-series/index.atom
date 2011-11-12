@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-12T17:43:31Z</updated>
+<updated>2011-11-12T22:36:54Z</updated>
 <entry>
 	<title>time-series-1</title>
 
@@ -35,7 +35,7 @@
 	<category term="time-series" />
 
 
-	<updated>2011-11-12T17:43:31Z</updated>
+	<updated>2011-11-12T22:36:54Z</updated>
 	<published>2011-11-12T16:27:15Z</published>
 
 	<content type="html" xml:lang="en">
@@ -67,17 +67,23 @@
   The other goals are:
 &lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;Efficiency
+
+&lt;p&gt;    
     Adding a new timestep should be a \(O(1)\) operation.
-&lt;/li&gt;
+&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Ease of debugging
+
+&lt;p&gt;    
     If an error occurs in computing the next timestep, the stack trace
     should be easily comprehensible and show the current state of the
     time series.
-&lt;/li&gt;
+&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Traceability
+
+&lt;p&gt;    
     It should be possible to see the differences between two different
     functions.  
-&lt;/li&gt;
+&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
