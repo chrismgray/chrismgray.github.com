@@ -17,7 +17,122 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-12T01:28:40Z</updated>
+<updated>2011-11-12T17:43:31Z</updated>
+<entry>
+	<title>time-series-1</title>
+
+	<id>http://chrismgray.github.com//posts/time-series-1/</id>
+
+	<link href="http://chrismgray.github.com//posts/time-series-1/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="time-series" />
+
+
+	<updated>2011-11-12T17:43:31Z</updated>
+	<published>2011-11-12T16:27:15Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  One of the interesting aspects of looking for a job this time around
+  is that most of the companies that I have applied at have asked me
+  to do a programming challenge as a kind of weed-out step.  It has
+  been fun and a good way of keeping in practice.  In fact, I have
+  resolved to learn at least one new feature of the programming
+  language that I am using for each one.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Time series framework &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  My latest programming challenge is to build a framework for &lt;a href=&quot;http://en.wikipedia.org/wiki/Time_series&quot;&gt;time series&lt;/a&gt; generation.  The framework will take a function \(f\) that
+  looks at the \(n\) previous timesteps and returns the next timestep.
+  The other goals are:
+&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;Efficiency
+    Adding a new timestep should be a \(O(1)\) operation.
+&lt;/li&gt;
+&lt;li&gt;Ease of debugging
+    If an error occurs in computing the next timestep, the stack trace
+    should be easily comprehensible and show the current state of the
+    time series.
+&lt;/li&gt;
+&lt;li&gt;Traceability
+    It should be possible to see the differences between two different
+    functions.  
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Ideas so far &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  This seems like the perfect time to learn about &lt;a href=&quot;http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/&quot;&gt;monads&lt;/a&gt;.  Yikes!
+  I&#39;ve tried before, but have never seen a practical use for them.  As
+  far as I understand so far, they should be very good for storing the
+  state (&lt;i&gt;i.e.&lt;/i&gt; the previous \(n\) timesteps).
+&lt;/p&gt;
+&lt;p&gt;
+  A simpler solution might be just to use lazy sequences.  There&#39;s not
+  much to such a solution, so I might just implement it first and then
+  try to replicate it with monads.  In this solution, the previous \(n\)
+  timesteps are simply the last \(n\) elements of the lazy sequence.
+  Getting those elements might be tough to do in constant time, but I
+  have a feeling it&#39;s possible.
+&lt;/p&gt;
+&lt;p&gt;
+  On the debugging front, there shouldn&#39;t be too complexity: it should
+  just be a combination of &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt;.  There&#39;s also
+  &lt;code&gt;clojure.stacktrace&lt;/code&gt; if I want to get even fancier.
+&lt;/p&gt;
+&lt;p&gt;
+  As far as tracing goes, I might have a look at &lt;code&gt;tools.trace&lt;/code&gt; to see
+  if there&#39;s anything interesting there that I can use.  I think that
+  monads might provide another way of doing the same thing.  We&#39;ll see
+  which is simpler.  It might also be nice to use &lt;a href=&quot;http://incanter.org&quot;&gt;incanter&lt;/a&gt; to display
+  the differences between two (or more) different functions.
+&lt;/p&gt;
+&lt;p&gt;
+  On to the coding!
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/time-series-1/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/time-series-1/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>cljs-name-resolving-2</title>
 

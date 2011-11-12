@@ -15,6 +15,112 @@
 
 
 
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -97,11 +203,11 @@ sidebar
         <td class="month-calendar-day-nolink Tuesday">8</td>
         <td class="month-calendar-day-link Wednesday"><a href="../posts/rationals-in-cljs/" title="rationals-in-cljs">9</a></td>
         <td class="month-calendar-day-link Thursday"><a href="../posts/blogging-about-blogging/" title="blogging-about-blogging">10</a></td>
-        <td class="month-calendar-day-this-day Friday"><a href="../posts/cljs-name-resolving-2/" title="cljs-name-resolving-2">11</a></td>
-        <td class="month-calendar-day-future Saturday">12</td>
+        <td class="month-calendar-day-link Friday"><a href="../posts/cljs-name-resolving-2/" title="cljs-name-resolving-2">11</a></td>
+        <td class="month-calendar-day-this-day Saturday"><a href="../posts/time-series-1/" title="time-series-1">12</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-nolink Sunday">13</td>
+        <td class="month-calendar-day-future Sunday">13</td>
         <td class="month-calendar-day-nolink Monday">14</td>
         <td class="month-calendar-day-nolink Tuesday">15</td>
         <td class="month-calendar-day-nolink Wednesday">16</td>
@@ -149,10 +255,41 @@ sidebar
 </li></ul>
 
 <p>Post interval:
-<img src="./sparkline-f7f35abb369e2171c6a933046c57a3df6b96f303.png" alt="graph" /></p>
+<img src="./sparkline-c00e544ca987e9b0a2106307543cc123987e6fb8.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Fri Nov 11 18:30:03 2011</span> (22 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Sat Nov 12 10:30:04 2011</span> (23 posts)</p>
 
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: Van Morrison's Astral Weeks is such a great album.
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Fri Nov 11 18:39:20 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
 <div class="microblog">
 
 <div class="inlinecontent">
@@ -274,37 +411,6 @@ frogmanjack: @jaspervl Sharp knives are safer!
 
 
 &mdash; <span class="date">Thu Nov 10 11:32:08 2011</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: This morning I've already submitted a patch to an open-source project and thrown away someone else's dog's poop. #NominateMeForNobel
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Thu Nov 10 09:14:14 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->

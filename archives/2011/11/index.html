@@ -15,6 +15,112 @@
 
 
 
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -98,11 +204,11 @@
         <td class="month-calendar-day-nolink Tuesday">8</td>
         <td class="month-calendar-day-link Wednesday"><a href="../../../posts/rationals-in-cljs/" title="rationals-in-cljs">9</a></td>
         <td class="month-calendar-day-link Thursday"><a href="../../../posts/blogging-about-blogging/" title="blogging-about-blogging">10</a></td>
-        <td class="month-calendar-day-this-day Friday"><a href="../../../posts/cljs-name-resolving-2/" title="cljs-name-resolving-2">11</a></td>
-        <td class="month-calendar-day-future Saturday">12</td>
+        <td class="month-calendar-day-link Friday"><a href="../../../posts/cljs-name-resolving-2/" title="cljs-name-resolving-2">11</a></td>
+        <td class="month-calendar-day-this-day Saturday"><a href="../../../posts/time-series-1/" title="time-series-1">12</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-nolink Sunday">13</td>
+        <td class="month-calendar-day-future Sunday">13</td>
         <td class="month-calendar-day-nolink Monday">14</td>
         <td class="month-calendar-day-nolink Tuesday">15</td>
         <td class="month-calendar-day-nolink Wednesday">16</td>
@@ -766,6 +872,131 @@ Tags:
 <a href="../../../tags/lab-notes/" rel="tag">lab-notes</a>
 
 <a href="../../../tags/rationals/" rel="tag">rationals</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="../../../posts/time-series-1/">time-series-1</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Programming challenges </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  One of the interesting aspects of looking for a job this time around
+  is that most of the companies that I have applied at have asked me
+  to do a programming challenge as a kind of weed-out step.  It has
+  been fun and a good way of keeping in practice.  In fact, I have
+  resolved to learn at least one new feature of the programming
+  language that I am using for each one.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Time series framework </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  My latest programming challenge is to build a framework for <a href="http://en.wikipedia.org/wiki/Time_series">time series</a> generation.  The framework will take a function \(f\) that
+  looks at the \(n\) previous timesteps and returns the next timestep.
+  The other goals are:
+</p><ul>
+<li>Efficiency
+    Adding a new timestep should be a \(O(1)\) operation.
+</li>
+<li>Ease of debugging
+    If an error occurs in computing the next timestep, the stack trace
+    should be easily comprehensible and show the current state of the
+    time series.
+</li>
+<li>Traceability
+    It should be possible to see the differences between two different
+    functions.  
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Ideas so far </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  This seems like the perfect time to learn about <a href="http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/">monads</a>.  Yikes!
+  I've tried before, but have never seen a practical use for them.  As
+  far as I understand so far, they should be very good for storing the
+  state (<i>i.e.</i> the previous \(n\) timesteps).
+</p>
+<p>
+  A simpler solution might be just to use lazy sequences.  There's not
+  much to such a solution, so I might just implement it first and then
+  try to replicate it with monads.  In this solution, the previous \(n\)
+  timesteps are simply the last \(n\) elements of the lazy sequence.
+  Getting those elements might be tough to do in constant time, but I
+  have a feeling it's possible.
+</p>
+<p>
+  On the debugging front, there shouldn't be too complexity: it should
+  just be a combination of <code>try</code>, <code>catch</code>, and <code>throw</code>.  There's also
+  <code>clojure.stacktrace</code> if I want to get even fancier.
+</p>
+<p>
+  As far as tracing goes, I might have a look at <code>tools.trace</code> to see
+  if there's anything interesting there that I can use.  I think that
+  monads might provide another way of doing the same thing.  We'll see
+  which is simpler.  It might also be nice to use <a href="http://incanter.org">incanter</a> to display
+  the differences between two (or more) different functions.
+</p>
+<p>
+  On to the coding!
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="../../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../../tags/time-series/" rel="tag">time-series</a>
 
 </span>
 
