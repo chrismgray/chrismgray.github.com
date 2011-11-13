@@ -8,6 +8,132 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>time-series-2</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/time-series-2/</guid>
+
+	<link>http://chrismgray.github.com//posts/time-series-2/</link>
+
+
+	<category>clojure</category>
+
+	<category>time-series</category>
+
+
+	<pubDate>Sun, 13 Nov 2011 07:12:16 -0700</pubDate>
+	<dcterms:modified>2011-11-13T14:48:17Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;What we have so far &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Well, yesterday was either a very productive day or a very lucky day
+  for me.  I read up on monads &amp;ndash; I found that &lt;a href=&quot;http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/&quot;&gt;khinsen&#39;s tutorials&lt;/a&gt; and
+  &lt;a href=&quot;http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_101.html&quot;&gt;Jim Duey&#39;s tutorials&lt;/a&gt; complemented each other nicely.  Then I went
+  for a long run (about 18 miles I think) and let the ideas sink in.
+  When I got home, I found &lt;code&gt;state-m&lt;/code&gt; and &lt;code&gt;m-seq&lt;/code&gt; and the job was
+  almost done.
+&lt;/p&gt;
+&lt;p&gt;
+  Just as a reminder, &lt;a href=&quot;http://chrismgray.github.com/posts/time-series-1&quot;&gt;yesterday&#39;s task&lt;/a&gt; was to build a time-series
+  framework where a function \(f\) accepts the previous \(n\) outputs of
+  \(f\) as input to generate a new output.  Here is my solution, edited
+  for clarity (the actual solution is in a &lt;a href=&quot;http://github.com/chrismgray/time-series&quot;&gt;github repository&lt;/a&gt;):
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+                  [retval new-state]))]
+   ((with-monad state-m
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  As you can see, the heavy lifting is done by the &lt;code&gt;state&lt;/code&gt; monad and
+  by &lt;code&gt;m-seq&lt;/code&gt;.  What do they do?  Well, &lt;code&gt;m-seq&lt;/code&gt; can be thought of as
+  taking a list of functions and calling them in order, returning a
+  list of their return values.  The list of functions in this case is
+  the same function (&lt;code&gt;call-f&lt;/code&gt;) over and over.  All &lt;code&gt;call-f&lt;/code&gt; does is
+  call \(f\) and change the state.
+&lt;/p&gt;
+&lt;p&gt;
+  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an \(O(n)\) function.  After all, we
+  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most \(n\)
+  elements.  However, almost all the behind-the-scenes data structures
+  that Clojure uses (including the vector data structure) are
+  guaranteed to have \(O(1)\) performance for calling &lt;code&gt;count&lt;/code&gt;.  So
+  that&#39;s nice, and &lt;code&gt;call-f&lt;/code&gt; has the performance characteristics that I
+  desired.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Monads &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  They&#39;re still a slightly confusing and magical-seeming thing to me,
+  but monads have some obvious utility.  I guess the way to think
+  about them is that if you put your input and output in a common
+  format, then they aid you in stringing functions together very
+  easily.  I used them in this case to encapsulate state, and that is
+  probably the most common use of them in Clojure (judging by the
+  number of state functions in the Clojure monads library).  However,
+  I think I should probably try to understand all the monads in the
+  library and know how to combine them.
+&lt;/p&gt;
+&lt;p&gt;
+  I could have written the function above without monads, but the code
+  would not have been nearly as concise, and there probably would have
+  been many more edge-cases to consider.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;The rest &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I also wrote some stuff to make debugging easier, and used incanter
+  to compare multiple time series.  However, neither required me to
+  bend my brain as much as monads, so I won&#39;t talk about them very
+  much.  I will share a graph that I made with incanter, though.  It
+  shows the amount of money that $100 will turn into if compounded
+  50 times at either 3% or 5%.  Pretty, isn&#39;t it?
+&lt;/p&gt;
+&lt;p&gt;
+  &amp;lt;span class=&quot;createlink&quot;&amp;gt;time-series.png&amp;lt;/span&amp;gt;
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/time-series-2/#comments</comments>
+
+</item>
+<item>
+
 	<title>time-series-1</title>
 
 

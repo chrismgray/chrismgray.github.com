@@ -5,14 +5,14 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>pages tagged time-series</title>
+<title>time-series-2</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
 <link rel="stylesheet" href="../../local.css" type="text/css" />
 
 
-<link rel="alternate" type="application/rss+xml" title="Hiking and Coding (RSS feed)" href="index.rss" /><link rel="alternate" type="application/atom+xml" title="Hiking and Coding (Atom feed)" href="index.atom" />
+
 
 
 <style type="text/css">
@@ -133,11 +133,11 @@
 
 <a href="../../">Hiking and Coding</a>/ 
 
-<a href="../">tags</a>/ 
+<a href="../">posts</a>/ 
 
 </span>
 <span class="title">
-pages tagged time-series
+time-series-2
 
 </span>
 </span>
@@ -175,33 +175,108 @@ pages tagged time-series
 <div id="pagebody">
 
 <div id="content">
-<div  class="feedlink">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">What we have so far </h2>
+<div class="outline-text-2" id="text-1">
 
-<a class="feedbutton" type="application/rss+xml" rel="alternate" title="Hiking and Coding (RSS feed)" href="index.rss">RSS</a>
+
+<p>
+  Well, yesterday was either a very productive day or a very lucky day
+  for me.  I read up on monads &ndash; I found that <a href="http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/">khinsen's tutorials</a> and
+  <a href="http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_101.html">Jim Duey's tutorials</a> complemented each other nicely.  Then I went
+  for a long run (about 18 miles I think) and let the ideas sink in.
+  When I got home, I found <code>state-m</code> and <code>m-seq</code> and the job was
+  almost done.
+</p>
+<p>
+  Just as a reminder, <a href="http://chrismgray.github.com/posts/time-series-1">yesterday's task</a> was to build a time-series
+  framework where a function \(f\) accepts the previous \(n\) outputs of
+  \(f\) as input to generate a new output.  Here is my solution, edited
+  for clarity (the actual solution is in a <a href="http://github.com/chrismgray/time-series">github repository</a>):
+</p>
 
 
-<a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+<pre class="src src-clojure">(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+                  [retval new-state]))]
+   ((with-monad state-m
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
+</pre>
+
+
+
+
+<p>
+  As you can see, the heavy lifting is done by the <code>state</code> monad and
+  by <code>m-seq</code>.  What do they do?  Well, <code>m-seq</code> can be thought of as
+  taking a list of functions and calling them in order, returning a
+  list of their return values.  The list of functions in this case is
+  the same function (<code>call-f</code>) over and over.  All <code>call-f</code> does is
+  call \(f\) and change the state.
+</p>
+<p>
+  It might appear that <code>call-f</code> is an \(O(n)\) function.  After all, we
+  call <code>count</code> on the state, which is a vector of at most \(n\)
+  elements.  However, almost all the behind-the-scenes data structures
+  that Clojure uses (including the vector data structure) are
+  guaranteed to have \(O(1)\) performance for calling <code>count</code>.  So
+  that's nice, and <code>call-f</code> has the performance characteristics that I
+  desired.
+</p>
+</div>
 
 </div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Monads </h2>
+<div class="outline-text-2" id="text-2">
+
+
 <p>
-
-<a href="../../posts/time-series-2/">time-series-2</a><br />
-
-<i>
-Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
-
-</i>
+  They're still a slightly confusing and magical-seeming thing to me,
+  but monads have some obvious utility.  I guess the way to think
+  about them is that if you put your input and output in a common
+  format, then they aid you in stringing functions together very
+  easily.  I used them in this case to encapsulate state, and that is
+  probably the most common use of them in Clojure (judging by the
+  number of state functions in the Clojure monads library).  However,
+  I think I should probably try to understand all the monads in the
+  library and know how to combine them.
 </p>
 <p>
+  I could have written the function above without monads, but the code
+  would not have been nearly as concise, and there probably would have
+  been many more edge-cases to consider.
+</p>
+</div>
 
-<a href="../../posts/time-series-1/">time-series-1</a><br />
+</div>
 
-<i>
-Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">The rest </h2>
+<div class="outline-text-2" id="text-3">
 
-</i>
+
+<p>
+  I also wrote some stuff to make debugging easier, and used incanter
+  to compare multiple time series.  However, neither required me to
+  bend my brain as much as monads, so I won't talk about them very
+  much.  I will share a graph that I made with incanter, though.  It
+  shows the amount of money that $100 will turn into if compounded
+  50 times at either 3% or 5%.  Pretty, isn't it?
+</p>
+<p>
+  &lt;span class="createlink"&gt;time-series.png&lt;/span&gt;
 </p>
 
+
+</div>
+</div>
 
 </div>
 
@@ -228,15 +303,12 @@ Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
 <div id="pageinfo">
 
 
+<div class="tags">
+Tags:
 
+<a href="../../tags/clojure/" rel="tag">clojure</a>
 
-<div id="backlinks">
-Links:
-
-<a href="../../posts/time-series-1/">posts/time-series-1</a>
-
-<a href="../../posts/time-series-2/">posts/time-series-2</a>
-
+<a href="../../tags/time-series/" rel="tag">time-series</a>
 
 </div>
 
@@ -245,9 +317,11 @@ Links:
 
 
 
+
+
 <div class="pagedate">
-Last edited <span class="date">Sat Nov 12 10:11:45 2011</span>
-<!-- Created <span class="date">Sat Nov 12 10:11:45 2011</span> -->
+Last edited <span class="date">Sun Nov 13 07:48:17 2011</span>
+<!-- Created <span class="date">Sun Nov 13 07:12:16 2011</span> -->
 </div>
 
 </div>

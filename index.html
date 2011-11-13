@@ -199,11 +199,11 @@ Hiking and Coding
         <td class="month-calendar-day-link Wednesday"><a href="./posts/rationals-in-cljs/" title="rationals-in-cljs">9</a></td>
         <td class="month-calendar-day-link Thursday"><a href="./posts/blogging-about-blogging/" title="blogging-about-blogging">10</a></td>
         <td class="month-calendar-day-link Friday"><a href="./posts/cljs-name-resolving-2/" title="cljs-name-resolving-2">11</a></td>
-        <td class="month-calendar-day-this-day Saturday"><a href="./posts/time-series-1/" title="time-series-1">12</a></td>
+        <td class="month-calendar-day-link Saturday"><a href="./posts/time-series-1/" title="time-series-1">12</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-future Sunday">13</td>
-        <td class="month-calendar-day-nolink Monday">14</td>
+        <td class="month-calendar-day-this-day Sunday"><a href="./posts/time-series-2/" title="time-series-2">13</a></td>
+        <td class="month-calendar-day-future Monday">14</td>
         <td class="month-calendar-day-nolink Tuesday">15</td>
         <td class="month-calendar-day-nolink Wednesday">16</td>
         <td class="month-calendar-day-nolink Thursday">17</td>
@@ -246,14 +246,14 @@ Hiking and Coding
 </li><li><span class="bigPC"><a href="./tags/lab-notes/">lab-notes</a></span>
 </li><li><span class="smallestPC"><a href="./tags/org-mode/">org-mode</a></span>
 </li><li><span class="bigPC"><a href="./tags/rationals/">rationals</a></span>
-</li><li><span class="smallestPC"><a href="./tags/time-series/">time-series</a></span>
+</li><li><span class="smallPC"><a href="./tags/time-series/">time-series</a></span>
 </li><li><span class="smallestPC"><a href="./tags/voronoi-diagram/">voronoi-diagram</a></span>
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-c00e544ca987e9b0a2106307543cc123987e6fb8.png" alt="graph" /></p>
+[[!postsparkline <span class="error">Error: /home/cmg/public_html/blog/sidebar/sparkline-d74f1322edd7d9ee5dc3eac23e22a0d01c551f21.png independently created, not overwriting with version from sidebar</span>]]</p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Sat Nov 12 22:00:04 2011</span> (23 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: <em>Can't connect to api.twitter.com:80 (timeout)</em> (23 posts)</p>
 
 <div class="microblog">
 
@@ -424,6 +424,149 @@ frogmanjack: @jaspervl Sharp knives are safer!
 
 
 <a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/time-series-2/">time-series-2</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">What we have so far </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  Well, yesterday was either a very productive day or a very lucky day
+  for me.  I read up on monads &ndash; I found that <a href="http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/">khinsen's tutorials</a> and
+  <a href="http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_101.html">Jim Duey's tutorials</a> complemented each other nicely.  Then I went
+  for a long run (about 18 miles I think) and let the ideas sink in.
+  When I got home, I found <code>state-m</code> and <code>m-seq</code> and the job was
+  almost done.
+</p>
+<p>
+  Just as a reminder, <a href="http://chrismgray.github.com/posts/time-series-1">yesterday's task</a> was to build a time-series
+  framework where a function \(f\) accepts the previous \(n\) outputs of
+  \(f\) as input to generate a new output.  Here is my solution, edited
+  for clarity (the actual solution is in a <a href="http://github.com/chrismgray/time-series">github repository</a>):
+</p>
+
+
+
+<pre class="src src-clojure">(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+                  [retval new-state]))]
+   ((with-monad state-m
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
+</pre>
+
+
+
+
+<p>
+  As you can see, the heavy lifting is done by the <code>state</code> monad and
+  by <code>m-seq</code>.  What do they do?  Well, <code>m-seq</code> can be thought of as
+  taking a list of functions and calling them in order, returning a
+  list of their return values.  The list of functions in this case is
+  the same function (<code>call-f</code>) over and over.  All <code>call-f</code> does is
+  call \(f\) and change the state.
+</p>
+<p>
+  It might appear that <code>call-f</code> is an \(O(n)\) function.  After all, we
+  call <code>count</code> on the state, which is a vector of at most \(n\)
+  elements.  However, almost all the behind-the-scenes data structures
+  that Clojure uses (including the vector data structure) are
+  guaranteed to have \(O(1)\) performance for calling <code>count</code>.  So
+  that's nice, and <code>call-f</code> has the performance characteristics that I
+  desired.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Monads </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  They're still a slightly confusing and magical-seeming thing to me,
+  but monads have some obvious utility.  I guess the way to think
+  about them is that if you put your input and output in a common
+  format, then they aid you in stringing functions together very
+  easily.  I used them in this case to encapsulate state, and that is
+  probably the most common use of them in Clojure (judging by the
+  number of state functions in the Clojure monads library).  However,
+  I think I should probably try to understand all the monads in the
+  library and know how to combine them.
+</p>
+<p>
+  I could have written the function above without monads, but the code
+  would not have been nearly as concise, and there probably would have
+  been many more edge-cases to consider.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">The rest </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  I also wrote some stuff to make debugging easier, and used incanter
+  to compare multiple time series.  However, neither required me to
+  bend my brain as much as monads, so I won't talk about them very
+  much.  I will share a graph that I made with incanter, though.  It
+  shows the amount of money that $100 will turn into if compounded
+  50 times at either 3% or 5%.  Pretty, isn't it?
+</p>
+<p>
+  &lt;span class="createlink"&gt;time-series.png&lt;/span&gt;
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/clojure/" rel="tag">clojure</a>
+
+<a href="./tags/time-series/" rel="tag">time-series</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
