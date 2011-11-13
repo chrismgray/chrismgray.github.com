@@ -22,7 +22,7 @@
 
 
 	<pubDate>Sat, 12 Nov 2011 09:27:15 -0700</pubDate>
-	<dcterms:modified>2011-11-12T22:36:54Z</dcterms:modified>
+	<dcterms:modified>2011-11-13T05:21:19Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
@@ -96,9 +96,9 @@
   have a feeling it&#39;s possible.
 &lt;/p&gt;
 &lt;p&gt;
-  On the debugging front, there shouldn&#39;t be too complexity: it should
-  just be a combination of &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt;.  There&#39;s also
-  &lt;code&gt;clojure.stacktrace&lt;/code&gt; if I want to get even fancier.
+  On the debugging front, there shouldn&#39;t be too much complexity: it
+  should just be a combination of &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt;.
+  There&#39;s also &lt;code&gt;clojure.stacktrace&lt;/code&gt; if I want to get even fancier.
 &lt;/p&gt;
 &lt;p&gt;
   As far as tracing goes, I might have a look at &lt;code&gt;tools.trace&lt;/code&gt; to see

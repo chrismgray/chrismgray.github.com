@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-12T22:36:54Z</updated>
+<updated>2011-11-13T05:21:19Z</updated>
 <entry>
 	<title>time-series-1</title>
 
@@ -35,7 +35,7 @@
 	<category term="time-series" />
 
 
-	<updated>2011-11-12T22:36:54Z</updated>
+	<updated>2011-11-13T05:21:19Z</updated>
 	<published>2011-11-12T16:27:15Z</published>
 
 	<content type="html" xml:lang="en">
@@ -111,9 +111,9 @@
   have a feeling it&#39;s possible.
 &lt;/p&gt;
 &lt;p&gt;
-  On the debugging front, there shouldn&#39;t be too complexity: it should
-  just be a combination of &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt;.  There&#39;s also
-  &lt;code&gt;clojure.stacktrace&lt;/code&gt; if I want to get even fancier.
+  On the debugging front, there shouldn&#39;t be too much complexity: it
+  should just be a combination of &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt;.
+  There&#39;s also &lt;code&gt;clojure.stacktrace&lt;/code&gt; if I want to get even fancier.
 &lt;/p&gt;
 &lt;p&gt;
   As far as tracing goes, I might have a look at &lt;code&gt;tools.trace&lt;/code&gt; to see
