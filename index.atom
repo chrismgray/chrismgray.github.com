@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-13T14:48:17Z</updated>
+<updated>2011-11-13T14:54:25Z</updated>
 <entry>
 	<title>time-series-2</title>
 
@@ -35,7 +35,7 @@
 	<category term="time-series" />
 
 
-	<updated>2011-11-13T14:48:17Z</updated>
+	<updated>2011-11-13T14:54:25Z</updated>
 	<published>2011-11-13T14:12:16Z</published>
 
 	<content type="html" xml:lang="en">
@@ -130,12 +130,7 @@
   I also wrote some stuff to make debugging easier, and used incanter
   to compare multiple time series.  However, neither required me to
   bend my brain as much as monads, so I won&#39;t talk about them very
-  much.  I will share a graph that I made with incanter, though.  It
-  shows the amount of money that $100 will turn into if compounded
-  50 times at either 3% or 5%.  Pretty, isn&#39;t it?
-&lt;/p&gt;
-&lt;p&gt;
-  &amp;lt;span class=&quot;createlink&quot;&amp;gt;time-series.png&amp;lt;/span&amp;gt;
+  much.  In fact, not at all, because that is the end of my post.
 &lt;/p&gt;
 
 

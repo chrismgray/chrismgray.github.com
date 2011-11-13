@@ -22,7 +22,7 @@
 
 
 	<pubDate>Sun, 13 Nov 2011 07:12:16 -0700</pubDate>
-	<dcterms:modified>2011-11-13T14:48:17Z</dcterms:modified>
+	<dcterms:modified>2011-11-13T14:54:25Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;What we have so far &lt;/h2&gt;
@@ -115,12 +115,7 @@
   I also wrote some stuff to make debugging easier, and used incanter
   to compare multiple time series.  However, neither required me to
   bend my brain as much as monads, so I won&#39;t talk about them very
-  much.  I will share a graph that I made with incanter, though.  It
-  shows the amount of money that $100 will turn into if compounded
-  50 times at either 3% or 5%.  Pretty, isn&#39;t it?
-&lt;/p&gt;
-&lt;p&gt;
-  &amp;lt;span class=&quot;createlink&quot;&amp;gt;time-series.png&amp;lt;/span&amp;gt;
+  much.  In fact, not at all, because that is the end of my post.
 &lt;/p&gt;
 
 
