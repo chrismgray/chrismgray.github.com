@@ -8,6 +8,154 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>scattered</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/scattered/</guid>
+
+	<link>http://chrismgray.github.com//posts/scattered/</link>
+
+
+	<category>clojure</category>
+
+	<category>clojurescript</category>
+
+	<category>email</category>
+
+	<category>git</category>
+
+	<category>git-annex</category>
+
+	<category>notmuch</category>
+
+	<category>spot</category>
+
+
+	<pubDate>Mon, 14 Nov 2011 10:11:23 -0700</pubDate>
+	<dcterms:modified>2011-11-14T18:14:04Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Scattered &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I am doing a bunch of things today, all fairly small.  I think it&#39;s
+  because I finished working on the time series framework yesterday,
+  so I&#39;m kind of at loose ends.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;New programming project &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  One thing that I would like to do is to take all the messages that I
+  sent with my &lt;a href=&quot;http://findmespot.com&quot;&gt;SPOT&lt;/a&gt; device while hiking and make a small animation of
+  them on Google Maps.  This would be another use of Clojurescript.
+  My previous project &amp;ndash; a Clojurescript program for computing the
+  Voronoi Diagram of a set of points input by a user &amp;ndash; is a bit
+  stalled at the moment, so it&#39;s good to have something else to work
+  on.  Also, I feel like adding points to a Google Map is something
+  that Clojurescript is better suited to, rather than the fiddly
+  numeric stuff that I was trying to make it do.  I will come back to
+  the Voronoi Diagram at some point (hopefully fairly soon), but I am
+  putting it on the back burner for the moment.
+&lt;/p&gt;
+&lt;p&gt;
+  So far, I see two major tasks:
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
+
+
+&lt;p&gt;
+   Every SPOT message is an email that contains the coordinates of
+   where and when the message was sent.  Parsing the email can be done
+   offline, so I will probably just use Clojure for that.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
+
+
+&lt;p&gt;
+   The &lt;a href=&quot;http://code.google.com/apis/maps/documentation/javascript/overlays.html#Markers&quot;&gt;API&lt;/a&gt; for using Google Maps appears to be easy to use and
+   well-thought-out.  There&#39;s even a way to drop the markers at
+   different intervals &amp;ndash; just what I want to do.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I am also playing with the &lt;a href=&quot;http://notmuch.org&quot;&gt;notmuch&lt;/a&gt; email client.  So far I quite
+  like it.  It&#39;s a heck of a lot faster than my previous mail client,
+  mainly because it doesn&#39;t do as much.  Like gmail, it is optimized
+  towards two operations: searching and tagging.  I never really used
+  tags in gmail, because doing so involves clicking around, but it&#39;s
+  much faster in notmuch.  So far, this seems like the big advantage
+  for notmuch.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Git annex &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+
+
+&lt;p&gt;
+  In an effort to use all the software written by &lt;a href=&quot;http://joey.kitenet.net/&quot;&gt;Joey Hess&lt;/a&gt; (not
+  really, but it seems like it), I am also trying out &lt;a href=&quot;http://git-annex.branchable.com/&quot;&gt;git annex&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  So far, I have come up with one really compelling use case --
+  syncing podcasts to my mp3 player.  My mp3 player has the problem
+  that it will delete all the files on it at random times.  Thus, I
+  need to keep a backup of all the files on it on my computer.
+  However, when I am done listening to a podcast, I like to remove the
+  file.  Hopefully, I will be able to sync the files that I remove
+  myself (that is, remove them from the laptop), but not the files
+  that get removed by the stupid thing crashing.
+&lt;/p&gt;
+&lt;p&gt;
+  Another thing that I would like to do is put my music and video
+  collections in git annex.  I&#39;m not sure that anything special would
+  come from doing that, but it seems nice to have these things in
+  version control.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/scattered/#comments</comments>
+
+</item>
+<item>
+
 	<title>time-series-2</title>
 
 

@@ -208,9 +208,9 @@
         <td class="month-calendar-day-link Saturday"><a href="../../../posts/time-series-1/" title="time-series-1">12</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-this-day Sunday"><a href="../../../posts/time-series-2/interest-rates.png" title="interest-rates.png">13</a></td>
-        <td class="month-calendar-day-future Monday">14</td>
-        <td class="month-calendar-day-nolink Tuesday">15</td>
+        <td class="month-calendar-day-link Sunday"><a href="../../../posts/time-series-2/interest-rates.png" title="interest-rates.png">13</a></td>
+        <td class="month-calendar-day-this-day Monday"><a href="../../../posts/scattered/" title="scattered">14</a></td>
+        <td class="month-calendar-day-future Tuesday">15</td>
         <td class="month-calendar-day-nolink Wednesday">16</td>
         <td class="month-calendar-day-nolink Thursday">17</td>
         <td class="month-calendar-day-nolink Friday">18</td>
@@ -1347,6 +1347,171 @@ Tags:
 <a href="../../../tags/AT/" rel="tag">AT</a>
 
 <a href="../../../tags/hiking/" rel="tag">hiking</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="../../../posts/scattered/">scattered</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Scattered </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I am doing a bunch of things today, all fairly small.  I think it's
+  because I finished working on the time series framework yesterday,
+  so I'm kind of at loose ends.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">New programming project </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  One thing that I would like to do is to take all the messages that I
+  sent with my <a href="http://findmespot.com">SPOT</a> device while hiking and make a small animation of
+  them on Google Maps.  This would be another use of Clojurescript.
+  My previous project &ndash; a Clojurescript program for computing the
+  Voronoi Diagram of a set of points input by a user &ndash; is a bit
+  stalled at the moment, so it's good to have something else to work
+  on.  Also, I feel like adding points to a Google Map is something
+  that Clojurescript is better suited to, rather than the fiddly
+  numeric stuff that I was trying to make it do.  I will come back to
+  the Voronoi Diagram at some point (hopefully fairly soon), but I am
+  putting it on the back burner for the moment.
+</p>
+<p>
+  So far, I see two major tasks:
+</p>
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Getting the coordinates and times of the SPOT messages </h3>
+<div class="outline-text-3" id="text-2-1">
+
+
+<p>
+   Every SPOT message is an email that contains the coordinates of
+   where and when the message was sent.  Parsing the email can be done
+   offline, so I will probably just use Clojure for that.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Putting them on the Google Map </h3>
+<div class="outline-text-3" id="text-2-2">
+
+
+<p>
+   The <a href="http://code.google.com/apis/maps/documentation/javascript/overlays.html#Markers">API</a> for using Google Maps appears to be easy to use and
+   well-thought-out.  There's even a way to drop the markers at
+   different intervals &ndash; just what I want to do.
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Notmuch </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  I am also playing with the <a href="http://notmuch.org">notmuch</a> email client.  So far I quite
+  like it.  It's a heck of a lot faster than my previous mail client,
+  mainly because it doesn't do as much.  Like gmail, it is optimized
+  towards two operations: searching and tagging.  I never really used
+  tags in gmail, because doing so involves clicking around, but it's
+  much faster in notmuch.  So far, this seems like the big advantage
+  for notmuch.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Git annex </h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+  In an effort to use all the software written by <a href="http://joey.kitenet.net/">Joey Hess</a> (not
+  really, but it seems like it), I am also trying out <a href="http://git-annex.branchable.com/">git annex</a>.
+</p>
+<p>
+  So far, I have come up with one really compelling use case --
+  syncing podcasts to my mp3 player.  My mp3 player has the problem
+  that it will delete all the files on it at random times.  Thus, I
+  need to keep a backup of all the files on it on my computer.
+  However, when I am done listening to a podcast, I like to remove the
+  file.  Hopefully, I will be able to sync the files that I remove
+  myself (that is, remove them from the laptop), but not the files
+  that get removed by the stupid thing crashing.
+</p>
+<p>
+  Another thing that I would like to do is put my music and video
+  collections in git annex.  I'm not sure that anything special would
+  come from doing that, but it seems nice to have these things in
+  version control.
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="../../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../../tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="../../../tags/email/" rel="tag">email</a>
+
+<a href="../../../tags/git/" rel="tag">git</a>
+
+<a href="../../../tags/git-annex/" rel="tag">git-annex</a>
+
+<a href="../../../tags/notmuch/" rel="tag">notmuch</a>
+
+<a href="../../../tags/spot/" rel="tag">spot</a>
 
 </span>
 
