@@ -8,6 +8,98 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>luhnybin</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/luhnybin/</guid>
+
+	<link>http://chrismgray.github.com//posts/luhnybin/</link>
+
+
+	<category>clojure</category>
+
+	<category>programming-challenge</category>
+
+	<category>thrush</category>
+
+
+	<pubDate>Tue, 15 Nov 2011 13:22:19 -0700</pubDate>
+	<dcterms:modified>2011-11-15T20:22:19Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I woke up with another programming challenge in my inbox this
+  morning.  This one is from &lt;a href=&quot;http://squareup.com&quot;&gt;Square&lt;/a&gt;.  They are a company that gives
+  you a little device so that you can accept credit cards using a
+  smart phone.  The challenge is &lt;a href=&quot;http://corner.squareup.com/2011/11/luhny-bin.html&quot;&gt;here&lt;/a&gt; &amp;ndash; basically it&#39;s about removing
+  credit cards numbers from logs.  There are some details about what
+  constitutes a credit card number, and how they are distinct from
+  other numbers.  I won&#39;t repeat that here, but you should read it to
+  understand what&#39;s coming up.
+&lt;/p&gt;
+&lt;p&gt;
+  As usual, I implemented my solution in Clojure.  I particularly
+  liked the function I called &lt;code&gt;luhn-check&lt;/code&gt;.  Here it is:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(defn luhn-check
+  &lt;span&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
+&lt;span&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+  [digits]
+  (-&amp;gt;&amp;gt; digits
+       (partition 2 2 (repeat 0))
+       (mapcat #(vector (first %) (* 2 (second %))))
+       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
+       (#(mod % 10))
+       (= 0)))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  I think this is a good illustration of the &lt;code&gt;-&amp;gt;&amp;gt;&lt;/code&gt; operator in
+  Clojure, which is also called the &quot;thrush&quot; operator.  Basically,
+  this operator can be thought of as taking the result from one
+  expression and putting it at the end of the next expression.
+&lt;/p&gt;
+&lt;p&gt;
+  In this case, we start out with a list of digits.  We then partition
+  them into pairs, padding with a zero if necessary.  We then take the
+  pairs and double the second number in the pair, concatenating all
+  the pairs back into a single list.  We then sum up all the digits in
+  the list, using the &lt;code&gt;reduce&lt;/code&gt; function.  This leaves us with a
+  number.  We get its value \(\mod 10\) and test whether it is equal
+  to zero.  If it is, we return &lt;code&gt;true&lt;/code&gt;, otherwise we return &lt;code&gt;false&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  All of this could be written with nested expressions (and the thrush
+  operator is simply a macro that rewrites what you see as nested
+  expressions), but I think the way it is written nicely shows what
+  the data is doing in the function.
+&lt;/p&gt;
+&lt;p&gt;
+  Anyway, I doubt this solution will get me a job, but it was a bit of
+  fun coding and didn&#39;t take too long.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/luhnybin/#comments</comments>
+
+</item>
+<item>
+
 	<title>scattered</title>
 
 
@@ -323,11 +415,13 @@
 
 	<category>clojure</category>
 
+	<category>programming-challenge</category>
+
 	<category>time-series</category>
 
 
 	<pubDate>Sun, 13 Nov 2011 07:12:16 -0700</pubDate>
-	<dcterms:modified>2011-11-13T14:54:25Z</dcterms:modified>
+	<dcterms:modified>2011-11-15T20:22:53Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;What we have so far &lt;/h2&gt;
@@ -444,11 +538,13 @@
 
 	<category>clojure</category>
 
+	<category>programming-challenge</category>
+
 	<category>time-series</category>
 
 
 	<pubDate>Sat, 12 Nov 2011 09:27:15 -0700</pubDate>
-	<dcterms:modified>2011-11-13T05:21:19Z</dcterms:modified>
+	<dcterms:modified>2011-11-15T20:22:37Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
@@ -955,135 +1051,6 @@
 
 
 	<comments>/posts/rationals-followup/#comments</comments>
-
-</item>
-<item>
-
-	<title>rationals-in-cljs</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-in-cljs/</guid>
-
-	<link>http://chrismgray.github.com//posts/rationals-in-cljs/</link>
-
-
-	<category>clojure</category>
-
-	<category>clojurescript</category>
-
-	<category>lab-notes</category>
-
-	<category>rationals</category>
-
-	<category>voronoi-diagram</category>
-
-
-	<pubDate>Wed, 09 Nov 2011 10:13:06 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:35Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-Last night, I uploaded some code to compute the &lt;a href=&quot;http://en.wikipedia.org/wiki/Voronoi_diagram&quot;&gt;Voronoi Diagram&lt;/a&gt; of a
-set of points to &lt;a href=&quot;https://github.com/chrismgray/voronoi-diagram/&quot;&gt;github&lt;/a&gt;.  This post is not directly about that code --
-I&#39;ll write about that when it is completely working &amp;ndash; but rather
-about something that I noticed when I tried to convert the code to
-&lt;a href=&quot;https://github.com/clojure/clojurescript&quot;&gt;Clojurescript&lt;/a&gt;.
-&lt;/p&gt;
-&lt;p&gt;
-There are a few things that are known not to work in Clojurescript
-that work in Clojure: I had to convert calls from &lt;code&gt;lazy-cat&lt;/code&gt; to
-&lt;code&gt;concat&lt;/code&gt;, for example.  However, the one difference that really broke
-things for me was the lack of support for rational arithmetic in
-Clojurescript.
-&lt;/p&gt;
-&lt;p&gt;
-One major element of my algorithm is a test to determine whether a
-given point is on a given line segment.  With integer coordinates for
-the sites that determine the Voronoi Diagram and the bounding box,
-everything about this test can be represented as a rational number.
-Since Clojure gives you rational numbers by default, while
-Clojurescript simply uses Javascript&#39;s arithmetic facilities, the test
-works in Clojure but not in Clojurescript.
-&lt;/p&gt;
-&lt;p&gt;
-So what can be done about this?  Here are some options:
-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li id=&quot;sec-1-1&quot;&gt;Use floats, but more smartly &lt;br/&gt;
-
-&lt;p&gt;
-     Probably the simplest option, here we would not test for &lt;i&gt;equality&lt;/i&gt;,
-     but for &lt;i&gt;almost equality&lt;/i&gt;.  That is, if the distance between two
-     points is a very small number (&lt;i&gt;e.g.&lt;/i&gt; a millionth), and all of the
-     input is integer, then the two points are probably the same.  This
-     option is obviously not too satisfying from a theoretical
-     standpoint, especially if the small number is hardcoded.  I am
-     fairly sure that there has been research to determine what the exact
-     value of the small number should be, but that would take the code
-     out of the realm of simplicity.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li id=&quot;sec-1-2&quot;&gt;Implement rationals in Clojurescript &lt;br/&gt;
-
-&lt;p&gt;
-     I am not sure how possible this option is.  However, it is currently
-     the most appealing to me.  Rational arithmetic is not so difficult
-     to implement, especially in the limited use case that I need it for:
-     I am pretty sure that I could get away with &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, and
-     the comparison operators.  These are currently implemented as
-     &lt;a href=&quot;https://github.com/clojure/clojurescript/blob/3c83c62d973b0153a9e28bea7beb73794fbf9065/src/clj/cljs/core.clj#L51&quot;&gt;macros&lt;/a&gt; in Clojurescript, which means that they take the
-     Clojurescript code and change it Javascript code.  This allows
-     the Clojurescript compiler to take the prefix syntax of
-     Clojurescript and change it to the infix syntax of Javascript.
-&lt;/p&gt;
-&lt;p&gt;
-     If we were to redefine the operators to be functions, we might
-     have a chance to run different code given different types of
-     input.  The &lt;code&gt;defmulti&lt;/code&gt; and &lt;code&gt;defmethod&lt;/code&gt; macros seem perfect for
-     this.  The major question is whether it is possible to shadow the
-     names of the operators but use them nevertheless.  That is, will
-     I be able to add &lt;code&gt;(:require-macros [clojure.core :as core])&lt;/code&gt; to
-     my namespace and then use, for example, &lt;code&gt;core/*&lt;/code&gt;?
-&lt;/p&gt;
-&lt;p&gt;
-     The other downside, beyond the potential difficulties, is the
-     fact that the generated Javascript will no longer be quite as
-     pretty.  What used to be infix notation will be converted to
-     function calls.  Additionally, there will be a fairly high
-     penalty for doing arithmetic &amp;ndash; three or four function calls per
-     arithmetic operation (assuming the polymorphic solution I have in
-     mind works) rather than the current single operation.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  I am going to try to implement the rationals in Clojurescript
-  first.  At the very least, I will learn a bit more about how
-  multimethods work in Clojure. 
-&lt;/p&gt;
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/rationals-in-cljs/#comments</comments>
 
 </item>
 

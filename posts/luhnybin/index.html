@@ -5,16 +5,16 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>linkingrules</title>
+<title>luhnybin</title>
 
-<link rel="stylesheet" href="../../../style.css" type="text/css" />
+<link rel="stylesheet" href="../../style.css" type="text/css" />
 
-<link rel="stylesheet" href="../../../local.css" type="text/css" />
-
-
+<link rel="stylesheet" href="../../local.css" type="text/css" />
 
 
-<meta name="robots" content="noindex, follow" />
+
+
+
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   html { font-family: Times, serif; font-size: 12pt; }
@@ -131,15 +131,13 @@
 <span>
 <span class="parentlinks">
 
-<a href="../../../">Hiking and Coding</a>/ 
+<a href="../../">Hiking and Coding</a>/ 
 
-<a href="../../">ikiwiki</a>/ 
-
-<a href="../">subpage</a>/ 
+<a href="../">posts</a>/ 
 
 </span>
 <span class="title">
-linkingrules
+luhnybin
 
 </span>
 </span>
@@ -151,7 +149,7 @@ linkingrules
 <ul>
 
 
-<li><a href="../../../recentchanges/">RecentChanges</a></li>
+<li><a href="../../recentchanges/">RecentChanges</a></li>
 
 
 
@@ -177,38 +175,72 @@ linkingrules
 <div id="pagebody">
 
 <div id="content">
-<p>To link to or from a <a href="../">SubPage</a>, you can normally use a regular
-<a href="../../wikilink/">WikiLink</a> that does not contain the name of the parent directory of
-the <a href="../">SubPage</a>. Ikiwiki descends the directory hierarchy looking for a
-page that matches your link.</p>
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Another programming challenge </h2>
+<div class="outline-text-2" id="text-1">
 
-<p>For example, if FooBar/SubPage links to "OtherPage", ikiwiki will first 
-prefer pointing the link to FooBar/SubPage/OtherPage if it exists, next
-to FooBar/OtherPage and finally to OtherPage in the root of the wiki.</p>
 
-<p>Note that this means that if a link on FooBar/SomePage to "OtherPage"
-currently links to OtherPage, in the root of the wiki, and FooBar/OtherPage
-is created, the link will <em>change</em> to point to FooBar/OtherPage. On the
-other hand, a link from BazBar to "OtherPage" would be unchanged by this
-creation of a <a href="../">SubPage</a> of FooBar.</p>
+<p>
+  I woke up with another programming challenge in my inbox this
+  morning.  This one is from <a href="http://squareup.com">Square</a>.  They are a company that gives
+  you a little device so that you can accept credit cards using a
+  smart phone.  The challenge is <a href="http://corner.squareup.com/2011/11/luhny-bin.html">here</a> &ndash; basically it's about removing
+  credit cards numbers from logs.  There are some details about what
+  constitutes a credit card number, and how they are distinct from
+  other numbers.  I won't repeat that here, but you should read it to
+  understand what's coming up.
+</p>
+<p>
+  As usual, I implemented my solution in Clojure.  I particularly
+  liked the function I called <code>luhn-check</code>.  Here it is:
+</p>
 
-<p>You can also specify a link that contains a directory name, like
-"FooBar/OtherPage" to more exactly specify what page to link to. This is
-the only way to link to an unrelated <a href="../">SubPage</a>.</p>
 
-<p>You can use this to, for example, to link from BazBar to "FooBar/SubPage",
-or from BazBar/SubPage to "FooBar/SubPage".</p>
 
-<p>You can also use "/" at the start of a link, to specify exactly which page
-to link to, when there are multiple pages with similar names and the link
-goes to the wrong page by default. For example, linking from
-"FooBar/SubPage" to  "/OtherPage" will link to the "OtherPage" in the root
-of the wiki, even if there is a "FooBar/OtherPage".</p>
+<pre class="src src-clojure">(defn luhn-check
+  <span>"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
+<span>   The sequence must be in order from right to left."</span>
+  [digits]
+  (-&gt;&gt; digits
+       (partition 2 2 (repeat 0))
+       (mapcat #(vector (first %) (* 2 (second %))))
+       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
+       (#(mod % 10))
+       (= 0)))
+</pre>
 
-<p>Also, if the wiki is configured with a userdir, you can link to pages
-within the userdir without specifying a path to them. This is to allow for
-easy linking to a user's page in the userdir, to sign a comment. These
-links are checked for last of all.</p>
+
+
+
+<p>
+  I think this is a good illustration of the <code>-&gt;&gt;</code> operator in
+  Clojure, which is also called the "thrush" operator.  Basically,
+  this operator can be thought of as taking the result from one
+  expression and putting it at the end of the next expression.
+</p>
+<p>
+  In this case, we start out with a list of digits.  We then partition
+  them into pairs, padding with a zero if necessary.  We then take the
+  pairs and double the second number in the pair, concatenating all
+  the pairs back into a single list.  We then sum up all the digits in
+  the list, using the <code>reduce</code> function.  This leaves us with a
+  number.  We get its value \(\mod 10\) and test whether it is equal
+  to zero.  If it is, we return <code>true</code>, otherwise we return <code>false</code>.
+</p>
+<p>
+  All of this could be written with nested expressions (and the thrush
+  operator is simply a macro that rewrites what you see as nested
+  expressions), but I think the way it is written nicely shows what
+  the data is doing in the function.
+</p>
+<p>
+  Anyway, I doubt this solution will get me a job, but it was a bit of
+  fun coding and didn't take too long.
+</p>
+
+
+</div>
+</div>
 
 </div>
 
@@ -235,15 +267,14 @@ links are checked for last of all.</p>
 <div id="pageinfo">
 
 
+<div class="tags">
+Tags:
 
+<a href="../../tags/clojure/" rel="tag">clojure</a>
 
-<div id="backlinks">
-Links:
+<a href="../../tags/programming-challenge/" rel="tag">programming-challenge</a>
 
-<a href="../">subpage</a>
-
-<a href="../../wikilink/">wikilink</a>
-
+<a href="../../tags/thrush/" rel="tag">thrush</a>
 
 </div>
 
@@ -252,9 +283,11 @@ Links:
 
 
 
+
+
 <div class="pagedate">
-Last edited <span class="date">Sat 04 Oct 2008 08:11:08 AM MDT</span>
-<!-- Created <span class="date">Sat 04 Oct 2008 08:11:08 AM MDT</span> -->
+Last edited <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span>
+<!-- Created <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span> -->
 </div>
 
 </div>
