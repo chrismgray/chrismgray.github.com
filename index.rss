@@ -8,6 +8,54 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>spot-tracks</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/spot-tracks/</guid>
+
+	<link>http://chrismgray.github.com//posts/spot-tracks/</link>
+
+
+	<category>clojurescript</category>
+
+	<category>hiking</category>
+
+	<category>spot</category>
+
+
+	<pubDate>Wed, 16 Nov 2011 09:20:05 -0700</pubDate>
+	<dcterms:modified>2011-11-16T16:20:05Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Where I was &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I finally have a Clojurescript application that works basically the
+  way I want it to.  It shows a Google Map of the US onto which is
+  added a series of markers.  The markers are placed at the positions
+  that I sent a SPOT message on one of my hikes.  They are dropped at
+  intervals that correspond to the intervals between me sending them
+  out.  The whole thing takes a minute to watch.  There are a couple
+  of parts where it seems like nothing is happening &amp;ndash; those are
+  winter when I wasn&#39;t hiking and a period of time between when the
+  SPOT stopped working and when I got the replacement.  The app is
+  &lt;a href=&quot;http://chrismgray.github.com/posts/spot-tracks/view.html&quot;&gt;here&lt;/a&gt;.  The &lt;a href=&quot;https://github.com/chrismgray/spot-tracks&quot;&gt;source code&lt;/a&gt; is on my github page, but it is mostly
+  unedifying. 
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/spot-tracks/#comments</comments>
+
+</item>
+<item>
+
 	<title>luhnybin</title>
 
 
@@ -1009,48 +1057,6 @@
 
 
 	<comments>/posts/more-rationals/#comments</comments>
-
-</item>
-<item>
-
-	<title>rationals-followup</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-followup/</guid>
-
-	<link>http://chrismgray.github.com//posts/rationals-followup/</link>
-
-
-	<category>clojure</category>
-
-	<category>clojurescript</category>
-
-	<category>lab-notes</category>
-
-	<category>rationals</category>
-
-
-	<pubDate>Wed, 09 Nov 2011 15:03:16 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:45Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;A small followup &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  My previous post said that I would be using the macros defined in
-  Clojurescript&#39;s &lt;code&gt;core.clj&lt;/code&gt;.  It turns out that doesn&#39;t make a lot of
-  sense.  I am using the functions defined in &lt;code&gt;core.cljs&lt;/code&gt; instead.
-&lt;/p&gt;
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/rationals-followup/#comments</comments>
 
 </item>
 
