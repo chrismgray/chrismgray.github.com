@@ -12,6 +12,58 @@
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_9ada090ab228d306738f7304d47be1a8891b18b0/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-9ada090ab228d306738f7304d47be1a8891b18b0</link>
+
+	<pubDate>Sat, 19 Nov 2011 13:45:54 -0700</pubDate>
+	<dcterms:modified>2011-11-19T20:45:54Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-9ada090ab228d306738f7304d47be1a8891b18b0&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/100-mile-wilderness
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;13:45:54 11/19/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Really fixed link&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to posts/hiking/100-mile-wilderness on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
 	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_740e3881fd1218cd7ba25d2fca5db9c4d29e621c/</guid>
 
 	<link>http://chrismgray.github.com/recentchanges/#change-740e3881fd1218cd7ba25d2fca5db9c4d29e621c</link>
@@ -5253,60 +5305,6 @@ chrismgray
 
 
 Another new comment&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_e55465053574a6716fd248cbb280e9561dfe8080/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-e55465053574a6716fd248cbb280e9561dfe8080</link>
-
-	<pubDate>Wed, 09 Nov 2011 11:02:43 -0700</pubDate>
-	<dcterms:modified>2011-11-09T18:02:43Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-e55465053574a6716fd248cbb280e9561dfe8080&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/rationals-in-cljs/comment 1 f279dede35d206c93c7ccc40d0de5d55
-
-posts/rationals-in-cljs/comment 1 f279dede35d206c93c7ccc40d0de5d55
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:02:43 AM 11/09/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Maybe my dumb comment will show up now&lt;br /&gt;
 
 
 &lt;/div&gt;
