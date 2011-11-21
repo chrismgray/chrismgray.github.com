@@ -17,7 +17,167 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-15T22:18:05Z</updated>
+<updated>2011-11-21T19:58:03Z</updated>
+<entry>
+	<title>visibility-polygon</title>
+
+	<id>http://chrismgray.github.com//posts/visibility-polygon/</id>
+
+	<link href="http://chrismgray.github.com//posts/visibility-polygon/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="computational-geometry" />
+
+	<category term="lab-notes" />
+
+	<category term="visibility-polygon" />
+
+
+	<updated>2011-11-21T19:58:03Z</updated>
+	<published>2011-11-21T19:44:43Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I&#39;ve put up some preliminary code for finding visibility polygons on
+  my &lt;a href=&quot;https://github.com/chrismgray/visibility-polygon&quot;&gt;github repo&lt;/a&gt;.  I have only tested it with one polygon, but so far
+  things are looking good.  My idea from yesterday of using monads to
+  &quot;parse&quot; the polygon seems to be paying off.  Here is the relevant
+  code:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(defn- add-new-pt [poly]
+  (fn [pt stack]
+    (when (or (empty? stack) ; First two points are guaranteed to be visible
+              (empty? (rest stack))
+              (visible? pt (first poly) (first stack)))
+      [pt (rest poly) (cons (first poly) stack)])))
+
+(defn- pop-stack [poly]
+  (fn [pt stack]
+    (let [the-seg (seg/new-seg pt (first poly))
+          top-seg (seg/new-seg (first stack) (second stack))]
+      (when (pt/left-turn? (second stack) (first stack) (first poly))
+        (if (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
+          [pt poly (rest stack)])))))
+
+(defn- skip-pt [poly]
+  (fn [pt stack]
+   (let [the-seg (seg/new-seg pt (first stack))
+         poly-seg (seg/new-seg (first poly) (second poly))]
+     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
+       (if (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
+         [pt (rest poly) stack])))))
+
+(defn- all-conditions [poly]
+  (with-monad polygon-parser-m
+    (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  This defines three actions to be performed when the polygon and
+  stack are in certain configurations.  The first executes when the
+  next point on the polygon doesn&#39;t obscure any of the stack.  In that
+  case, it removes the point from &lt;code&gt;poly&lt;/code&gt; and puts it on &lt;code&gt;stack&lt;/code&gt;.  The
+  second executes by popping points off the stack until the next point
+  on the polygon no longer obscures the stack.  The final condition
+  activates when the next point on the polygon is hidden by the
+  stack.  It skips the points of &lt;code&gt;poly&lt;/code&gt; until it finds one that would
+  be visible.  We combine the three conditions using &lt;code&gt;m-plus&lt;/code&gt;, which
+  is defined to try the conditions in order until one returns
+  something that is not &lt;code&gt;nil&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Is this solution any better than a functional programming solution
+  without monads?  I think it is.  First, the conditions are easy to
+  see and very explicitly laid out.  Using a &lt;code&gt;cond&lt;/code&gt; to accomplish the
+  same thing is certainly possible, but gets more complicated as the
+  number of conditions grows.  Also, we are explicitly managing state
+  in this solution.  Doing so in an ad-hoc manner would be much more
+  difficult.  In fact, I am not really sure how I would loop until
+  there are no more points in &lt;code&gt;poly&lt;/code&gt; in a solution without monads
+  (especially since not all the conditions consume a point from
+  &lt;code&gt;poly&lt;/code&gt;).  With monads, it is quite simple:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(defn- visibility-polygon-helper [pt poly]
+  ((with-monad polygon-parser-m
+     (m-until empty? all-conditions poly)) pt []))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  Doing something like that with a &lt;code&gt;reduce&lt;/code&gt; seems like it would veer
+  off into unreadability fairly quickly.
+&lt;/p&gt;
+&lt;p&gt;
+  Are there downsides to this solution?  I think there is at least
+  one.  That is, the conditions must be functions that return functions.
+  This makes them a bit more confusing than they really should be.  I
+  needed to do this so that I could have a test in the &lt;code&gt;m-until&lt;/code&gt;
+  function above.  On the whole, though, this is a fairly cosmetic
+  gripe, and can be hidden by using helper functions like the one
+  above.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;On the horizon &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I would like to test the code quite a bit more.  However, doing so
+  by drawing out polygons by hand and then figuring out their
+  visibility polygons is quite tedious.  Therefore, I need some sort
+  of GUI to be able to draw polygons and then I will be able to
+  see whether the computed visibility polygon makes sense.
+&lt;/p&gt;
+&lt;p&gt;
+  I am thinking that it might be nice to use the &lt;a href=&quot;https://github.com/rosado/clj-processing&quot;&gt;&lt;code&gt;clj-processing&lt;/code&gt; library&lt;/a&gt; to do this.  Unfortunately, that library is currently only
+  using Clojure 1.2.  Since I am using Clojure 1.3, that might be a
+  problem.  So I might need to do some porting from 1.2 to 1.3.
+  However, doing so should give me a good idea of how processing
+  works, and could give a nice tool for more interactive geometry
+  programs. 
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/visibility-polygon/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/visibility-polygon/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>luhnybin</title>
 

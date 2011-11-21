@@ -8,6 +8,58 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to posts/visibility-polygon on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_fdf93f4a722d9bd3b3d8d82ba3b26a6bf9bb0e58/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-fdf93f4a722d9bd3b3d8d82ba3b26a6bf9bb0e58</link>
+
+	<pubDate>Mon, 21 Nov 2011 13:00:04 -0700</pubDate>
+	<dcterms:modified>2011-11-21T20:00:04Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-fdf93f4a722d9bd3b3d8d82ba3b26a6bf9bb0e58&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/visibility-polygon
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;13:00:04 11/21/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/parsing-polygons on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
@@ -5247,62 +5299,6 @@ chrismgray
 
 
 New post&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 posts/rationals-in-cljs/comment_3_3024a4cd58bda538af44a55d1a436abe on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_fff1dd7cfb59259fc9d07a530b8585ed93fcbc05/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-fff1dd7cfb59259fc9d07a530b8585ed93fcbc05</link>
-
-	<pubDate>Wed, 09 Nov 2011 11:12:13 -0700</pubDate>
-	<dcterms:modified>2011-11-09T18:12:13Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-fff1dd7cfb59259fc9d07a530b8585ed93fcbc05&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/rationals-in-cljs/comment 1 7cc46078280b23e555063aefb0bbd216
-
-posts/rationals-in-cljs/comment 1 f279dede35d206c93c7ccc40d0de5d55
-
-posts/rationals-in-cljs/comment 3 3024a4cd58bda538af44a55d1a436abe
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:12:13 AM 11/09/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Deleted the dumb comments that I made.&lt;br /&gt;
 
 
 &lt;/div&gt;

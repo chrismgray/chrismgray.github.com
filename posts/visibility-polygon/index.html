@@ -5,14 +5,14 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>pages tagged clojure</title>
+<title>visibility-polygon</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
 <link rel="stylesheet" href="../../local.css" type="text/css" />
 
 
-<link rel="alternate" type="application/rss+xml" title="Hiking and Coding (RSS feed)" href="index.rss" /><link rel="alternate" type="application/atom+xml" title="Hiking and Coding (Atom feed)" href="index.atom" />
+
 
 
 <style type="text/css">
@@ -133,11 +133,11 @@
 
 <a href="../../">Hiking and Coding</a>/ 
 
-<a href="../">tags</a>/ 
+<a href="../">posts</a>/ 
 
 </span>
 <span class="title">
-pages tagged clojure
+visibility-polygon
 
 </span>
 </span>
@@ -175,105 +175,131 @@ pages tagged clojure
 <div id="pagebody">
 
 <div id="content">
-<div  class="feedlink">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Visibility Polygon </h2>
+<div class="outline-text-2" id="text-1">
 
-<a class="feedbutton" type="application/rss+xml" rel="alternate" title="Hiking and Coding (RSS feed)" href="index.rss">RSS</a>
+
+<p>
+  I've put up some preliminary code for finding visibility polygons on
+  my <a href="https://github.com/chrismgray/visibility-polygon">github repo</a>.  I have only tested it with one polygon, but so far
+  things are looking good.  My idea from yesterday of using monads to
+  "parse" the polygon seems to be paying off.  Here is the relevant
+  code:
+</p>
 
 
-<a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+<pre class="src src-clojure">(defn- add-new-pt [poly]
+  (fn [pt stack]
+    (when (or (empty? stack) ; First two points are guaranteed to be visible
+              (empty? (rest stack))
+              (visible? pt (first poly) (first stack)))
+      [pt (rest poly) (cons (first poly) stack)])))
+
+(defn- pop-stack [poly]
+  (fn [pt stack]
+    (let [the-seg (seg/new-seg pt (first poly))
+          top-seg (seg/new-seg (first stack) (second stack))]
+      (when (pt/left-turn? (second stack) (first stack) (first poly))
+        (if (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
+          [pt poly (rest stack)])))))
+
+(defn- skip-pt [poly]
+  (fn [pt stack]
+   (let [the-seg (seg/new-seg pt (first stack))
+         poly-seg (seg/new-seg (first poly) (second poly))]
+     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
+       (if (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
+         [pt (rest poly) stack])))))
+
+(defn- all-conditions [poly]
+  (with-monad polygon-parser-m
+    (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
+</pre>
+
+
+
+
+<p>
+  This defines three actions to be performed when the polygon and
+  stack are in certain configurations.  The first executes when the
+  next point on the polygon doesn't obscure any of the stack.  In that
+  case, it removes the point from <code>poly</code> and puts it on <code>stack</code>.  The
+  second executes by popping points off the stack until the next point
+  on the polygon no longer obscures the stack.  The final condition
+  activates when the next point on the polygon is hidden by the
+  stack.  It skips the points of <code>poly</code> until it finds one that would
+  be visible.  We combine the three conditions using <code>m-plus</code>, which
+  is defined to try the conditions in order until one returns
+  something that is not <code>nil</code>.
+</p>
+<p>
+  Is this solution any better than a functional programming solution
+  without monads?  I think it is.  First, the conditions are easy to
+  see and very explicitly laid out.  Using a <code>cond</code> to accomplish the
+  same thing is certainly possible, but gets more complicated as the
+  number of conditions grows.  Also, we are explicitly managing state
+  in this solution.  Doing so in an ad-hoc manner would be much more
+  difficult.  In fact, I am not really sure how I would loop until
+  there are no more points in <code>poly</code> in a solution without monads
+  (especially since not all the conditions consume a point from
+  <code>poly</code>).  With monads, it is quite simple:
+</p>
+
+
+
+<pre class="src src-clojure">(defn- visibility-polygon-helper [pt poly]
+  ((with-monad polygon-parser-m
+     (m-until empty? all-conditions poly)) pt []))
+</pre>
+
+
+
+
+<p>
+  Doing something like that with a <code>reduce</code> seems like it would veer
+  off into unreadability fairly quickly.
+</p>
+<p>
+  Are there downsides to this solution?  I think there is at least
+  one.  That is, the conditions must be functions that return functions.
+  This makes them a bit more confusing than they really should be.  I
+  needed to do this so that I could have a test in the <code>m-until</code>
+  function above.  On the whole, though, this is a fairly cosmetic
+  gripe, and can be hidden by using helper functions like the one
+  above.
+</p>
+</div>
 
 </div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">On the horizon </h2>
+<div class="outline-text-2" id="text-2">
+
+
 <p>
-
-<a href="../../posts/visibility-polygon/">visibility-polygon</a><br />
-
-<i>
-Posted <span class="date">Mon Nov 21 12:44:43 2011</span>
-
-</i>
+  I would like to test the code quite a bit more.  However, doing so
+  by drawing out polygons by hand and then figuring out their
+  visibility polygons is quite tedious.  Therefore, I need some sort
+  of GUI to be able to draw polygons and then I will be able to
+  see whether the computed visibility polygon makes sense.
 </p>
 <p>
-
-<a href="../../posts/luhnybin/">luhnybin</a><br />
-
-<i>
-Posted <span class="date">Tue Nov 15 13:22:19 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/scattered/">scattered</a><br />
-
-<i>
-Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/time-series-2/">time-series-2</a><br />
-
-<i>
-Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/time-series-1/">time-series-1</a><br />
-
-<i>
-Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/cljs-name-resolving-2/">cljs-name-resolving-2</a><br />
-
-<i>
-Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/cljs-name-resolving/">cljs-name-resolving</a><br />
-
-<i>
-Posted <span class="date">Fri Nov 11 07:23:38 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/more-rationals/">more-rationals</a><br />
-
-<i>
-Posted <span class="date">Thu Nov 10 09:55:06 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/rationals-followup/">rationals-followup</a><br />
-
-<i>
-Posted <span class="date">Wed Nov  9 15:03:16 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/rationals-in-cljs/">rationals-in-cljs</a><br />
-
-<i>
-Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
-
-</i>
+  I am thinking that it might be nice to use the <a href="https://github.com/rosado/clj-processing"><code>clj-processing</code> library</a> to do this.  Unfortunately, that library is currently only
+  using Clojure 1.2.  Since I am using Clojure 1.3, that might be a
+  problem.  So I might need to do some porting from 1.2 to 1.3.
+  However, doing so should give me a good idea of how processing
+  works, and could give a nice tool for more interactive geometry
+  programs. 
 </p>
 
+
+</div>
+</div>
 
 </div>
 
@@ -300,31 +326,16 @@ Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
 <div id="pageinfo">
 
 
+<div class="tags">
+Tags:
 
+<a href="../../tags/clojure/" rel="tag">clojure</a>
 
-<div id="backlinks">
-Links:
+<a href="../../tags/computational-geometry/" rel="tag">computational-geometry</a>
 
-<a href="../../posts/cljs-name-resolving/">posts/cljs-name-resolving</a>
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
 
-<a href="../../posts/cljs-name-resolving-2/">posts/cljs-name-resolving-2</a>
-
-<a href="../../posts/luhnybin/">posts/luhnybin</a>
-
-<a href="../../posts/more-rationals/">posts/more-rationals</a>
-
-<a href="../../posts/rationals-followup/">posts/rationals-followup</a>
-
-<a href="../../posts/rationals-in-cljs/">posts/rationals-in-cljs</a>
-
-<a href="../../posts/scattered/">posts/scattered</a>
-
-<a href="../../posts/time-series-1/">posts/time-series-1</a>
-
-<a href="../../posts/time-series-2/">posts/time-series-2</a>
-
-<a href="../../posts/visibility-polygon/">posts/visibility-polygon</a>
-
+<a href="../../tags/visibility-polygon/" rel="tag">visibility-polygon</a>
 
 </div>
 
@@ -333,9 +344,11 @@ Links:
 
 
 
+
+
 <div class="pagedate">
-Last edited <span class="date">Thu Nov 10 21:00:25 2011</span>
-<!-- Created <span class="date">Thu Nov 10 21:00:25 2011</span> -->
+Last edited <span class="date">Mon Nov 21 12:58:03 2011</span>
+<!-- Created <span class="date">Mon Nov 21 12:44:43 2011</span> -->
 </div>
 
 </div>
