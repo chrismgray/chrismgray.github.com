@@ -17,7 +17,185 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-19T20:45:54Z</updated>
+<updated>2011-11-21T01:16:49Z</updated>
+<entry>
+	<title>change to posts/parsing-polygons on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_faf58406c1a32621fa43f44d13ea8f6900f77e32/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-faf58406c1a32621fa43f44d13ea8f6900f77e32"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-21T01:16:49Z</updated>
+	<published>2011-11-21T01:16:49Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-faf58406c1a32621fa43f44d13ea8f6900f77e32&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/parsing-polygons
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;18:16:49 11/20/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Did the post get uploaded?&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to tags/computational-geometry on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_89915e6024b896f8696095fbbae3cd810782bf5f/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-89915e6024b896f8696095fbbae3cd810782bf5f"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-21T01:15:04Z</updated>
+	<published>2011-11-21T01:15:04Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-89915e6024b896f8696095fbbae3cd810782bf5f&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/computational-geometry
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;18:15:04 11/20/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/computational-geometry&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/hiking/100-mile-wilderness posts/parsing-polygons tags/visibility-polygon on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_e8defe3565cca9ffa54cac4597d2463a31ebaf10/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-e8defe3565cca9ffa54cac4597d2463a31ebaf10"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-21T01:15:03Z</updated>
+	<published>2011-11-21T01:15:03Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-e8defe3565cca9ffa54cac4597d2463a31ebaf10&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/100-mile-wilderness
+
+posts/parsing-polygons
+
+tags/visibility-polygon
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;18:15:03 11/20/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/visibility-polygon&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/hiking/100-mile-wilderness on Hiking and Coding</title>
 
@@ -5735,186 +5913,6 @@ chrismgray
 
 
 Deleted the dumb comments that I made.&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/rationals-in-cljs/comment_3_3024a4cd58bda538af44a55d1a436abe on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_2063d6cb515d69314bdbdd5f9689637d95257afa/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-2063d6cb515d69314bdbdd5f9689637d95257afa"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-09T18:11:06Z</updated>
-	<published>2011-11-09T18:11:06Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-2063d6cb515d69314bdbdd5f9689637d95257afa&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/rationals-in-cljs/comment 3 3024a4cd58bda538af44a55d1a436abe
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:11:06 AM 11/09/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Another comment&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 posts/rationals-in-cljs/comment_1_f279dede35d206c93c7ccc40d0de5d55 on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_ca22b58f6be02eeaad3a463125f5e100ca7f472e/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-ca22b58f6be02eeaad3a463125f5e100ca7f472e"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-09T18:07:35Z</updated>
-	<published>2011-11-09T18:07:35Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-ca22b58f6be02eeaad3a463125f5e100ca7f472e&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/rationals-in-cljs/comment 1 7cc46078280b23e555063aefb0bbd216
-
-posts/rationals-in-cljs/comment 1 7cc46078280b23e555063aefb0bbd216
-
-posts/rationals-in-cljs/comment 1 f279dede35d206c93c7ccc40d0de5d55
-
-posts/rationals-in-cljs/comment 1 f279dede35d206c93c7ccc40d0de5d55
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:07:35 AM 11/09/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Another try at getting comments to show up&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/rationals-in-cljs/comment_1_7cc46078280b23e555063aefb0bbd216 on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_b1c271095aeb3e284b44fbe0429968635abd9dae/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-b1c271095aeb3e284b44fbe0429968635abd9dae"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-09T18:05:19Z</updated>
-	<published>2011-11-09T18:05:19Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-b1c271095aeb3e284b44fbe0429968635abd9dae&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/rationals-in-cljs/comment 1 7cc46078280b23e555063aefb0bbd216
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:05:19 AM 11/09/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Another new comment&lt;br /&gt;
 
 
 &lt;/div&gt;

@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<rss version="2.0"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dcterms="http://purl.org/dc/terms/" >
+<channel>
+<title>pages tagged computational-geometry</title>
+<link>http://chrismgray.github.com//tags/computational-geometry/</link>
+<description>Hiking and Coding</description>
+<item>
+
+	<title>parsing-polygons</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/parsing-polygons/</guid>
+
+	<link>http://chrismgray.github.com//posts/parsing-polygons/</link>
+
+
+	<category>computational-geometry</category>
+
+	<category>lab-notes</category>
+
+	<category>visibility-polygon</category>
+
+
+	<pubDate>Sun, 20 Nov 2011 17:58:28 -0700</pubDate>
+	<dcterms:modified>2011-11-21T01:16:32Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Functional programming &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I&#39;ve gotten a bit obsessed by functional programming over the last
+  couple of years.  I have even seriously thought about writing a book
+  that looks at computational geometry (which is the subject in which
+  I was trained) in the light of functional programming.  Most of the
+  standard computational-geometry texts these days approach the
+  writing of code from an imperative standpoint.
+&lt;/p&gt;
+&lt;p&gt;
+  I think functional programming is a good way to think about
+  computational geometry for a couple of reasons.  First, most
+  problems in computational geometry can be expressed in a purely
+  functional manner.  That is, the answers to the problems are usually
+  the same given the same inputs.  Secondly, I have bought into the
+  idea that parallel and distributed computing are much easier when
+  state is not being modified.  Functional programming forces you to
+  think this way.  While many problems in computational geometry are
+  inherently sequential, not all of them are.  Using a programming
+  method that allows for the easy addition of more cores seems like a
+  good practice when a problem is encountered that is easily made
+  parallel. 
+&lt;/p&gt;
+&lt;p&gt;
+  One of the things I have been thinking about as a final chapter for
+  the book that I would like to write is the introduction of monads as
+  a way to &quot;parse&quot; polygons.  Monads are commonly used (well, commonly
+  in the functional programming world) to parse strings.  They
+  generally scan through with the aid of a stack.  There are many
+  algorithms that scan through the points of a polygon with a stack --
+  the example that I have thought about the most is the visibility
+  polygon.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Visibility polygons &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  A &lt;i&gt;visibility polygon&lt;/i&gt; is the subset of a polygon that can be &quot;seen&quot;
+  from a point inside the polygon.  Here, we regard the segments of
+  the polygon as opaque walls.
+&lt;/p&gt;
+&lt;p&gt;
+  The standard algorithm for computing the visibility polygon is not
+  too difficult to implement in an imperative language.  In fact, I
+  &lt;a href=&quot;http://www.win.tue.nl/~cgray/ipelets.html&quot;&gt;implemented&lt;/a&gt; it already in C++ for the drawing editor &lt;a href=&quot;http://tclab.kaist.ac.kr/ipe/&quot;&gt;ipe&lt;/a&gt;.  (Though I
+  think that code is now obsolete since the release of ipe 7.)
+&lt;/p&gt;
+&lt;p&gt;
+  I&#39;ve already tipped my hand at how I would think about implementing
+  such an algorithm in a functional language.  I would use a variant
+  of a monadic parser to go through the polygon and find the parts
+  that are visible.  (That last sentence doesn&#39;t give much of a hint
+  about how it&#39;s done, but the whole algorithm would take too much
+  space to describe.  Suffice it to say that a stack is kept with the
+  &quot;currently visible&quot; portion of the polygon always on the stack.)
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Monads &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I used monads &lt;a href=&quot;http://chrismgray.github.com/posts/time-series-2/&quot;&gt;earlier&lt;/a&gt; to make a framework for creating and comparing
+  time-series.  However, I only used a monad that was already defined
+  by someone else.  I think I might need to define a monad on my own
+  this time &amp;ndash; a slightly daunting idea.  I definitely need to read
+  the rest of &lt;a href=&quot;http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_201.html&quot;&gt;Jim Duey&#39;s tutorial&lt;/a&gt; to make sense of how to do it.
+&lt;/p&gt;
+
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/parsing-polygons/#comments</comments>
+
+</item>
+
+</channel>
+</rss>

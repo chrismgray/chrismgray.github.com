@@ -5,14 +5,14 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>pages tagged lab-notes</title>
+<title>parsing-polygons</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
 <link rel="stylesheet" href="../../local.css" type="text/css" />
 
 
-<link rel="alternate" type="application/rss+xml" title="Hiking and Coding (RSS feed)" href="index.rss" /><link rel="alternate" type="application/atom+xml" title="Hiking and Coding (Atom feed)" href="index.atom" />
+
 
 
 <style type="text/css">
@@ -133,11 +133,11 @@
 
 <a href="../../">Hiking and Coding</a>/ 
 
-<a href="../">tags</a>/ 
+<a href="../">posts</a>/ 
 
 </span>
 <span class="title">
-pages tagged lab-notes
+parsing-polygons
 
 </span>
 </span>
@@ -175,69 +175,93 @@ pages tagged lab-notes
 <div id="pagebody">
 
 <div id="content">
-<div  class="feedlink">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Functional programming </h2>
+<div class="outline-text-2" id="text-1">
 
-<a class="feedbutton" type="application/rss+xml" rel="alternate" title="Hiking and Coding (RSS feed)" href="index.rss">RSS</a>
 
-
-<a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+<p>
+  I've gotten a bit obsessed by functional programming over the last
+  couple of years.  I have even seriously thought about writing a book
+  that looks at computational geometry (which is the subject in which
+  I was trained) in the light of functional programming.  Most of the
+  standard computational-geometry texts these days approach the
+  writing of code from an imperative standpoint.
+</p>
+<p>
+  I think functional programming is a good way to think about
+  computational geometry for a couple of reasons.  First, most
+  problems in computational geometry can be expressed in a purely
+  functional manner.  That is, the answers to the problems are usually
+  the same given the same inputs.  Secondly, I have bought into the
+  idea that parallel and distributed computing are much easier when
+  state is not being modified.  Functional programming forces you to
+  think this way.  While many problems in computational geometry are
+  inherently sequential, not all of them are.  Using a programming
+  method that allows for the easy addition of more cores seems like a
+  good practice when a problem is encountered that is easily made
+  parallel. 
+</p>
+<p>
+  One of the things I have been thinking about as a final chapter for
+  the book that I would like to write is the introduction of monads as
+  a way to "parse" polygons.  Monads are commonly used (well, commonly
+  in the functional programming world) to parse strings.  They
+  generally scan through with the aid of a stack.  There are many
+  algorithms that scan through the points of a polygon with a stack --
+  the example that I have thought about the most is the visibility
+  polygon.
+</p>
+</div>
 
 </div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Visibility polygons </h2>
+<div class="outline-text-2" id="text-2">
+
+
 <p>
-
-<a href="../../posts/parsing-polygons/">parsing-polygons</a><br />
-
-<i>
-Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
-
-</i>
+  A <i>visibility polygon</i> is the subset of a polygon that can be "seen"
+  from a point inside the polygon.  Here, we regard the segments of
+  the polygon as opaque walls.
 </p>
 <p>
-
-<a href="../../posts/cljs-name-resolving-2/">cljs-name-resolving-2</a><br />
-
-<i>
-Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
-
-</i>
+  The standard algorithm for computing the visibility polygon is not
+  too difficult to implement in an imperative language.  In fact, I
+  <a href="http://www.win.tue.nl/~cgray/ipelets.html">implemented</a> it already in C++ for the drawing editor <a href="http://tclab.kaist.ac.kr/ipe/">ipe</a>.  (Though I
+  think that code is now obsolete since the release of ipe 7.)
 </p>
 <p>
-
-<a href="../../posts/cljs-name-resolving/">cljs-name-resolving</a><br />
-
-<i>
-Posted <span class="date">Fri Nov 11 07:23:38 2011</span>
-
-</i>
+  I've already tipped my hand at how I would think about implementing
+  such an algorithm in a functional language.  I would use a variant
+  of a monadic parser to go through the polygon and find the parts
+  that are visible.  (That last sentence doesn't give much of a hint
+  about how it's done, but the whole algorithm would take too much
+  space to describe.  Suffice it to say that a stack is kept with the
+  "currently visible" portion of the polygon always on the stack.)
 </p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Monads </h2>
+<div class="outline-text-2" id="text-3">
+
+
 <p>
-
-<a href="../../posts/more-rationals/">more-rationals</a><br />
-
-<i>
-Posted <span class="date">Thu Nov 10 09:55:06 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/rationals-followup/">rationals-followup</a><br />
-
-<i>
-Posted <span class="date">Wed Nov  9 15:03:16 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/rationals-in-cljs/">rationals-in-cljs</a><br />
-
-<i>
-Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
-
-</i>
+  I used monads <a href="http://chrismgray.github.com/posts/time-series-2/">earlier</a> to make a framework for creating and comparing
+  time-series.  However, I only used a monad that was already defined
+  by someone else.  I think I might need to define a monad on my own
+  this time &ndash; a slightly daunting idea.  I definitely need to read
+  the rest of <a href="http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_201.html">Jim Duey's tutorial</a> to make sense of how to do it.
 </p>
 
+
+
+</div>
+</div>
 
 </div>
 
@@ -264,23 +288,14 @@ Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
 <div id="pageinfo">
 
 
+<div class="tags">
+Tags:
 
+<a href="../../tags/computational-geometry/" rel="tag">computational-geometry</a>
 
-<div id="backlinks">
-Links:
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
 
-<a href="../../posts/cljs-name-resolving/">posts/cljs-name-resolving</a>
-
-<a href="../../posts/cljs-name-resolving-2/">posts/cljs-name-resolving-2</a>
-
-<a href="../../posts/more-rationals/">posts/more-rationals</a>
-
-<a href="../../posts/parsing-polygons/">posts/parsing-polygons</a>
-
-<a href="../../posts/rationals-followup/">posts/rationals-followup</a>
-
-<a href="../../posts/rationals-in-cljs/">posts/rationals-in-cljs</a>
-
+<a href="../../tags/visibility-polygon/" rel="tag">visibility-polygon</a>
 
 </div>
 
@@ -289,9 +304,11 @@ Links:
 
 
 
+
+
 <div class="pagedate">
-Last edited <span class="date">Fri Nov 11 18:25:39 2011</span>
-<!-- Created <span class="date">Fri Nov 11 18:25:39 2011</span> -->
+Last edited <span class="date">Sun Nov 20 18:16:32 2011</span>
+<!-- Created <span class="date">Sun Nov 20 17:58:28 2011</span> -->
 </div>
 
 </div>

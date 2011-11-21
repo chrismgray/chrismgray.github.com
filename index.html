@@ -208,11 +208,11 @@ Hiking and Coding
         <td class="month-calendar-day-link Wednesday"><a href="./posts/spot-tracks/" title="spot-tracks">16</a></td>
         <td class="month-calendar-day-nolink Thursday">17</td>
         <td class="month-calendar-day-nolink Friday">18</td>
-        <td class="month-calendar-day-this-day Saturday"><a href="./posts/hiking/100-mile-wilderness/" title="100-mile-wilderness">19</a></td>
+        <td class="month-calendar-day-link Saturday"><a href="./posts/hiking/100-mile-wilderness/" title="100-mile-wilderness">19</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-future Sunday">20</td>
-        <td class="month-calendar-day-nolink Monday">21</td>
+        <td class="month-calendar-day-this-day Sunday"><a href="./posts/parsing-polygons/" title="parsing-polygons">20</a></td>
+        <td class="month-calendar-day-future Monday">21</td>
         <td class="month-calendar-day-nolink Tuesday">22</td>
         <td class="month-calendar-day-nolink Wednesday">23</td>
         <td class="month-calendar-day-nolink Thursday">24</td>
@@ -240,13 +240,14 @@ Hiking and Coding
 </li><li><span class="smallestPC"><a href="./tags/blogging/">blogging</a></span>
 </li><li><span class="biggestPC"><a href="./tags/clojure/">clojure</a></span>
 </li><li><span class="bigPC"><a href="./tags/clojurescript/">clojurescript</a></span>
+</li><li><span class="smallestPC"><a href="./tags/computational-geometry/">computational-geometry</a></span>
 </li><li><span class="smallestPC"><a href="./tags/emacs/">emacs</a></span>
 </li><li><span class="smallestPC"><a href="./tags/email/">email</a></span>
 </li><li><span class="smallPC"><a href="./tags/git/">git</a></span>
 </li><li><span class="smallestPC"><a href="./tags/git-annex/">git-annex</a></span>
 </li><li><span class="normalPC"><a href="./tags/hiking/">hiking</a></span>
 </li><li><span class="smallestPC"><a href="./tags/ikiwiki/">ikiwiki</a></span>
-</li><li><span class="normalPC"><a href="./tags/lab-notes/">lab-notes</a></span>
+</li><li><span class="bigPC"><a href="./tags/lab-notes/">lab-notes</a></span>
 </li><li><span class="smallestPC"><a href="./tags/notmuch/">notmuch</a></span>
 </li><li><span class="smallestPC"><a href="./tags/org-mode/">org-mode</a></span>
 </li><li><span class="smallPC"><a href="./tags/programming-challenge/">programming-challenge</a></span>
@@ -254,14 +255,108 @@ Hiking and Coding
 </li><li><span class="smallPC"><a href="./tags/spot/">spot</a></span>
 </li><li><span class="smallestPC"><a href="./tags/thrush/">thrush</a></span>
 </li><li><span class="smallPC"><a href="./tags/time-series/">time-series</a></span>
+</li><li><span class="smallestPC"><a href="./tags/visibility-polygon/">visibility-polygon</a></span>
 </li><li><span class="smallestPC"><a href="./tags/voronoi-diagram/">voronoi-diagram</a></span>
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-08012cfd191f21f2b74d510333d02b44ec07a6b2.png" alt="graph" /></p>
+<img src="./sidebar/sparkline-200563cfc1e94a5df5224cdcf7e3b929b0c144cd.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Sat 19 Nov 2011 09:17:18 PM MST</span> (41 posts; 12 new)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Sun Nov 20 18:15:02 2011</span> (44 posts)</p>
 
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: @grahamclark Tam o' Shanter.
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Sun Nov 20 17:27:11 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: @ShreddedGold Yup, it went well I think. I'll probably find out soon.
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Sun Nov 20 12:02:30 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: @ShreddedGold Flying back home from LA.
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Sun Nov 20 09:19:07 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
 <div class="microblog">
 
 <div class="inlinecontent">
@@ -289,7 +384,7 @@ frogmanjack: Seriously, did all of Calgary go to Disneyland this week?
 </span>
 
 
-&mdash; <span class="date">Sat 19 Nov 2011 12:57:14 PM MST</span>
+&mdash; <span class="date">Sat Nov 19 12:57:14 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -320,100 +415,7 @@ frogmanjack: Kids with Disneyland caps are less cute than you think they'd be. E
 </span>
 
 
-&mdash; <span class="date">Sat 19 Nov 2011 12:39:55 PM MST</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: @ErinBurnett Howard Beale in Network wasn't sane and was being used. If you feel like him, something's wrong.
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Sat 19 Nov 2011 11:43:02 AM MST</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: Also, all the tabs that I had open are ads for the dumb WiFi service that I just bought.
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Sat 19 Nov 2011 11:12:29 AM MST</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours, so I'm going to use the heck out of it.
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Sat 19 Nov 2011 11:04:43 AM MST</span>
+&mdash; <span class="date">Sat Nov 19 12:39:55 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -439,6 +441,136 @@ frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours
 
 <span class="header">
 
+<a href="./posts/parsing-polygons/">parsing-polygons</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Functional programming </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I've gotten a bit obsessed by functional programming over the last
+  couple of years.  I have even seriously thought about writing a book
+  that looks at computational geometry (which is the subject in which
+  I was trained) in the light of functional programming.  Most of the
+  standard computational-geometry texts these days approach the
+  writing of code from an imperative standpoint.
+</p>
+<p>
+  I think functional programming is a good way to think about
+  computational geometry for a couple of reasons.  First, most
+  problems in computational geometry can be expressed in a purely
+  functional manner.  That is, the answers to the problems are usually
+  the same given the same inputs.  Secondly, I have bought into the
+  idea that parallel and distributed computing are much easier when
+  state is not being modified.  Functional programming forces you to
+  think this way.  While many problems in computational geometry are
+  inherently sequential, not all of them are.  Using a programming
+  method that allows for the easy addition of more cores seems like a
+  good practice when a problem is encountered that is easily made
+  parallel. 
+</p>
+<p>
+  One of the things I have been thinking about as a final chapter for
+  the book that I would like to write is the introduction of monads as
+  a way to "parse" polygons.  Monads are commonly used (well, commonly
+  in the functional programming world) to parse strings.  They
+  generally scan through with the aid of a stack.  There are many
+  algorithms that scan through the points of a polygon with a stack --
+  the example that I have thought about the most is the visibility
+  polygon.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Visibility polygons </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  A <i>visibility polygon</i> is the subset of a polygon that can be "seen"
+  from a point inside the polygon.  Here, we regard the segments of
+  the polygon as opaque walls.
+</p>
+<p>
+  The standard algorithm for computing the visibility polygon is not
+  too difficult to implement in an imperative language.  In fact, I
+  <a href="http://www.win.tue.nl/~cgray/ipelets.html">implemented</a> it already in C++ for the drawing editor <a href="http://tclab.kaist.ac.kr/ipe/">ipe</a>.  (Though I
+  think that code is now obsolete since the release of ipe 7.)
+</p>
+<p>
+  I've already tipped my hand at how I would think about implementing
+  such an algorithm in a functional language.  I would use a variant
+  of a monadic parser to go through the polygon and find the parts
+  that are visible.  (That last sentence doesn't give much of a hint
+  about how it's done, but the whole algorithm would take too much
+  space to describe.  Suffice it to say that a stack is kept with the
+  "currently visible" portion of the polygon always on the stack.)
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Monads </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  I used monads <a href="http://chrismgray.github.com/posts/time-series-2/">earlier</a> to make a framework for creating and comparing
+  time-series.  However, I only used a monad that was already defined
+  by someone else.  I think I might need to define a monad on my own
+  this time &ndash; a slightly daunting idea.  I definitely need to read
+  the rest of <a href="http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_201.html">Jim Duey's tutorial</a> to make sense of how to do it.
+</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/computational-geometry/" rel="tag">computational-geometry</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/visibility-polygon/" rel="tag">visibility-polygon</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
 <a href="./posts/hiking/100-mile-wilderness/">100-mile-wilderness</a>
 
 </span>
@@ -446,8 +578,24 @@ frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">The 100-Mile Wilderness </h2>
+<h2 id="sec-1">Introduction </h2>
 <div class="outline-text-2" id="text-1">
+
+
+<p>
+I'm sitting in an airport, breathing the recycled air and jet exhaust,
+so I thought I'd write a bit more about my hiking experiences.  I
+don't have my trail guide with me, so I won't be able to include as
+many details as I would like, but hopefully I can recall the things
+that made the biggest impression on me. 
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">The 100-Mile Wilderness </h2>
+<div class="outline-text-2" id="text-2">
 
 
 <p>
@@ -518,9 +666,9 @@ frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours
 
 </div>
 
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">White Cap </h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">White Cap </h3>
+<div class="outline-text-3" id="text-2-1">
 
 
 <p>
@@ -546,9 +694,9 @@ frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">Chairback </h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Chairback </h3>
+<div class="outline-text-3" id="text-2-2">
 
 
 <p>
@@ -586,9 +734,9 @@ frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">The rest </h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">The rest </h3>
+<div class="outline-text-3" id="text-2-3">
 
 
 <p>
@@ -610,9 +758,9 @@ frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4">Monson </h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4">Monson </h3>
+<div class="outline-text-3" id="text-2-4">
 
 
 <p>
@@ -638,7 +786,7 @@ frogmanjack: I hate buying WiFi, but I'm at the airport for the next three hours
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat 19 Nov 2011 01:34:35 PM MST</span>
+Posted <span class="date">Sat Nov 19 13:34:35 2011</span>
 </span>
 
 
@@ -701,7 +849,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 16 Nov 2011 09:20:05 AM MST</span>
+Posted <span class="date">Wed Nov 16 09:20:05 2011</span>
 </span>
 
 
@@ -810,7 +958,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span>
+Posted <span class="date">Tue Nov 15 13:22:19 2011</span>
 </span>
 
 
@@ -967,7 +1115,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon 14 Nov 2011 10:11:23 AM MST</span>
+Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
 </span>
 
 
@@ -1151,7 +1299,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 13 Nov 2011 08:57:32 AM MST</span>
+Posted <span class="date">Sun Nov 13 08:57:32 2011</span>
 </span>
 
 
@@ -1289,7 +1437,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 13 Nov 2011 07:12:16 AM MST</span>
+Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
 </span>
 
 
@@ -1422,7 +1570,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat 12 Nov 2011 09:27:15 AM MST</span>
+Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
 </span>
 
 
@@ -1542,7 +1690,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri 11 Nov 2011 06:07:52 PM MST</span>
+Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
 </span>
 
 
@@ -1682,7 +1830,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri 11 Nov 2011 07:23:38 AM MST</span>
+Posted <span class="date">Fri Nov 11 07:23:38 2011</span>
 </span>
 
 
@@ -1696,107 +1844,6 @@ Tags:
 <a href="./tags/lab-notes/" rel="tag">lab-notes</a>
 
 <a href="./tags/rationals/" rel="tag">rationals</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/blogging-about-blogging/">blogging-about-blogging</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">A new system </h2>
-<div class="outline-text-2" id="text-1">
-
-
-<p>
-  This is the obligatory post about how the new blogging system
-  works.  Isn't that exciting?
-</p>
-<p>
-  By my standards, this is a fairly simple system.  It is based on
-  <a href="http://ikiwiki.info">ikiwiki</a>, which allows me to use <a href="http://orgmode">org-mode</a> to edit my posts and <a href="http://git-scm.com">git</a> as
-  the version control system.  Since I already know those tools, I
-  don't have to think about them and can just focus on writing.
-</p>
-<p>
-  I'm less comfortable with making web pages look nice, but I took the
-  CSS file from <a href="https://github.com/AntPortal/ikiwiked/raw/master/theme/gray-orange/local.css">the nice people at antportal.com</a> and added my own
-  panoramic photo that I took while hiking.  I think the output is
-  simple and looks pretty good.
-</p>
-<p>
-  Finally, I am currently hosting the pages on <a href="http://github.com">github</a>.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">What I intend to write about </h2>
-<div class="outline-text-2" id="text-2">
-
-
-<p>
-  The blog is currently called "Hiking and Coding".  So far I've only
-  written about the latter, but I'm planning some posts about the
-  former.  My current objective is to write once a day as a way to
-  solidify what I'm thinking about for the day, so my posts will
-  likely be about what I'm working on.  As such, expect them to be
-  really boring.  I'm okay with that.  I'm also okay with you not
-  subscribing.
-</p>
-<p>
-  I will try to write about adventures I had while hiking on days that
-  I'm not really working on anything.  Those posts will be tagged with
-  the hiking tag.  They might be more exciting (though they might
-  not).
-</p>
-
-
-</div>
-</div>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Thu 10 Nov 2011 07:13:21 PM MST</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/blogging/" rel="tag">blogging</a>
-
-<a href="./tags/emacs/" rel="tag">emacs</a>
-
-<a href="./tags/git/" rel="tag">git</a>
-
-<a href="./tags/hiking/" rel="tag">hiking</a>
-
-<a href="./tags/ikiwiki/" rel="tag">ikiwiki</a>
-
-<a href="./tags/org-mode/" rel="tag">org-mode</a>
 
 </span>
 
@@ -1857,8 +1904,8 @@ Links:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu 10 Nov 2011 01:12:04 PM MST</span>
-<!-- Created <span class="date">Tue 08 Nov 2011 11:43:03 PM MST</span> -->
+Last edited <span class="date">Thu Nov 10 13:12:04 2011</span>
+<!-- Created <span class="date">Tue Nov  8 23:43:03 2011</span> -->
 </div>
 
 </div>

@@ -214,11 +214,11 @@
         <td class="month-calendar-day-link Wednesday"><a href="../../../posts/spot-tracks/" title="spot-tracks">16</a></td>
         <td class="month-calendar-day-nolink Thursday">17</td>
         <td class="month-calendar-day-nolink Friday">18</td>
-        <td class="month-calendar-day-this-day Saturday"><a href="../../../posts/hiking/100-mile-wilderness/" title="100-mile-wilderness">19</a></td>
+        <td class="month-calendar-day-link Saturday"><a href="../../../posts/hiking/100-mile-wilderness/" title="100-mile-wilderness">19</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-future Sunday">20</td>
-        <td class="month-calendar-day-nolink Monday">21</td>
+        <td class="month-calendar-day-this-day Sunday"><a href="../../../posts/parsing-polygons/" title="parsing-polygons">20</a></td>
+        <td class="month-calendar-day-future Monday">21</td>
         <td class="month-calendar-day-nolink Tuesday">22</td>
         <td class="month-calendar-day-nolink Wednesday">23</td>
         <td class="month-calendar-day-nolink Thursday">24</td>
@@ -1716,8 +1716,24 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">The 100-Mile Wilderness </h2>
+<h2 id="sec-1">Introduction </h2>
 <div class="outline-text-2" id="text-1">
+
+
+<p>
+I'm sitting in an airport, breathing the recycled air and jet exhaust,
+so I thought I'd write a bit more about my hiking experiences.  I
+don't have my trail guide with me, so I won't be able to include as
+many details as I would like, but hopefully I can recall the things
+that made the biggest impression on me. 
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">The 100-Mile Wilderness </h2>
+<div class="outline-text-2" id="text-2">
 
 
 <p>
@@ -1788,9 +1804,9 @@ Tags:
 
 </div>
 
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">White Cap </h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">White Cap </h3>
+<div class="outline-text-3" id="text-2-1">
 
 
 <p>
@@ -1816,9 +1832,9 @@ Tags:
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">Chairback </h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Chairback </h3>
+<div class="outline-text-3" id="text-2-2">
 
 
 <p>
@@ -1856,9 +1872,9 @@ Tags:
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">The rest </h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">The rest </h3>
+<div class="outline-text-3" id="text-2-3">
 
 
 <p>
@@ -1880,9 +1896,9 @@ Tags:
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4">Monson </h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4">Monson </h3>
+<div class="outline-text-3" id="text-2-4">
 
 
 <p>
@@ -1918,6 +1934,136 @@ Tags:
 <a href="../../../tags/AT/" rel="tag">at</a>
 
 <a href="../../../tags/hiking/" rel="tag">hiking</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="../../../posts/parsing-polygons/">parsing-polygons</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Functional programming </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I've gotten a bit obsessed by functional programming over the last
+  couple of years.  I have even seriously thought about writing a book
+  that looks at computational geometry (which is the subject in which
+  I was trained) in the light of functional programming.  Most of the
+  standard computational-geometry texts these days approach the
+  writing of code from an imperative standpoint.
+</p>
+<p>
+  I think functional programming is a good way to think about
+  computational geometry for a couple of reasons.  First, most
+  problems in computational geometry can be expressed in a purely
+  functional manner.  That is, the answers to the problems are usually
+  the same given the same inputs.  Secondly, I have bought into the
+  idea that parallel and distributed computing are much easier when
+  state is not being modified.  Functional programming forces you to
+  think this way.  While many problems in computational geometry are
+  inherently sequential, not all of them are.  Using a programming
+  method that allows for the easy addition of more cores seems like a
+  good practice when a problem is encountered that is easily made
+  parallel. 
+</p>
+<p>
+  One of the things I have been thinking about as a final chapter for
+  the book that I would like to write is the introduction of monads as
+  a way to "parse" polygons.  Monads are commonly used (well, commonly
+  in the functional programming world) to parse strings.  They
+  generally scan through with the aid of a stack.  There are many
+  algorithms that scan through the points of a polygon with a stack --
+  the example that I have thought about the most is the visibility
+  polygon.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Visibility polygons </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  A <i>visibility polygon</i> is the subset of a polygon that can be "seen"
+  from a point inside the polygon.  Here, we regard the segments of
+  the polygon as opaque walls.
+</p>
+<p>
+  The standard algorithm for computing the visibility polygon is not
+  too difficult to implement in an imperative language.  In fact, I
+  <a href="http://www.win.tue.nl/~cgray/ipelets.html">implemented</a> it already in C++ for the drawing editor <a href="http://tclab.kaist.ac.kr/ipe/">ipe</a>.  (Though I
+  think that code is now obsolete since the release of ipe 7.)
+</p>
+<p>
+  I've already tipped my hand at how I would think about implementing
+  such an algorithm in a functional language.  I would use a variant
+  of a monadic parser to go through the polygon and find the parts
+  that are visible.  (That last sentence doesn't give much of a hint
+  about how it's done, but the whole algorithm would take too much
+  space to describe.  Suffice it to say that a stack is kept with the
+  "currently visible" portion of the polygon always on the stack.)
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Monads </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  I used monads <a href="http://chrismgray.github.com/posts/time-series-2/">earlier</a> to make a framework for creating and comparing
+  time-series.  However, I only used a monad that was already defined
+  by someone else.  I think I might need to define a monad on my own
+  this time &ndash; a slightly daunting idea.  I definitely need to read
+  the rest of <a href="http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_201.html">Jim Duey's tutorial</a> to make sense of how to do it.
+</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="../../../tags/computational-geometry/" rel="tag">computational-geometry</a>
+
+<a href="../../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="../../../tags/visibility-polygon/" rel="tag">visibility-polygon</a>
 
 </span>
 
