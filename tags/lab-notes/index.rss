@@ -8,6 +8,119 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>processing</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/processing/</guid>
+
+	<link>http://chrismgray.github.com//posts/processing/</link>
+
+
+	<category>clojure</category>
+
+	<category>lab-notes</category>
+
+	<category>processing</category>
+
+	<category>visibility-polygon</category>
+
+
+	<pubDate>Tue, 22 Nov 2011 12:29:29 -0700</pubDate>
+	<dcterms:modified>2011-11-22T21:00:04Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I mentioned yesterday that it would be nice to see the output of my
+  visibility polygon solution.  To that end, I created an extremely
+  simple drawing editor using &lt;a href=&quot;http://processing.org/&quot;&gt;Processing&lt;/a&gt;.  I have to say, I loved it.
+&lt;/p&gt;
+&lt;p&gt;
+  The most important feature to me is the extreme interactivity.  I
+  can change functions extremely quickly with my tools &amp;ndash; redefining a
+  Clojure function is either one or two keystrokes in emacs, depending
+  how I choose to do it &amp;ndash; so I like a graphics environment that
+  changes just as quickly.  This is what Processing, and in particular
+  &lt;code&gt;clj-processing&lt;/code&gt;, offers.  I was able to define a function that
+  draws the various objects (in this case, the polygon, the point
+  where the mouse is, and the visibility polygon of the mouse point
+  inside the polygon).  If I wanted to make any changes to this
+  function &amp;ndash; for example, changing the color of the point where the
+  mouse is &amp;ndash; I can simply redefine the function using my emacs tools
+  and the change shows up immediately on the drawing.
+&lt;/p&gt;
+&lt;p&gt;
+  I was able to use this to find a couple of minor bugs in my
+  visibility-polygon-finding code, but in general, it worked really
+  well on the first try.
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+
+
+&lt;p&gt;
+   There were a couple of things that slightly bothered me about
+   &lt;code&gt;clj-processing&lt;/code&gt;.  First, it used quite a lot of CPU just to
+   display a simple polygon without too many points.  I am probably
+   using it rather naïvely, so it is possible that this is my problem
+   and not the problem of &lt;code&gt;clj-processing&lt;/code&gt;.  However, the second
+   problem is just that &lt;code&gt;clj-processing&lt;/code&gt; is showing its age.  I think
+   it was probably one of the first Clojure libraries out there and
+   much of the coding style hasn&#39;t evolved with the Clojure best
+   practices that people use.  For example, some of the features do
+   not work if you only &lt;code&gt;require&lt;/code&gt; the library &amp;ndash; you must &lt;code&gt;use&lt;/code&gt; it.  I
+   try to only &lt;code&gt;require&lt;/code&gt; libraries, to avoid my namespace becoming
+   overly populated, so it is frustrating when that doesn&#39;t work.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Going forward &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I need to clean up the code a bit before I can put it up on github,
+  but it should be there soon.  It currently needs me to explicitly
+  call the function in order to find the visibility polygon.  I would
+  really like it to find the visibility polygon of any point where the
+  mouse is inside the polygon.  However, determining if a point is
+  inside a non-convex polygon tends to be a bit harder than it
+  sounds.  You can shoot a ray in one direction from a point, and
+  count the number of polygon edges that it crosses &amp;ndash; if it&#39;s even
+  you are outside and if it&#39;s odd you are inside &amp;ndash; but what happens
+  if the ray crosses a vertex?  There was a good experimental paper on
+  this problem at a recent EuroCG.
+&lt;/p&gt;
+&lt;p&gt;
+  So that&#39;s a slightly non-trivial problem.  I also coded an
+  implementation of the Voronoi Diagram problem recently.  I should
+  add a Processing UI to that as well.  I have a feeling that would be
+  the easier task to do next, and I would surely discover some bugs in
+  it while I did.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/processing/#comments</comments>
+
+</item>
+<item>
+
 	<title>visibility-polygon</title>
 
 

@@ -5,14 +5,14 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>pages tagged clojure</title>
+<title>processing</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
 <link rel="stylesheet" href="../../local.css" type="text/css" />
 
 
-<link rel="alternate" type="application/rss+xml" title="Hiking and Coding (RSS feed)" href="index.rss" /><link rel="alternate" type="application/atom+xml" title="Hiking and Coding (Atom feed)" href="index.atom" />
+
 
 
 <style type="text/css">
@@ -133,11 +133,11 @@
 
 <a href="../../">Hiking and Coding</a>/ 
 
-<a href="../">tags</a>/ 
+<a href="../">posts</a>/ 
 
 </span>
 <span class="title">
-pages tagged clojure
+processing
 
 </span>
 </span>
@@ -175,114 +175,91 @@ pages tagged clojure
 <div id="pagebody">
 
 <div id="content">
-<div  class="feedlink">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Viewing visibility polygons </h2>
+<div class="outline-text-2" id="text-1">
 
-<a class="feedbutton" type="application/rss+xml" rel="alternate" title="Hiking and Coding (RSS feed)" href="index.rss">RSS</a>
 
-
-<a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+<p>
+  I mentioned yesterday that it would be nice to see the output of my
+  visibility polygon solution.  To that end, I created an extremely
+  simple drawing editor using <a href="http://processing.org/">Processing</a>.  I have to say, I loved it.
+</p>
+<p>
+  The most important feature to me is the extreme interactivity.  I
+  can change functions extremely quickly with my tools &ndash; redefining a
+  Clojure function is either one or two keystrokes in emacs, depending
+  how I choose to do it &ndash; so I like a graphics environment that
+  changes just as quickly.  This is what Processing, and in particular
+  <code>clj-processing</code>, offers.  I was able to define a function that
+  draws the various objects (in this case, the polygon, the point
+  where the mouse is, and the visibility polygon of the mouse point
+  inside the polygon).  If I wanted to make any changes to this
+  function &ndash; for example, changing the color of the point where the
+  mouse is &ndash; I can simply redefine the function using my emacs tools
+  and the change shows up immediately on the drawing.
+</p>
+<p>
+  I was able to use this to find a couple of minor bugs in my
+  visibility-polygon-finding code, but in general, it worked really
+  well on the first try.
+</p>
 
 </div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">Shortcomings </h3>
+<div class="outline-text-3" id="text-1-1">
+
+
 <p>
+   There were a couple of things that slightly bothered me about
+   <code>clj-processing</code>.  First, it used quite a lot of CPU just to
+   display a simple polygon without too many points.  I am probably
+   using it rather naïvely, so it is possible that this is my problem
+   and not the problem of <code>clj-processing</code>.  However, the second
+   problem is just that <code>clj-processing</code> is showing its age.  I think
+   it was probably one of the first Clojure libraries out there and
+   much of the coding style hasn't evolved with the Clojure best
+   practices that people use.  For example, some of the features do
+   not work if you only <code>require</code> the library &ndash; you must <code>use</code> it.  I
+   try to only <code>require</code> libraries, to avoid my namespace becoming
+   overly populated, so it is frustrating when that doesn't work.
+</p>
+</div>
+</div>
 
-<a href="../../posts/processing/">processing</a><br />
+</div>
 
-<i>
-Posted <span class="date">Tue Nov 22 12:29:29 2011</span>
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Going forward </h2>
+<div class="outline-text-2" id="text-2">
 
-</i>
+
+<p>
+  I need to clean up the code a bit before I can put it up on github,
+  but it should be there soon.  It currently needs me to explicitly
+  call the function in order to find the visibility polygon.  I would
+  really like it to find the visibility polygon of any point where the
+  mouse is inside the polygon.  However, determining if a point is
+  inside a non-convex polygon tends to be a bit harder than it
+  sounds.  You can shoot a ray in one direction from a point, and
+  count the number of polygon edges that it crosses &ndash; if it's even
+  you are outside and if it's odd you are inside &ndash; but what happens
+  if the ray crosses a vertex?  There was a good experimental paper on
+  this problem at a recent EuroCG.
 </p>
 <p>
-
-<a href="../../posts/visibility-polygon/">visibility-polygon</a><br />
-
-<i>
-Posted <span class="date">Mon Nov 21 12:44:43 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/luhnybin/">luhnybin</a><br />
-
-<i>
-Posted <span class="date">Tue Nov 15 13:22:19 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/scattered/">scattered</a><br />
-
-<i>
-Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/time-series-2/">time-series-2</a><br />
-
-<i>
-Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/time-series-1/">time-series-1</a><br />
-
-<i>
-Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/cljs-name-resolving-2/">cljs-name-resolving-2</a><br />
-
-<i>
-Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/cljs-name-resolving/">cljs-name-resolving</a><br />
-
-<i>
-Posted <span class="date">Fri Nov 11 07:23:38 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/more-rationals/">more-rationals</a><br />
-
-<i>
-Posted <span class="date">Thu Nov 10 09:55:06 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/rationals-followup/">rationals-followup</a><br />
-
-<i>
-Posted <span class="date">Wed Nov  9 15:03:16 2011</span>
-
-</i>
-</p>
-<p>
-
-<a href="../../posts/rationals-in-cljs/">rationals-in-cljs</a><br />
-
-<i>
-Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
-
-</i>
+  So that's a slightly non-trivial problem.  I also coded an
+  implementation of the Voronoi Diagram problem recently.  I should
+  add a Processing UI to that as well.  I have a feeling that would be
+  the easier task to do next, and I would surely discover some bugs in
+  it while I did.
 </p>
 
+
+</div>
+</div>
 
 </div>
 
@@ -309,39 +286,16 @@ Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
 <div id="pageinfo">
 
 
+<div class="tags">
+Tags:
 
+<a href="../../tags/clojure/" rel="tag">clojure</a>
 
-<div id="backlinks">
-Links:
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
 
-<a href="../../posts/cljs-name-resolving/">posts/cljs-name-resolving</a>
+<a href="../../tags/processing/" rel="tag">processing</a>
 
-<a href="../../posts/cljs-name-resolving-2/">posts/cljs-name-resolving-2</a>
-
-<a href="../../posts/luhnybin/">posts/luhnybin</a>
-
-<a href="../../posts/more-rationals/">posts/more-rationals</a>
-
-<a href="../../posts/processing/">posts/processing</a>
-
-<a href="../../posts/rationals-followup/">posts/rationals-followup</a>
-
-<a href="../../posts/rationals-in-cljs/">posts/rationals-in-cljs</a>
-
-<a href="../../posts/scattered/">posts/scattered</a>
-
-<a href="../../posts/time-series-1/">posts/time-series-1</a>
-
-<a href="../../posts/time-series-2/">posts/time-series-2</a>
-
-
-<span class="popup">...
-<span class="balloon">
-
-<a href="../../posts/visibility-polygon/">posts/visibility-polygon</a>
-
-</span>
-</span>
+<a href="../../tags/visibility-polygon/" rel="tag">visibility-polygon</a>
 
 </div>
 
@@ -350,9 +304,11 @@ Links:
 
 
 
+
+
 <div class="pagedate">
-Last edited <span class="date">Thu Nov 10 21:00:25 2011</span>
-<!-- Created <span class="date">Thu Nov 10 21:00:25 2011</span> -->
+Last edited <span class="date">Tue Nov 22 14:00:04 2011</span>
+<!-- Created <span class="date">Tue Nov 22 12:29:29 2011</span> -->
 </div>
 
 </div>

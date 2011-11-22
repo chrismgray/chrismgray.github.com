@@ -8,6 +8,119 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>processing</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/processing/</guid>
+
+	<link>http://chrismgray.github.com//posts/processing/</link>
+
+
+	<category>clojure</category>
+
+	<category>lab-notes</category>
+
+	<category>processing</category>
+
+	<category>visibility-polygon</category>
+
+
+	<pubDate>Tue, 22 Nov 2011 12:29:29 -0700</pubDate>
+	<dcterms:modified>2011-11-22T21:00:04Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I mentioned yesterday that it would be nice to see the output of my
+  visibility polygon solution.  To that end, I created an extremely
+  simple drawing editor using &lt;a href=&quot;http://processing.org/&quot;&gt;Processing&lt;/a&gt;.  I have to say, I loved it.
+&lt;/p&gt;
+&lt;p&gt;
+  The most important feature to me is the extreme interactivity.  I
+  can change functions extremely quickly with my tools &amp;ndash; redefining a
+  Clojure function is either one or two keystrokes in emacs, depending
+  how I choose to do it &amp;ndash; so I like a graphics environment that
+  changes just as quickly.  This is what Processing, and in particular
+  &lt;code&gt;clj-processing&lt;/code&gt;, offers.  I was able to define a function that
+  draws the various objects (in this case, the polygon, the point
+  where the mouse is, and the visibility polygon of the mouse point
+  inside the polygon).  If I wanted to make any changes to this
+  function &amp;ndash; for example, changing the color of the point where the
+  mouse is &amp;ndash; I can simply redefine the function using my emacs tools
+  and the change shows up immediately on the drawing.
+&lt;/p&gt;
+&lt;p&gt;
+  I was able to use this to find a couple of minor bugs in my
+  visibility-polygon-finding code, but in general, it worked really
+  well on the first try.
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+
+
+&lt;p&gt;
+   There were a couple of things that slightly bothered me about
+   &lt;code&gt;clj-processing&lt;/code&gt;.  First, it used quite a lot of CPU just to
+   display a simple polygon without too many points.  I am probably
+   using it rather naïvely, so it is possible that this is my problem
+   and not the problem of &lt;code&gt;clj-processing&lt;/code&gt;.  However, the second
+   problem is just that &lt;code&gt;clj-processing&lt;/code&gt; is showing its age.  I think
+   it was probably one of the first Clojure libraries out there and
+   much of the coding style hasn&#39;t evolved with the Clojure best
+   practices that people use.  For example, some of the features do
+   not work if you only &lt;code&gt;require&lt;/code&gt; the library &amp;ndash; you must &lt;code&gt;use&lt;/code&gt; it.  I
+   try to only &lt;code&gt;require&lt;/code&gt; libraries, to avoid my namespace becoming
+   overly populated, so it is frustrating when that doesn&#39;t work.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Going forward &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I need to clean up the code a bit before I can put it up on github,
+  but it should be there soon.  It currently needs me to explicitly
+  call the function in order to find the visibility polygon.  I would
+  really like it to find the visibility polygon of any point where the
+  mouse is inside the polygon.  However, determining if a point is
+  inside a non-convex polygon tends to be a bit harder than it
+  sounds.  You can shoot a ray in one direction from a point, and
+  count the number of polygon edges that it crosses &amp;ndash; if it&#39;s even
+  you are outside and if it&#39;s odd you are inside &amp;ndash; but what happens
+  if the ray crosses a vertex?  There was a good experimental paper on
+  this problem at a recent EuroCG.
+&lt;/p&gt;
+&lt;p&gt;
+  So that&#39;s a slightly non-trivial problem.  I also coded an
+  implementation of the Voronoi Diagram problem recently.  I should
+  add a Processing UI to that as well.  I have a feeling that would be
+  the easier task to do next, and I would surely discover some bugs in
+  it while I did.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/processing/#comments</comments>
+
+</item>
+<item>
+
 	<title>visibility-polygon</title>
 
 
@@ -1181,111 +1294,6 @@ that made the biggest impression on me.
 
 
 	<comments>/posts/time-series-1/#comments</comments>
-
-</item>
-<item>
-
-	<title>cljs-name-resolving-2</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving-2/</guid>
-
-	<link>http://chrismgray.github.com//posts/cljs-name-resolving-2/</link>
-
-
-	<category>clojure</category>
-
-	<category>clojurescript</category>
-
-	<category>lab-notes</category>
-
-	<category>rationals</category>
-
-
-	<pubDate>Fri, 11 Nov 2011 18:07:52 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:28:40Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I was close with my guess in the last post.  What ended up working
-  was
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(let [name (munge (symbol (str (-&amp;gt; env :ns :name) &lt;span&gt;&quot;.&quot;&lt;/span&gt; (munge (str sym)))))
-&lt;/pre&gt;
-
-
-
-
-&lt;p&gt;
-  For some reason, &lt;code&gt;(name sym)&lt;/code&gt; would crash the compiler from the
-  &lt;code&gt;parse&lt;/code&gt; method but it wouldn&#39;t from other functions caled from the
-  &lt;code&gt;parse&lt;/code&gt; method.  I finally gave up worrying about that and just used
-  &lt;code&gt;(str sym)&lt;/code&gt; instead, since that is guaranteed to be the same in this
-  case &amp;ndash; there is an &lt;code&gt;(assert (not (namespace sym)))&lt;/code&gt; just before the
-  &lt;code&gt;let&lt;/code&gt; line.  I gave up on worrying about it, but someone who knows
-  more about the compiler than me might want to try to figure out why
-  it is.
-&lt;/p&gt;
-&lt;p&gt;
-  I also needed to allow names defined in &lt;code&gt;cljs.core&lt;/code&gt; but redefined in
-  another namespace to be called or referred to.  This involved
-  changing the &lt;code&gt;resolve-existing-var&lt;/code&gt; function.  Again, &lt;code&gt;cljs.core&lt;/code&gt; is
-  hardcoded:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&amp;gt; env :ns :name) :defs sym])))
-                &#39;cljs.core
-                (-&amp;gt; env :ns :name))]
-&lt;/pre&gt;
-
-
-
-
-&lt;p&gt;
-  I added the second test: it simply asks whether the variable has
-  been defined in the namespace.  If it hasn&#39;t, and the variable is
-  defined in &lt;code&gt;cljs.core&lt;/code&gt;, only then is the namespace set to
-  &lt;code&gt;cljs.core&lt;/code&gt;.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Remove the macros &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  It was also necessary to remove many of the macros from &lt;code&gt;core.clj&lt;/code&gt;
-  in order to redefine the functions that I needed to in my project.
-  As I noted earlier, my project is to implement rationals in
-  Clojurescript, so I need to redefine most of the functions that work
-  with numbers.  (At least, that is the way I am implementing it --
-  there may be a better way that I don&#39;t know about.)  Many of these
-  functions were implemented twice: once as a macro in &lt;code&gt;core.clj&lt;/code&gt; and
-  once as a function in &lt;code&gt;core.cljs&lt;/code&gt;.  I am obviously biased towards
-  being able to redefine these functions, so I think the macros should
-  be removed, but at least one of the implementations is redundant.
-&lt;/p&gt;
-
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/cljs-name-resolving-2/#comments</comments>
 
 </item>
 
