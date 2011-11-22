@@ -17,7 +17,65 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-22T21:04:09Z</updated>
+<updated>2011-11-22T21:07:01Z</updated>
+<entry>
+	<title>change to posts/processing on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_b5c17c7e15631f1c3eda9f3e158b0432643d436b/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-b5c17c7e15631f1c3eda9f3e158b0432643d436b"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-11-22T21:07:01Z</updated>
+	<published>2011-11-22T21:07:01Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-b5c17c7e15631f1c3eda9f3e158b0432643d436b&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/processing
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;14:07:01 11/22/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Recompile&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/processing on Hiking and Coding</title>
 
@@ -5851,64 +5909,6 @@ chrismgray
 
 
 Tried again to fix link&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/more-rationals on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_a7c461c0d195fcea2c76bc47055b06a10ac4b6a3/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-a7c461c0d195fcea2c76bc47055b06a10ac4b6a3"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-10T16:59:22Z</updated>
-	<published>2011-11-10T16:59:22Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-a7c461c0d195fcea2c76bc47055b06a10ac4b6a3&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/more-rationals
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;09:59:22 AM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Fixed link&lt;br /&gt;
 
 
 &lt;/div&gt;
