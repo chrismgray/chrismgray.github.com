@@ -12,6 +12,58 @@
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_c4c76052cbf2aa7f815435df8119d234a8ce56d4/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-c4c76052cbf2aa7f815435df8119d234a8ce56d4</link>
+
+	<pubDate>Wed, 23 Nov 2011 22:52:47 -0700</pubDate>
+	<dcterms:modified>2011-11-24T05:52:47Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-c4c76052cbf2aa7f815435df8119d234a8ce56d4&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/git-annex
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;22:52:47 11/23/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Try again&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to posts/git-annex on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
 	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_91d4c964c5eb557ac2eb9c00774f71cec5069230/</guid>
 
 	<link>http://chrismgray.github.com/recentchanges/#change-91d4c964c5eb557ac2eb9c00774f71cec5069230</link>
@@ -5247,58 +5299,6 @@ chrismgray
 
 
 Nothing&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to index on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f</link>
-
-	<pubDate>Thu, 10 Nov 2011 10:06:06 -0700</pubDate>
-	<dcterms:modified>2011-11-10T17:06:06Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-b5867de2e00ca3e805ad2f546f8d1eddeb75ba8f&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-index
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;10:06:06 AM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Seeing what happens if I remove actions&lt;br /&gt;
 
 
 &lt;/div&gt;
