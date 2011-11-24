@@ -219,9 +219,9 @@
     <tr>
         <td class="month-calendar-day-link Sunday"><a href="../../../posts/parsing-polygons/" title="parsing-polygons">20</a></td>
         <td class="month-calendar-day-link Monday"><a href="../../../posts/visibility-polygon/" title="visibility-polygon">21</a></td>
-        <td class="month-calendar-day-this-day Tuesday"><a href="../../../posts/processing/" title="processing">22</a></td>
-        <td class="month-calendar-day-future Wednesday">23</td>
-        <td class="month-calendar-day-nolink Thursday">24</td>
+        <td class="month-calendar-day-link Tuesday"><a href="../../../posts/processing/" title="processing">22</a></td>
+        <td class="month-calendar-day-this-day Wednesday"><a href="../../../posts/git-annex/" title="git-annex">23</a></td>
+        <td class="month-calendar-day-future Thursday">24</td>
         <td class="month-calendar-day-nolink Friday">25</td>
         <td class="month-calendar-day-nolink Saturday">26</td>
     </tr>
@@ -2365,6 +2365,193 @@ Tags:
 <a href="../../../tags/processing/" rel="tag">processing</a>
 
 <a href="../../../tags/visibility-polygon/" rel="tag">visibility-polygon</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="../../../posts/git-annex/">git-annex</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Using git annex </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I remember being a young pup using Debian and reading the mailing
+  lists.  I was always seeing the name <a href="http://joey.kitenet.net/blog/">Joey Hess</a> answering the tough
+  questions.  I had great respect for him then, and it has remained to
+  this day.  I have probably used his <code>unclutter</code> program for ten
+  years and it has never crashed.  I recently installed <code>ikiwiki</code> to
+  run this blog, <code>etckeeper</code> to track changes in my config files, and
+  I figured that I should try his other recent software: <code>git-annex</code>.
+</p>
+<p>
+  I came at it with two objectives: to be able to sync my podcasts and
+  to be able to manage my media files better.  The second has worked
+  really well, and the first <a href="http://git-annex.branchable.com/forum/Podcast_syncing_use-case/">is hopefully getting there soon</a>.  I will
+  concentrate on the second for the moment, since that is what I have
+  working the best.  There are multiple use-cases described on
+  &lt;a href="<a href="http://git-annex.branchable.com">http://git-annex.branchable.com</a>"&gt;http://git-annex.branchable.com&lt;/a&gt; &ndash; I will just go through mine.
+</p>
+<p>
+  All of my media files are on a terabyte external drive.  When I am
+  at home, I have it mounted as an NFS drive on <code>/media/mybook</code>.  I
+  have videos there, split into <code>tv</code> and <code>movies</code> folders, as well as
+  music in the <code>music</code> folder.  All of the folders are treated the
+  same, so I will just go through the procedure I used in the <code>music</code>
+  folder.
+</p>
+<p>
+  First, I set up the annex:
+</p>
+
+
+
+<pre class="src src-eshell">~ $ cd /media/mybook/music
+/media/mybook/music $ git init .
+/media/mybook/music $ git annex init mybook-music
+/media/mybook/music $ emacs .git/config
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ </pre>
+
+
+
+
+<p>
+  at this point, I set the <code>backends</code> keyword in the <code>[annex]</code> section
+  to either <code>SHA1E</code> or <code>SHA256E</code>.  There is a tradeoff there between
+  speed and safety &ndash; it is a bit more likely that two files hash to
+  the same file with <code>SHA1E</code>, but it is faster than <code>SHA256E</code>.  The
+  <code>E</code> at the end of the hash means that the filename extension is
+  preserved in the hashing.  This is important for some mp3 players
+  and other programs that can not tell what type a file is without an
+  extension.  The next command takes a long time with a lot of files:
+</p>
+
+
+
+<pre class="src src-eshell">/media/mybook/music $ git annex add .
+[All the files are hashed and their contents are put into .git/annex]
+[You will see that all your files are now symlinks to files in .git/annex]
+/media/mybook/music $ git commit -m <span>"Added my files"</span>
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ </pre>
+
+
+
+
+<p>
+  Now it is possible to clone this repository back on the laptop
+</p>
+
+
+
+<pre class="src src-eshell">~ $ git clone /media/mybook/music
+~ $ cd music
+~/music $ git annex init laptop-music
+~/music $ git remote add mybook-music /media/mybook/music
+~/music $ cd /media/mybook/music
+/media/mybook/music $ git remote add laptop-music ~/music
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ </pre>
+
+
+
+
+<p>
+  And now all of the cool stuff can begin.  You can look inside the
+  <code>~/music</code> directory and see that it appears that all your files are
+  there.  However, they are not taking up any space.  What is
+  happening is that they are broken symlinks to objects in
+  <code>~/music/.git/annex</code>.  If I want to listen to some of the music, I
+  move it over to the laptop with the following command
+</p>
+
+
+
+<pre class="src src-eshell">~/music $ git annex get --from mybook-music Beatles/
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ </pre>
+
+
+
+
+<p>
+  I can now take my laptop on the plane and listen to the Beatles.
+  When I'm back from my trip, I can free up the space by doing
+</p>
+
+
+
+<pre class="src src-eshell">~/music $ git annex drop Beatles/
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ </pre>
+
+
+
+
+<p>
+  Suppose I obtain some new music, getting into the Rolling Stones.
+  Then I can use <code>git annex add</code> to add the Stones into my collection,
+  <code>git commit</code> them and <code>git pull</code> in the correct repository to
+  duplicate the information.  I can then use <code>git annex copy</code> or <code>git   annex move</code> to put the files where I want them.
+</p>
+<p>
+  For now, I have a queue of unseen videos and music that I want to
+  hear on my laptop, while the bulk of my media collection sits on my
+  external drive.  I can take what I want with me and not worry about
+  my whole collection using up all of my hard drive.  I can see what I
+  have in a particular repository with the <code>git annex find</code> command.
+</p>
+<p>
+  As I said, there are many other uses for git-annex and features that
+  I have not yet learned.  One thing that I am interested in trying
+  out is using the <a href="http://git-annex.branchable.com/special_remotes/web/">web</a> as a repository.
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wed Nov 23 20:02:00 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="../../../tags/git/" rel="tag">git</a>
+
+<a href="../../../tags/git-annex/" rel="tag">git-annex</a>
 
 </span>
 

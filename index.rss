@@ -8,6 +8,176 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>git-annex</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/git-annex/</guid>
+
+	<link>http://chrismgray.github.com//posts/git-annex/</link>
+
+
+	<category>git</category>
+
+	<category>git-annex</category>
+
+
+	<pubDate>Wed, 23 Nov 2011 20:02:00 -0700</pubDate>
+	<dcterms:modified>2011-11-24T05:46:30Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Using git annex &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I remember being a young pup using Debian and reading the mailing
+  lists.  I was always seeing the name &lt;a href=&quot;http://joey.kitenet.net/blog/&quot;&gt;Joey Hess&lt;/a&gt; answering the tough
+  questions.  I had great respect for him then, and it has remained to
+  this day.  I have probably used his &lt;code&gt;unclutter&lt;/code&gt; program for ten
+  years and it has never crashed.  I recently installed &lt;code&gt;ikiwiki&lt;/code&gt; to
+  run this blog, &lt;code&gt;etckeeper&lt;/code&gt; to track changes in my config files, and
+  I figured that I should try his other recent software: &lt;code&gt;git-annex&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  I came at it with two objectives: to be able to sync my podcasts and
+  to be able to manage my media files better.  The second has worked
+  really well, and the first &lt;a href=&quot;http://git-annex.branchable.com/forum/Podcast_syncing_use-case/&quot;&gt;is hopefully getting there soon&lt;/a&gt;.  I will
+  concentrate on the second for the moment, since that is what I have
+  working the best.  There are multiple use-cases described on
+  &amp;lt;a href=&quot;&lt;a href=&quot;http://git-annex.branchable.com&quot;&gt;http://git-annex.branchable.com&lt;/a&gt;&quot;&amp;gt;http://git-annex.branchable.com&amp;lt;/a&amp;gt; &amp;ndash; I will just go through mine.
+&lt;/p&gt;
+&lt;p&gt;
+  All of my media files are on a terabyte external drive.  When I am
+  at home, I have it mounted as an NFS drive on &lt;code&gt;/media/mybook&lt;/code&gt;.  I
+  have videos there, split into &lt;code&gt;tv&lt;/code&gt; and &lt;code&gt;movies&lt;/code&gt; folders, as well as
+  music in the &lt;code&gt;music&lt;/code&gt; folder.  All of the folders are treated the
+  same, so I will just go through the procedure I used in the &lt;code&gt;music&lt;/code&gt;
+  folder.
+&lt;/p&gt;
+&lt;p&gt;
+  First, I set up the annex:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-eshell&quot;&gt;~ $ cd /media/mybook/music
+/media/mybook/music $ git init .
+/media/mybook/music $ git annex init mybook-music
+/media/mybook/music $ emacs .git/config
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ &lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  at this point, I set the &lt;code&gt;backends&lt;/code&gt; keyword in the &lt;code&gt;[annex]&lt;/code&gt; section
+  to either &lt;code&gt;SHA1E&lt;/code&gt; or &lt;code&gt;SHA256E&lt;/code&gt;.  There is a tradeoff there between
+  speed and safety &amp;ndash; it is a bit more likely that two files hash to
+  the same file with &lt;code&gt;SHA1E&lt;/code&gt;, but it is faster than &lt;code&gt;SHA256E&lt;/code&gt;.  The
+  &lt;code&gt;E&lt;/code&gt; at the end of the hash means that the filename extension is
+  preserved in the hashing.  This is important for some mp3 players
+  and other programs that can not tell what type a file is without an
+  extension.  The next command takes a long time with a lot of files:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-eshell&quot;&gt;/media/mybook/music $ git annex add .
+[All the files are hashed and their contents are put into .git/annex]
+[You will see that all your files are now symlinks to files in .git/annex]
+/media/mybook/music $ git commit -m &lt;span&gt;&quot;Added my files&quot;&lt;/span&gt;
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ &lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  Now it is possible to clone this repository back on the laptop
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-eshell&quot;&gt;~ $ git clone /media/mybook/music
+~ $ cd music
+~/music $ git annex init laptop-music
+~/music $ git remote add mybook-music /media/mybook/music
+~/music $ cd /media/mybook/music
+/media/mybook/music $ git remote add laptop-music ~/music
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ &lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  And now all of the cool stuff can begin.  You can look inside the
+  &lt;code&gt;~/music&lt;/code&gt; directory and see that it appears that all your files are
+  there.  However, they are not taking up any space.  What is
+  happening is that they are broken symlinks to objects in
+  &lt;code&gt;~/music/.git/annex&lt;/code&gt;.  If I want to listen to some of the music, I
+  move it over to the laptop with the following command
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-eshell&quot;&gt;~/music $ git annex get --from mybook-music Beatles/
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ &lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  I can now take my laptop on the plane and listen to the Beatles.
+  When I&#39;m back from my trip, I can free up the space by doing
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-eshell&quot;&gt;~/music $ git annex drop Beatles/
+Welcome to the Emacs shell
+
+/tmp/Nty3uKzVdj $ &lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  Suppose I obtain some new music, getting into the Rolling Stones.
+  Then I can use &lt;code&gt;git annex add&lt;/code&gt; to add the Stones into my collection,
+  &lt;code&gt;git commit&lt;/code&gt; them and &lt;code&gt;git pull&lt;/code&gt; in the correct repository to
+  duplicate the information.  I can then use &lt;code&gt;git annex copy&lt;/code&gt; or &lt;code&gt;git   annex move&lt;/code&gt; to put the files where I want them.
+&lt;/p&gt;
+&lt;p&gt;
+  For now, I have a queue of unseen videos and music that I want to
+  hear on my laptop, while the bulk of my media collection sits on my
+  external drive.  I can take what I want with me and not worry about
+  my whole collection using up all of my hard drive.  I can see what I
+  have in a particular repository with the &lt;code&gt;git annex find&lt;/code&gt; command.
+&lt;/p&gt;
+&lt;p&gt;
+  As I said, there are many other uses for git-annex and features that
+  I have not yet learned.  One thing that I am interested in trying
+  out is using the &lt;a href=&quot;http://git-annex.branchable.com/special_remotes/web/&quot;&gt;web&lt;/a&gt; as a repository.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/git-annex/#comments</comments>
+
+</item>
+<item>
+
 	<title>processing</title>
 
 
@@ -1179,122 +1349,6 @@ that made the biggest impression on me.
 
 
 	<comments>/posts/time-series-2/#comments</comments>
-
-</item>
-<item>
-
-	<title>time-series-1</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/time-series-1/</guid>
-
-	<link>http://chrismgray.github.com//posts/time-series-1/</link>
-
-
-	<category>clojure</category>
-
-	<category>programming-challenge</category>
-
-	<category>time-series</category>
-
-
-	<pubDate>Sat, 12 Nov 2011 09:27:15 -0700</pubDate>
-	<dcterms:modified>2011-11-15T20:22:37Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  One of the interesting aspects of looking for a job this time around
-  is that most of the companies that I have applied at have asked me
-  to do a programming challenge as a kind of weed-out step.  It has
-  been fun and a good way of keeping in practice.  In fact, I have
-  resolved to learn at least one new feature of the programming
-  language that I am using for each one.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Time series framework &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  My latest programming challenge is to build a framework for &lt;a href=&quot;http://en.wikipedia.org/wiki/Time_series&quot;&gt;time series&lt;/a&gt; generation.  The framework will take a function \(f\) that
-  looks at the \(n\) previous timesteps and returns the next timestep.
-  The other goals are:
-&lt;/p&gt;&lt;ul&gt;
-&lt;li&gt;Efficiency
-
-&lt;p&gt;    
-    Adding a new timestep should be a \(O(1)\) operation.
-&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Ease of debugging
-
-&lt;p&gt;    
-    If an error occurs in computing the next timestep, the stack trace
-    should be easily comprehensible and show the current state of the
-    time series.
-&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Traceability
-
-&lt;p&gt;    
-    It should be possible to see the differences between two different
-    functions.  
-&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Ideas so far &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-
-
-&lt;p&gt;
-  This seems like the perfect time to learn about &lt;a href=&quot;http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/&quot;&gt;monads&lt;/a&gt;.  Yikes!
-  I&#39;ve tried before, but have never seen a practical use for them.  As
-  far as I understand so far, they should be very good for storing the
-  state (&lt;i&gt;i.e.&lt;/i&gt; the previous \(n\) timesteps).
-&lt;/p&gt;
-&lt;p&gt;
-  A simpler solution might be just to use lazy sequences.  There&#39;s not
-  much to such a solution, so I might just implement it first and then
-  try to replicate it with monads.  In this solution, the previous \(n\)
-  timesteps are simply the last \(n\) elements of the lazy sequence.
-  Getting those elements might be tough to do in constant time, but I
-  have a feeling it&#39;s possible.
-&lt;/p&gt;
-&lt;p&gt;
-  On the debugging front, there shouldn&#39;t be too much complexity: it
-  should just be a combination of &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt;.
-  There&#39;s also &lt;code&gt;clojure.stacktrace&lt;/code&gt; if I want to get even fancier.
-&lt;/p&gt;
-&lt;p&gt;
-  As far as tracing goes, I might have a look at &lt;code&gt;tools.trace&lt;/code&gt; to see
-  if there&#39;s anything interesting there that I can use.  I think that
-  monads might provide another way of doing the same thing.  We&#39;ll see
-  which is simpler.  It might also be nice to use &lt;a href=&quot;http://incanter.org&quot;&gt;incanter&lt;/a&gt; to display
-  the differences between two (or more) different functions.
-&lt;/p&gt;
-&lt;p&gt;
-  On to the coding!
-&lt;/p&gt;
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/time-series-1/#comments</comments>
 
 </item>
 
