@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-27T17:07:34Z</updated>
+<updated>2011-11-27T19:02:44Z</updated>
 <entry>
 	<title>clojure-sorting</title>
 
@@ -37,7 +37,7 @@
 	<category term="sort" />
 
 
-	<updated>2011-11-27T17:07:34Z</updated>
+	<updated>2011-11-27T19:02:44Z</updated>
 	<published>2011-11-27T14:23:34Z</published>
 
 	<content type="html" xml:lang="en">
@@ -204,10 +204,10 @@
    \(k - 1\) times.  Or you could just &lt;code&gt;(take k (heap-sort input))&lt;/code&gt;.
    The first would take \(O(kn)\) time, whereas the second would take
    \(O(k \log n + n)\) time.  In many practical situations, \(k\) is
-   \(O(\log n)\), which means that the first takes \(O(n \log n)\)
-   time, whereas the second takes only \(O(n)\) time.  Essentially,
-   the first is no better than the second solution with a non-lazy
-   sorting algorithm.
+   \(\Omega(\log n)\), which means that the first takes \(\Omega(n
+   \log n)\) time, whereas the second takes only \(O(n)\) time.
+   Essentially, the first is no better than the second solution with a
+   non-lazy sorting algorithm.
 &lt;/p&gt;
 &lt;/div&gt;
 

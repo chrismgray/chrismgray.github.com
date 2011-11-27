@@ -24,7 +24,7 @@
 
 
 	<pubDate>Sun, 27 Nov 2011 07:23:34 -0700</pubDate>
-	<dcterms:modified>2011-11-27T17:07:34Z</dcterms:modified>
+	<dcterms:modified>2011-11-27T19:02:44Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
@@ -189,10 +189,10 @@
    \(k - 1\) times.  Or you could just &lt;code&gt;(take k (heap-sort input))&lt;/code&gt;.
    The first would take \(O(kn)\) time, whereas the second would take
    \(O(k \log n + n)\) time.  In many practical situations, \(k\) is
-   \(O(\log n)\), which means that the first takes \(O(n \log n)\)
-   time, whereas the second takes only \(O(n)\) time.  Essentially,
-   the first is no better than the second solution with a non-lazy
-   sorting algorithm.
+   \(\Omega(\log n)\), which means that the first takes \(\Omega(n
+   \log n)\) time, whereas the second takes only \(O(n)\) time.
+   Essentially, the first is no better than the second solution with a
+   non-lazy sorting algorithm.
 &lt;/p&gt;
 &lt;/div&gt;
 
