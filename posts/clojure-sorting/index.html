@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>clojure-sorting</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+clojure-sorting
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Penance </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  In a job interview last week I said a couple of things related to
+  sorting in Clojure that turned out to be incorrect when I checked
+  them.  This is my way of making up for them &ndash; if I can make them
+  true, then no one will notice.  Though to be fair, I'm sure that I'm
+  the only one that thinks that way.
+</p>
+<p>
+  The first thing I said was that heap-sort is my favorite sorting
+  algorithm, but then I declined to implement it, preferring to
+  implement merge-sort instead.  I think this is actually pretty
+  reasonable in an interview situation &ndash; heap-sort is a conceptually
+  more difficult sorting algorithm, so being able to remember it on
+  the spot is more difficult.  The second thing I said was that
+  Clojure itself uses heap-sort and that given its love affair with
+  laziness that it would not be unreasonable to assume that <code>(first   (sort lst))</code> was a linear-time operation.  I might have read
+  something like this on a mailing list or IRC, but it is not
+  correct.  Clojure currently uses Java's <code>sort</code> function, which is a
+  slightly-modified merge-sort.  There is not much point in making
+  that algorithm lazy, because getting the first element from the
+  sorted list requires \(O(n \log n)\) time anyway.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Heap Sort </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  For those that are not familiar with it, heap-sort is something that
+  is usually taught in a second-year undergraduate Computer Science
+  class.  So it's not <b>that</b> difficult an algorithm, but it does
+  require some thinking, and there is some fancy analysis that goes
+  into part of it.  For a full discussion, see the <a href="http://www.amazon.com/gp/product/0262033844/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=hikiandcodi-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399369&amp;creativeASIN=0262033844">Introduction to Algorithms</a> book by Cormen, Lieserson, Rivest, and Stein.
+</p>
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Heap </h3>
+<div class="outline-text-3" id="text-2-1">
+
+
+<p>
+   To start with, a <i>heap</i> is conceptually a tree where values are
+   stored at the nodes.  The largest value of all the values stored in
+   subtrees is stored at the root and the two descendant trees are
+   heaps.  Heaps are usually required to be as close to balanced as
+   possible &ndash; if any level of the tree has leaves, they are all
+   bunched to the right, and all the rest of the leaves are at the
+   next level.
+</p>
+<p>
+   Such a tree is usually implemented as an array, where the child
+   nodes of a node can be obtained by some simple arithmetic on the
+   index of the node in the array.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Building a Heap </h3>
+<div class="outline-text-3" id="text-2-2">
+
+
+<p>
+   Given the definition, there is an intuitive algorithm for building
+   such a heap on a set of numbers: first find the largest number in
+   your set and have it be the root of the heap, then split the rest
+   of the numbers in half, and recursively make heaps on those sets.
+</p>
+<p>
+   Such an algorithm is clearly correct, but it is also clearly
+   \(\Theta(n \log n)\).  We can do better with a bottom-up algorithm.
+   If we continue imagining the heap as a tree, we start by putting
+   the input numbers into the tree willy-nilly.  This clearly does not
+   satisfy the heap properties laid out above.  However, some of it
+   does satisfy the heap properties &ndash; the leaves of the tree are
+   trivially heaps.  If we go up one level from the leaves, we can fix
+   the trees rooted there by exchanging the root of the tree with its
+   largest child (or not exchanging it if it's already the largest of
+   the three).  Higher levels are a bit more difficult, because if the
+   root of a tree is exchanged, then we must make sure to fix the tree
+   that it ends up being the root of.  You can imagine the root of a
+   tree traveling down the heap until it is larger than both of its
+   children.
+</p>
+<p>
+   The correctness of this algorithm is a bit harder to see and it
+   also appears to take \(O(n \log n)\) time.  It does, but there is a
+   slightly more sophisticated analysis that shows that it is really
+   \(\Theta(n)\).  I won't go into the analysis, but a hint is that
+   most of the values don't actually travel very far in the tree.  
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">Using a heap to sort </h3>
+<div class="outline-text-3" id="text-2-3">
+
+
+<p>
+   With the heap properties in mind, we can easily see how to get the
+   largest value of a set of numbers &ndash; just take the top element from
+   the heap.  How can we use the heap properties to sort?  Well, we
+   want the largest number, then the largest number that remains, then
+   the largest number that remains after that, and so on.  So if we
+   can take the largest number from the heap and then fix the heap so
+   that it retains the heap properties, then we'd be done.
+</p>
+<p>
+   We just devised a way to fix heaps when building the heap, so we
+   use that.  What we do is to take the very last node in the heap
+   (which is not necessarily the smallest, but it doesn't hurt to
+   think about it as the smallest) and put that at the top of the
+   heap.  The resulting tree is clearly not a heap, but if we call the
+   algorithm to fix heaps on the root of the tree, then we end up with
+   a heap again.  The node that we put on top of the heap might end up
+   traveling all the way to the bottom, so this update takes
+   \(\Theta(\log n)\) time.  Thus if we sort the entire input set, we
+   have a \(\Theta(n \log n)\) algorithm.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4">Advantages </h3>
+<div class="outline-text-3" id="text-2-4">
+
+
+<p>
+   That's the best we can do theoretically, which is great, but the
+   Java <code>sort</code> algorithm is also \(\Theta(n \log n)\), so why is there
+   any advantage to using heap-sort?  In a language where laziness is
+   embraced (such as Clojure), heap-sort can be made lazy.  That is,
+   the next element of the sorted list can be computed only when it is
+   needed.  Since the build-heap procedure described above takes
+   linear time, getting the first element from the sorted list takes
+   \(O(n)\) time.  Each subsequent element then takes \(O(\log n)\)
+   time.  Thus, if only a small number of elements from the sorted
+   list are needed, then this lazy version of heap-sort is
+   theoretically faster than other sorts.
+</p>
+<p>
+   I can think of situations where this would actually have practical
+   advantages.  For example, what if you were writing a search engine
+   and wanted to obtain the \(k\) best results?  You could write an
+   ad-hoc function that found the best result, removed it and recursed
+   \(k - 1\) times.  Or you could just <code>(take k (heap-sort input))</code>.
+   The first would take \(O(kn)\) time, whereas the second would take
+   \(O(k \log n + n)\) time.  In many practical situations, \(k\) is
+   \(O(\log n)\), which means that the first takes \(O(n \log n)\)
+   time, whereas the second takes only \(O(n)\) time.  Essentially,
+   the first is no better than the second solution with a non-lazy
+   sorting algorithm.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5">Disadvantages </h3>
+<div class="outline-text-3" id="text-2-5">
+
+
+<p>
+   Heap-sort has some disadvantages compared to other sorts of <code>sort</code>
+   algorithms.  The least theoretically significant is that the
+   constants hidden in the big-O notation are higher than other
+   sorting algorithms (tuned versions of quicksort can have extremely
+   small constants).
+</p>
+<p>
+   Another disadvantage can be seen when dealing with data sets so
+   large that they no longer fit in the computer's main memory.
+   Something like merge-sort can be modified fairly easily so that the
+   number I/O operations is minimized.  I haven't thought about it too
+   deeply, but this doesn't seem quite so easy with heap-sort.
+   However, I think that people dealing with such large datasets
+   should probably be using specialized libraries anyway, so perhaps
+   that isn't too bad.
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Implementation </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  This whole discussion is a bit useless if it only remains at the
+  theoretical level.  I have an implementation <a href="https://github.com/chrismgray/clojure-heap-sort">in my github repo</a> that
+  implements most of the ideas that are given above.  The code is
+  highly optimized so that it is somewhat competitive with the native
+  Java implementation.  This makes the code on the HEAD of the
+  <code>master</code> branch somewhat less than readable.  However, the first
+  commit to the repository used Clojure vectors and a functional
+  style, so if you would like to understand the code, you might start
+  there. 
+</p>
+<p>
+  I (unfortunately) needed to use Java arrays and mutation rather than
+  the more functional style that I have gotten used to, but the
+  results speak for themselves.  Finding the first few elements of a
+  sorted array is significantly faster than the Java version.  Finding
+  the entire sorted list is somewhat slower than the Java version, but
+  not too much.  This is not surprising for a couple of reasons.
+  First, heap-sort tends to have larger constants than other sorting
+  methods.  Secondly, this code is one day old.  The Java sort method
+  has had years to be optimized.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Conclusion </h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+  It may be dreaming, but I would love to see this idea (if not this
+  implementation) put into Clojure proper.  I think the advantages
+  from laziness outweigh the small constant slowdown versus using
+  Java's <code>sort</code>.
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="../../tags/sort/" rel="tag">sort</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sun Nov 27 10:07:34 2011</span>
+<!-- Created <span class="date">Sun Nov 27 07:23:34 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

@@ -214,14 +214,14 @@ Hiking and Coding
         <td class="month-calendar-day-link Sunday"><a href="./posts/parsing-polygons/" title="parsing-polygons">20</a></td>
         <td class="month-calendar-day-link Monday"><a href="./posts/visibility-polygon/" title="visibility-polygon">21</a></td>
         <td class="month-calendar-day-link Tuesday"><a href="./posts/processing/" title="processing">22</a></td>
-        <td class="month-calendar-day-this-day Wednesday"><a href="./posts/git-annex/" title="git-annex">23</a></td>
-        <td class="month-calendar-day-future Thursday">24</td>
+        <td class="month-calendar-day-link Wednesday"><a href="./posts/git-annex/" title="git-annex">23</a></td>
+        <td class="month-calendar-day-nolink Thursday">24</td>
         <td class="month-calendar-day-nolink Friday">25</td>
         <td class="month-calendar-day-nolink Saturday">26</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-nolink Sunday">27</td>
-        <td class="month-calendar-day-nolink Monday">28</td>
+        <td class="month-calendar-day-this-day Sunday"><a href="./posts/clojure-sorting/" title="clojure-sorting">27</a></td>
+        <td class="month-calendar-day-future Monday">28</td>
         <td class="month-calendar-day-nolink Tuesday">29</td>
         <td class="month-calendar-day-nolink Wednesday">30</td>
         <td class="month-calendar-day-noday Thursday">&nbsp;</td>
@@ -252,7 +252,8 @@ Hiking and Coding
 </li><li><span class="smallestPC"><a href="./tags/org-mode/">org-mode</a></span>
 </li><li><span class="smallestPC"><a href="./tags/processing/">processing</a></span>
 </li><li><span class="smallPC"><a href="./tags/programming-challenge/">programming-challenge</a></span>
-</li><li><span class="normalPC"><a href="./tags/rationals/">rationals</a></span>
+</li><li><span class="smallPC"><a href="./tags/rationals/">rationals</a></span>
+</li><li><span class="smallestPC"><a href="./tags/sort/">sort</a></span>
 </li><li><span class="smallestPC"><a href="./tags/spot/">spot</a></span>
 </li><li><span class="smallestPC"><a href="./tags/thrush/">thrush</a></span>
 </li><li><span class="smallestPC"><a href="./tags/time-series/">time-series</a></span>
@@ -261,10 +262,72 @@ Hiking and Coding
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-fe6e7297fe625a2b6addfa2860c647ec760cea42.png" alt="graph" /></p>
+<img src="./sidebar/sparkline-998409d39635881b4ce75dde98d17feabe913259.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Wed Nov 23 22:45:02 2011</span> (45 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Sun Nov 27 10:00:04 2011</span> (47 posts)</p>
 
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: Spent all day optimizing some #clojure. Then learned how to typehint arrays with ^objects. Sped up the code ~ 200x.
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Sun Nov 27 00:05:40 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: @jaspervl Listening to the Admiral Freebee that you gave me years ago. It's great! Don't know why I didn't listen earlier.
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Sat Nov 26 11:50:57 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
 <div class="microblog">
 
 <div class="inlinecontent">
@@ -358,68 +421,6 @@ frogmanjack: @ShreddedGold Yup, it went well I think. I'll probably find out soo
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: @ShreddedGold Flying back home from LA.
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Sun Nov 20 09:19:07 2011</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: Seriously, did all of Calgary go to Disneyland this week?
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Sat Nov 19 12:57:14 2011</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
 
 
 </div>
@@ -434,6 +435,294 @@ frogmanjack: Seriously, did all of Calgary go to Disneyland this week?
 
 
 <a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/clojure-sorting/">clojure-sorting</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Penance </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  In a job interview last week I said a couple of things related to
+  sorting in Clojure that turned out to be incorrect when I checked
+  them.  This is my way of making up for them &ndash; if I can make them
+  true, then no one will notice.  Though to be fair, I'm sure that I'm
+  the only one that thinks that way.
+</p>
+<p>
+  The first thing I said was that heap-sort is my favorite sorting
+  algorithm, but then I declined to implement it, preferring to
+  implement merge-sort instead.  I think this is actually pretty
+  reasonable in an interview situation &ndash; heap-sort is a conceptually
+  more difficult sorting algorithm, so being able to remember it on
+  the spot is more difficult.  The second thing I said was that
+  Clojure itself uses heap-sort and that given its love affair with
+  laziness that it would not be unreasonable to assume that <code>(first   (sort lst))</code> was a linear-time operation.  I might have read
+  something like this on a mailing list or IRC, but it is not
+  correct.  Clojure currently uses Java's <code>sort</code> function, which is a
+  slightly-modified merge-sort.  There is not much point in making
+  that algorithm lazy, because getting the first element from the
+  sorted list requires \(O(n \log n)\) time anyway.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Heap Sort </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  For those that are not familiar with it, heap-sort is something that
+  is usually taught in a second-year undergraduate Computer Science
+  class.  So it's not <b>that</b> difficult an algorithm, but it does
+  require some thinking, and there is some fancy analysis that goes
+  into part of it.  For a full discussion, see the <a href="http://www.amazon.com/gp/product/0262033844/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=hikiandcodi-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399369&amp;creativeASIN=0262033844">Introduction to Algorithms</a> book by Cormen, Lieserson, Rivest, and Stein.
+</p>
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Heap </h3>
+<div class="outline-text-3" id="text-2-1">
+
+
+<p>
+   To start with, a <i>heap</i> is conceptually a tree where values are
+   stored at the nodes.  The largest value of all the values stored in
+   subtrees is stored at the root and the two descendant trees are
+   heaps.  Heaps are usually required to be as close to balanced as
+   possible &ndash; if any level of the tree has leaves, they are all
+   bunched to the right, and all the rest of the leaves are at the
+   next level.
+</p>
+<p>
+   Such a tree is usually implemented as an array, where the child
+   nodes of a node can be obtained by some simple arithmetic on the
+   index of the node in the array.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Building a Heap </h3>
+<div class="outline-text-3" id="text-2-2">
+
+
+<p>
+   Given the definition, there is an intuitive algorithm for building
+   such a heap on a set of numbers: first find the largest number in
+   your set and have it be the root of the heap, then split the rest
+   of the numbers in half, and recursively make heaps on those sets.
+</p>
+<p>
+   Such an algorithm is clearly correct, but it is also clearly
+   \(\Theta(n \log n)\).  We can do better with a bottom-up algorithm.
+   If we continue imagining the heap as a tree, we start by putting
+   the input numbers into the tree willy-nilly.  This clearly does not
+   satisfy the heap properties laid out above.  However, some of it
+   does satisfy the heap properties &ndash; the leaves of the tree are
+   trivially heaps.  If we go up one level from the leaves, we can fix
+   the trees rooted there by exchanging the root of the tree with its
+   largest child (or not exchanging it if it's already the largest of
+   the three).  Higher levels are a bit more difficult, because if the
+   root of a tree is exchanged, then we must make sure to fix the tree
+   that it ends up being the root of.  You can imagine the root of a
+   tree traveling down the heap until it is larger than both of its
+   children.
+</p>
+<p>
+   The correctness of this algorithm is a bit harder to see and it
+   also appears to take \(O(n \log n)\) time.  It does, but there is a
+   slightly more sophisticated analysis that shows that it is really
+   \(\Theta(n)\).  I won't go into the analysis, but a hint is that
+   most of the values don't actually travel very far in the tree.  
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">Using a heap to sort </h3>
+<div class="outline-text-3" id="text-2-3">
+
+
+<p>
+   With the heap properties in mind, we can easily see how to get the
+   largest value of a set of numbers &ndash; just take the top element from
+   the heap.  How can we use the heap properties to sort?  Well, we
+   want the largest number, then the largest number that remains, then
+   the largest number that remains after that, and so on.  So if we
+   can take the largest number from the heap and then fix the heap so
+   that it retains the heap properties, then we'd be done.
+</p>
+<p>
+   We just devised a way to fix heaps when building the heap, so we
+   use that.  What we do is to take the very last node in the heap
+   (which is not necessarily the smallest, but it doesn't hurt to
+   think about it as the smallest) and put that at the top of the
+   heap.  The resulting tree is clearly not a heap, but if we call the
+   algorithm to fix heaps on the root of the tree, then we end up with
+   a heap again.  The node that we put on top of the heap might end up
+   traveling all the way to the bottom, so this update takes
+   \(\Theta(\log n)\) time.  Thus if we sort the entire input set, we
+   have a \(\Theta(n \log n)\) algorithm.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4">Advantages </h3>
+<div class="outline-text-3" id="text-2-4">
+
+
+<p>
+   That's the best we can do theoretically, which is great, but the
+   Java <code>sort</code> algorithm is also \(\Theta(n \log n)\), so why is there
+   any advantage to using heap-sort?  In a language where laziness is
+   embraced (such as Clojure), heap-sort can be made lazy.  That is,
+   the next element of the sorted list can be computed only when it is
+   needed.  Since the build-heap procedure described above takes
+   linear time, getting the first element from the sorted list takes
+   \(O(n)\) time.  Each subsequent element then takes \(O(\log n)\)
+   time.  Thus, if only a small number of elements from the sorted
+   list are needed, then this lazy version of heap-sort is
+   theoretically faster than other sorts.
+</p>
+<p>
+   I can think of situations where this would actually have practical
+   advantages.  For example, what if you were writing a search engine
+   and wanted to obtain the \(k\) best results?  You could write an
+   ad-hoc function that found the best result, removed it and recursed
+   \(k - 1\) times.  Or you could just <code>(take k (heap-sort input))</code>.
+   The first would take \(O(kn)\) time, whereas the second would take
+   \(O(k \log n + n)\) time.  In many practical situations, \(k\) is
+   \(O(\log n)\), which means that the first takes \(O(n \log n)\)
+   time, whereas the second takes only \(O(n)\) time.  Essentially,
+   the first is no better than the second solution with a non-lazy
+   sorting algorithm.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5">Disadvantages </h3>
+<div class="outline-text-3" id="text-2-5">
+
+
+<p>
+   Heap-sort has some disadvantages compared to other sorts of <code>sort</code>
+   algorithms.  The least theoretically significant is that the
+   constants hidden in the big-O notation are higher than other
+   sorting algorithms (tuned versions of quicksort can have extremely
+   small constants).
+</p>
+<p>
+   Another disadvantage can be seen when dealing with data sets so
+   large that they no longer fit in the computer's main memory.
+   Something like merge-sort can be modified fairly easily so that the
+   number I/O operations is minimized.  I haven't thought about it too
+   deeply, but this doesn't seem quite so easy with heap-sort.
+   However, I think that people dealing with such large datasets
+   should probably be using specialized libraries anyway, so perhaps
+   that isn't too bad.
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Implementation </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  This whole discussion is a bit useless if it only remains at the
+  theoretical level.  I have an implementation <a href="https://github.com/chrismgray/clojure-heap-sort">in my github repo</a> that
+  implements most of the ideas that are given above.  The code is
+  highly optimized so that it is somewhat competitive with the native
+  Java implementation.  This makes the code on the HEAD of the
+  <code>master</code> branch somewhat less than readable.  However, the first
+  commit to the repository used Clojure vectors and a functional
+  style, so if you would like to understand the code, you might start
+  there. 
+</p>
+<p>
+  I (unfortunately) needed to use Java arrays and mutation rather than
+  the more functional style that I have gotten used to, but the
+  results speak for themselves.  Finding the first few elements of a
+  sorted array is significantly faster than the Java version.  Finding
+  the entire sorted list is somewhat slower than the Java version, but
+  not too much.  This is not surprising for a couple of reasons.
+  First, heap-sort tends to have larger constants than other sorting
+  methods.  Secondly, this code is one day old.  The Java sort method
+  has had years to be optimized.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Conclusion </h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+  It may be dreaming, but I would love to see this idea (if not this
+  implementation) put into Clojure proper.  I think the advantages
+  from laziness outweigh the small constant slowdown versus using
+  Java's <code>sort</code>.
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun Nov 27 07:23:34 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/clojure/" rel="tag">clojure</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/sort/" rel="tag">sort</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
@@ -1788,146 +2077,6 @@ Tags:
 <a href="./tags/AT/" rel="tag">AT</a>
 
 <a href="./tags/hiking/" rel="tag">hiking</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/time-series-2/">time-series-2</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">What we have so far </h2>
-<div class="outline-text-2" id="text-1">
-
-
-<p>
-  Well, yesterday was either a very productive day or a very lucky day
-  for me.  I read up on monads &ndash; I found that <a href="http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/">khinsen's tutorials</a> and
-  <a href="http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_101.html">Jim Duey's tutorials</a> complemented each other nicely.  Then I went
-  for a long run (about 18 miles I think) and let the ideas sink in.
-  When I got home, I found <code>state-m</code> and <code>m-seq</code> and the job was
-  almost done.
-</p>
-<p>
-  Just as a reminder, <a href="http://chrismgray.github.com/posts/time-series-1">yesterday's task</a> was to build a time-series
-  framework where a function \(f\) accepts the previous \(n\) outputs of
-  \(f\) as input to generate a new output.  Here is my solution, edited
-  for clarity (the actual solution is in a <a href="http://github.com/chrismgray/time-series">github repository</a>):
-</p>
-
-
-
-<pre class="src src-clojure">(defn time-series [f init-state n num-iterations]
- (let [call-f (fn [state]
-                (let [retval (f state)
-                      num (count state)
-                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
-                  [retval new-state]))]
-   ((with-monad state-m
-      (m-seq (repeat num-iterations call-f)))
-    (vector init-state))))
-</pre>
-
-
-
-
-<p>
-  As you can see, the heavy lifting is done by the <code>state</code> monad and
-  by <code>m-seq</code>.  What do they do?  Well, <code>m-seq</code> can be thought of as
-  taking a list of functions and calling them in order, returning a
-  list of their return values.  The list of functions in this case is
-  the same function (<code>call-f</code>) over and over.  All <code>call-f</code> does is
-  call \(f\) and change the state.
-</p>
-<p>
-  It might appear that <code>call-f</code> is an \(O(n)\) function.  After all, we
-  call <code>count</code> on the state, which is a vector of at most \(n\)
-  elements.  However, almost all the behind-the-scenes data structures
-  that Clojure uses (including the vector data structure) are
-  guaranteed to have \(O(1)\) performance for calling <code>count</code>.  So
-  that's nice, and <code>call-f</code> has the performance characteristics that I
-  desired.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Monads </h2>
-<div class="outline-text-2" id="text-2">
-
-
-<p>
-  They're still a slightly confusing and magical-seeming thing to me,
-  but monads have some obvious utility.  I guess the way to think
-  about them is that if you put your input and output in a common
-  format, then they aid you in stringing functions together very
-  easily.  I used them in this case to encapsulate state, and that is
-  probably the most common use of them in Clojure (judging by the
-  number of state functions in the Clojure monads library).  However,
-  I think I should probably try to understand all the monads in the
-  library and know how to combine them.
-</p>
-<p>
-  I could have written the function above without monads, but the code
-  would not have been nearly as concise, and there probably would have
-  been many more edge-cases to consider.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">The rest </h2>
-<div class="outline-text-2" id="text-3">
-
-
-<p>
-  I also wrote some stuff to make debugging easier, and used incanter
-  to compare multiple time series.  However, neither required me to
-  bend my brain as much as monads, so I won't talk about them very
-  much.  In fact, not at all, because that is the end of my post.
-</p>
-
-
-</div>
-</div>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/clojure/" rel="tag">clojure</a>
-
-<a href="./tags/programming-challenge/" rel="tag">programming-challenge</a>
-
-<a href="./tags/time-series/" rel="tag">time-series</a>
 
 </span>
 

@@ -8,6 +8,277 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>clojure-sorting</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/clojure-sorting/</guid>
+
+	<link>http://chrismgray.github.com//posts/clojure-sorting/</link>
+
+
+	<category>clojure</category>
+
+	<category>lab-notes</category>
+
+	<category>sort</category>
+
+
+	<pubDate>Sun, 27 Nov 2011 07:23:34 -0700</pubDate>
+	<dcterms:modified>2011-11-27T17:07:34Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  In a job interview last week I said a couple of things related to
+  sorting in Clojure that turned out to be incorrect when I checked
+  them.  This is my way of making up for them &amp;ndash; if I can make them
+  true, then no one will notice.  Though to be fair, I&#39;m sure that I&#39;m
+  the only one that thinks that way.
+&lt;/p&gt;
+&lt;p&gt;
+  The first thing I said was that heap-sort is my favorite sorting
+  algorithm, but then I declined to implement it, preferring to
+  implement merge-sort instead.  I think this is actually pretty
+  reasonable in an interview situation &amp;ndash; heap-sort is a conceptually
+  more difficult sorting algorithm, so being able to remember it on
+  the spot is more difficult.  The second thing I said was that
+  Clojure itself uses heap-sort and that given its love affair with
+  laziness that it would not be unreasonable to assume that &lt;code&gt;(first   (sort lst))&lt;/code&gt; was a linear-time operation.  I might have read
+  something like this on a mailing list or IRC, but it is not
+  correct.  Clojure currently uses Java&#39;s &lt;code&gt;sort&lt;/code&gt; function, which is a
+  slightly-modified merge-sort.  There is not much point in making
+  that algorithm lazy, because getting the first element from the
+  sorted list requires \(O(n \log n)\) time anyway.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Heap Sort &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  For those that are not familiar with it, heap-sort is something that
+  is usually taught in a second-year undergraduate Computer Science
+  class.  So it&#39;s not &lt;b&gt;that&lt;/b&gt; difficult an algorithm, but it does
+  require some thinking, and there is some fancy analysis that goes
+  into part of it.  For a full discussion, see the &lt;a href=&quot;http://www.amazon.com/gp/product/0262033844/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;amp;tag=hikiandcodi-20&amp;amp;linkCode=as2&amp;amp;camp=217145&amp;amp;creative=399369&amp;amp;creativeASIN=0262033844&quot;&gt;Introduction to Algorithms&lt;/a&gt; book by Cormen, Lieserson, Rivest, and Stein.
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Heap &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
+
+
+&lt;p&gt;
+   To start with, a &lt;i&gt;heap&lt;/i&gt; is conceptually a tree where values are
+   stored at the nodes.  The largest value of all the values stored in
+   subtrees is stored at the root and the two descendant trees are
+   heaps.  Heaps are usually required to be as close to balanced as
+   possible &amp;ndash; if any level of the tree has leaves, they are all
+   bunched to the right, and all the rest of the leaves are at the
+   next level.
+&lt;/p&gt;
+&lt;p&gt;
+   Such a tree is usually implemented as an array, where the child
+   nodes of a node can be obtained by some simple arithmetic on the
+   index of the node in the array.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Building a Heap &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
+
+
+&lt;p&gt;
+   Given the definition, there is an intuitive algorithm for building
+   such a heap on a set of numbers: first find the largest number in
+   your set and have it be the root of the heap, then split the rest
+   of the numbers in half, and recursively make heaps on those sets.
+&lt;/p&gt;
+&lt;p&gt;
+   Such an algorithm is clearly correct, but it is also clearly
+   \(\Theta(n \log n)\).  We can do better with a bottom-up algorithm.
+   If we continue imagining the heap as a tree, we start by putting
+   the input numbers into the tree willy-nilly.  This clearly does not
+   satisfy the heap properties laid out above.  However, some of it
+   does satisfy the heap properties &amp;ndash; the leaves of the tree are
+   trivially heaps.  If we go up one level from the leaves, we can fix
+   the trees rooted there by exchanging the root of the tree with its
+   largest child (or not exchanging it if it&#39;s already the largest of
+   the three).  Higher levels are a bit more difficult, because if the
+   root of a tree is exchanged, then we must make sure to fix the tree
+   that it ends up being the root of.  You can imagine the root of a
+   tree traveling down the heap until it is larger than both of its
+   children.
+&lt;/p&gt;
+&lt;p&gt;
+   The correctness of this algorithm is a bit harder to see and it
+   also appears to take \(O(n \log n)\) time.  It does, but there is a
+   slightly more sophisticated analysis that shows that it is really
+   \(\Theta(n)\).  I won&#39;t go into the analysis, but a hint is that
+   most of the values don&#39;t actually travel very far in the tree.  
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2-3&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-2-3&quot;&gt;Using a heap to sort &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-3&quot;&gt;
+
+
+&lt;p&gt;
+   With the heap properties in mind, we can easily see how to get the
+   largest value of a set of numbers &amp;ndash; just take the top element from
+   the heap.  How can we use the heap properties to sort?  Well, we
+   want the largest number, then the largest number that remains, then
+   the largest number that remains after that, and so on.  So if we
+   can take the largest number from the heap and then fix the heap so
+   that it retains the heap properties, then we&#39;d be done.
+&lt;/p&gt;
+&lt;p&gt;
+   We just devised a way to fix heaps when building the heap, so we
+   use that.  What we do is to take the very last node in the heap
+   (which is not necessarily the smallest, but it doesn&#39;t hurt to
+   think about it as the smallest) and put that at the top of the
+   heap.  The resulting tree is clearly not a heap, but if we call the
+   algorithm to fix heaps on the root of the tree, then we end up with
+   a heap again.  The node that we put on top of the heap might end up
+   traveling all the way to the bottom, so this update takes
+   \(\Theta(\log n)\) time.  Thus if we sort the entire input set, we
+   have a \(\Theta(n \log n)\) algorithm.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2-4&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-2-4&quot;&gt;Advantages &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-4&quot;&gt;
+
+
+&lt;p&gt;
+   That&#39;s the best we can do theoretically, which is great, but the
+   Java &lt;code&gt;sort&lt;/code&gt; algorithm is also \(\Theta(n \log n)\), so why is there
+   any advantage to using heap-sort?  In a language where laziness is
+   embraced (such as Clojure), heap-sort can be made lazy.  That is,
+   the next element of the sorted list can be computed only when it is
+   needed.  Since the build-heap procedure described above takes
+   linear time, getting the first element from the sorted list takes
+   \(O(n)\) time.  Each subsequent element then takes \(O(\log n)\)
+   time.  Thus, if only a small number of elements from the sorted
+   list are needed, then this lazy version of heap-sort is
+   theoretically faster than other sorts.
+&lt;/p&gt;
+&lt;p&gt;
+   I can think of situations where this would actually have practical
+   advantages.  For example, what if you were writing a search engine
+   and wanted to obtain the \(k\) best results?  You could write an
+   ad-hoc function that found the best result, removed it and recursed
+   \(k - 1\) times.  Or you could just &lt;code&gt;(take k (heap-sort input))&lt;/code&gt;.
+   The first would take \(O(kn)\) time, whereas the second would take
+   \(O(k \log n + n)\) time.  In many practical situations, \(k\) is
+   \(O(\log n)\), which means that the first takes \(O(n \log n)\)
+   time, whereas the second takes only \(O(n)\) time.  Essentially,
+   the first is no better than the second solution with a non-lazy
+   sorting algorithm.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2-5&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-2-5&quot;&gt;Disadvantages &lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-5&quot;&gt;
+
+
+&lt;p&gt;
+   Heap-sort has some disadvantages compared to other sorts of &lt;code&gt;sort&lt;/code&gt;
+   algorithms.  The least theoretically significant is that the
+   constants hidden in the big-O notation are higher than other
+   sorting algorithms (tuned versions of quicksort can have extremely
+   small constants).
+&lt;/p&gt;
+&lt;p&gt;
+   Another disadvantage can be seen when dealing with data sets so
+   large that they no longer fit in the computer&#39;s main memory.
+   Something like merge-sort can be modified fairly easily so that the
+   number I/O operations is minimized.  I haven&#39;t thought about it too
+   deeply, but this doesn&#39;t seem quite so easy with heap-sort.
+   However, I think that people dealing with such large datasets
+   should probably be using specialized libraries anyway, so perhaps
+   that isn&#39;t too bad.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Implementation &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  This whole discussion is a bit useless if it only remains at the
+  theoretical level.  I have an implementation &lt;a href=&quot;https://github.com/chrismgray/clojure-heap-sort&quot;&gt;in my github repo&lt;/a&gt; that
+  implements most of the ideas that are given above.  The code is
+  highly optimized so that it is somewhat competitive with the native
+  Java implementation.  This makes the code on the HEAD of the
+  &lt;code&gt;master&lt;/code&gt; branch somewhat less than readable.  However, the first
+  commit to the repository used Clojure vectors and a functional
+  style, so if you would like to understand the code, you might start
+  there. 
+&lt;/p&gt;
+&lt;p&gt;
+  I (unfortunately) needed to use Java arrays and mutation rather than
+  the more functional style that I have gotten used to, but the
+  results speak for themselves.  Finding the first few elements of a
+  sorted array is significantly faster than the Java version.  Finding
+  the entire sorted list is somewhat slower than the Java version, but
+  not too much.  This is not surprising for a couple of reasons.
+  First, heap-sort tends to have larger constants than other sorting
+  methods.  Secondly, this code is one day old.  The Java sort method
+  has had years to be optimized.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+
+
+&lt;p&gt;
+  It may be dreaming, but I would love to see this idea (if not this
+  implementation) put into Clojure proper.  I think the advantages
+  from laziness outweigh the small constant slowdown versus using
+  Java&#39;s &lt;code&gt;sort&lt;/code&gt;.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/clojure-sorting/#comments</comments>
+
+</item>
+<item>
+
 	<title>processing</title>
 
 
