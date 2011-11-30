@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
-	<dcterms:modified>2011-11-30T22:11:42Z</dcterms:modified>
+	<dcterms:modified>2011-11-30T22:21:24Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
@@ -41,7 +41,7 @@
   I&#39;m doing that with algorithms.
 &lt;/p&gt;
 &lt;p&gt;
-  The algorithm in question today is the convex hull algorithm.  In
+  The algorithm in question today is the &lt;a href=&quot;http://en.wikipedia.org/wiki/Convex_hull&quot;&gt;convex hull&lt;/a&gt; algorithm.  In
   order of implementation complexity, and descending order of
   theoretical running time, there is the Jarvis March, Graham&#39;s Scan,
   and Chan&#39;s Algorithm.  All three are implemented in Clojure in my

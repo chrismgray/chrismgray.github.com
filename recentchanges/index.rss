@@ -12,6 +12,58 @@
 	<dcterms:creator>chrismgray</dcterms:creator>
 
 
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_097247f9e94b00dd2dbd84384fbfcbb8e8822286/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-097247f9e94b00dd2dbd84384fbfcbb8e8822286</link>
+
+	<pubDate>Wed, 30 Nov 2011 15:21:50 -0700</pubDate>
+	<dcterms:modified>2011-11-30T22:21:50Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-097247f9e94b00dd2dbd84384fbfcbb8e8822286&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/convex-hulls
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;15:21:50 11/30/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Added a link to explain what a convex hull is.&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to posts/convex-hulls on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
 	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_1c78bc86644e4f8fc33ab478b8fbe9eacd95d2a5/</guid>
 
 	<link>http://chrismgray.github.com/recentchanges/#change-1c78bc86644e4f8fc33ab478b8fbe9eacd95d2a5</link>
@@ -5245,58 +5297,6 @@ chrismgray
 
 
 Made the photo a bit smaller&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to shasta.jpg on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_88ea91611e52d5086500583ff9a1d8e49fac7bb3/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-88ea91611e52d5086500583ff9a1d8e49fac7bb3</link>
-
-	<pubDate>Thu, 10 Nov 2011 11:43:12 -0700</pubDate>
-	<dcterms:modified>2011-11-10T18:43:12Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-88ea91611e52d5086500583ff9a1d8e49fac7bb3&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-shasta.jpg
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:43:12 AM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Wrong photo&lt;br /&gt;
 
 
 &lt;/div&gt;

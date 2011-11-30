@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-30T22:11:42Z</updated>
+<updated>2011-11-30T22:21:24Z</updated>
 <entry>
 	<title>convex-hulls</title>
 
@@ -41,7 +41,7 @@
 	<category term="lab-notes" />
 
 
-	<updated>2011-11-30T22:11:42Z</updated>
+	<updated>2011-11-30T22:21:24Z</updated>
 	<published>2011-11-30T18:06:31Z</published>
 
 	<content type="html" xml:lang="en">
@@ -56,7 +56,7 @@
   I&#39;m doing that with algorithms.
 &lt;/p&gt;
 &lt;p&gt;
-  The algorithm in question today is the convex hull algorithm.  In
+  The algorithm in question today is the &lt;a href=&quot;http://en.wikipedia.org/wiki/Convex_hull&quot;&gt;convex hull&lt;/a&gt; algorithm.  In
   order of implementation complexity, and descending order of
   theoretical running time, there is the Jarvis March, Graham&#39;s Scan,
   and Chan&#39;s Algorithm.  All three are implemented in Clojure in my
