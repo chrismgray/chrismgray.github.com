@@ -221,9 +221,9 @@ Hiking and Coding
     </tr>
     <tr>
         <td class="month-calendar-day-link Sunday"><a href="./posts/clojure-sorting/" title="clojure-sorting">27</a></td>
-        <td class="month-calendar-day-this-day Monday"><a href="./posts/hiking/mid-maine/" title="mid-maine">28</a></td>
-        <td class="month-calendar-day-future Tuesday">29</td>
-        <td class="month-calendar-day-nolink Wednesday">30</td>
+        <td class="month-calendar-day-link Monday"><a href="./posts/hiking/mid-maine/" title="mid-maine">28</a></td>
+        <td class="month-calendar-day-nolink Tuesday">29</td>
+        <td class="month-calendar-day-this-day Wednesday"><a href="./posts/convex-hulls/" title="convex-hulls">30</a></td>
         <td class="month-calendar-day-noday Thursday">&nbsp;</td>
         <td class="month-calendar-day-noday Friday">&nbsp;</td>
         <td class="month-calendar-day-noday Saturday">&nbsp;</td>
@@ -240,7 +240,8 @@ Hiking and Coding
 </li><li><span class="smallestPC"><a href="./tags/blogging/">blogging</a></span>
 </li><li><span class="biggestPC"><a href="./tags/clojure/">clojure</a></span>
 </li><li><span class="normalPC"><a href="./tags/clojurescript/">clojurescript</a></span>
-</li><li><span class="smallestPC"><a href="./tags/computational-geometry/">computational-geometry</a></span>
+</li><li><span class="smallPC"><a href="./tags/computational-geometry/">computational-geometry</a></span>
+</li><li><span class="smallestPC"><a href="./tags/convex-hull/">convex-hull</a></span>
 </li><li><span class="smallestPC"><a href="./tags/emacs/">emacs</a></span>
 </li><li><span class="smallestPC"><a href="./tags/email/">email</a></span>
 </li><li><span class="smallPC"><a href="./tags/git/">git</a></span>
@@ -262,10 +263,41 @@ Hiking and Coding
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-64cba18e714fd659afd61b012034e2491cd74efe.png" alt="graph" /></p>
+<img src="./sidebar/sparkline-43d1050723f6da619cef397c936190547b05e8ab.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Mon Nov 28 11:15:02 2011</span> (52 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: <em>Can't connect to api.twitter.com:80 (timeout)</em> (53 posts)</p>
 
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: Matrix multiplication has had a few thousandths knocked off its exponent. http://t.co/HY8cqF7u Yay?
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Tue Nov 29 11:35:17 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
 <div class="microblog">
 
 <div class="inlinecontent">
@@ -390,37 +422,6 @@ frogmanjack: Turns out we got lucky. Car across the street was smashed by a tree
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: Huge tree just fell feet from our house. Wind here is getting out of hand.
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Sun Nov 27 12:22:09 2011</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
 
 
 </div>
@@ -435,6 +436,231 @@ frogmanjack: Huge tree just fell feet from our house. Wind here is getting out o
 
 
 <a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/convex-hulls/">convex-hulls</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Convex Hulls Three Ways </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  Whenever I watch cooking competition shows, they always have chefs
+  presenting a foodstuff cooked in multiple different ways.  Today,
+  I'm doing that with algorithms.
+</p>
+<p>
+  The algorithm in question today is the convex hull algorithm.  In
+  order of implementation complexity, and descending order of
+  theoretical running time, there is the Jarvis March, Graham's Scan,
+  and Chan's Algorithm.  All three are implemented in Clojure in my
+  <a href="https://github.com/chrismgray/convex-hull">github repository</a>.
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">Jarvis March </h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<p>
+   The simplest of the algorithms, the Jarvis March was also one of
+   the first output-sensitive computational geometry algorithms.  In a
+   nutshell, you first find a point that you know to be on the convex
+   hull, and then you find the next point by looking at all the rest
+   of the points and determining which one has a segment that has the
+   property that all the rest of the points are on one side of it.
+   You repeatedly find the next point using this procedure until you
+   get back to the first point.  There is basically no way to
+   implement this algorithm that does not have a running time of
+   \(O(hn)\), where \(h\) is the number of points on the convex hull
+   and \(n\) is the number of input points.
+</p>
+<p>
+   The one implementation detail of the Jarvis March that is
+   interesting is that whenever you see the concept of "finding the
+   next thing" given some previous information, the Clojure
+   implementation should almost always be lazy.  It turns out that
+   implementing Jarvis March lazily will help in implementing Chan's
+   Algorithm, so keep that in mind.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2">Graham's Scan </h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+<p>
+   Graham's Scan is one of the algorithms I remember most vividly from
+   the undergraduate computational geometry course that I took.  The
+   professor, Godfried Toussaint, always referred to it as the "three
+   coins" algorithm, so I have kept up that tradition in some of my
+   function names in my implementation.
+</p>
+<p>
+   The algorithm first makes a polygon of the input points by sorting
+   them by angle about the bottom-most point.  Then it goes around the
+   polygon with a stack, pushing and popping points as it goes.  If
+   that sounds familiar, it should &ndash; it's the same idea as what I was
+   talking about when I brought up the idea of <a href="http://chrismgray.github.com/posts/parsing-polygons/">parsing polygons</a> a week
+   and a half ago. 
+</p>
+<p>
+   Thus, I used the same polygon-parsing monad in my implementation as
+   when I computed the visibility polygons last week.  It still works
+   just as well.
+</p>
+<p>
+   Since the points must be sorted, Graham's Scan takes \(\Theta(n
+   \log n)\).  Sorting can be reduced to computing convex hulls, so
+   computing convex hulls has a \(\Omega(n \log n)\) lower bound,
+   meaning that this algorithm is optimal.
+</p>
+<p>
+   But Chan's algorithm is better.  Weird huh?
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3">Chan's Algorithm </h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+<p>
+   I must confess that I had always been a little intimidated by
+   Chan's Algorithm.  It was invented by Timothy Chan, who has a
+   well-earned reputation for being a genius, so I thought it would be
+   really complicated.  It's not.  There is a decent <a href="http://en.wikipedia.org/wiki/Chan&#39;s_algorithm">description</a> of it
+   on Wikipedia, so I won't go into the details.  The gist is that you
+   combine the two previous algorithms that I discussed.  The Jarvis
+   March needs to be modified so that the points can be input as a
+   list of smaller convex hulls, and the next point on the convex hull
+   is found by doing a binary search on the smaller convex hulls.  But
+   that is really the hardest part about the algorithm.  I have put
+   the whole thing below, because I think it's pretty beautiful.
+</p>
+
+
+
+<pre class="src src-clojure">(defn chans-algorithm
+  <span>"Finds the convex hull of a set of points by</span>
+<span>   the algorithm known as 'Chan's Algorithm'."</span>
+  [pts]
+  (let [bottom-pt (apply min-key :y pts)]
+   (loop [m 3] ; start out with triangles
+     (let [partitioned-pts (partition m m [] pts)
+           c-hs (map grahams-scan partitioned-pts)
+           potential-ch (take m (apply jarvis-march pts c-hs))]
+       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+         potential-ch
+         (recur (min (* m m) (count pts))))))))
+</pre>
+
+
+
+
+<p>
+   The great thing about Chan's Algorithm is that it is also
+   output-sensitive.  But instead of being \(O(nh)\) (which is
+   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
+   least as good as Graham's Scan, but often better.  It is also quite
+   simple to implement, given decent implementations of Jarvis March
+   and Graham's Scan.  
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Conclusion </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  Convex hull algorithms are great.  If I was ever to teach a
+  computational geometry course (admittedly that's looking like a long
+  shot now), I might start and finish the course with them.  The
+  progression from the ultra-simple Jarvis March to the
+  more-complicated Chan's Algorithm is really nice, and there are
+  interesting new things to talk about the whole way.  They also show
+  that computational geometry is not so hard to do in a functional
+  style.  In fact, using laziness is what makes the implementation of
+  Chan's Algorithm so simple.  So this might make a nice talk to give
+  people who are already into functional programming as well.
+</p>
+<p>
+  The next thing I have in mind for this project is to animate the
+  algorithms.  Viewing the output of algorithms is already pretty easy
+  using Processing, but I would like to be able to see them as they
+  are operating.  It would be great if I could do that without
+  changing the code too much.  I have a couple of ideas, but I'm not
+  sure if they'll work yet.
+</p>
+<p>
+  Also, it is slightly embarrassing to admit, but my blogging system
+  seems to not support putting images in posts.  So I am going to have
+  to figure out how to work around (or even fix) that before I can
+  show any results.
+</p>
+
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wed Nov 30 11:06:31 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/clojure/" rel="tag">clojure</a>
+
+<a href="./tags/computational-geometry/" rel="tag">computational-geometry</a>
+
+<a href="./tags/convex-hull/" rel="tag">convex-hull</a>
+
+<a href="./tags/ikiwiki/" rel="tag">ikiwiki</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
@@ -1954,171 +2180,6 @@ Tags:
 <a href="./tags/programming-challenge/" rel="tag">programming-challenge</a>
 
 <a href="./tags/thrush/" rel="tag">thrush</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/scattered/">scattered</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Scattered </h2>
-<div class="outline-text-2" id="text-1">
-
-
-<p>
-  I am doing a bunch of things today, all fairly small.  I think it's
-  because I finished working on the time series framework yesterday,
-  so I'm kind of at loose ends.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">New programming project </h2>
-<div class="outline-text-2" id="text-2">
-
-
-<p>
-  One thing that I would like to do is to take all the messages that I
-  sent with my <a href="http://findmespot.com">SPOT</a> device while hiking and make a small animation of
-  them on Google Maps.  This would be another use of Clojurescript.
-  My previous project &ndash; a Clojurescript program for computing the
-  Voronoi Diagram of a set of points input by a user &ndash; is a bit
-  stalled at the moment, so it's good to have something else to work
-  on.  Also, I feel like adding points to a Google Map is something
-  that Clojurescript is better suited to, rather than the fiddly
-  numeric stuff that I was trying to make it do.  I will come back to
-  the Voronoi Diagram at some point (hopefully fairly soon), but I am
-  putting it on the back burner for the moment.
-</p>
-<p>
-  So far, I see two major tasks:
-</p>
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">Getting the coordinates and times of the SPOT messages </h3>
-<div class="outline-text-3" id="text-2-1">
-
-
-<p>
-   Every SPOT message is an email that contains the coordinates of
-   where and when the message was sent.  Parsing the email can be done
-   offline, so I will probably just use Clojure for that.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">Putting them on the Google Map </h3>
-<div class="outline-text-3" id="text-2-2">
-
-
-<p>
-   The <a href="http://code.google.com/apis/maps/documentation/javascript/overlays.html#Markers">API</a> for using Google Maps appears to be easy to use and
-   well-thought-out.  There's even a way to drop the markers at
-   different intervals &ndash; just what I want to do.
-</p>
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Notmuch </h2>
-<div class="outline-text-2" id="text-3">
-
-
-<p>
-  I am also playing with the <a href="http://notmuch.org">notmuch</a> email client.  So far I quite
-  like it.  It's a heck of a lot faster than my previous mail client,
-  mainly because it doesn't do as much.  Like gmail, it is optimized
-  towards two operations: searching and tagging.  I never really used
-  tags in gmail, because doing so involves clicking around, but it's
-  much faster in notmuch.  So far, this seems like the big advantage
-  for notmuch.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Git annex </h2>
-<div class="outline-text-2" id="text-4">
-
-
-<p>
-  In an effort to use all the software written by <a href="http://joey.kitenet.net/">Joey Hess</a> (not
-  really, but it seems like it), I am also trying out <a href="http://git-annex.branchable.com/">git annex</a>.
-</p>
-<p>
-  So far, I have come up with one really compelling use case --
-  syncing podcasts to my mp3 player.  My mp3 player has the problem
-  that it will delete all the files on it at random times.  Thus, I
-  need to keep a backup of all the files on it on my computer.
-  However, when I am done listening to a podcast, I like to remove the
-  file.  Hopefully, I will be able to sync the files that I remove
-  myself (that is, remove them from the laptop), but not the files
-  that get removed by the stupid thing crashing.
-</p>
-<p>
-  Another thing that I would like to do is put my music and video
-  collections in git annex.  I'm not sure that anything special would
-  come from doing that, but it seems nice to have these things in
-  version control.
-</p>
-
-
-</div>
-</div>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/clojure/" rel="tag">clojure</a>
-
-<a href="./tags/clojurescript/" rel="tag">clojurescript</a>
-
-<a href="./tags/email/" rel="tag">email</a>
-
-<a href="./tags/git/" rel="tag">git</a>
-
-<a href="./tags/git-annex/" rel="tag">git-annex</a>
-
-<a href="./tags/notmuch/" rel="tag">notmuch</a>
-
-<a href="./tags/spot/" rel="tag">spot</a>
 
 </span>
 

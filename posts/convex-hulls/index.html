@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>convex-hulls</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+convex-hulls
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Convex Hulls Three Ways </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  Whenever I watch cooking competition shows, they always have chefs
+  presenting a foodstuff cooked in multiple different ways.  Today,
+  I'm doing that with algorithms.
+</p>
+<p>
+  The algorithm in question today is the convex hull algorithm.  In
+  order of implementation complexity, and descending order of
+  theoretical running time, there is the Jarvis March, Graham's Scan,
+  and Chan's Algorithm.  All three are implemented in Clojure in my
+  <a href="https://github.com/chrismgray/convex-hull">github repository</a>.
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">Jarvis March </h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<p>
+   The simplest of the algorithms, the Jarvis March was also one of
+   the first output-sensitive computational geometry algorithms.  In a
+   nutshell, you first find a point that you know to be on the convex
+   hull, and then you find the next point by looking at all the rest
+   of the points and determining which one has a segment that has the
+   property that all the rest of the points are on one side of it.
+   You repeatedly find the next point using this procedure until you
+   get back to the first point.  There is basically no way to
+   implement this algorithm that does not have a running time of
+   \(O(hn)\), where \(h\) is the number of points on the convex hull
+   and \(n\) is the number of input points.
+</p>
+<p>
+   The one implementation detail of the Jarvis March that is
+   interesting is that whenever you see the concept of "finding the
+   next thing" given some previous information, the Clojure
+   implementation should almost always be lazy.  It turns out that
+   implementing Jarvis March lazily will help in implementing Chan's
+   Algorithm, so keep that in mind.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2">Graham's Scan </h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+<p>
+   Graham's Scan is one of the algorithms I remember most vividly from
+   the undergraduate computational geometry course that I took.  The
+   professor, Godfried Toussaint, always referred to it as the "three
+   coins" algorithm, so I have kept up that tradition in some of my
+   function names in my implementation.
+</p>
+<p>
+   The algorithm first makes a polygon of the input points by sorting
+   them by angle about the bottom-most point.  Then it goes around the
+   polygon with a stack, pushing and popping points as it goes.  If
+   that sounds familiar, it should &ndash; it's the same idea as what I was
+   talking about when I brought up the idea of <a href="http://chrismgray.github.com/posts/parsing-polygons/">parsing polygons</a> a week
+   and a half ago. 
+</p>
+<p>
+   Thus, I used the same polygon-parsing monad in my implementation as
+   when I computed the visibility polygons last week.  It still works
+   just as well.
+</p>
+<p>
+   Since the points must be sorted, Graham's Scan takes \(\Theta(n
+   \log n)\).  Sorting can be reduced to computing convex hulls, so
+   computing convex hulls has a \(\Omega(n \log n)\) lower bound,
+   meaning that this algorithm is optimal.
+</p>
+<p>
+   But Chan's algorithm is better.  Weird huh?
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3">Chan's Algorithm </h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+<p>
+   I must confess that I had always been a little intimidated by
+   Chan's Algorithm.  It was invented by Timothy Chan, who has a
+   well-earned reputation for being a genius, so I thought it would be
+   really complicated.  It's not.  There is a decent <a href="http://en.wikipedia.org/wiki/Chan&#39;s_algorithm">description</a> of it
+   on Wikipedia, so I won't go into the details.  The gist is that you
+   combine the two previous algorithms that I discussed.  The Jarvis
+   March needs to be modified so that the points can be input as a
+   list of smaller convex hulls, and the next point on the convex hull
+   is found by doing a binary search on the smaller convex hulls.  But
+   that is really the hardest part about the algorithm.  I have put
+   the whole thing below, because I think it's pretty beautiful.
+</p>
+
+
+
+<pre class="src src-clojure">(defn chans-algorithm
+  <span>"Finds the convex hull of a set of points by</span>
+<span>   the algorithm known as 'Chan's Algorithm'."</span>
+  [pts]
+  (let [bottom-pt (apply min-key :y pts)]
+   (loop [m 3] ; start out with triangles
+     (let [partitioned-pts (partition m m [] pts)
+           c-hs (map grahams-scan partitioned-pts)
+           potential-ch (take m (apply jarvis-march pts c-hs))]
+       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+         potential-ch
+         (recur (min (* m m) (count pts))))))))
+</pre>
+
+
+
+
+<p>
+   The great thing about Chan's Algorithm is that it is also
+   output-sensitive.  But instead of being \(O(nh)\) (which is
+   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
+   least as good as Graham's Scan, but often better.  It is also quite
+   simple to implement, given decent implementations of Jarvis March
+   and Graham's Scan.  
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Conclusion </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  Convex hull algorithms are great.  If I was ever to teach a
+  computational geometry course (admittedly that's looking like a long
+  shot now), I might start and finish the course with them.  The
+  progression from the ultra-simple Jarvis March to the
+  more-complicated Chan's Algorithm is really nice, and there are
+  interesting new things to talk about the whole way.  They also show
+  that computational geometry is not so hard to do in a functional
+  style.  In fact, using laziness is what makes the implementation of
+  Chan's Algorithm so simple.  So this might make a nice talk to give
+  people who are already into functional programming as well.
+</p>
+<p>
+  The next thing I have in mind for this project is to animate the
+  algorithms.  Viewing the output of algorithms is already pretty easy
+  using Processing, but I would like to be able to see them as they
+  are operating.  It would be great if I could do that without
+  changing the code too much.  I have a couple of ideas, but I'm not
+  sure if they'll work yet.
+</p>
+<p>
+  Also, it is slightly embarrassing to admit, but my blogging system
+  seems to not support putting images in posts.  So I am going to have
+  to figure out how to work around (or even fix) that before I can
+  show any results.
+</p>
+
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/computational-geometry/" rel="tag">computational-geometry</a>
+
+<a href="../../tags/convex-hull/" rel="tag">convex-hull</a>
+
+<a href="../../tags/ikiwiki/" rel="tag">ikiwiki</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wed Nov 30 15:11:42 2011</span>
+<!-- Created <span class="date">Wed Nov 30 11:06:31 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>
