@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>convex-hulls</title>
+	<title>Convex Hulls</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/convex-hulls/</guid>
@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
-	<dcterms:modified>2011-11-30T22:21:24Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:52:57Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
@@ -216,7 +216,7 @@
 </item>
 <item>
 
-	<title>visibility-polygon</title>
+	<title>Visibility Polygons</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/visibility-polygon/</guid>
@@ -234,7 +234,7 @@
 
 
 	<pubDate>Mon, 21 Nov 2011 12:44:43 -0700</pubDate>
-	<dcterms:modified>2011-11-21T19:58:03Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:06Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon &lt;/h2&gt;
@@ -369,7 +369,7 @@
 </item>
 <item>
 
-	<title>parsing-polygons</title>
+	<title>Parsing Polygons</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/parsing-polygons/</guid>
@@ -385,7 +385,7 @@
 
 
 	<pubDate>Sun, 20 Nov 2011 17:58:28 -0700</pubDate>
-	<dcterms:modified>2011-11-21T01:16:32Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:44:52Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Functional programming &lt;/h2&gt;

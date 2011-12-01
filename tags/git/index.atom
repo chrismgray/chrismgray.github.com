@@ -17,9 +17,9 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-24T05:55:10Z</updated>
+<updated>2011-12-01T07:45:32Z</updated>
 <entry>
-	<title>git-annex</title>
+	<title>Git Annex</title>
 
 	<id>http://chrismgray.github.com//posts/git-annex/</id>
 
@@ -35,7 +35,7 @@
 	<category term="git-annex" />
 
 
-	<updated>2011-11-24T05:55:10Z</updated>
+	<updated>2011-12-01T07:45:32Z</updated>
 	<published>2011-11-24T03:02:00Z</published>
 
 	<content type="html" xml:lang="en">
@@ -186,7 +186,7 @@
 
 </entry>
 <entry>
-	<title>scattered</title>
+	<title>Scattered</title>
 
 	<id>http://chrismgray.github.com//posts/scattered/</id>
 
@@ -212,7 +212,7 @@
 	<category term="spot" />
 
 
-	<updated>2011-11-14T18:14:04Z</updated>
+	<updated>2011-12-01T07:43:31Z</updated>
 	<published>2011-11-14T17:11:23Z</published>
 
 	<content type="html" xml:lang="en">
@@ -341,7 +341,7 @@
 
 </entry>
 <entry>
-	<title>blogging-about-blogging</title>
+	<title>Blogging About Blogging</title>
 
 	<id>http://chrismgray.github.com//posts/blogging-about-blogging/</id>
 
@@ -365,7 +365,7 @@
 	<category term="org-mode" />
 
 
-	<updated>2011-11-11T02:13:21Z</updated>
+	<updated>2011-12-01T07:37:21Z</updated>
 	<published>2011-11-11T02:13:21Z</published>
 
 	<content type="html" xml:lang="en">
@@ -380,7 +380,7 @@
 &lt;/p&gt;
 &lt;p&gt;
   By my standards, this is a fairly simple system.  It is based on
-  &lt;a href=&quot;http://ikiwiki.info&quot;&gt;ikiwiki&lt;/a&gt;, which allows me to use &lt;a href=&quot;http://orgmode&quot;&gt;org-mode&lt;/a&gt; to edit my posts and &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; as
+  &lt;a href=&quot;http://ikiwiki.info&quot;&gt;ikiwiki&lt;/a&gt;, which allows me to use &lt;a href=&quot;http://orgmode.org&quot;&gt;org-mode&lt;/a&gt; to edit my posts and &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; as
   the version control system.  Since I already know those tools, I
   don&#39;t have to think about them and can just focus on writing.
 &lt;/p&gt;

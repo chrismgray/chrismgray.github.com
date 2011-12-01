@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>blogging-about-blogging</title>
+	<title>Blogging About Blogging</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/blogging-about-blogging/</guid>
@@ -30,7 +30,7 @@
 
 
 	<pubDate>Thu, 10 Nov 2011 19:13:21 -0700</pubDate>
-	<dcterms:modified>2011-11-11T02:13:21Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:37:21Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;A new system &lt;/h2&gt;
@@ -43,7 +43,7 @@
 &lt;/p&gt;
 &lt;p&gt;
   By my standards, this is a fairly simple system.  It is based on
-  &lt;a href=&quot;http://ikiwiki.info&quot;&gt;ikiwiki&lt;/a&gt;, which allows me to use &lt;a href=&quot;http://orgmode&quot;&gt;org-mode&lt;/a&gt; to edit my posts and &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; as
+  &lt;a href=&quot;http://ikiwiki.info&quot;&gt;ikiwiki&lt;/a&gt;, which allows me to use &lt;a href=&quot;http://orgmode.org&quot;&gt;org-mode&lt;/a&gt; to edit my posts and &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; as
   the version control system.  Since I already know those tools, I
   don&#39;t have to think about them and can just focus on writing.
 &lt;/p&gt;

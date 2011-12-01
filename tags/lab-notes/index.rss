@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>convex-hulls</title>
+	<title>Convex Hulls</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/convex-hulls/</guid>
@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
-	<dcterms:modified>2011-11-30T22:21:24Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:52:57Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
@@ -216,7 +216,7 @@
 </item>
 <item>
 
-	<title>clojure-sorting</title>
+	<title>Lazy Sorting in Clojure</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/clojure-sorting/</guid>
@@ -232,7 +232,7 @@
 
 
 	<pubDate>Sun, 27 Nov 2011 07:23:34 -0700</pubDate>
-	<dcterms:modified>2011-11-27T19:02:44Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:44Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
@@ -487,7 +487,7 @@
 </item>
 <item>
 
-	<title>processing</title>
+	<title>Processing</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/processing/</guid>
@@ -505,7 +505,7 @@
 
 
 	<pubDate>Tue, 22 Nov 2011 12:29:29 -0700</pubDate>
-	<dcterms:modified>2011-11-22T21:06:52Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:19Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
@@ -601,7 +601,7 @@
 </item>
 <item>
 
-	<title>visibility-polygon</title>
+	<title>Visibility Polygons</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/visibility-polygon/</guid>
@@ -619,7 +619,7 @@
 
 
 	<pubDate>Mon, 21 Nov 2011 12:44:43 -0700</pubDate>
-	<dcterms:modified>2011-11-21T19:58:03Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:06Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon &lt;/h2&gt;
@@ -754,7 +754,7 @@
 </item>
 <item>
 
-	<title>parsing-polygons</title>
+	<title>Parsing Polygons</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/parsing-polygons/</guid>
@@ -770,7 +770,7 @@
 
 
 	<pubDate>Sun, 20 Nov 2011 17:58:28 -0700</pubDate>
-	<dcterms:modified>2011-11-21T01:16:32Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:44:52Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Functional programming &lt;/h2&gt;
@@ -867,7 +867,7 @@
 </item>
 <item>
 
-	<title>cljs-name-resolving-2</title>
+	<title>Resolving names in Clojurescript (followup)</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving-2/</guid>
@@ -885,7 +885,7 @@
 
 
 	<pubDate>Fri, 11 Nov 2011 18:07:52 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:28:40Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:43:10Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
@@ -972,7 +972,7 @@
 </item>
 <item>
 
-	<title>cljs-name-resolving</title>
+	<title>Resolving names in Clojurescript</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving/</guid>
@@ -990,7 +990,7 @@
 
 
 	<pubDate>Fri, 11 Nov 2011 07:23:38 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:25:21Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:42:46Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;
@@ -1095,7 +1095,7 @@
 </item>
 <item>
 
-	<title>more-rationals</title>
+	<title>More Rationals</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/more-rationals/</guid>
@@ -1113,7 +1113,7 @@
 
 
 	<pubDate>Thu, 10 Nov 2011 09:55:06 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:52Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:42:23Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;More about rationals &lt;/h2&gt;
@@ -1152,7 +1152,7 @@
 </item>
 <item>
 
-	<title>rationals-followup</title>
+	<title>Followup to the previous post</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-followup/</guid>
@@ -1170,7 +1170,7 @@
 
 
 	<pubDate>Wed, 09 Nov 2011 15:03:16 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:45Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;A small followup &lt;/h2&gt;
@@ -1194,7 +1194,7 @@
 </item>
 <item>
 
-	<title>rationals-in-cljs</title>
+	<title>Rationals in Clojurescript</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-in-cljs/</guid>
@@ -1214,7 +1214,7 @@
 
 
 	<pubDate>Wed, 09 Nov 2011 10:13:06 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:35Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;

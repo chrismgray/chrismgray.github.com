@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>rationals-in-cljs</title>
+	<title>Rationals in Clojurescript</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-in-cljs/</guid>
@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 09 Nov 2011 10:13:06 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:35Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;

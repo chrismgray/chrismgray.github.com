@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>convex-hulls</title>
+	<title>Convex Hulls</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/convex-hulls/</guid>
@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
-	<dcterms:modified>2011-11-30T22:21:24Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:52:57Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
@@ -216,7 +216,7 @@
 </item>
 <item>
 
-	<title>mid-maine</title>
+	<title>Mid-Maine</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/hiking/mid-maine/</guid>
@@ -230,7 +230,7 @@
 
 
 	<pubDate>Mon, 28 Nov 2011 09:52:35 -0700</pubDate>
-	<dcterms:modified>2011-11-28T18:17:19Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:47:32Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Leaving Monson &lt;/h2&gt;
@@ -415,7 +415,7 @@
 </item>
 <item>
 
-	<title>clojure-sorting</title>
+	<title>Lazy Sorting in Clojure</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/clojure-sorting/</guid>
@@ -431,7 +431,7 @@
 
 
 	<pubDate>Sun, 27 Nov 2011 07:23:34 -0700</pubDate>
-	<dcterms:modified>2011-11-27T19:02:44Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:44Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
@@ -686,7 +686,7 @@
 </item>
 <item>
 
-	<title>git-annex</title>
+	<title>Git Annex</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/git-annex/</guid>
@@ -700,7 +700,7 @@
 
 
 	<pubDate>Wed, 23 Nov 2011 20:02:00 -0700</pubDate>
-	<dcterms:modified>2011-11-24T05:55:10Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:32Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Using git annex &lt;/h2&gt;
@@ -846,7 +846,7 @@
 </item>
 <item>
 
-	<title>processing</title>
+	<title>Processing</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/processing/</guid>
@@ -864,7 +864,7 @@
 
 
 	<pubDate>Tue, 22 Nov 2011 12:29:29 -0700</pubDate>
-	<dcterms:modified>2011-11-22T21:06:52Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:19Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
@@ -960,7 +960,7 @@
 </item>
 <item>
 
-	<title>visibility-polygon</title>
+	<title>Visibility Polygons</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/visibility-polygon/</guid>
@@ -978,7 +978,7 @@
 
 
 	<pubDate>Mon, 21 Nov 2011 12:44:43 -0700</pubDate>
-	<dcterms:modified>2011-11-21T19:58:03Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:06Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon &lt;/h2&gt;
@@ -1113,7 +1113,7 @@
 </item>
 <item>
 
-	<title>parsing-polygons</title>
+	<title>Parsing Polygons</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/parsing-polygons/</guid>
@@ -1129,7 +1129,7 @@
 
 
 	<pubDate>Sun, 20 Nov 2011 17:58:28 -0700</pubDate>
-	<dcterms:modified>2011-11-21T01:16:32Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:44:52Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Functional programming &lt;/h2&gt;
@@ -1226,7 +1226,7 @@
 </item>
 <item>
 
-	<title>100-mile-wilderness</title>
+	<title>100-Mile Wilderness</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/hiking/100-mile-wilderness/</guid>
@@ -1240,7 +1240,7 @@
 
 
 	<pubDate>Sat, 19 Nov 2011 13:34:35 -0700</pubDate>
-	<dcterms:modified>2011-11-21T00:31:34Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:47:22Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Introduction &lt;/h2&gt;
@@ -1453,7 +1453,7 @@ that made the biggest impression on me.
 </item>
 <item>
 
-	<title>spot-tracks</title>
+	<title>SPOT Tracks</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/spot-tracks/</guid>
@@ -1469,7 +1469,7 @@ that made the biggest impression on me.
 
 
 	<pubDate>Wed, 16 Nov 2011 09:20:05 -0700</pubDate>
-	<dcterms:modified>2011-11-16T16:20:05Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:44:36Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Where I was &lt;/h2&gt;
@@ -1501,7 +1501,7 @@ that made the biggest impression on me.
 </item>
 <item>
 
-	<title>luhnybin</title>
+	<title>The Luhnybin Challenge</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/luhnybin/</guid>
@@ -1517,7 +1517,7 @@ that made the biggest impression on me.
 
 
 	<pubDate>Tue, 15 Nov 2011 13:22:19 -0700</pubDate>
-	<dcterms:modified>2011-11-15T22:18:05Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:44:18Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge &lt;/h2&gt;

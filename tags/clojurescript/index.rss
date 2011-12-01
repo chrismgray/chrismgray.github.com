@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>spot-tracks</title>
+	<title>SPOT Tracks</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/spot-tracks/</guid>
@@ -24,7 +24,7 @@
 
 
 	<pubDate>Wed, 16 Nov 2011 09:20:05 -0700</pubDate>
-	<dcterms:modified>2011-11-16T16:20:05Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:44:36Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Where I was &lt;/h2&gt;
@@ -56,7 +56,7 @@
 </item>
 <item>
 
-	<title>scattered</title>
+	<title>Scattered</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/scattered/</guid>
@@ -80,7 +80,7 @@
 
 
 	<pubDate>Mon, 14 Nov 2011 10:11:23 -0700</pubDate>
-	<dcterms:modified>2011-11-14T18:14:04Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:43:31Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Scattered &lt;/h2&gt;
@@ -204,7 +204,7 @@
 </item>
 <item>
 
-	<title>cljs-name-resolving-2</title>
+	<title>Resolving names in Clojurescript (followup)</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving-2/</guid>
@@ -222,7 +222,7 @@
 
 
 	<pubDate>Fri, 11 Nov 2011 18:07:52 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:28:40Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:43:10Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
@@ -309,7 +309,7 @@
 </item>
 <item>
 
-	<title>cljs-name-resolving</title>
+	<title>Resolving names in Clojurescript</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving/</guid>
@@ -327,7 +327,7 @@
 
 
 	<pubDate>Fri, 11 Nov 2011 07:23:38 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:25:21Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:42:46Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;
@@ -432,7 +432,7 @@
 </item>
 <item>
 
-	<title>more-rationals</title>
+	<title>More Rationals</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/more-rationals/</guid>
@@ -450,7 +450,7 @@
 
 
 	<pubDate>Thu, 10 Nov 2011 09:55:06 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:52Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:42:23Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;More about rationals &lt;/h2&gt;
@@ -489,7 +489,7 @@
 </item>
 <item>
 
-	<title>rationals-followup</title>
+	<title>Followup to the previous post</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-followup/</guid>
@@ -507,7 +507,7 @@
 
 
 	<pubDate>Wed, 09 Nov 2011 15:03:16 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:45Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;A small followup &lt;/h2&gt;
@@ -531,7 +531,7 @@
 </item>
 <item>
 
-	<title>rationals-in-cljs</title>
+	<title>Rationals in Clojurescript</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-in-cljs/</guid>
@@ -551,7 +551,7 @@
 
 
 	<pubDate>Wed, 09 Nov 2011 10:13:06 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:24:35Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;

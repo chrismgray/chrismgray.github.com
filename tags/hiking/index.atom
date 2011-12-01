@@ -17,9 +17,9 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-28T18:17:19Z</updated>
+<updated>2011-12-01T07:47:32Z</updated>
 <entry>
-	<title>mid-maine</title>
+	<title>Mid-Maine</title>
 
 	<id>http://chrismgray.github.com//posts/hiking/mid-maine/</id>
 
@@ -35,7 +35,7 @@
 	<category term="hiking" />
 
 
-	<updated>2011-11-28T18:17:19Z</updated>
+	<updated>2011-12-01T07:47:32Z</updated>
 	<published>2011-11-28T16:52:35Z</published>
 
 	<content type="html" xml:lang="en">
@@ -225,7 +225,7 @@
 
 </entry>
 <entry>
-	<title>100-mile-wilderness</title>
+	<title>100-Mile Wilderness</title>
 
 	<id>http://chrismgray.github.com//posts/hiking/100-mile-wilderness/</id>
 
@@ -241,7 +241,7 @@
 	<category term="hiking" />
 
 
-	<updated>2011-11-21T00:31:34Z</updated>
+	<updated>2011-12-01T07:47:22Z</updated>
 	<published>2011-11-19T20:34:35Z</published>
 
 	<content type="html" xml:lang="en">
@@ -459,7 +459,7 @@ that made the biggest impression on me.
 
 </entry>
 <entry>
-	<title>spot-tracks</title>
+	<title>SPOT Tracks</title>
 
 	<id>http://chrismgray.github.com//posts/spot-tracks/</id>
 
@@ -477,7 +477,7 @@ that made the biggest impression on me.
 	<category term="spot" />
 
 
-	<updated>2011-11-16T16:20:05Z</updated>
+	<updated>2011-12-01T07:44:36Z</updated>
 	<published>2011-11-16T16:20:05Z</published>
 
 	<content type="html" xml:lang="en">
@@ -514,7 +514,7 @@ that made the biggest impression on me.
 
 </entry>
 <entry>
-	<title>at-01</title>
+	<title>Appalachian Trail Tales</title>
 
 	<id>http://chrismgray.github.com//posts/hiking/at-01/</id>
 
@@ -530,7 +530,7 @@ that made the biggest impression on me.
 	<category term="hiking" />
 
 
-	<updated>2011-11-13T16:05:46Z</updated>
+	<updated>2011-12-01T07:47:10Z</updated>
 	<published>2011-11-13T15:57:32Z</published>
 
 	<content type="html" xml:lang="en">
@@ -678,7 +678,7 @@ that made the biggest impression on me.
 
 </entry>
 <entry>
-	<title>blogging-about-blogging</title>
+	<title>Blogging About Blogging</title>
 
 	<id>http://chrismgray.github.com//posts/blogging-about-blogging/</id>
 
@@ -702,7 +702,7 @@ that made the biggest impression on me.
 	<category term="org-mode" />
 
 
-	<updated>2011-11-11T02:13:21Z</updated>
+	<updated>2011-12-01T07:37:21Z</updated>
 	<published>2011-11-11T02:13:21Z</published>
 
 	<content type="html" xml:lang="en">
@@ -717,7 +717,7 @@ that made the biggest impression on me.
 &lt;/p&gt;
 &lt;p&gt;
   By my standards, this is a fairly simple system.  It is based on
-  &lt;a href=&quot;http://ikiwiki.info&quot;&gt;ikiwiki&lt;/a&gt;, which allows me to use &lt;a href=&quot;http://orgmode&quot;&gt;org-mode&lt;/a&gt; to edit my posts and &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; as
+  &lt;a href=&quot;http://ikiwiki.info&quot;&gt;ikiwiki&lt;/a&gt;, which allows me to use &lt;a href=&quot;http://orgmode.org&quot;&gt;org-mode&lt;/a&gt; to edit my posts and &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; as
   the version control system.  Since I already know those tools, I
   don&#39;t have to think about them and can just focus on writing.
 &lt;/p&gt;

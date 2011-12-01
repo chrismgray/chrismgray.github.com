@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>clojure-sorting</title>
+	<title>Lazy Sorting in Clojure</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/clojure-sorting/</guid>
@@ -24,7 +24,7 @@
 
 
 	<pubDate>Sun, 27 Nov 2011 07:23:34 -0700</pubDate>
-	<dcterms:modified>2011-11-27T19:02:44Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:44Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;

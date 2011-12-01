@@ -17,9 +17,9 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-27T19:02:44Z</updated>
+<updated>2011-12-01T07:45:44Z</updated>
 <entry>
-	<title>clojure-sorting</title>
+	<title>Lazy Sorting in Clojure</title>
 
 	<id>http://chrismgray.github.com//posts/clojure-sorting/</id>
 
@@ -37,7 +37,7 @@
 	<category term="sort" />
 
 
-	<updated>2011-11-27T19:02:44Z</updated>
+	<updated>2011-12-01T07:45:44Z</updated>
 	<published>2011-11-27T14:23:34Z</published>
 
 	<content type="html" xml:lang="en">

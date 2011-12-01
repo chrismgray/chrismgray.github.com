@@ -8,7 +8,7 @@
 <description>Hiking and Coding</description>
 <item>
 
-	<title>convex-hulls</title>
+	<title>Convex Hulls</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/convex-hulls/</guid>
@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
-	<dcterms:modified>2011-11-30T22:21:24Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:52:57Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
@@ -216,7 +216,7 @@
 </item>
 <item>
 
-	<title>clojure-sorting</title>
+	<title>Lazy Sorting in Clojure</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/clojure-sorting/</guid>
@@ -232,7 +232,7 @@
 
 
 	<pubDate>Sun, 27 Nov 2011 07:23:34 -0700</pubDate>
-	<dcterms:modified>2011-11-27T19:02:44Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:44Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
@@ -487,7 +487,7 @@
 </item>
 <item>
 
-	<title>processing</title>
+	<title>Processing</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/processing/</guid>
@@ -505,7 +505,7 @@
 
 
 	<pubDate>Tue, 22 Nov 2011 12:29:29 -0700</pubDate>
-	<dcterms:modified>2011-11-22T21:06:52Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:19Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
@@ -601,7 +601,7 @@
 </item>
 <item>
 
-	<title>visibility-polygon</title>
+	<title>Visibility Polygons</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/visibility-polygon/</guid>
@@ -619,7 +619,7 @@
 
 
 	<pubDate>Mon, 21 Nov 2011 12:44:43 -0700</pubDate>
-	<dcterms:modified>2011-11-21T19:58:03Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:45:06Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon &lt;/h2&gt;
@@ -754,7 +754,7 @@
 </item>
 <item>
 
-	<title>luhnybin</title>
+	<title>The Luhnybin Challenge</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/luhnybin/</guid>
@@ -770,7 +770,7 @@
 
 
 	<pubDate>Tue, 15 Nov 2011 13:22:19 -0700</pubDate>
-	<dcterms:modified>2011-11-15T22:18:05Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:44:18Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge &lt;/h2&gt;
@@ -846,7 +846,7 @@
 </item>
 <item>
 
-	<title>scattered</title>
+	<title>Scattered</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/scattered/</guid>
@@ -870,7 +870,7 @@
 
 
 	<pubDate>Mon, 14 Nov 2011 10:11:23 -0700</pubDate>
-	<dcterms:modified>2011-11-14T18:14:04Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:43:31Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Scattered &lt;/h2&gt;
@@ -994,7 +994,7 @@
 </item>
 <item>
 
-	<title>time-series-2</title>
+	<title>Time Series 2</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/time-series-2/</guid>
@@ -1010,7 +1010,7 @@
 
 
 	<pubDate>Sun, 13 Nov 2011 07:12:16 -0700</pubDate>
-	<dcterms:modified>2011-11-15T20:22:53Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:43:58Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;What we have so far &lt;/h2&gt;
@@ -1117,7 +1117,7 @@
 </item>
 <item>
 
-	<title>time-series-1</title>
+	<title>Time Series</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/time-series-1/</guid>
@@ -1133,7 +1133,7 @@
 
 
 	<pubDate>Sat, 12 Nov 2011 09:27:15 -0700</pubDate>
-	<dcterms:modified>2011-11-15T20:22:37Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:43:43Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
@@ -1233,7 +1233,7 @@
 </item>
 <item>
 
-	<title>cljs-name-resolving-2</title>
+	<title>Resolving names in Clojurescript (followup)</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving-2/</guid>
@@ -1251,7 +1251,7 @@
 
 
 	<pubDate>Fri, 11 Nov 2011 18:07:52 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:28:40Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:43:10Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
@@ -1338,7 +1338,7 @@
 </item>
 <item>
 
-	<title>cljs-name-resolving</title>
+	<title>Resolving names in Clojurescript</title>
 
 
 	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving/</guid>
@@ -1356,7 +1356,7 @@
 
 
 	<pubDate>Fri, 11 Nov 2011 07:23:38 -0700</pubDate>
-	<dcterms:modified>2011-11-12T01:25:21Z</dcterms:modified>
+	<dcterms:modified>2011-12-01T07:42:46Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;

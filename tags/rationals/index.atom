@@ -17,9 +17,9 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-12T01:28:40Z</updated>
+<updated>2011-12-01T07:46:11Z</updated>
 <entry>
-	<title>cljs-name-resolving-2</title>
+	<title>Resolving names in Clojurescript (followup)</title>
 
 	<id>http://chrismgray.github.com//posts/cljs-name-resolving-2/</id>
 
@@ -39,7 +39,7 @@
 	<category term="rationals" />
 
 
-	<updated>2011-11-12T01:28:40Z</updated>
+	<updated>2011-12-01T07:43:10Z</updated>
 	<published>2011-11-12T01:07:52Z</published>
 
 	<content type="html" xml:lang="en">
@@ -131,7 +131,7 @@
 
 </entry>
 <entry>
-	<title>cljs-name-resolving</title>
+	<title>Resolving names in Clojurescript</title>
 
 	<id>http://chrismgray.github.com//posts/cljs-name-resolving/</id>
 
@@ -151,7 +151,7 @@
 	<category term="rationals" />
 
 
-	<updated>2011-11-12T01:25:21Z</updated>
+	<updated>2011-12-01T07:42:46Z</updated>
 	<published>2011-11-11T14:23:38Z</published>
 
 	<content type="html" xml:lang="en">
@@ -261,7 +261,7 @@
 
 </entry>
 <entry>
-	<title>more-rationals</title>
+	<title>More Rationals</title>
 
 	<id>http://chrismgray.github.com//posts/more-rationals/</id>
 
@@ -281,7 +281,7 @@
 	<category term="rationals" />
 
 
-	<updated>2011-11-12T01:24:52Z</updated>
+	<updated>2011-12-01T07:42:23Z</updated>
 	<published>2011-11-10T16:55:06Z</published>
 
 	<content type="html" xml:lang="en">
@@ -325,7 +325,7 @@
 
 </entry>
 <entry>
-	<title>rationals-followup</title>
+	<title>Followup to the previous post</title>
 
 	<id>http://chrismgray.github.com//posts/rationals-followup/</id>
 
@@ -345,7 +345,7 @@
 	<category term="rationals" />
 
 
-	<updated>2011-11-12T01:24:45Z</updated>
+	<updated>2011-12-01T07:46:11Z</updated>
 	<published>2011-11-09T22:03:16Z</published>
 
 	<content type="html" xml:lang="en">
@@ -374,7 +374,7 @@
 
 </entry>
 <entry>
-	<title>rationals-in-cljs</title>
+	<title>Rationals in Clojurescript</title>
 
 	<id>http://chrismgray.github.com//posts/rationals-in-cljs/</id>
 
@@ -396,7 +396,7 @@
 	<category term="voronoi-diagram" />
 
 
-	<updated>2011-11-12T01:24:35Z</updated>
+	<updated>2011-12-01T07:46:11Z</updated>
 	<published>2011-11-09T17:13:06Z</published>
 
 	<content type="html" xml:lang="en">

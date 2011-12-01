@@ -17,7 +17,201 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-11-30T22:21:50Z</updated>
+<updated>2011-12-01T07:53:23Z</updated>
+<entry>
+	<title>change to posts/convex-hulls on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_ebdf6152152bf3c0348496a8feec7e08ccc644e7/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-ebdf6152152bf3c0348496a8feec7e08ccc644e7"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-12-01T07:53:23Z</updated>
+	<published>2011-12-01T07:53:23Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-ebdf6152152bf3c0348496a8feec7e08ccc644e7&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/convex-hulls
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;00:53:23 12/01/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Added a title that I had missed&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/cljs-name-resolving-2 posts/cljs-name-resolving posts/clojure-sorting posts/git-annex posts/hiking/at-01 posts/hiking/mid-maine posts/luhnybin posts/more-rationals posts/parsing-polygons posts/processing  on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_c7700933862bc647da1cbff5553ff1ad63c7f71c/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-c7700933862bc647da1cbff5553ff1ad63c7f71c"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-12-01T07:47:46Z</updated>
+	<published>2011-12-01T07:47:46Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-c7700933862bc647da1cbff5553ff1ad63c7f71c&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-name-resolving-2
+
+posts/cljs-name-resolving
+
+posts/clojure-sorting
+
+posts/git-annex
+
+posts/hiking/at-01
+
+posts/hiking/mid-maine
+
+posts/luhnybin
+
+posts/more-rationals
+
+posts/parsing-polygons
+
+posts/processing
+
+...
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;12:47:46 AM 12/01/2011&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Added titles to the existing posts&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/blogging-about-blogging on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_db4f3355f3ca4c890fc83cd3acd7d613a2a8b930/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-db4f3355f3ca4c890fc83cd3acd7d613a2a8b930"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-12-01T07:23:29Z</updated>
+	<published>2011-12-01T07:23:29Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-db4f3355f3ca4c890fc83cd3acd7d613a2a8b930&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/blogging-about-blogging
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;12:23:29 AM 12/01/2011&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Fixed a link&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/convex-hulls on Hiking and Coding</title>
 
@@ -5731,182 +5925,6 @@ chrismgray
 
 
 Fun background stuff&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to local.css shasta.jpg on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_424201882ff25d97067193da570ceab6ca595619/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-424201882ff25d97067193da570ceab6ca595619"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-10T18:56:55Z</updated>
-	<published>2011-11-10T18:56:55Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-424201882ff25d97067193da570ceab6ca595619&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-local.css
-
-shasta.jpg
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:56:55 AM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Image a bit smaller and put it in the CSS&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to shasta.jpg on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_698ed1f82e0284c3a05c216d6d8987f9702dbc12/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-698ed1f82e0284c3a05c216d6d8987f9702dbc12"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-10T18:53:20Z</updated>
-	<published>2011-11-10T18:53:20Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-698ed1f82e0284c3a05c216d6d8987f9702dbc12&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-shasta.jpg
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:53:20 AM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Smaller still&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to shasta.jpg on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_4b729d59d9c9b381d3555950d3f618e763081f0f/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-4b729d59d9c9b381d3555950d3f618e763081f0f"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-10T18:50:44Z</updated>
-	<published>2011-11-10T18:50:44Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-4b729d59d9c9b381d3555950d3f618e763081f0f&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-shasta.jpg
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:50:44 AM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Made the photo a bit smaller&lt;br /&gt;
 
 
 &lt;/div&gt;
