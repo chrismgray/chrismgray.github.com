@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:52:57Z</dcterms:modified>
+	<dcterms:modified>2011-12-02T22:05:50Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
@@ -127,7 +127,7 @@
    I must confess that I had always been a little intimidated by
    Chan&#39;s Algorithm.  It was invented by Timothy Chan, who has a
    well-earned reputation for being a genius, so I thought it would be
-   really complicated.  It&#39;s not.  There is a decent &lt;a href=&quot;http://en.wikipedia.org/wiki/Chan&amp;#39;s_algorithm&quot;&gt;description&lt;/a&gt; of it
+   really complicated.  It&#39;s not.  There is a decent &lt;a href=&quot;http://en.wikipedia.org/wiki/Chan&#39;s_algorithm&quot;&gt;description&lt;/a&gt; of it
    on Wikipedia, so I won&#39;t go into the details.  The gist is that you
    combine the two previous algorithms that I discussed.  The Jarvis
    March needs to be modified so that the points can be input as a
@@ -139,18 +139,18 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn chans-algorithm
-  &lt;span&gt;&quot;Finds the convex hull of a set of points by&lt;/span&gt;
-&lt;span&gt;   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;&lt;/span&gt;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;chans-algorithm&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Finds the convex hull of a set of points by&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;&lt;/span&gt;
   [pts]
-  (let [bottom-pt (apply min-key :y pts)]
-   (loop [m 3] ; start out with triangles
-     (let [partitioned-pts (partition m m [] pts)
-           c-hs (map grahams-scan partitioned-pts)
-           potential-ch (take m (apply jarvis-march pts c-hs))]
-       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; min-key &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:y&lt;/span&gt; pts)]
+   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;loop&lt;/span&gt; [m 3] &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;start out with triangles&lt;/span&gt;
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [partitioned-pts (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; m m [] pts)
+           c-hs (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; grahams-scan partitioned-pts)
+           potential-ch (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;take&lt;/span&gt; m (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; jarvis-march pts c-hs))]
+       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;last&lt;/span&gt; potential-ch)) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;assumes jarvis-march returns bottom-pt last&lt;/span&gt;
          potential-ch
-         (recur (min (* m m) (count pts))))))))
+         (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;recur&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;min&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; m m) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; pts))))))))
 &lt;/pre&gt;
 
 
@@ -159,7 +159,7 @@
 &lt;p&gt;
    The great thing about Chan&#39;s Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
+   \(O(n&lt;sup&gt;2&lt;/sup&gt;)\) in the worst case), it is \(O(n \log h)\), which is at
    least as good as Graham&#39;s Scan, but often better.  It is also quite
    simple to implement, given decent implementations of Jarvis March
    and Graham&#39;s Scan.  
@@ -200,7 +200,6 @@
   to figure out how to work around (or even fix) that before I can
   show any results.
 &lt;/p&gt;
-
 
 
 
@@ -403,7 +402,6 @@
   includes some of the most scenic and dangerous parts of the trail,
   including the &lt;a href=&quot;http://en.wikipedia.org/wiki/Mahoosuc_Notch&quot;&gt;Mahoosuc Notch&lt;/a&gt;.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -675,7 +673,6 @@
   Java&#39;s &lt;code&gt;sort&lt;/code&gt;.
 &lt;/p&gt;
 
-
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -763,7 +760,7 @@
 &lt;pre class=&quot;src src-shell&quot;&gt;/media/mybook/music $ git annex add .
 [All the files are hashed and their contents are put into .git/annex]
 [You will see that all your files are now symlinks to files in .git/annex]
-/media/mybook/music $ git commit -m &lt;span&gt;&quot;Added my files&quot;&lt;/span&gt;
+/media/mybook/music $ git commit -m &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Added my files&quot;&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -834,7 +831,6 @@
   I have not yet learned.  One thing that I am interested in trying
   out is using the &lt;a href=&quot;http://git-annex.branchable.com/special_remotes/web/&quot;&gt;web&lt;/a&gt; as a repository.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -949,7 +945,6 @@
 &lt;/p&gt;
 
 
-
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -995,32 +990,32 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn- add-new-pt [poly]
-  (fn [pt stack]
-    (when (or (empty? stack) ; First two points are guaranteed to be visible
-              (empty? (rest stack))
-              (visible? pt (first poly) (first stack)))
-      [pt (rest poly) (cons (first poly) stack)])))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;add-new-pt&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;or&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; stack) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;First two points are guaranteed to be visible&lt;/span&gt;
+              (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack))
+              (visible? pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack)))
+      [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) stack)])))
 
-(defn- pop-stack [poly]
-  (fn [pt stack]
-    (let [the-seg (seg/new-seg pt (first poly))
-          top-seg (seg/new-seg (first stack) (second stack))]
-      (when (pt/left-turn? (second stack) (first stack) (first poly))
-        (if (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
-          [pt poly (rest stack)])))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;pop-stack&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
+          top-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack))]
+      (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
+        (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg top-seg) stack)]
+          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack)])))))
 
-(defn- skip-pt [poly]
-  (fn [pt stack]
-   (let [the-seg (seg/new-seg pt (first stack))
-         poly-seg (seg/new-seg (first poly) (second poly))]
-     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
-       (if (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
-         [pt (rest poly) stack])))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;skip-pt&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack))
+         poly-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; poly))]
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly)))
+       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg poly-seg) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly)) stack]
+         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) stack])))))
 
-(defn- all-conditions [poly]
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;all-conditions&lt;/span&gt; [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 &lt;/pre&gt;
@@ -1056,7 +1051,7 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn- visibility-polygon-helper [pt poly]
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;visibility-polygon-helper&lt;/span&gt; [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 &lt;/pre&gt;
@@ -1101,7 +1096,6 @@
   works, and could give a nice tool for more interactive geometry
   programs. 
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1213,7 +1207,6 @@
   this time &amp;ndash; a slightly daunting idea.  I definitely need to read
   the rest of &lt;a href=&quot;http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_201.html&quot;&gt;Jim Duey&#39;s tutorial&lt;/a&gt; to make sense of how to do it.
 &lt;/p&gt;
-
 
 
 &lt;/div&gt;
@@ -1441,7 +1434,6 @@ that made the biggest impression on me.
    Wounded Knee.  Stay tuned.
 &lt;/p&gt;
 
-
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1489,7 +1481,6 @@ that made the biggest impression on me.
   &lt;a href=&quot;http://chrismgray.github.com/posts/spot-tracks/view.html&quot;&gt;here&lt;/a&gt;.  The &lt;a href=&quot;https://github.com/chrismgray/spot-tracks&quot;&gt;source code&lt;/a&gt; is on my github page, but it is mostly
   unedifying. 
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1541,16 +1532,16 @@ that made the biggest impression on me.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn luhn-check
-  &lt;span&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
   [digits]
-  (-&amp;gt;&amp;gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
+       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
 &lt;/pre&gt;
 
 
@@ -1581,7 +1572,6 @@ that made the biggest impression on me.
   Anyway, I don&#39;t know if this solution will get me a job, but it was
   a bit of fun coding and didn&#39;t take too long.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;

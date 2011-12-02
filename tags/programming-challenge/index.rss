@@ -48,16 +48,16 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn luhn-check
-  &lt;span&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
   [digits]
-  (-&amp;gt;&amp;gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
+       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
 &lt;/pre&gt;
 
 
@@ -88,7 +88,6 @@
   Anyway, I don&#39;t know if this solution will get me a job, but it was
   a bit of fun coding and didn&#39;t take too long.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -133,22 +132,22 @@
 &lt;/p&gt;
 &lt;p&gt;
   Just as a reminder, &lt;a href=&quot;http://chrismgray.github.com/posts/time-series-1&quot;&gt;yesterday&#39;s task&lt;/a&gt; was to build a time-series
-  framework where a function \(f\) accepts the previous \(n\) outputs of
-  \(f\) as input to generate a new output.  Here is my solution, edited
+  framework where a function $f$ accepts the previous $n$ outputs of
+  $f$ as input to generate a new output.  Here is my solution, edited
   for clarity (the actual solution is in a &lt;a href=&quot;http://github.com/chrismgray/time-series&quot;&gt;github repository&lt;/a&gt;):
 &lt;/p&gt;
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn time-series [f init-state n num-iterations]
- (let [call-f (fn [state]
-                (let [retval (f state)
-                      num (count state)
-                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
+ (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
+                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
+                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
+                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (repeat num-iterations call-f)))
-    (vector init-state))))
+      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
+    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
 &lt;/pre&gt;
 
 
@@ -160,14 +159,14 @@
   taking a list of functions and calling them in order, returning a
   list of their return values.  The list of functions in this case is
   the same function (&lt;code&gt;call-f&lt;/code&gt;) over and over.  All &lt;code&gt;call-f&lt;/code&gt; does is
-  call \(f\) and change the state.
+  call $f$ and change the state.
 &lt;/p&gt;
 &lt;p&gt;
-  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an \(O(n)\) function.  After all, we
-  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most \(n\)
+  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an $O(n)$ function.  After all, we
+  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most $n$
   elements.  However, almost all the behind-the-scenes data structures
   that Clojure uses (including the vector data structure) are
-  guaranteed to have \(O(1)\) performance for calling &lt;code&gt;count&lt;/code&gt;.  So
+  guaranteed to have $O(1)$ performance for calling &lt;code&gt;count&lt;/code&gt;.  So
   that&#39;s nice, and &lt;code&gt;call-f&lt;/code&gt; has the performance characteristics that I
   desired.
 &lt;/p&gt;
@@ -211,7 +210,6 @@
   bend my brain as much as monads, so I won&#39;t talk about them very
   much.  In fact, not at all, because that is the end of my post.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -264,14 +262,14 @@
 
 
 &lt;p&gt;
-  My latest programming challenge is to build a framework for &lt;a href=&quot;http://en.wikipedia.org/wiki/Time_series&quot;&gt;time series&lt;/a&gt; generation.  The framework will take a function \(f\) that
-  looks at the \(n\) previous timesteps and returns the next timestep.
+  My latest programming challenge is to build a framework for &lt;a href=&quot;http://en.wikipedia.org/wiki/Time_series&quot;&gt;time series&lt;/a&gt; generation.  The framework will take a function $f$ that
+  looks at the $n$ previous timesteps and returns the next timestep.
   The other goals are:
 &lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;Efficiency
 
 &lt;p&gt;    
-    Adding a new timestep should be a \(O(1)\) operation.
+    Adding a new timestep should be a $O(1)$ operation.
 &lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Ease of debugging
 
@@ -302,13 +300,13 @@
   This seems like the perfect time to learn about &lt;a href=&quot;http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/&quot;&gt;monads&lt;/a&gt;.  Yikes!
   I&#39;ve tried before, but have never seen a practical use for them.  As
   far as I understand so far, they should be very good for storing the
-  state (&lt;i&gt;i.e.&lt;/i&gt; the previous \(n\) timesteps).
+  state (&lt;i&gt;i.e.&lt;/i&gt; the previous $n$ timesteps).
 &lt;/p&gt;
 &lt;p&gt;
   A simpler solution might be just to use lazy sequences.  There&#39;s not
   much to such a solution, so I might just implement it first and then
-  try to replicate it with monads.  In this solution, the previous \(n\)
-  timesteps are simply the last \(n\) elements of the lazy sequence.
+  try to replicate it with monads.  In this solution, the previous $n$
+  timesteps are simply the last $n$ elements of the lazy sequence.
   Getting those elements might be tough to do in constant time, but I
   have a feeling it&#39;s possible.
 &lt;/p&gt;
@@ -327,7 +325,6 @@
 &lt;p&gt;
   On to the coding!
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;

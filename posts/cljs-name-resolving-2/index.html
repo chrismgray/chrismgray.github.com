@@ -187,7 +187,7 @@ Resolving names in Clojurescript (followup)
 
 
 
-<pre class="src src-clojure">(let [name (munge (symbol (str (-&gt; env :ns :name) <span>"."</span> (munge (str sym)))))
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span> (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">str</span> sym)))))])
 </pre>
 
 
@@ -212,9 +212,9 @@ Resolving names in Clojurescript (followup)
 
 
 
-<pre class="src src-clojure">(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&gt; env :ns :name) :defs sym])))
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [full-ns (<span style="color: #8cd0d3;">if</span> (<span style="color: #8cd0d3;">and</span> (core-name? env sym) (<span style="color: #f0dfaf;">nil?</span> (<span style="color: #f0dfaf;">get-in</span> @namespaces [(<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #dca3a3; font-weight: bold;">:defs</span> sym])))
                 'cljs.core
-                (-&gt; env :ns :name))]
+                (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>))])
 </pre>
 
 
@@ -247,7 +247,6 @@ Resolving names in Clojurescript (followup)
   being able to redefine these functions, so I think the macros should
   be removed, but at least one of the implementations is redundant.
 </p>
-
 
 
 </div>
@@ -299,7 +298,7 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu 01 Dec 2011 12:43:10 AM MST</span>
+Last edited <span class="date">Fri 02 Dec 2011 09:41:31 AM MST</span>
 <!-- Created <span class="date">Fri 11 Nov 2011 06:07:52 PM MST</span> -->
 </div>
 

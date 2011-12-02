@@ -190,22 +190,22 @@ Time Series 2
 </p>
 <p>
   Just as a reminder, <a href="http://chrismgray.github.com/posts/time-series-1">yesterday's task</a> was to build a time-series
-  framework where a function \(f\) accepts the previous \(n\) outputs of
-  \(f\) as input to generate a new output.  Here is my solution, edited
+  framework where a function $f$ accepts the previous $n$ outputs of
+  $f$ as input to generate a new output.  Here is my solution, edited
   for clarity (the actual solution is in a <a href="http://github.com/chrismgray/time-series">github repository</a>):
 </p>
 
 
 
-<pre class="src src-clojure">(defn time-series [f init-state n num-iterations]
- (let [call-f (fn [state]
-                (let [retval (f state)
-                      num (count state)
-                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">time-series</span> [f init-state n num-iterations]
+ (<span style="color: #8cd0d3;">let</span> [call-f (<span style="color: #f0dfaf;">fn</span> [state]
+                (<span style="color: #8cd0d3;">let</span> [retval (f state)
+                      num (<span style="color: #f0dfaf;">count</span> state)
+                      new-state (<span style="color: #f0dfaf;">vec</span> (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> num n) (<span style="color: #f0dfaf;">drop</span> 1 (<span style="color: #f0dfaf;">conj</span> state retval)) (<span style="color: #f0dfaf;">conj</span> state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (repeat num-iterations call-f)))
-    (vector init-state))))
+      (m-seq (<span style="color: #f0dfaf;">repeat</span> num-iterations call-f)))
+    (<span style="color: #f0dfaf;">vector</span> init-state))))
 </pre>
 
 
@@ -217,14 +217,14 @@ Time Series 2
   taking a list of functions and calling them in order, returning a
   list of their return values.  The list of functions in this case is
   the same function (<code>call-f</code>) over and over.  All <code>call-f</code> does is
-  call \(f\) and change the state.
+  call $f$ and change the state.
 </p>
 <p>
-  It might appear that <code>call-f</code> is an \(O(n)\) function.  After all, we
-  call <code>count</code> on the state, which is a vector of at most \(n\)
+  It might appear that <code>call-f</code> is an $O(n)$ function.  After all, we
+  call <code>count</code> on the state, which is a vector of at most $n$
   elements.  However, almost all the behind-the-scenes data structures
   that Clojure uses (including the vector data structure) are
-  guaranteed to have \(O(1)\) performance for calling <code>count</code>.  So
+  guaranteed to have $O(1)$ performance for calling <code>count</code>.  So
   that's nice, and <code>call-f</code> has the performance characteristics that I
   desired.
 </p>
@@ -268,7 +268,6 @@ Time Series 2
   bend my brain as much as monads, so I won't talk about them very
   much.  In fact, not at all, because that is the end of my post.
 </p>
-
 
 </div>
 </div>

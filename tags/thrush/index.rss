@@ -48,16 +48,16 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn luhn-check
-  &lt;span&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
   [digits]
-  (-&amp;gt;&amp;gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
+       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
 &lt;/pre&gt;
 
 
@@ -88,7 +88,6 @@
   Anyway, I don&#39;t know if this solution will get me a job, but it was
   a bit of fun coding and didn&#39;t take too long.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;

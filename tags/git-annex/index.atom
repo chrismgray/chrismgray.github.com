@@ -100,7 +100,7 @@
 &lt;pre class=&quot;src src-shell&quot;&gt;/media/mybook/music $ git annex add .
 [All the files are hashed and their contents are put into .git/annex]
 [You will see that all your files are now symlinks to files in .git/annex]
-/media/mybook/music $ git commit -m &lt;span&gt;&quot;Added my files&quot;&lt;/span&gt;
+/media/mybook/music $ git commit -m &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Added my files&quot;&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -171,7 +171,6 @@
   I have not yet learned.  One thing that I am interested in trying
   out is using the &lt;a href=&quot;http://git-annex.branchable.com/special_remotes/web/&quot;&gt;web&lt;/a&gt; as a repository.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -326,7 +325,6 @@
   come from doing that, but it seems nice to have these things in
   version control.
 &lt;/p&gt;
-
 
 &lt;/div&gt;
 &lt;/div&gt;

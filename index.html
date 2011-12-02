@@ -188,9 +188,9 @@ Hiking and Coding
         <td class="month-calendar-day-noday Monday">&nbsp;</td>
         <td class="month-calendar-day-noday Tuesday">&nbsp;</td>
         <td class="month-calendar-day-noday Wednesday">&nbsp;</td>
-        <td class="month-calendar-day-this-day Thursday">1</td>
-        <td class="month-calendar-day-future Friday">2</td>
-        <td class="month-calendar-day-nolink Saturday">3</td>
+        <td class="month-calendar-day-nolink Thursday">1</td>
+        <td class="month-calendar-day-this-day Friday">2</td>
+        <td class="month-calendar-day-future Saturday">3</td>
     </tr>
     <tr>
         <td class="month-calendar-day-nolink Sunday">4</td>
@@ -235,7 +235,7 @@ Hiking and Coding
 
 <p><a href="./tags/">Tags</a>:</p>
 
-<ul class="list">
+<ul class='list'>
 <li><span class="smallPC"><a href="./tags/AT/">AT</a></span>
 </li><li><span class="smallestPC"><a href="./tags/blogging/">blogging</a></span>
 </li><li><span class="biggestPC"><a href="./tags/clojure/">clojure</a></span>
@@ -265,7 +265,7 @@ Hiking and Coding
 <p>Post interval:
 <img src="./sidebar/sparkline-43d1050723f6da619cef397c936190547b05e8ab.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Thu Dec  1 00:30:04 2011</span> (54 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: <em>Can't connect to api.twitter.com:80 (timeout)</em> (54 posts)</p>
 
 <div class="microblog">
 
@@ -294,7 +294,7 @@ frogmanjack: Why is it that I don't mind i.e. and e.g., but get enraged when peo
 </span>
 
 
-&mdash; <span class="date">Wed Nov 30 15:40:50 2011</span>
+&mdash; <span class="date">Wed 30 Nov 2011 03:40:50 PM MST</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -325,7 +325,7 @@ frogmanjack: Matrix multiplication has had a few thousandths knocked off its exp
 </span>
 
 
-&mdash; <span class="date">Tue Nov 29 11:35:17 2011</span>
+&mdash; <span class="date">Tue 29 Nov 2011 11:35:17 AM MST</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -356,7 +356,7 @@ frogmanjack: My tools are taking forever, but the pics will be up here: http://t
 </span>
 
 
-&mdash; <span class="date">Sun Nov 27 14:08:36 2011</span>
+&mdash; <span class="date">Sun 27 Nov 2011 02:08:36 PM MST</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -387,7 +387,7 @@ frogmanjack: Going for a run with a camera to see if I can get anything interest
 </span>
 
 
-&mdash; <span class="date">Sun Nov 27 12:44:10 2011</span>
+&mdash; <span class="date">Sun 27 Nov 2011 12:44:10 PM MST</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -418,7 +418,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 </span>
 
 
-&mdash; <span class="date">Sun Nov 27 12:37:11 2011</span>
+&mdash; <span class="date">Sun 27 Nov 2011 12:37:11 PM MST</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -547,7 +547,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
    I must confess that I had always been a little intimidated by
    Chan's Algorithm.  It was invented by Timothy Chan, who has a
    well-earned reputation for being a genius, so I thought it would be
-   really complicated.  It's not.  There is a decent <a href="http://en.wikipedia.org/wiki/Chan&#39;s_algorithm">description</a> of it
+   really complicated.  It's not.  There is a decent <a href="http://en.wikipedia.org/wiki/Chan's_algorithm">description</a> of it
    on Wikipedia, so I won't go into the details.  The gist is that you
    combine the two previous algorithms that I discussed.  The Jarvis
    March needs to be modified so that the points can be input as a
@@ -559,18 +559,18 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 
 
 
-<pre class="src src-clojure">(defn chans-algorithm
-  <span>"Finds the convex hull of a set of points by</span>
-<span>   the algorithm known as 'Chan's Algorithm'."</span>
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">chans-algorithm</span>
+  <span style="color: #8fb28f;">"Finds the convex hull of a set of points by</span>
+<span style="color: #8fb28f;">   the algorithm known as 'Chan's Algorithm'."</span>
   [pts]
-  (let [bottom-pt (apply min-key :y pts)]
-   (loop [m 3] ; start out with triangles
-     (let [partitioned-pts (partition m m [] pts)
-           c-hs (map grahams-scan partitioned-pts)
-           potential-ch (take m (apply jarvis-march pts c-hs))]
-       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+  (<span style="color: #8cd0d3;">let</span> [bottom-pt (<span style="color: #f0dfaf;">apply</span> min-key <span style="color: #dca3a3; font-weight: bold;">:y</span> pts)]
+   (<span style="color: #8cd0d3;">loop</span> [m 3] <span style="color: #708070;">; </span><span style="color: #7f9f7f;">start out with triangles</span>
+     (<span style="color: #8cd0d3;">let</span> [partitioned-pts (<span style="color: #f0dfaf;">partition</span> m m [] pts)
+           c-hs (<span style="color: #f0dfaf;">map</span> grahams-scan partitioned-pts)
+           potential-ch (<span style="color: #f0dfaf;">take</span> m (<span style="color: #f0dfaf;">apply</span> jarvis-march pts c-hs))]
+       (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> bottom-pt (<span style="color: #f0dfaf;">last</span> potential-ch)) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">assumes jarvis-march returns bottom-pt last</span>
          potential-ch
-         (recur (min (* m m) (count pts))))))))
+         (<span style="color: #8cd0d3;">recur</span> (<span style="color: #f0dfaf;">min</span> (<span style="color: #f0dfaf;">*</span> m m) (<span style="color: #f0dfaf;">count</span> pts))))))))
 </pre>
 
 
@@ -579,7 +579,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 <p>
    The great thing about Chan's Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
+   \(O(n<sup>2</sup>)\) in the worst case), it is \(O(n \log h)\), which is at
    least as good as Graham's Scan, but often better.  It is also quite
    simple to implement, given decent implementations of Jarvis March
    and Graham's Scan.  
@@ -625,7 +625,6 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 
 
 
-
 </div>
 </div>
 
@@ -634,7 +633,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov 30 11:06:31 2011</span>
+Posted <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span>
 </span>
 
 
@@ -847,7 +846,6 @@ Tags:
   including the <a href="http://en.wikipedia.org/wiki/Mahoosuc_Notch">Mahoosuc Notch</a>.
 </p>
 
-
 </div>
 </div>
 
@@ -856,7 +854,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon Nov 28 09:52:35 2011</span>
+Posted <span class="date">Mon 28 Nov 2011 09:52:35 AM MST</span>
 </span>
 
 
@@ -1133,7 +1131,6 @@ Tags:
   Java's <code>sort</code>.
 </p>
 
-
 </div>
 </div>
 
@@ -1142,7 +1139,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun Nov 27 07:23:34 2011</span>
+Posted <span class="date">Sun 27 Nov 2011 07:23:34 AM MST</span>
 </span>
 
 
@@ -1240,7 +1237,7 @@ Tags:
 <pre class="src src-shell">/media/mybook/music $ git annex add .
 [All the files are hashed and their contents are put into .git/annex]
 [You will see that all your files are now symlinks to files in .git/annex]
-/media/mybook/music $ git commit -m <span>"Added my files"</span>
+/media/mybook/music $ git commit -m <span style="color: #cc9393;">"Added my files"</span>
 </pre>
 
 
@@ -1312,7 +1309,6 @@ Tags:
   out is using the <a href="http://git-annex.branchable.com/special_remotes/web/">web</a> as a repository.
 </p>
 
-
 </div>
 </div>
 
@@ -1321,7 +1317,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov 23 20:02:00 2011</span>
+Posted <span class="date">Wed 23 Nov 2011 08:02:00 PM MST</span>
 </span>
 
 
@@ -1439,7 +1435,6 @@ Tags:
 </p>
 
 
-
 </div>
 </div>
 
@@ -1448,7 +1443,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue Nov 22 12:29:29 2011</span>
+Posted <span class="date">Tue 22 Nov 2011 12:29:29 PM MST</span>
 </span>
 
 
@@ -1502,32 +1497,32 @@ Tags:
 
 
 
-<pre class="src src-clojure">(defn- add-new-pt [poly]
-  (fn [pt stack]
-    (when (or (empty? stack) ; First two points are guaranteed to be visible
-              (empty? (rest stack))
-              (visible? pt (first poly) (first stack)))
-      [pt (rest poly) (cons (first poly) stack)])))
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">add-new-pt</span> [poly]
+  (<span style="color: #f0dfaf;">fn</span> [pt stack]
+    (<span style="color: #8cd0d3;">when</span> (<span style="color: #8cd0d3;">or</span> (<span style="color: #f0dfaf;">empty?</span> stack) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">First two points are guaranteed to be visible</span>
+              (<span style="color: #f0dfaf;">empty?</span> (<span style="color: #f0dfaf;">rest</span> stack))
+              (visible? pt (<span style="color: #f0dfaf;">first</span> poly) (<span style="color: #f0dfaf;">first</span> stack)))
+      [pt (<span style="color: #f0dfaf;">rest</span> poly) (<span style="color: #f0dfaf;">cons</span> (<span style="color: #f0dfaf;">first</span> poly) stack)])))
 
-(defn- pop-stack [poly]
-  (fn [pt stack]
-    (let [the-seg (seg/new-seg pt (first poly))
-          top-seg (seg/new-seg (first stack) (second stack))]
-      (when (pt/left-turn? (second stack) (first stack) (first poly))
-        (if (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
-          [pt poly (rest stack)])))))
+(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">pop-stack</span> [poly]
+  (<span style="color: #f0dfaf;">fn</span> [pt stack]
+    (<span style="color: #8cd0d3;">let</span> [the-seg (seg/new-seg pt (<span style="color: #f0dfaf;">first</span> poly))
+          top-seg (seg/new-seg (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">second</span> stack))]
+      (<span style="color: #8cd0d3;">when</span> (pt/left-turn? (<span style="color: #f0dfaf;">second</span> stack) (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">first</span> poly))
+        (<span style="color: #8cd0d3;">if</span> (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (<span style="color: #f0dfaf;">cons</span> (seg/<span style="color: #dfdfbf; font-weight: bold;">intersection</span> the-seg top-seg) stack)]
+          [pt poly (<span style="color: #f0dfaf;">rest</span> stack)])))))
 
-(defn- skip-pt [poly]
-  (fn [pt stack]
-   (let [the-seg (seg/new-seg pt (first stack))
-         poly-seg (seg/new-seg (first poly) (second poly))]
-     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
-       (if (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
-         [pt (rest poly) stack])))))
+(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">skip-pt</span> [poly]
+  (<span style="color: #f0dfaf;">fn</span> [pt stack]
+   (<span style="color: #8cd0d3;">let</span> [the-seg (seg/new-seg pt (<span style="color: #f0dfaf;">first</span> stack))
+         poly-seg (seg/new-seg (<span style="color: #f0dfaf;">first</span> poly) (<span style="color: #f0dfaf;">second</span> poly))]
+     (<span style="color: #8cd0d3;">when</span> (<span style="color: #f0dfaf;">not</span> (pt/left-turn? (<span style="color: #f0dfaf;">second</span> stack) (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">first</span> poly)))
+       (<span style="color: #8cd0d3;">if</span> (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (<span style="color: #f0dfaf;">cons</span> (seg/<span style="color: #dfdfbf; font-weight: bold;">intersection</span> the-seg poly-seg) (<span style="color: #f0dfaf;">rest</span> poly)) stack]
+         [pt (<span style="color: #f0dfaf;">rest</span> poly) stack])))))
 
-(defn- all-conditions [poly]
+(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">all-conditions</span> [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 </pre>
@@ -1563,7 +1558,7 @@ Tags:
 
 
 
-<pre class="src src-clojure">(defn- visibility-polygon-helper [pt poly]
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">visibility-polygon-helper</span> [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 </pre>
@@ -1609,7 +1604,6 @@ Tags:
   programs. 
 </p>
 
-
 </div>
 </div>
 
@@ -1618,7 +1612,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon Nov 21 12:44:43 2011</span>
+Posted <span class="date">Mon 21 Nov 2011 12:44:43 PM MST</span>
 </span>
 
 
@@ -1741,7 +1735,6 @@ Tags:
 </p>
 
 
-
 </div>
 </div>
 
@@ -1750,7 +1743,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
+Posted <span class="date">Sun 20 Nov 2011 05:58:28 PM MST</span>
 </span>
 
 
@@ -1986,7 +1979,6 @@ that made the biggest impression on me.
    Wounded Knee.  Stay tuned.
 </p>
 
-
 </div>
 </div>
 </div>
@@ -1996,7 +1988,7 @@ that made the biggest impression on me.
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat Nov 19 13:34:35 2011</span>
+Posted <span class="date">Sat 19 Nov 2011 01:34:35 PM MST</span>
 </span>
 
 
@@ -2050,7 +2042,6 @@ Tags:
   unedifying. 
 </p>
 
-
 </div>
 </div>
 
@@ -2059,7 +2050,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov 16 09:20:05 2011</span>
+Posted <span class="date">Wed 16 Nov 2011 09:20:05 AM MST</span>
 </span>
 
 
@@ -2118,16 +2109,16 @@ Tags:
 
 
 
-<pre class="src src-clojure">(defn luhn-check
-  <span>"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
-<span>   The sequence must be in order from right to left."</span>
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">luhn-check</span>
+  <span style="color: #8fb28f;">"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
+<span style="color: #8fb28f;">   The sequence must be in order from right to left."</span>
   [digits]
-  (-&gt;&gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (<span style="color: #8cd0d3;">-&gt;&gt;</span> digits
+       (<span style="color: #f0dfaf;">partition</span> 2 2 (<span style="color: #f0dfaf;">repeat</span> 0))
+       (<span style="color: #f0dfaf;">mapcat</span> #(<span style="color: #f0dfaf;">vector</span> (<span style="color: #f0dfaf;">first</span> %) (<span style="color: #f0dfaf;">*</span> 2 (<span style="color: #f0dfaf;">second</span> %))))
+       (<span style="color: #f0dfaf;">reduce</span> #(<span style="color: #f0dfaf;">+</span> %1 (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">/</span> %2 10)) (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">mod</span> %2 10))))
+       (#(<span style="color: #f0dfaf;">mod</span> % 10))
+       (<span style="color: #f0dfaf;">=</span> 0)))
 </pre>
 
 
@@ -2159,7 +2150,6 @@ Tags:
   a bit of fun coding and didn't take too long.
 </p>
 
-
 </div>
 </div>
 
@@ -2168,7 +2158,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue Nov 15 13:22:19 2011</span>
+Posted <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span>
 </span>
 
 
@@ -2240,8 +2230,8 @@ Links:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu Nov 10 13:12:04 2011</span>
-<!-- Created <span class="date">Tue Nov  8 23:43:03 2011</span> -->
+Last edited <span class="date">Thu 10 Nov 2011 01:12:04 PM MST</span>
+<!-- Created <span class="date">Tue 08 Nov 2011 11:43:03 PM MST</span> -->
 </div>
 
 </div>

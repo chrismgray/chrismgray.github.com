@@ -272,7 +272,7 @@ Convex Hulls
    I must confess that I had always been a little intimidated by
    Chan's Algorithm.  It was invented by Timothy Chan, who has a
    well-earned reputation for being a genius, so I thought it would be
-   really complicated.  It's not.  There is a decent <a href="http://en.wikipedia.org/wiki/Chan&#39;s_algorithm">description</a> of it
+   really complicated.  It's not.  There is a decent <a href="http://en.wikipedia.org/wiki/Chan's_algorithm">description</a> of it
    on Wikipedia, so I won't go into the details.  The gist is that you
    combine the two previous algorithms that I discussed.  The Jarvis
    March needs to be modified so that the points can be input as a
@@ -284,18 +284,18 @@ Convex Hulls
 
 
 
-<pre class="src src-clojure">(defn chans-algorithm
-  <span>"Finds the convex hull of a set of points by</span>
-<span>   the algorithm known as 'Chan's Algorithm'."</span>
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">chans-algorithm</span>
+  <span style="color: #8fb28f;">"Finds the convex hull of a set of points by</span>
+<span style="color: #8fb28f;">   the algorithm known as 'Chan's Algorithm'."</span>
   [pts]
-  (let [bottom-pt (apply min-key :y pts)]
-   (loop [m 3] ; start out with triangles
-     (let [partitioned-pts (partition m m [] pts)
-           c-hs (map grahams-scan partitioned-pts)
-           potential-ch (take m (apply jarvis-march pts c-hs))]
-       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+  (<span style="color: #8cd0d3;">let</span> [bottom-pt (<span style="color: #f0dfaf;">apply</span> min-key <span style="color: #dca3a3; font-weight: bold;">:y</span> pts)]
+   (<span style="color: #8cd0d3;">loop</span> [m 3] <span style="color: #708070;">; </span><span style="color: #7f9f7f;">start out with triangles</span>
+     (<span style="color: #8cd0d3;">let</span> [partitioned-pts (<span style="color: #f0dfaf;">partition</span> m m [] pts)
+           c-hs (<span style="color: #f0dfaf;">map</span> grahams-scan partitioned-pts)
+           potential-ch (<span style="color: #f0dfaf;">take</span> m (<span style="color: #f0dfaf;">apply</span> jarvis-march pts c-hs))]
+       (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> bottom-pt (<span style="color: #f0dfaf;">last</span> potential-ch)) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">assumes jarvis-march returns bottom-pt last</span>
          potential-ch
-         (recur (min (* m m) (count pts))))))))
+         (<span style="color: #8cd0d3;">recur</span> (<span style="color: #f0dfaf;">min</span> (<span style="color: #f0dfaf;">*</span> m m) (<span style="color: #f0dfaf;">count</span> pts))))))))
 </pre>
 
 
@@ -304,7 +304,7 @@ Convex Hulls
 <p>
    The great thing about Chan's Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
+   \(O(n<sup>2</sup>)\) in the worst case), it is \(O(n \log h)\), which is at
    least as good as Graham's Scan, but often better.  It is also quite
    simple to implement, given decent implementations of Jarvis March
    and Graham's Scan.  
@@ -345,7 +345,6 @@ Convex Hulls
   to figure out how to work around (or even fix) that before I can
   show any results.
 </p>
-
 
 
 
@@ -402,8 +401,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu Dec  1 00:52:57 2011</span>
-<!-- Created <span class="date">Wed Nov 30 11:06:31 2011</span> -->
+Last edited <span class="date">Fri 02 Dec 2011 03:05:50 PM MST</span>
+<!-- Created <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span> -->
 </div>
 
 </div>

@@ -197,16 +197,16 @@ The Luhnybin Challenge
 
 
 
-<pre class="src src-clojure">(defn luhn-check
-  <span>"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
-<span>   The sequence must be in order from right to left."</span>
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">luhn-check</span>
+  <span style="color: #8fb28f;">"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
+<span style="color: #8fb28f;">   The sequence must be in order from right to left."</span>
   [digits]
-  (-&gt;&gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (<span style="color: #8cd0d3;">-&gt;&gt;</span> digits
+       (<span style="color: #f0dfaf;">partition</span> 2 2 (<span style="color: #f0dfaf;">repeat</span> 0))
+       (<span style="color: #f0dfaf;">mapcat</span> #(<span style="color: #f0dfaf;">vector</span> (<span style="color: #f0dfaf;">first</span> %) (<span style="color: #f0dfaf;">*</span> 2 (<span style="color: #f0dfaf;">second</span> %))))
+       (<span style="color: #f0dfaf;">reduce</span> #(<span style="color: #f0dfaf;">+</span> %1 (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">/</span> %2 10)) (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">mod</span> %2 10))))
+       (#(<span style="color: #f0dfaf;">mod</span> % 10))
+       (<span style="color: #f0dfaf;">=</span> 0)))
 </pre>
 
 
@@ -237,7 +237,6 @@ The Luhnybin Challenge
   Anyway, I don't know if this solution will get me a job, but it was
   a bit of fun coding and didn't take too long.
 </p>
-
 
 </div>
 </div>

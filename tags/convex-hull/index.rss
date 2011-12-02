@@ -28,7 +28,7 @@
 
 
 	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:52:57Z</dcterms:modified>
+	<dcterms:modified>2011-12-02T22:05:50Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
@@ -127,7 +127,7 @@
    I must confess that I had always been a little intimidated by
    Chan&#39;s Algorithm.  It was invented by Timothy Chan, who has a
    well-earned reputation for being a genius, so I thought it would be
-   really complicated.  It&#39;s not.  There is a decent &lt;a href=&quot;http://en.wikipedia.org/wiki/Chan&amp;#39;s_algorithm&quot;&gt;description&lt;/a&gt; of it
+   really complicated.  It&#39;s not.  There is a decent &lt;a href=&quot;http://en.wikipedia.org/wiki/Chan&#39;s_algorithm&quot;&gt;description&lt;/a&gt; of it
    on Wikipedia, so I won&#39;t go into the details.  The gist is that you
    combine the two previous algorithms that I discussed.  The Jarvis
    March needs to be modified so that the points can be input as a
@@ -139,18 +139,18 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(defn chans-algorithm
-  &lt;span&gt;&quot;Finds the convex hull of a set of points by&lt;/span&gt;
-&lt;span&gt;   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;&lt;/span&gt;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;chans-algorithm&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Finds the convex hull of a set of points by&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;&lt;/span&gt;
   [pts]
-  (let [bottom-pt (apply min-key :y pts)]
-   (loop [m 3] ; start out with triangles
-     (let [partitioned-pts (partition m m [] pts)
-           c-hs (map grahams-scan partitioned-pts)
-           potential-ch (take m (apply jarvis-march pts c-hs))]
-       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; min-key &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:y&lt;/span&gt; pts)]
+   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;loop&lt;/span&gt; [m 3] &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;start out with triangles&lt;/span&gt;
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [partitioned-pts (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; m m [] pts)
+           c-hs (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; grahams-scan partitioned-pts)
+           potential-ch (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;take&lt;/span&gt; m (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; jarvis-march pts c-hs))]
+       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;last&lt;/span&gt; potential-ch)) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;assumes jarvis-march returns bottom-pt last&lt;/span&gt;
          potential-ch
-         (recur (min (* m m) (count pts))))))))
+         (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;recur&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;min&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; m m) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; pts))))))))
 &lt;/pre&gt;
 
 
@@ -159,7 +159,7 @@
 &lt;p&gt;
    The great thing about Chan&#39;s Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
+   \(O(n&lt;sup&gt;2&lt;/sup&gt;)\) in the worst case), it is \(O(n \log h)\), which is at
    least as good as Graham&#39;s Scan, but often better.  It is also quite
    simple to implement, given decent implementations of Jarvis March
    and Graham&#39;s Scan.  
@@ -200,7 +200,6 @@
   to figure out how to work around (or even fix) that before I can
   show any results.
 &lt;/p&gt;
-
 
 
 

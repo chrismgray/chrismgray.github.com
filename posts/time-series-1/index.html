@@ -198,14 +198,14 @@ Time Series
 
 
 <p>
-  My latest programming challenge is to build a framework for <a href="http://en.wikipedia.org/wiki/Time_series">time series</a> generation.  The framework will take a function \(f\) that
-  looks at the \(n\) previous timesteps and returns the next timestep.
+  My latest programming challenge is to build a framework for <a href="http://en.wikipedia.org/wiki/Time_series">time series</a> generation.  The framework will take a function $f$ that
+  looks at the $n$ previous timesteps and returns the next timestep.
   The other goals are:
 </p><ul>
 <li>Efficiency
 
 <p>    
-    Adding a new timestep should be a \(O(1)\) operation.
+    Adding a new timestep should be a $O(1)$ operation.
 </p></li>
 <li>Ease of debugging
 
@@ -236,13 +236,13 @@ Time Series
   This seems like the perfect time to learn about <a href="http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/">monads</a>.  Yikes!
   I've tried before, but have never seen a practical use for them.  As
   far as I understand so far, they should be very good for storing the
-  state (<i>i.e.</i> the previous \(n\) timesteps).
+  state (<i>i.e.</i> the previous $n$ timesteps).
 </p>
 <p>
   A simpler solution might be just to use lazy sequences.  There's not
   much to such a solution, so I might just implement it first and then
-  try to replicate it with monads.  In this solution, the previous \(n\)
-  timesteps are simply the last \(n\) elements of the lazy sequence.
+  try to replicate it with monads.  In this solution, the previous $n$
+  timesteps are simply the last $n$ elements of the lazy sequence.
   Getting those elements might be tough to do in constant time, but I
   have a feeling it's possible.
 </p>
@@ -261,7 +261,6 @@ Time Series
 <p>
   On to the coding!
 </p>
-
 
 </div>
 </div>
