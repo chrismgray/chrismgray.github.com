@@ -15,111 +15,7 @@
 <link rel="alternate" type="application/rss+xml" title="Hiking and Coding (RSS feed)" href="index.rss" /><link rel="alternate" type="application/atom+xml" title="Hiking and Coding (Atom feed)" href="index.atom" />
 
 
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  html { font-family: Times, serif; font-size: 12pt; }
-  .title  { text-align: center; }
-  .todo   { color: red; }
-  .done   { color: green; }
-  .tag    { background-color: #add8e6; font-weight:normal }
-  .target { }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
-  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
-  .center {margin-left:auto; margin-right:auto; text-align:center;}
-  p.verse { margin-left: 3% }
-  pre {
-	border: 1pt solid #AEBDCC;
-	background-color: #F3F5F7;
-	padding: 5pt;
-	font-family: courier, monospace;
-        font-size: 90%;
-        overflow:auto;
-  }
-  table { border-collapse: collapse; }
-  td, th { vertical-align: top;  }
-  th.right  { text-align:center;  }
-  th.left   { text-align:center;   }
-  th.center { text-align:center; }
-  td.right  { text-align:right;  }
-  td.left   { text-align:left;   }
-  td.center { text-align:center; }
-  dt { font-weight: bold; }
-  div.figure { padding: 0.5em; }
-  div.figure p { text-align: center; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size:smaller }
-  .code-highlighted {background-color:#ffff00;}
-  .org-info-js_info-navigation { border-style:none; }
-  #org-info-js_console-label { font-size:10px; font-weight:bold;
-                               white-space:nowrap; }
-  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-                                 font-weight:bold; }
-  /*]]>*/-->
-</style>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 </head>
 <body>
@@ -189,7 +85,7 @@ Hiking and Coding
         <td class="month-calendar-day-noday Tuesday">&nbsp;</td>
         <td class="month-calendar-day-noday Wednesday">&nbsp;</td>
         <td class="month-calendar-day-nolink Thursday">1</td>
-        <td class="month-calendar-day-this-day Friday">2</td>
+        <td class="month-calendar-day-this-day Friday"><a href="./posts/org-ikiwiki-plugin/" title="org-ikiwiki-plugin">2</a></td>
         <td class="month-calendar-day-future Saturday">3</td>
     </tr>
     <tr>
@@ -247,7 +143,8 @@ Hiking and Coding
 </li><li><span class="smallPC"><a href="./tags/git/">git</a></span>
 </li><li><span class="smallestPC"><a href="./tags/git-annex/">git-annex</a></span>
 </li><li><span class="smallPC"><a href="./tags/hiking/">hiking</a></span>
-</li><li><span class="smallestPC"><a href="./tags/ikiwiki/">ikiwiki</a></span>
+</li><li><span class="smallPC"><a href="./tags/ikiwiki/">ikiwiki</a></span>
+</li><li><span class="smallestPC"><a href="./tags/ikiwiki-org-plugin/">ikiwiki-org-plugin</a></span>
 </li><li><span class="bigPC"><a href="./tags/lab-notes/">lab-notes</a></span>
 </li><li><span class="smallestPC"><a href="./tags/notmuch/">notmuch</a></span>
 </li><li><span class="smallestPC"><a href="./tags/org-mode/">org-mode</a></span>
@@ -263,9 +160,9 @@ Hiking and Coding
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-43d1050723f6da619cef397c936190547b05e8ab.png" alt="graph" /></p>
+<img src="./sidebar/sparkline-082fb602fd70a2d0a58aad67a1a8b33d3db92f4d.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: <em>Can't connect to api.twitter.com:80 (timeout)</em> (54 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Fri Dec  2 16:15:04 2011</span> (54 posts)</p>
 
 <div class="microblog">
 
@@ -294,7 +191,7 @@ frogmanjack: Why is it that I don't mind i.e. and e.g., but get enraged when peo
 </span>
 
 
-&mdash; <span class="date">Wed 30 Nov 2011 03:40:50 PM MST</span>
+&mdash; <span class="date">Wed Nov 30 15:40:50 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -325,7 +222,7 @@ frogmanjack: Matrix multiplication has had a few thousandths knocked off its exp
 </span>
 
 
-&mdash; <span class="date">Tue 29 Nov 2011 11:35:17 AM MST</span>
+&mdash; <span class="date">Tue Nov 29 11:35:17 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -356,7 +253,7 @@ frogmanjack: My tools are taking forever, but the pics will be up here: http://t
 </span>
 
 
-&mdash; <span class="date">Sun 27 Nov 2011 02:08:36 PM MST</span>
+&mdash; <span class="date">Sun Nov 27 14:08:36 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -387,7 +284,7 @@ frogmanjack: Going for a run with a camera to see if I can get anything interest
 </span>
 
 
-&mdash; <span class="date">Sun 27 Nov 2011 12:44:10 PM MST</span>
+&mdash; <span class="date">Sun Nov 27 12:44:10 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -418,7 +315,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 </span>
 
 
-&mdash; <span class="date">Sun 27 Nov 2011 12:37:11 PM MST</span>
+&mdash; <span class="date">Sun Nov 27 12:37:11 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -436,6 +333,70 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 
 
 <a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/org-ikiwiki-plugin/">Plugin for org files in ikiwiki</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">A new plugin </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  Ikiwiki users who want to write org-mode files have long only had
+  one plugin for ikiwiki to convert their files to html.  That plugin
+  is good as it goes, but it is somewhat limited.  Thus, I am happy to
+  announce a new plugin for converting org-mode.  It is located in my
+  <a href="https://github.com/chrismgray/ikiwiki-org-plugin">github repository</a>.
+</p>
+<p>
+  It is still a bit rough around the edges, but it should be
+  completely usable very soon.
+</p>
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Fri Dec  2 16:29:47 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/emacs/" rel="tag">emacs</a>
+
+<a href="./tags/ikiwiki/" rel="tag">ikiwiki</a>
+
+<a href="./tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
+
+<a href="./tags/org-mode/" rel="tag">org-mode</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
@@ -579,7 +540,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 <p>
    The great thing about Chan's Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n<sup>2</sup>)\) in the worst case), it is \(O(n \log h)\), which is at
+   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
    least as good as Graham's Scan, but often better.  It is also quite
    simple to implement, given decent implementations of Jarvis March
    and Graham's Scan.  
@@ -633,7 +594,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span>
+Posted <span class="date">Wed Nov 30 11:06:31 2011</span>
 </span>
 
 
@@ -854,7 +815,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon 28 Nov 2011 09:52:35 AM MST</span>
+Posted <span class="date">Mon Nov 28 09:52:35 2011</span>
 </span>
 
 
@@ -1139,7 +1100,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 27 Nov 2011 07:23:34 AM MST</span>
+Posted <span class="date">Sun Nov 27 07:23:34 2011</span>
 </span>
 
 
@@ -1317,7 +1278,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 23 Nov 2011 08:02:00 PM MST</span>
+Posted <span class="date">Wed Nov 23 20:02:00 2011</span>
 </span>
 
 
@@ -1443,7 +1404,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue 22 Nov 2011 12:29:29 PM MST</span>
+Posted <span class="date">Tue Nov 22 12:29:29 2011</span>
 </span>
 
 
@@ -1612,7 +1573,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon 21 Nov 2011 12:44:43 PM MST</span>
+Posted <span class="date">Mon Nov 21 12:44:43 2011</span>
 </span>
 
 
@@ -1743,7 +1704,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 20 Nov 2011 05:58:28 PM MST</span>
+Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
 </span>
 
 
@@ -1988,7 +1949,7 @@ that made the biggest impression on me.
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat 19 Nov 2011 01:34:35 PM MST</span>
+Posted <span class="date">Sat Nov 19 13:34:35 2011</span>
 </span>
 
 
@@ -2050,7 +2011,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 16 Nov 2011 09:20:05 AM MST</span>
+Posted <span class="date">Wed Nov 16 09:20:05 2011</span>
 </span>
 
 
@@ -2062,114 +2023,6 @@ Tags:
 <a href="./tags/hiking/" rel="tag">hiking</a>
 
 <a href="./tags/spot/" rel="tag">spot</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/luhnybin/">The Luhnybin Challenge</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Another programming challenge </h2>
-<div class="outline-text-2" id="text-1">
-
-
-<p>
-  I woke up with another programming challenge in my inbox this
-  morning.  This one is from <a href="http://squareup.com">Square</a>.  They are a company that gives
-  you a little device so that you can accept credit cards using a
-  smart phone.  The challenge is <a href="http://corner.squareup.com/2011/11/luhny-bin.html">here</a> &ndash; basically it's about removing
-  credit cards numbers from logs.  There are some details about what
-  constitutes a credit card number, and how they are distinct from
-  other numbers.  I won't repeat that here, but you should read it to
-  understand what's coming up.
-</p>
-<p>
-  As usual, I implemented my solution in Clojure.  I particularly
-  liked the function I called <code>luhn-check</code>.  Here it is:
-</p>
-
-
-
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">luhn-check</span>
-  <span style="color: #8fb28f;">"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
-<span style="color: #8fb28f;">   The sequence must be in order from right to left."</span>
-  [digits]
-  (<span style="color: #8cd0d3;">-&gt;&gt;</span> digits
-       (<span style="color: #f0dfaf;">partition</span> 2 2 (<span style="color: #f0dfaf;">repeat</span> 0))
-       (<span style="color: #f0dfaf;">mapcat</span> #(<span style="color: #f0dfaf;">vector</span> (<span style="color: #f0dfaf;">first</span> %) (<span style="color: #f0dfaf;">*</span> 2 (<span style="color: #f0dfaf;">second</span> %))))
-       (<span style="color: #f0dfaf;">reduce</span> #(<span style="color: #f0dfaf;">+</span> %1 (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">/</span> %2 10)) (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">mod</span> %2 10))))
-       (#(<span style="color: #f0dfaf;">mod</span> % 10))
-       (<span style="color: #f0dfaf;">=</span> 0)))
-</pre>
-
-
-
-
-<p>
-  I think this is a good illustration of the <code>-&gt;&gt;</code> operator in
-  Clojure, which is also called the "thrush" operator.  Basically,
-  this operator can be thought of as taking the result from one
-  expression and putting it at the end of the next expression.
-</p>
-<p>
-  In this case, we start out with a list of digits.  We then partition
-  them into pairs, padding with a zero if necessary.  We then take the
-  pairs and double the second number in the pair, concatenating all
-  the pairs back into a single list.  We then sum up all the digits in
-  the list, using the <code>reduce</code> function.  This leaves us with a
-  number.  We get its value \(\mod 10\) and test whether it is equal
-  to zero.  If it is, we return <code>true</code>, otherwise we return <code>false</code>.
-</p>
-<p>
-  All of this could be written with nested expressions (and the thrush
-  operator is simply a macro that rewrites what you see as nested
-  expressions), but I think the way it is written nicely shows what
-  the data is doing in the function.
-</p>
-<p>
-  Anyway, I don't know if this solution will get me a job, but it was
-  a bit of fun coding and didn't take too long.
-</p>
-
-</div>
-</div>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/clojure/" rel="tag">clojure</a>
-
-<a href="./tags/programming-challenge/" rel="tag">programming-challenge</a>
-
-<a href="./tags/thrush/" rel="tag">thrush</a>
 
 </span>
 
@@ -2230,8 +2083,8 @@ Links:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu 10 Nov 2011 01:12:04 PM MST</span>
-<!-- Created <span class="date">Tue 08 Nov 2011 11:43:03 PM MST</span> -->
+Last edited <span class="date">Thu Nov 10 13:12:04 2011</span>
+<!-- Created <span class="date">Tue Nov  8 23:43:03 2011</span> -->
 </div>
 
 </div>

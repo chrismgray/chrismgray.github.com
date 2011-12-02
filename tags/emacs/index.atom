@@ -17,7 +17,61 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-12-01T07:37:21Z</updated>
+<updated>2011-12-02T23:32:03Z</updated>
+<entry>
+	<title>Plugin for org files in ikiwiki</title>
+
+	<id>http://chrismgray.github.com//posts/org-ikiwiki-plugin/</id>
+
+	<link href="http://chrismgray.github.com//posts/org-ikiwiki-plugin/"/>
+
+
+
+
+
+
+	<category term="emacs" />
+
+	<category term="ikiwiki" />
+
+	<category term="ikiwiki-org-plugin" />
+
+	<category term="org-mode" />
+
+
+	<updated>2011-12-02T23:32:03Z</updated>
+	<published>2011-12-02T23:29:47Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A new plugin &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Ikiwiki users who want to write org-mode files have long only had
+  one plugin for ikiwiki to convert their files to html.  That plugin
+  is good as it goes, but it is somewhat limited.  Thus, I am happy to
+  announce a new plugin for converting org-mode.  It is located in my
+  &lt;a href=&quot;https://github.com/chrismgray/ikiwiki-org-plugin&quot;&gt;github repository&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  It is still a bit rough around the edges, but it should be
+  completely usable very soon.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Blogging About Blogging</title>
 

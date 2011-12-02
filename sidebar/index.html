@@ -15,111 +15,7 @@
 
 
 
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  html { font-family: Times, serif; font-size: 12pt; }
-  .title  { text-align: center; }
-  .todo   { color: red; }
-  .done   { color: green; }
-  .tag    { background-color: #add8e6; font-weight:normal }
-  .target { }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
-  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
-  .center {margin-left:auto; margin-right:auto; text-align:center;}
-  p.verse { margin-left: 3% }
-  pre {
-	border: 1pt solid #AEBDCC;
-	background-color: #F3F5F7;
-	padding: 5pt;
-	font-family: courier, monospace;
-        font-size: 90%;
-        overflow:auto;
-  }
-  table { border-collapse: collapse; }
-  td, th { vertical-align: top;  }
-  th.right  { text-align:center;  }
-  th.left   { text-align:center;   }
-  th.center { text-align:center; }
-  td.right  { text-align:right;  }
-  td.left   { text-align:left;   }
-  td.center { text-align:center; }
-  dt { font-weight: bold; }
-  div.figure { padding: 0.5em; }
-  div.figure p { text-align: center; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size:smaller }
-  .code-highlighted {background-color:#ffff00;}
-  .org-info-js_info-navigation { border-style:none; }
-  #org-info-js_console-label { font-size:10px; font-weight:bold;
-                               white-space:nowrap; }
-  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-                                 font-weight:bold; }
-  /*]]>*/-->
-</style>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 </head>
 <body>
@@ -194,7 +90,7 @@ sidebar
         <td class="month-calendar-day-noday Tuesday">&nbsp;</td>
         <td class="month-calendar-day-noday Wednesday">&nbsp;</td>
         <td class="month-calendar-day-nolink Thursday">1</td>
-        <td class="month-calendar-day-this-day Friday">2</td>
+        <td class="month-calendar-day-this-day Friday"><a href="../posts/org-ikiwiki-plugin/" title="org-ikiwiki-plugin">2</a></td>
         <td class="month-calendar-day-future Saturday">3</td>
     </tr>
     <tr>
@@ -252,7 +148,8 @@ sidebar
 </li><li><span class="smallPC"><a href="../tags/git/">git</a></span>
 </li><li><span class="smallestPC"><a href="../tags/git-annex/">git-annex</a></span>
 </li><li><span class="smallPC"><a href="../tags/hiking/">hiking</a></span>
-</li><li><span class="smallestPC"><a href="../tags/ikiwiki/">ikiwiki</a></span>
+</li><li><span class="smallPC"><a href="../tags/ikiwiki/">ikiwiki</a></span>
+</li><li><span class="smallestPC"><a href="../tags/ikiwiki-org-plugin/">ikiwiki-org-plugin</a></span>
 </li><li><span class="bigPC"><a href="../tags/lab-notes/">lab-notes</a></span>
 </li><li><span class="smallestPC"><a href="../tags/notmuch/">notmuch</a></span>
 </li><li><span class="smallestPC"><a href="../tags/org-mode/">org-mode</a></span>
@@ -268,9 +165,9 @@ sidebar
 </li></ul>
 
 <p>Post interval:
-<img src="./sparkline-43d1050723f6da619cef397c936190547b05e8ab.png" alt="graph" /></p>
+[[!postsparkline <span class="error">Error: /home/cmg/public_html/blog/sidebar/sparkline-082fb602fd70a2d0a58aad67a1a8b33d3db92f4d.png independently created, not overwriting with version from sidebar</span>]]</p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: <em>Can't connect to api.twitter.com:80 (timeout)</em> (54 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Fri Dec  2 16:15:04 2011</span> (54 posts)</p>
 
 <div class="microblog">
 
@@ -299,7 +196,7 @@ frogmanjack: Why is it that I don't mind i.e. and e.g., but get enraged when peo
 </span>
 
 
-&mdash; <span class="date">Wed 30 Nov 2011 03:40:50 PM MST</span>
+&mdash; <span class="date">Wed Nov 30 15:40:50 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -330,7 +227,7 @@ frogmanjack: Matrix multiplication has had a few thousandths knocked off its exp
 </span>
 
 
-&mdash; <span class="date">Tue 29 Nov 2011 11:35:17 AM MST</span>
+&mdash; <span class="date">Tue Nov 29 11:35:17 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -361,7 +258,7 @@ frogmanjack: My tools are taking forever, but the pics will be up here: http://t
 </span>
 
 
-&mdash; <span class="date">Sun 27 Nov 2011 02:08:36 PM MST</span>
+&mdash; <span class="date">Sun Nov 27 14:08:36 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -392,7 +289,7 @@ frogmanjack: Going for a run with a camera to see if I can get anything interest
 </span>
 
 
-&mdash; <span class="date">Sun 27 Nov 2011 12:44:10 PM MST</span>
+&mdash; <span class="date">Sun Nov 27 12:44:10 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -423,7 +320,7 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 </span>
 
 
-&mdash; <span class="date">Sun 27 Nov 2011 12:37:11 PM MST</span>
+&mdash; <span class="date">Sun Nov 27 12:37:11 2011</span>
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
@@ -462,8 +359,8 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 
 
 <div class="pagedate">
-Last edited <span class="date">Fri 11 Nov 2011 09:23:27 AM MST</span>
-<!-- Created <span class="date">Tue 08 Nov 2011 11:43:03 PM MST</span> -->
+Last edited <span class="date">Fri Nov 11 09:23:27 2011</span>
+<!-- Created <span class="date">Tue Nov  8 23:43:03 2011</span> -->
 </div>
 
 </div>

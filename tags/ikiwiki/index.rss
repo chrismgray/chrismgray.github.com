@@ -8,6 +8,53 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Plugin for org files in ikiwiki</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/org-ikiwiki-plugin/</guid>
+
+	<link>http://chrismgray.github.com//posts/org-ikiwiki-plugin/</link>
+
+
+	<category>emacs</category>
+
+	<category>ikiwiki</category>
+
+	<category>ikiwiki-org-plugin</category>
+
+	<category>org-mode</category>
+
+
+	<pubDate>Fri, 02 Dec 2011 16:29:47 -0700</pubDate>
+	<dcterms:modified>2011-12-02T23:32:03Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A new plugin &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Ikiwiki users who want to write org-mode files have long only had
+  one plugin for ikiwiki to convert their files to html.  That plugin
+  is good as it goes, but it is somewhat limited.  Thus, I am happy to
+  announce a new plugin for converting org-mode.  It is located in my
+  &lt;a href=&quot;https://github.com/chrismgray/ikiwiki-org-plugin&quot;&gt;github repository&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  It is still a bit rough around the edges, but it should be
+  completely usable very soon.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/org-ikiwiki-plugin/#comments</comments>
+
+</item>
+<item>
+
 	<title>Convex Hulls</title>
 
 
@@ -159,7 +206,7 @@
 &lt;p&gt;
    The great thing about Chan&#39;s Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n&lt;sup&gt;2&lt;/sup&gt;)\) in the worst case), it is \(O(n \log h)\), which is at
+   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
    least as good as Graham&#39;s Scan, but often better.  It is also quite
    simple to implement, given decent implementations of Jarvis March
    and Graham&#39;s Scan.  

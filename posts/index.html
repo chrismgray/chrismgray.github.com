@@ -15,111 +15,7 @@
 
 
 
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  html { font-family: Times, serif; font-size: 12pt; }
-  .title  { text-align: center; }
-  .todo   { color: red; }
-  .done   { color: green; }
-  .tag    { background-color: #add8e6; font-weight:normal }
-  .target { }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
-  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
-  .center {margin-left:auto; margin-right:auto; text-align:center;}
-  p.verse { margin-left: 3% }
-  pre {
-	border: 1pt solid #AEBDCC;
-	background-color: #F3F5F7;
-	padding: 5pt;
-	font-family: courier, monospace;
-        font-size: 90%;
-        overflow:auto;
-  }
-  table { border-collapse: collapse; }
-  td, th { vertical-align: top;  }
-  th.right  { text-align:center;  }
-  th.left   { text-align:center;   }
-  th.center { text-align:center; }
-  td.right  { text-align:right;  }
-  td.left   { text-align:left;   }
-  td.center { text-align:center; }
-  dt { font-weight: bold; }
-  div.figure { padding: 0.5em; }
-  div.figure p { text-align: center; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size:smaller }
-  .code-highlighted {background-color:#ffff00;}
-  .org-info-js_info-navigation { border-style:none; }
-  #org-info-js_console-label { font-size:10px; font-weight:bold;
-                               white-space:nowrap; }
-  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-                                 font-weight:bold; }
-  /*]]>*/-->
-</style>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 </head>
 <body>
@@ -177,10 +73,19 @@ posts
 
 <p>
 
+<a href="./org-ikiwiki-plugin/">Plugin for org files in ikiwiki</a><br />
+
+<i>
+Posted <span class="date">Fri Dec  2 16:29:47 2011</span>
+
+</i>
+</p>
+<p>
+
 <a href="./convex-hulls/">Convex Hulls</a><br />
 
 <i>
-Posted <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span>
+Posted <span class="date">Wed Nov 30 11:06:31 2011</span>
 
 </i>
 </p>
@@ -189,7 +94,7 @@ Posted <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span>
 <a href="./hiking/mid-maine/">Mid-Maine</a><br />
 
 <i>
-Posted <span class="date">Mon 28 Nov 2011 09:52:35 AM MST</span>
+Posted <span class="date">Mon Nov 28 09:52:35 2011</span>
 
 </i>
 </p>
@@ -198,7 +103,7 @@ Posted <span class="date">Mon 28 Nov 2011 09:52:35 AM MST</span>
 <a href="./clojure-sorting/">Lazy Sorting in Clojure</a><br />
 
 <i>
-Posted <span class="date">Sun 27 Nov 2011 07:23:34 AM MST</span>
+Posted <span class="date">Sun Nov 27 07:23:34 2011</span>
 
 </i>
 </p>
@@ -207,7 +112,7 @@ Posted <span class="date">Sun 27 Nov 2011 07:23:34 AM MST</span>
 <a href="./git-annex/">Git Annex</a><br />
 
 <i>
-Posted <span class="date">Wed 23 Nov 2011 08:02:00 PM MST</span>
+Posted <span class="date">Wed Nov 23 20:02:00 2011</span>
 
 </i>
 </p>
@@ -216,7 +121,7 @@ Posted <span class="date">Wed 23 Nov 2011 08:02:00 PM MST</span>
 <a href="./processing/">Processing</a><br />
 
 <i>
-Posted <span class="date">Tue 22 Nov 2011 12:29:29 PM MST</span>
+Posted <span class="date">Tue Nov 22 12:29:29 2011</span>
 
 </i>
 </p>
@@ -225,7 +130,7 @@ Posted <span class="date">Tue 22 Nov 2011 12:29:29 PM MST</span>
 <a href="./visibility-polygon/">Visibility Polygons</a><br />
 
 <i>
-Posted <span class="date">Mon 21 Nov 2011 12:44:43 PM MST</span>
+Posted <span class="date">Mon Nov 21 12:44:43 2011</span>
 
 </i>
 </p>
@@ -234,7 +139,7 @@ Posted <span class="date">Mon 21 Nov 2011 12:44:43 PM MST</span>
 <a href="./parsing-polygons/">Parsing Polygons</a><br />
 
 <i>
-Posted <span class="date">Sun 20 Nov 2011 05:58:28 PM MST</span>
+Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
 
 </i>
 </p>
@@ -243,7 +148,7 @@ Posted <span class="date">Sun 20 Nov 2011 05:58:28 PM MST</span>
 <a href="./hiking/100-mile-wilderness/">100-Mile Wilderness</a><br />
 
 <i>
-Posted <span class="date">Sat 19 Nov 2011 01:34:35 PM MST</span>
+Posted <span class="date">Sat Nov 19 13:34:35 2011</span>
 
 </i>
 </p>
@@ -252,7 +157,7 @@ Posted <span class="date">Sat 19 Nov 2011 01:34:35 PM MST</span>
 <a href="./spot-tracks/">SPOT Tracks</a><br />
 
 <i>
-Posted <span class="date">Wed 16 Nov 2011 09:20:05 AM MST</span>
+Posted <span class="date">Wed Nov 16 09:20:05 2011</span>
 
 </i>
 </p>
@@ -261,97 +166,97 @@ Posted <span class="date">Wed 16 Nov 2011 09:20:05 AM MST</span>
 <a href="./luhnybin/">The Luhnybin Challenge</a><br />
 
 <i>
-Posted <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span>
+Posted <span class="date">Tue Nov 15 13:22:19 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./scattered/">scattered</a><br />
+<a href="./scattered/">Scattered</a><br />
 
 <i>
-Posted <span class="date">Mon 14 Nov 2011 10:11:23 AM MST</span>
+Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./hiking/at-01/">at-01</a><br />
+<a href="./hiking/at-01/">Appalachian Trail Tales</a><br />
 
 <i>
-Posted <span class="date">Sun 13 Nov 2011 08:57:32 AM MST</span>
+Posted <span class="date">Sun Nov 13 08:57:32 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./time-series-2/">time-series-2</a><br />
+<a href="./time-series-2/">Time Series 2</a><br />
 
 <i>
-Posted <span class="date">Sun 13 Nov 2011 07:12:16 AM MST</span>
+Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./time-series-1/">time-series-1</a><br />
+<a href="./time-series-1/">Time Series</a><br />
 
 <i>
-Posted <span class="date">Sat 12 Nov 2011 09:27:15 AM MST</span>
+Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./cljs-name-resolving-2/">cljs-name-resolving-2</a><br />
+<a href="./cljs-name-resolving-2/">Resolving names in Clojurescript (followup)</a><br />
 
 <i>
-Posted <span class="date">Fri 11 Nov 2011 06:07:52 PM MST</span>
+Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./cljs-name-resolving/">cljs-name-resolving</a><br />
+<a href="./cljs-name-resolving/">Resolving names in Clojurescript</a><br />
 
 <i>
-Posted <span class="date">Fri 11 Nov 2011 07:23:38 AM MST</span>
+Posted <span class="date">Fri Nov 11 07:23:38 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./blogging-about-blogging/">blogging-about-blogging</a><br />
+<a href="./blogging-about-blogging/">Blogging About Blogging</a><br />
 
 <i>
-Posted <span class="date">Thu 10 Nov 2011 07:13:21 PM MST</span>
+Posted <span class="date">Thu Nov 10 19:13:21 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./more-rationals/">more-rationals</a><br />
+<a href="./more-rationals/">More Rationals</a><br />
 
 <i>
-Posted <span class="date">Thu 10 Nov 2011 09:55:06 AM MST</span>
+Posted <span class="date">Thu Nov 10 09:55:06 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./rationals-followup/">rationals-followup</a><br />
+<a href="./rationals-followup/">Followup to the previous post</a><br />
 
 <i>
-Posted <span class="date">Wed 09 Nov 2011 03:03:16 PM MST</span>
+Posted <span class="date">Wed Nov  9 15:03:16 2011</span>
 
 </i>
 </p>
 <p>
 
-<a href="./rationals-in-cljs/">rationals-in-cljs</a><br />
+<a href="./rationals-in-cljs/">Rationals in Clojurescript</a><br />
 
 <i>
-Posted <span class="date">Wed 09 Nov 2011 10:13:06 AM MST</span>
+Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
 
 </i>
 </p>
@@ -390,8 +295,8 @@ Posted <span class="date">Wed 09 Nov 2011 10:13:06 AM MST</span>
 
 
 <div class="pagedate">
-Last edited <span class="date">Tue 08 Nov 2011 11:43:03 PM MST</span>
-<!-- Created <span class="date">Tue 08 Nov 2011 11:43:03 PM MST</span> -->
+Last edited <span class="date">Tue Nov  8 23:43:03 2011</span>
+<!-- Created <span class="date">Tue Nov  8 23:43:03 2011</span> -->
 </div>
 
 </div>

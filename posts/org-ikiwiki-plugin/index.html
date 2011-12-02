@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>wikilink</title>
+<title>Plugin for org files in ikiwiki</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
@@ -14,7 +14,7 @@
 
 
 
-<meta name="robots" content="noindex, follow" />
+
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 </head>
@@ -29,11 +29,11 @@
 
 <a href="../../">Hiking and Coding</a>/ 
 
-<a href="../">ikiwiki</a>/ 
+<a href="../">posts</a>/ 
 
 </span>
 <span class="title">
-wikilink
+Plugin for org files in ikiwiki
 
 </span>
 </span>
@@ -71,34 +71,25 @@ wikilink
 <div id="pagebody">
 
 <div id="content">
-<p>WikiLinks provide easy linking between pages of the wiki. To create a
-<span class="selflink">WikiLink</span>, just put the name of the page to link to in double brackets.
-For example <code>[[WikiLink]]</code>.</p>
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">A new plugin </h2>
+<div class="outline-text-2" id="text-1">
 
-<p>If you ever need to write something like <code>[[WikiLink]]</code> without creating a
-wikilink, just prefix it with a <code>\</code>, like <code>\[[WikiLink]]</code>.</p>
 
-<p>There are some special <a href="../subpage/linkingrules/">LinkingRules</a> that come into play when
-linking between <a href="../subpage/">SubPages</a>.</p>
+<p>
+  Ikiwiki users who want to write org-mode files have long only had
+  one plugin for ikiwiki to convert their files to html.  That plugin
+  is good as it goes, but it is somewhat limited.  Thus, I am happy to
+  announce a new plugin for converting org-mode.  It is located in my
+  <a href="https://github.com/chrismgray/ikiwiki-org-plugin">github repository</a>.
+</p>
+<p>
+  It is still a bit rough around the edges, but it should be
+  completely usable very soon.
+</p>
 
-<p>WikiLinks are matched with page names in a case-insensitive manner, so you
-don't need to worry about getting the case the same, and can capitalise
-links at the start of a sentence, and so on.</p>
-
-<p>It's also possible to write a WikiLink that uses something other than the page
-name as the link text. For example <code>[[foo_bar|SandBox]]</code> links to the SandBox
-page, but the link will appear like this: <a href="../../sandbox/">foo bar</a>.</p>
-
-<p>To link to an anchor inside a page, you can use something like
-<code>[[WikiLink#foo]]</code> .</p>
-
-<p>If the file linked to by a WikiLink looks like an image, it will
-be displayed inline on the page.</p>
-
-<hr />
-
-<p>You can also put an url in a WikiLink, to link to an external page.
-Email addresses can also be used to generate a mailto link.</p>
+</div>
+</div>
 
 </div>
 
@@ -125,25 +116,16 @@ Email addresses can also be used to generate a mailto link.</p>
 <div id="pageinfo">
 
 
+<div class="tags">
+Tags:
 
+<a href="../../tags/emacs/" rel="tag">emacs</a>
 
-<div id="backlinks">
-Links:
+<a href="../../tags/ikiwiki/" rel="tag">ikiwiki</a>
 
-<a href="../directive/">directive</a>
+<a href="../../tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
 
-<a href="../formatting/">formatting</a>
-
-<a href="../">ikiwiki</a>
-
-<a href="../markdown/">markdown</a>
-
-<a href="../../sandbox/">sandbox</a>
-
-<a href="../../smileys/">smileys</a>
-
-<a href="../subpage/linkingrules/">subpage/linkingrules</a>
-
+<a href="../../tags/org-mode/" rel="tag">org-mode</a>
 
 </div>
 
@@ -152,9 +134,11 @@ Links:
 
 
 
+
+
 <div class="pagedate">
-Last edited <span class="date">Wed 23 Jun 2010 12:23:09 PM MDT</span>
-<!-- Created <span class="date">Wed 23 Jun 2010 12:23:09 PM MDT</span> -->
+Last edited <span class="date">Fri Dec  2 16:32:03 2011</span>
+<!-- Created <span class="date">Fri Dec  2 16:29:47 2011</span> -->
 </div>
 
 </div>

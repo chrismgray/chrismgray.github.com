@@ -174,7 +174,7 @@
 &lt;p&gt;
    The great thing about Chan&#39;s Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n&lt;sup&gt;2&lt;/sup&gt;)\) in the worst case), it is \(O(n \log h)\), which is at
+   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
    least as good as Graham&#39;s Scan, but often better.  It is also quite
    simple to implement, given decent implementations of Jarvis March
    and Graham&#39;s Scan.  

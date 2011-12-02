@@ -8,6 +8,172 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to posts/org-ikiwiki-plugin on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_981078df51c49dee5faebf71de9296c73a539e9c/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-981078df51c49dee5faebf71de9296c73a539e9c</link>
+
+	<pubDate>Fri, 02 Dec 2011 16:32:27 -0700</pubDate>
+	<dcterms:modified>2011-12-02T23:32:27Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-981078df51c49dee5faebf71de9296c73a539e9c&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/org-ikiwiki-plugin
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;16:32:27 12/02/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Force recompile of sparkline&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 981078df51c49dee5faebf71de9296c73a539e9c --&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to posts/org-ikiwiki-plugin on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_ab0b375c5723abbcfc145397faba0629fd003322/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-ab0b375c5723abbcfc145397faba0629fd003322</link>
+
+	<pubDate>Fri, 02 Dec 2011 16:30:44 -0700</pubDate>
+	<dcterms:modified>2011-12-02T23:30:44Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-ab0b375c5723abbcfc145397faba0629fd003322&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/org-ikiwiki-plugin
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;16:30:44 12/02/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- ab0b375c5723abbcfc145397faba0629fd003322 --&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to local.css posts/cljs-name-resolving-2 posts/cljs-name-resolving posts/org-ikiwiki-plugin tags/ikiwiki-org-plugin templates/page.tmpl on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_53ceed524cb5e899db223c0fba9d3fd35bf5aaa7/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-53ceed524cb5e899db223c0fba9d3fd35bf5aaa7</link>
+
+	<pubDate>Fri, 02 Dec 2011 16:30:04 -0700</pubDate>
+	<dcterms:modified>2011-12-02T23:30:04Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-53ceed524cb5e899db223c0fba9d3fd35bf5aaa7&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+local.css
+
+posts/cljs-name-resolving-2
+
+posts/cljs-name-resolving
+
+posts/org-ikiwiki-plugin
+
+tags/ikiwiki-org-plugin
+
+templates/page.tmpl
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;16:30:04 12/02/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/ikiwiki-org-plugin&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 53ceed524cb5e899db223c0fba9d3fd35bf5aaa7 --&gt;
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/convex-hulls on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
@@ -5162,164 +5328,6 @@ Added a sparkline to the sidebar&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- f842354424eceb8a1087bdfe74528d9223c62a4b --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to index sidebar on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_5133ea17818baf262c32e987d42fbff8bfc466c8/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-5133ea17818baf262c32e987d42fbff8bfc466c8</link>
-
-	<pubDate>Thu, 10 Nov 2011 13:12:10 -0700</pubDate>
-	<dcterms:modified>2011-11-10T20:12:10Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-5133ea17818baf262c32e987d42fbff8bfc466c8&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-index
-
-sidebar
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;01:12:10 PM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Try again&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 5133ea17818baf262c32e987d42fbff8bfc466c8 --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to index on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5</link>
-
-	<pubDate>Thu, 10 Nov 2011 13:10:39 -0700</pubDate>
-	<dcterms:modified>2011-11-10T20:10:39Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-index
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;01:10:39 PM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Maybe enabled twitter&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- dfc73ff0208d0312ac3176ee3f49496e4f7ecfd5 --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to local.css on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_0943ac1c98c9d562b1afbb739f5a3e74c3bac532/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-0943ac1c98c9d562b1afbb739f5a3e74c3bac532</link>
-
-	<pubDate>Thu, 10 Nov 2011 12:10:49 -0700</pubDate>
-	<dcterms:modified>2011-11-10T19:10:49Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-0943ac1c98c9d562b1afbb739f5a3e74c3bac532&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-local.css
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;12:10:49 PM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Fun background stuff&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 0943ac1c98c9d562b1afbb739f5a3e74c3bac532 --&gt;
 </description>
 
 
