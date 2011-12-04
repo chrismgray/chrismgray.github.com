@@ -2306,12 +2306,11 @@ Tags:
 
 
 
-<pre class="src src-shell">~ $ cd /media/mybook/music
+<pre class="example">~ $ cd /media/mybook/music
 /media/mybook/music $ git init .
 /media/mybook/music $ git annex init mybook-music
 /media/mybook/music $ emacs .git/config
 </pre>
-
 
 
 
@@ -2328,12 +2327,11 @@ Tags:
 
 
 
-<pre class="src src-shell">/media/mybook/music $ git annex add .
+<pre class="example">/media/mybook/music $ git annex add .
 [All the files are hashed and their contents are put into .git/annex]
 [You will see that all your files are now symlinks to files in .git/annex]
-/media/mybook/music $ git commit -m <span style="color: #cc9393;">"Added my files"</span>
+/media/mybook/music $ git commit -m "Added my files"
 </pre>
-
 
 
 
@@ -2343,14 +2341,13 @@ Tags:
 
 
 
-<pre class="src src-shell">~ $ git clone /media/mybook/music
+<pre class="example">~ $ git clone /media/mybook/music
 ~ $ cd music
 ~/music $ git annex init laptop-music
 ~/music $ git remote add mybook-music /media/mybook/music
 ~/music $ cd /media/mybook/music
 /media/mybook/music $ git remote add laptop-music ~/music
 </pre>
-
 
 
 
@@ -2365,9 +2362,8 @@ Tags:
 
 
 
-<pre class="src src-shell">~/music $ git annex get --from mybook-music Beatles/
+<pre class="example">~/music $ git annex get --from mybook-music Beatles/
 </pre>
-
 
 
 
@@ -2378,9 +2374,8 @@ Tags:
 
 
 
-<pre class="src src-shell">~/music $ git annex drop Beatles/
+<pre class="example">~/music $ git annex drop Beatles/
 </pre>
-
 
 
 

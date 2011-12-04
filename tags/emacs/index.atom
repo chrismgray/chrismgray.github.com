@@ -17,7 +17,143 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-12-02T23:32:03Z</updated>
+<updated>2011-12-04T00:32:56Z</updated>
+<entry>
+	<title>Clojure in Elisp</title>
+
+	<id>http://chrismgray.github.com//posts/clojel/</id>
+
+	<link href="http://chrismgray.github.com//posts/clojel/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="emacs" />
+
+
+	<updated>2011-12-04T00:32:56Z</updated>
+	<published>2011-12-04T00:32:56Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Probably a bad idea&amp;hellip; &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  File this one in the category of crazy ideas had while running.  I
+  was thinking about my new org-mode plugin that I announced &lt;a href=&quot;http://chrismgray.github.com/posts/org-ikiwiki-plugin/&quot;&gt;yesterday&lt;/a&gt;
+  and how hard it is to write in Emacs Lisp.  I was wishing that I
+  could write it in Clojure instead.  Now, they&#39;re not &lt;b&gt;such&lt;/b&gt;
+  different languages &amp;ndash; they both are evolutions of McCarthy&#39;s
+  original lisp, but Clojure is a much prettier, less crufty
+  language.
+&lt;/p&gt;
+&lt;p&gt;
+  Let&#39;s look at just one construct in both languages: &lt;code&gt;let&lt;/code&gt;.  In both
+  languages, this assigns values to variable names locally. In elisp,
+  it looks like:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
+       (baz foo)))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  Instead of calling &lt;code&gt;let&lt;/code&gt; there, I had to call &lt;code&gt;let*&lt;/code&gt;, so that the
+  results of the first assignment were known to the second assignment.
+  There is also a lot of parentheses there.  (Unparenthesized
+  variables become automatically initialized to &lt;code&gt;nil&lt;/code&gt; I believe.  I
+  don&#39;t think that&#39;s a great idea.)  Contrast this with Clojure&#39;s
+  &lt;code&gt;let&lt;/code&gt;.
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
+      baz foo])
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  To me, that&#39;s much more readable.
+&lt;/p&gt;
+&lt;p&gt;
+  Clojure&#39;s core libraries are also much more readable than most of
+  elisp.  It seems to me that elisp was designed in the days where
+  computer usage was charged by the letter and has not been updated
+  since.  (Don&#39;t get me wrong &amp;ndash; I love Emacs and would rather program
+  in elisp than Perl, but it has some warts.)
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Maybe not so crazy &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  Emacs already has a reader that can be used to turn lispy-looking
+  things into lispy data structures.  Add some macros on top of that
+  and you might be able to produce a &lt;code&gt;def&lt;/code&gt; that&#39;s equivalent to
+  Clojure&#39;s.  Since much of Clojure is written in Clojure (and all of
+  Clojurescript is), defining the Clojure functions might just be a
+  hop, skip, and jump away from that.
+&lt;/p&gt;
+&lt;p&gt;
+  Clojure could intern symbols into emacs (with namespaces prepended)
+  and then emacs could use them.  Clojure could also call emacs
+  functions directly &amp;ndash; any symbol that isn&#39;t defined in a Clojure
+  namespace would be tested to see if it exists in emacs.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Probably pretty crazy after all &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  One of Clojure&#39;s big selling points is its concurrency semantics.
+  I don&#39;t follow emacs development very closely, but I don&#39;t think
+  emacs is going to support any of that any time soon.  Also, would it
+  be possible to compile the new language to elisp bytecode?  How
+  would &lt;code&gt;recur&lt;/code&gt; work?
+&lt;/p&gt;
+&lt;p&gt;
+  There are a lot of questions, and here I am working on a plugin for
+  a combination of tools that hardly anyone uses.  But everyone has to
+  scratch their own itch as they say.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/clojel/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/clojel/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Plugin for org files in ikiwiki</title>
 

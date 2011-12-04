@@ -22,7 +22,7 @@
 
 
 	<pubDate>Wed, 23 Nov 2011 20:02:00 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:45:32Z</dcterms:modified>
+	<dcterms:modified>2011-12-03T03:47:16Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Using git annex &lt;/h2&gt;
@@ -60,12 +60,11 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~ $ cd /media/mybook/music
+&lt;pre class=&quot;example&quot;&gt;~ $ cd /media/mybook/music
 /media/mybook/music $ git init .
 /media/mybook/music $ git annex init mybook-music
 /media/mybook/music $ emacs .git/config
 &lt;/pre&gt;
-
 
 
 
@@ -82,12 +81,11 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;/media/mybook/music $ git annex add .
+&lt;pre class=&quot;example&quot;&gt;/media/mybook/music $ git annex add .
 [All the files are hashed and their contents are put into .git/annex]
 [You will see that all your files are now symlinks to files in .git/annex]
-/media/mybook/music $ git commit -m &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Added my files&quot;&lt;/span&gt;
+/media/mybook/music $ git commit -m &quot;Added my files&quot;
 &lt;/pre&gt;
-
 
 
 
@@ -97,14 +95,13 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~ $ git clone /media/mybook/music
+&lt;pre class=&quot;example&quot;&gt;~ $ git clone /media/mybook/music
 ~ $ cd music
 ~/music $ git annex init laptop-music
 ~/music $ git remote add mybook-music /media/mybook/music
 ~/music $ cd /media/mybook/music
 /media/mybook/music $ git remote add laptop-music ~/music
 &lt;/pre&gt;
-
 
 
 
@@ -119,9 +116,8 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~/music $ git annex get --from mybook-music Beatles/
+&lt;pre class=&quot;example&quot;&gt;~/music $ git annex get --from mybook-music Beatles/
 &lt;/pre&gt;
-
 
 
 
@@ -132,9 +128,8 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~/music $ git annex drop Beatles/
+&lt;pre class=&quot;example&quot;&gt;~/music $ git annex drop Beatles/
 &lt;/pre&gt;
-
 
 
 

@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Clojure in Elisp</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+Clojure in Elisp
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Probably a bad idea&hellip; </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  File this one in the category of crazy ideas had while running.  I
+  was thinking about my new org-mode plugin that I announced <a href="http://chrismgray.github.com/posts/org-ikiwiki-plugin/">yesterday</a>
+  and how hard it is to write in Emacs Lisp.  I was wishing that I
+  could write it in Clojure instead.  Now, they're not <b>such</b>
+  different languages &ndash; they both are evolutions of McCarthy's
+  original lisp, but Clojure is a much prettier, less crufty
+  language.
+</p>
+<p>
+  Let's look at just one construct in both languages: <code>let</code>.  In both
+  languages, this assigns values to variable names locally. In elisp,
+  it looks like:
+</p>
+
+
+
+<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((foo bar)
+       (baz foo)))
+</pre>
+
+
+
+
+<p>
+  Instead of calling <code>let</code> there, I had to call <code>let*</code>, so that the
+  results of the first assignment were known to the second assignment.
+  There is also a lot of parentheses there.  (Unparenthesized
+  variables become automatically initialized to <code>nil</code> I believe.  I
+  don't think that's a great idea.)  Contrast this with Clojure's
+  <code>let</code>.
+</p>
+
+
+
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [foo bar
+      baz foo])
+</pre>
+
+
+
+
+<p>
+  To me, that's much more readable.
+</p>
+<p>
+  Clojure's core libraries are also much more readable than most of
+  elisp.  It seems to me that elisp was designed in the days where
+  computer usage was charged by the letter and has not been updated
+  since.  (Don't get me wrong &ndash; I love Emacs and would rather program
+  in elisp than Perl, but it has some warts.)
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Maybe not so crazy </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  Emacs already has a reader that can be used to turn lispy-looking
+  things into lispy data structures.  Add some macros on top of that
+  and you might be able to produce a <code>def</code> that's equivalent to
+  Clojure's.  Since much of Clojure is written in Clojure (and all of
+  Clojurescript is), defining the Clojure functions might just be a
+  hop, skip, and jump away from that.
+</p>
+<p>
+  Clojure could intern symbols into emacs (with namespaces prepended)
+  and then emacs could use them.  Clojure could also call emacs
+  functions directly &ndash; any symbol that isn't defined in a Clojure
+  namespace would be tested to see if it exists in emacs.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Probably pretty crazy after all </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  One of Clojure's big selling points is its concurrency semantics.
+  I don't follow emacs development very closely, but I don't think
+  emacs is going to support any of that any time soon.  Also, would it
+  be possible to compile the new language to elisp bytecode?  How
+  would <code>recur</code> work?
+</p>
+<p>
+  There are a lot of questions, and here I am working on a plugin for
+  a combination of tools that hardly anyone uses.  But everyone has to
+  scratch their own itch as they say.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/emacs/" rel="tag">emacs</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sat Dec  3 17:32:56 2011</span>
+<!-- Created <span class="date">Sat Dec  3 17:32:56 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

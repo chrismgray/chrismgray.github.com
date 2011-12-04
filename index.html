@@ -85,11 +85,11 @@ Hiking and Coding
         <td class="month-calendar-day-noday Tuesday">&nbsp;</td>
         <td class="month-calendar-day-noday Wednesday">&nbsp;</td>
         <td class="month-calendar-day-nolink Thursday">1</td>
-        <td class="month-calendar-day-this-day Friday"><a href="./posts/org-ikiwiki-plugin/" title="org-ikiwiki-plugin">2</a></td>
-        <td class="month-calendar-day-future Saturday">3</td>
+        <td class="month-calendar-day-link Friday"><a href="./posts/org-ikiwiki-plugin/" title="org-ikiwiki-plugin">2</a></td>
+        <td class="month-calendar-day-this-day Saturday"><a href="./posts/clojel/" title="clojel">3</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-nolink Sunday">4</td>
+        <td class="month-calendar-day-future Sunday">4</td>
         <td class="month-calendar-day-nolink Monday">5</td>
         <td class="month-calendar-day-nolink Tuesday">6</td>
         <td class="month-calendar-day-nolink Wednesday">7</td>
@@ -138,7 +138,7 @@ Hiking and Coding
 </li><li><span class="normalPC"><a href="./tags/clojurescript/">clojurescript</a></span>
 </li><li><span class="smallPC"><a href="./tags/computational-geometry/">computational-geometry</a></span>
 </li><li><span class="smallestPC"><a href="./tags/convex-hull/">convex-hull</a></span>
-</li><li><span class="smallestPC"><a href="./tags/emacs/">emacs</a></span>
+</li><li><span class="smallPC"><a href="./tags/emacs/">emacs</a></span>
 </li><li><span class="smallestPC"><a href="./tags/email/">email</a></span>
 </li><li><span class="smallPC"><a href="./tags/git/">git</a></span>
 </li><li><span class="smallestPC"><a href="./tags/git-annex/">git-annex</a></span>
@@ -160,10 +160,41 @@ Hiking and Coding
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-082fb602fd70a2d0a58aad67a1a8b33d3db92f4d.png" alt="graph" /></p>
+<img src="./sidebar/sparkline-a893fc53effa8c0d079c3d8d49e1c5374e78412f.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Fri Dec  2 16:15:04 2011</span> (54 posts)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Sat 03 Dec 2011 04:40:56 PM MST</span> (55 posts)</p>
 
+<div class="microblog">
+
+<div class="inlinecontent">
+frogmanjack: If you like 'These Days' by Nico http://t.co/ZhSUSLZG you might like 'Paid Programming' by that dog. http://t.co/2xBwZYYl
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="microblog-header">
+
+
+<span class="author">
+
+<a href="http://twitter.com/frogmanjack">Twitter</a>
+
+</span>
+
+
+&mdash; <span class="date">Fri Dec  2 17:47:18 2011</span>
+
+</div> <!--.microblog-header-->
+</div> <!--.microblog-->
 <div class="microblog">
 
 <div class="inlinecontent">
@@ -288,37 +319,6 @@ frogmanjack: Going for a run with a camera to see if I can get anything interest
 
 </div> <!--.microblog-header-->
 </div> <!--.microblog-->
-<div class="microblog">
-
-<div class="inlinecontent">
-frogmanjack: Or at least we've been lucky so far. #fingerscrossed
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<div class="microblog-header">
-
-
-<span class="author">
-
-<a href="http://twitter.com/frogmanjack">Twitter</a>
-
-</span>
-
-
-&mdash; <span class="date">Sun Nov 27 12:37:11 2011</span>
-
-</div> <!--.microblog-header-->
-</div> <!--.microblog-->
 
 
 </div>
@@ -333,6 +333,152 @@ frogmanjack: Or at least we've been lucky so far. #fingerscrossed
 
 
 <a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/clojel/">Clojure in Elisp</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Probably a bad idea&hellip; </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  File this one in the category of crazy ideas had while running.  I
+  was thinking about my new org-mode plugin that I announced <a href="http://chrismgray.github.com/posts/org-ikiwiki-plugin/">yesterday</a>
+  and how hard it is to write in Emacs Lisp.  I was wishing that I
+  could write it in Clojure instead.  Now, they're not <b>such</b>
+  different languages &ndash; they both are evolutions of McCarthy's
+  original lisp, but Clojure is a much prettier, less crufty
+  language.
+</p>
+<p>
+  Let's look at just one construct in both languages: <code>let</code>.  In both
+  languages, this assigns values to variable names locally. In elisp,
+  it looks like:
+</p>
+
+
+
+<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((foo bar)
+       (baz foo)))
+</pre>
+
+
+
+
+<p>
+  Instead of calling <code>let</code> there, I had to call <code>let*</code>, so that the
+  results of the first assignment were known to the second assignment.
+  There is also a lot of parentheses there.  (Unparenthesized
+  variables become automatically initialized to <code>nil</code> I believe.  I
+  don't think that's a great idea.)  Contrast this with Clojure's
+  <code>let</code>.
+</p>
+
+
+
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [foo bar
+      baz foo])
+</pre>
+
+
+
+
+<p>
+  To me, that's much more readable.
+</p>
+<p>
+  Clojure's core libraries are also much more readable than most of
+  elisp.  It seems to me that elisp was designed in the days where
+  computer usage was charged by the letter and has not been updated
+  since.  (Don't get me wrong &ndash; I love Emacs and would rather program
+  in elisp than Perl, but it has some warts.)
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Maybe not so crazy </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  Emacs already has a reader that can be used to turn lispy-looking
+  things into lispy data structures.  Add some macros on top of that
+  and you might be able to produce a <code>def</code> that's equivalent to
+  Clojure's.  Since much of Clojure is written in Clojure (and all of
+  Clojurescript is), defining the Clojure functions might just be a
+  hop, skip, and jump away from that.
+</p>
+<p>
+  Clojure could intern symbols into emacs (with namespaces prepended)
+  and then emacs could use them.  Clojure could also call emacs
+  functions directly &ndash; any symbol that isn't defined in a Clojure
+  namespace would be tested to see if it exists in emacs.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Probably pretty crazy after all </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  One of Clojure's big selling points is its concurrency semantics.
+  I don't follow emacs development very closely, but I don't think
+  emacs is going to support any of that any time soon.  Also, would it
+  be possible to compile the new language to elisp bytecode?  How
+  would <code>recur</code> work?
+</p>
+<p>
+  There are a lot of questions, and here I am working on a plugin for
+  a combination of tools that hardly anyone uses.  But everyone has to
+  scratch their own itch as they say.
+</p>
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sat Dec  3 17:32:56 2011</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/clojure/" rel="tag">clojure</a>
+
+<a href="./tags/emacs/" rel="tag">emacs</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
@@ -1173,12 +1319,11 @@ Tags:
 
 
 
-<pre class="src src-shell">~ $ cd /media/mybook/music
+<pre class="example">~ $ cd /media/mybook/music
 /media/mybook/music $ git init .
 /media/mybook/music $ git annex init mybook-music
 /media/mybook/music $ emacs .git/config
 </pre>
-
 
 
 
@@ -1195,12 +1340,11 @@ Tags:
 
 
 
-<pre class="src src-shell">/media/mybook/music $ git annex add .
+<pre class="example">/media/mybook/music $ git annex add .
 [All the files are hashed and their contents are put into .git/annex]
 [You will see that all your files are now symlinks to files in .git/annex]
-/media/mybook/music $ git commit -m <span style="color: #cc9393;">"Added my files"</span>
+/media/mybook/music $ git commit -m "Added my files"
 </pre>
-
 
 
 
@@ -1210,14 +1354,13 @@ Tags:
 
 
 
-<pre class="src src-shell">~ $ git clone /media/mybook/music
+<pre class="example">~ $ git clone /media/mybook/music
 ~ $ cd music
 ~/music $ git annex init laptop-music
 ~/music $ git remote add mybook-music /media/mybook/music
 ~/music $ cd /media/mybook/music
 /media/mybook/music $ git remote add laptop-music ~/music
 </pre>
-
 
 
 
@@ -1232,9 +1375,8 @@ Tags:
 
 
 
-<pre class="src src-shell">~/music $ git annex get --from mybook-music Beatles/
+<pre class="example">~/music $ git annex get --from mybook-music Beatles/
 </pre>
-
 
 
 
@@ -1245,9 +1387,8 @@ Tags:
 
 
 
-<pre class="src src-shell">~/music $ git annex drop Beatles/
+<pre class="example">~/music $ git annex drop Beatles/
 </pre>
-
 
 
 
@@ -1959,70 +2100,6 @@ Tags:
 <a href="./tags/AT/" rel="tag">at</a>
 
 <a href="./tags/hiking/" rel="tag">hiking</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/spot-tracks/">SPOT Tracks</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Where I was </h2>
-<div class="outline-text-2" id="text-1">
-
-
-<p>
-  I finally have a Clojurescript application that works basically the
-  way I want it to.  It shows a Google Map of the US onto which is
-  added a series of markers.  The markers are placed at the positions
-  that I sent a SPOT message on one of my hikes.  They are dropped at
-  intervals that correspond to the intervals between me sending them
-  out.  The whole thing takes a minute to watch.  There are a couple
-  of parts where it seems like nothing is happening &ndash; those are
-  winter when I wasn't hiking and a period of time between when the
-  SPOT stopped working and when I got the replacement.  The app is
-  <a href="http://chrismgray.github.com/posts/spot-tracks/view.html">here</a>.  The <a href="https://github.com/chrismgray/spot-tracks">source code</a> is on my github page, but it is mostly
-  unedifying. 
-</p>
-
-</div>
-</div>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Wed Nov 16 09:20:05 2011</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/clojurescript/" rel="tag">clojurescript</a>
-
-<a href="./tags/hiking/" rel="tag">hiking</a>
-
-<a href="./tags/spot/" rel="tag">spot</a>
 
 </span>
 

@@ -8,6 +8,135 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Clojure in Elisp</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/clojel/</guid>
+
+	<link>http://chrismgray.github.com//posts/clojel/</link>
+
+
+	<category>clojure</category>
+
+	<category>emacs</category>
+
+
+	<pubDate>Sat, 03 Dec 2011 17:32:56 -0700</pubDate>
+	<dcterms:modified>2011-12-04T00:32:56Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Probably a bad idea&amp;hellip; &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  File this one in the category of crazy ideas had while running.  I
+  was thinking about my new org-mode plugin that I announced &lt;a href=&quot;http://chrismgray.github.com/posts/org-ikiwiki-plugin/&quot;&gt;yesterday&lt;/a&gt;
+  and how hard it is to write in Emacs Lisp.  I was wishing that I
+  could write it in Clojure instead.  Now, they&#39;re not &lt;b&gt;such&lt;/b&gt;
+  different languages &amp;ndash; they both are evolutions of McCarthy&#39;s
+  original lisp, but Clojure is a much prettier, less crufty
+  language.
+&lt;/p&gt;
+&lt;p&gt;
+  Let&#39;s look at just one construct in both languages: &lt;code&gt;let&lt;/code&gt;.  In both
+  languages, this assigns values to variable names locally. In elisp,
+  it looks like:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
+       (baz foo)))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  Instead of calling &lt;code&gt;let&lt;/code&gt; there, I had to call &lt;code&gt;let*&lt;/code&gt;, so that the
+  results of the first assignment were known to the second assignment.
+  There is also a lot of parentheses there.  (Unparenthesized
+  variables become automatically initialized to &lt;code&gt;nil&lt;/code&gt; I believe.  I
+  don&#39;t think that&#39;s a great idea.)  Contrast this with Clojure&#39;s
+  &lt;code&gt;let&lt;/code&gt;.
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
+      baz foo])
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  To me, that&#39;s much more readable.
+&lt;/p&gt;
+&lt;p&gt;
+  Clojure&#39;s core libraries are also much more readable than most of
+  elisp.  It seems to me that elisp was designed in the days where
+  computer usage was charged by the letter and has not been updated
+  since.  (Don&#39;t get me wrong &amp;ndash; I love Emacs and would rather program
+  in elisp than Perl, but it has some warts.)
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Maybe not so crazy &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  Emacs already has a reader that can be used to turn lispy-looking
+  things into lispy data structures.  Add some macros on top of that
+  and you might be able to produce a &lt;code&gt;def&lt;/code&gt; that&#39;s equivalent to
+  Clojure&#39;s.  Since much of Clojure is written in Clojure (and all of
+  Clojurescript is), defining the Clojure functions might just be a
+  hop, skip, and jump away from that.
+&lt;/p&gt;
+&lt;p&gt;
+  Clojure could intern symbols into emacs (with namespaces prepended)
+  and then emacs could use them.  Clojure could also call emacs
+  functions directly &amp;ndash; any symbol that isn&#39;t defined in a Clojure
+  namespace would be tested to see if it exists in emacs.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Probably pretty crazy after all &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  One of Clojure&#39;s big selling points is its concurrency semantics.
+  I don&#39;t follow emacs development very closely, but I don&#39;t think
+  emacs is going to support any of that any time soon.  Also, would it
+  be possible to compile the new language to elisp bytecode?  How
+  would &lt;code&gt;recur&lt;/code&gt; work?
+&lt;/p&gt;
+&lt;p&gt;
+  There are a lot of questions, and here I am working on a plugin for
+  a combination of tools that hardly anyone uses.  But everyone has to
+  scratch their own itch as they say.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/clojel/#comments</comments>
+
+</item>
+<item>
+
 	<title>Plugin for org files in ikiwiki</title>
 
 
@@ -744,7 +873,7 @@
 
 
 	<pubDate>Wed, 23 Nov 2011 20:02:00 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:45:32Z</dcterms:modified>
+	<dcterms:modified>2011-12-03T03:47:16Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;Using git annex &lt;/h2&gt;
@@ -782,12 +911,11 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~ $ cd /media/mybook/music
+&lt;pre class=&quot;example&quot;&gt;~ $ cd /media/mybook/music
 /media/mybook/music $ git init .
 /media/mybook/music $ git annex init mybook-music
 /media/mybook/music $ emacs .git/config
 &lt;/pre&gt;
-
 
 
 
@@ -804,12 +932,11 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;/media/mybook/music $ git annex add .
+&lt;pre class=&quot;example&quot;&gt;/media/mybook/music $ git annex add .
 [All the files are hashed and their contents are put into .git/annex]
 [You will see that all your files are now symlinks to files in .git/annex]
-/media/mybook/music $ git commit -m &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Added my files&quot;&lt;/span&gt;
+/media/mybook/music $ git commit -m &quot;Added my files&quot;
 &lt;/pre&gt;
-
 
 
 
@@ -819,14 +946,13 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~ $ git clone /media/mybook/music
+&lt;pre class=&quot;example&quot;&gt;~ $ git clone /media/mybook/music
 ~ $ cd music
 ~/music $ git annex init laptop-music
 ~/music $ git remote add mybook-music /media/mybook/music
 ~/music $ cd /media/mybook/music
 /media/mybook/music $ git remote add laptop-music ~/music
 &lt;/pre&gt;
-
 
 
 
@@ -841,9 +967,8 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~/music $ git annex get --from mybook-music Beatles/
+&lt;pre class=&quot;example&quot;&gt;~/music $ git annex get --from mybook-music Beatles/
 &lt;/pre&gt;
-
 
 
 
@@ -854,9 +979,8 @@
 
 
 
-&lt;pre class=&quot;src src-shell&quot;&gt;~/music $ git annex drop Beatles/
+&lt;pre class=&quot;example&quot;&gt;~/music $ git annex drop Beatles/
 &lt;/pre&gt;
-
 
 
 
@@ -1488,53 +1612,6 @@ that made the biggest impression on me.
 
 
 	<comments>/posts/hiking/100-mile-wilderness/#comments</comments>
-
-</item>
-<item>
-
-	<title>SPOT Tracks</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/spot-tracks/</guid>
-
-	<link>http://chrismgray.github.com//posts/spot-tracks/</link>
-
-
-	<category>clojurescript</category>
-
-	<category>hiking</category>
-
-	<category>spot</category>
-
-
-	<pubDate>Wed, 16 Nov 2011 09:20:05 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:44:36Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Where I was &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I finally have a Clojurescript application that works basically the
-  way I want it to.  It shows a Google Map of the US onto which is
-  added a series of markers.  The markers are placed at the positions
-  that I sent a SPOT message on one of my hikes.  They are dropped at
-  intervals that correspond to the intervals between me sending them
-  out.  The whole thing takes a minute to watch.  There are a couple
-  of parts where it seems like nothing is happening &amp;ndash; those are
-  winter when I wasn&#39;t hiking and a period of time between when the
-  SPOT stopped working and when I got the replacement.  The app is
-  &lt;a href=&quot;http://chrismgray.github.com/posts/spot-tracks/view.html&quot;&gt;here&lt;/a&gt;.  The &lt;a href=&quot;https://github.com/chrismgray/spot-tracks&quot;&gt;source code&lt;/a&gt; is on my github page, but it is mostly
-  unedifying. 
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/spot-tracks/#comments</comments>
 
 </item>
 
