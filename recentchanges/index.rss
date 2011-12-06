@@ -8,6 +8,110 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to posts/org-ikiwiki-plugin-2 on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_46a02ecd9febde83d4a922db14ed3e3188c45fe3/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-46a02ecd9febde83d4a922db14ed3e3188c45fe3</link>
+
+	<pubDate>Tue, 06 Dec 2011 14:56:13 -0700</pubDate>
+	<dcterms:modified>2011-12-06T21:56:13Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-46a02ecd9febde83d4a922db14ed3e3188c45fe3&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/org-ikiwiki-plugin-2
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;02:56:13 PM 12/06/2011&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Fixed the tags&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 46a02ecd9febde83d4a922db14ed3e3188c45fe3 --&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>chrismgray: change to posts/org-ikiwiki-plugin-2 on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_0646e1aecdde1c638096b86b385e659cc4516797/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-0646e1aecdde1c638096b86b385e659cc4516797</link>
+
+	<pubDate>Tue, 06 Dec 2011 14:54:57 -0700</pubDate>
+	<dcterms:modified>2011-12-06T21:54:57Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-0646e1aecdde1c638096b86b385e659cc4516797&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/org-ikiwiki-plugin-2
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;02:54:57 PM 12/06/2011&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 0646e1aecdde1c638096b86b385e659cc4516797 --&gt;
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/clojel on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
@@ -41,7 +145,7 @@ chrismgray
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
 &lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;17:33:39 12/03/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;05:33:39 PM 12/03/2011&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
 
 &lt;/div&gt;
@@ -93,7 +197,7 @@ chrismgray
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
 &lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;17:33:31 12/03/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;05:33:31 PM 12/03/2011&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
 
 &lt;/div&gt;
@@ -5224,110 +5328,6 @@ Added some more tags&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- 92d4479203c8ca5bff688381da206972f97e8c6a --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to tags/clojure on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6</link>
-
-	<pubDate>Thu, 10 Nov 2011 13:24:06 -0700</pubDate>
-	<dcterms:modified>2011-11-10T20:24:06Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-tags/clojure
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;01:24:06 PM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-creating tag page tags/clojure&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 9a671c12ee62761bd3b21f2b44f22b73ed9a0ea6 --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to tags/clojurescript on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_bf8dae6c17837c465158de2536bb72435a26aa8e/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-bf8dae6c17837c465158de2536bb72435a26aa8e</link>
-
-	<pubDate>Thu, 10 Nov 2011 13:24:06 -0700</pubDate>
-	<dcterms:modified>2011-11-10T20:24:06Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-bf8dae6c17837c465158de2536bb72435a26aa8e&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-tags/clojurescript
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;01:24:06 PM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-creating tag page tags/clojurescript&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- bf8dae6c17837c465158de2536bb72435a26aa8e --&gt;
 </description>
 
 

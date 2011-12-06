@@ -92,13 +92,13 @@
         <td class="month-calendar-day-noday Wednesday">&nbsp;</td>
         <td class="month-calendar-day-nolink Thursday">1</td>
         <td class="month-calendar-day-link Friday"><a href="../../../posts/org-ikiwiki-plugin/" title="org-ikiwiki-plugin">2</a></td>
-        <td class="month-calendar-day-this-day Saturday"><a href="../../../posts/clojel/" title="clojel">3</a></td>
+        <td class="month-calendar-day-link Saturday"><a href="../../../posts/clojel/" title="clojel">3</a></td>
     </tr>
     <tr>
-        <td class="month-calendar-day-future Sunday">4</td>
+        <td class="month-calendar-day-nolink Sunday">4</td>
         <td class="month-calendar-day-nolink Monday">5</td>
-        <td class="month-calendar-day-nolink Tuesday">6</td>
-        <td class="month-calendar-day-nolink Wednesday">7</td>
+        <td class="month-calendar-day-this-day Tuesday"><a href="../../../posts/org-ikiwiki-plugin-2/" title="org-ikiwiki-plugin-2">6</a></td>
+        <td class="month-calendar-day-future Wednesday">7</td>
         <td class="month-calendar-day-nolink Thursday">8</td>
         <td class="month-calendar-day-nolink Friday">9</td>
         <td class="month-calendar-day-nolink Saturday">10</td>
@@ -176,7 +176,7 @@
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri Dec  2 16:29:47 2011</span>
+Posted <span class="date">Fri 02 Dec 2011 04:29:47 PM MST</span>
 </span>
 
 
@@ -326,7 +326,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat Dec  3 17:32:56 2011</span>
+Posted <span class="date">Sat 03 Dec 2011 05:32:56 PM MST</span>
 </span>
 
 
@@ -336,6 +336,86 @@ Tags:
 <a href="../../../tags/clojure/" rel="tag">clojure</a>
 
 <a href="../../../tags/emacs/" rel="tag">emacs</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="../../../posts/org-ikiwiki-plugin-2/">Updates on the ikiwiki plugin</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Progress </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>  
+  Progress on the <a href="./../../../posts/org-ikiwiki-plugin">plugin</a> is proceeding apace.  In fact, the link in the
+  last sentence is a major milestone &ndash; for the first time, I can use
+  what ikiwiki calls <a href="http://ikiwiki.info/ikiwiki/wikilink/">wikilinks</a>.  What would happen previously is that
+  ikiwiki would stick some raw HTML into an org file when it thought
+  it saw a wikilink.  Org wouldn't know what to do with this, and
+  would escape the HTML so that it would show up in the browser.  This
+  is the reason that I couldn't include images in the posts &ndash; they
+  would get interpreted as wikilinks and then org would choke on the
+  resulting HTML.
+</p>
+<p>
+  I'm not sure that inserting local picture files works yet, but
+  inserting pictures from other servers works okay.  For example, here
+  is a picture of me standing at the US/Mexico border:
+  <img src="https://lh5.googleusercontent.com/-JiFi6diO5zM/Tgziytt-fwI/AAAAAAAACDc/dQXeYi-7odI/s144/DSCF0494.JPG"  alt="https://lh5.googleusercontent.com/-JiFi6diO5zM/Tgziytt-fwI/AAAAAAAACDc/dQXeYi-7odI/s144/DSCF0494.JPG" />
+  and here is me after hiking to the US/Canada border:
+  <img src="https://lh3.googleusercontent.com/-j-b_h7_SSlo/TnyPfTGVCyI/AAAAAAAADWA/cFvVuP1QvB8/s144/DSCF0597.JPG"  alt="https://lh3.googleusercontent.com/-j-b_h7_SSlo/TnyPfTGVCyI/AAAAAAAADWA/cFvVuP1QvB8/s144/DSCF0597.JPG" />
+</p>
+<p>
+  I think I have ironed out most of the kinks that caused things to
+  hang previously when updating the site, but more testing is
+  certainly needed.  Things that remain on my todo list include
+  figuring out why it doesn't work when the emacs doing the compiling
+  is daemonized, and testing whether locally hosted pictures work.
+</p>
+<p>
+  Any feedback would be appreciated!
+</p>
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tue 06 Dec 2011 02:55:28 PM MST</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="../../../tags/emacs/" rel="tag">emacs</a>
+
+<a href="../../../tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
+
+<a href="../../../tags/org-mode/" rel="tag">org-mode</a>
 
 </span>
 
@@ -384,8 +464,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu Nov 10 20:38:47 2011</span>
-<!-- Created <span class="date">Thu Nov 10 19:21:15 2011</span> -->
+Last edited <span class="date">Thu 10 Nov 2011 08:38:47 PM MST</span>
+<!-- Created <span class="date">Thu 10 Nov 2011 07:21:15 PM MST</span> -->
 </div>
 
 </div>

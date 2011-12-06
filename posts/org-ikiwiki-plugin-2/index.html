@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Updates on the ikiwiki plugin</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+Updates on the ikiwiki plugin
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Progress </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>  
+  Progress on the <a href="./../org-ikiwiki-plugin">plugin</a> is proceeding apace.  In fact, the link in the
+  last sentence is a major milestone &ndash; for the first time, I can use
+  what ikiwiki calls <a href="http://ikiwiki.info/ikiwiki/wikilink/">wikilinks</a>.  What would happen previously is that
+  ikiwiki would stick some raw HTML into an org file when it thought
+  it saw a wikilink.  Org wouldn't know what to do with this, and
+  would escape the HTML so that it would show up in the browser.  This
+  is the reason that I couldn't include images in the posts &ndash; they
+  would get interpreted as wikilinks and then org would choke on the
+  resulting HTML.
+</p>
+<p>
+  I'm not sure that inserting local picture files works yet, but
+  inserting pictures from other servers works okay.  For example, here
+  is a picture of me standing at the US/Mexico border:
+  <img src="https://lh5.googleusercontent.com/-JiFi6diO5zM/Tgziytt-fwI/AAAAAAAACDc/dQXeYi-7odI/s144/DSCF0494.JPG"  alt="https://lh5.googleusercontent.com/-JiFi6diO5zM/Tgziytt-fwI/AAAAAAAACDc/dQXeYi-7odI/s144/DSCF0494.JPG" />
+  and here is me after hiking to the US/Canada border:
+  <img src="https://lh3.googleusercontent.com/-j-b_h7_SSlo/TnyPfTGVCyI/AAAAAAAADWA/cFvVuP1QvB8/s144/DSCF0597.JPG"  alt="https://lh3.googleusercontent.com/-j-b_h7_SSlo/TnyPfTGVCyI/AAAAAAAADWA/cFvVuP1QvB8/s144/DSCF0597.JPG" />
+</p>
+<p>
+  I think I have ironed out most of the kinks that caused things to
+  hang previously when updating the site, but more testing is
+  certainly needed.  Things that remain on my todo list include
+  figuring out why it doesn't work when the emacs doing the compiling
+  is daemonized, and testing whether locally hosted pictures work.
+</p>
+<p>
+  Any feedback would be appreciated!
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/emacs/" rel="tag">emacs</a>
+
+<a href="../../tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
+
+<a href="../../tags/org-mode/" rel="tag">org-mode</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Tue 06 Dec 2011 02:55:28 PM MST</span>
+<!-- Created <span class="date">Tue 06 Dec 2011 02:55:28 PM MST</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

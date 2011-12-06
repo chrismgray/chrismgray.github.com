@@ -17,7 +17,77 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-12-04T00:32:56Z</updated>
+<updated>2011-12-06T21:55:28Z</updated>
+<entry>
+	<title>Updates on the ikiwiki plugin</title>
+
+	<id>http://chrismgray.github.com//posts/org-ikiwiki-plugin-2/</id>
+
+	<link href="http://chrismgray.github.com//posts/org-ikiwiki-plugin-2/"/>
+
+
+
+
+
+
+	<category term="emacs" />
+
+	<category term="ikiwiki-org-plugin" />
+
+	<category term="org-mode" />
+
+
+	<updated>2011-12-06T21:55:28Z</updated>
+	<published>2011-12-06T21:55:28Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Progress &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;  
+  Progress on the &lt;a href=&quot;http://chrismgray.github.com//tags/emacs/./../../posts/org-ikiwiki-plugin&quot;&gt;plugin&lt;/a&gt; is proceeding apace.  In fact, the link in the
+  last sentence is a major milestone &amp;ndash; for the first time, I can use
+  what ikiwiki calls &lt;a href=&quot;http://ikiwiki.info/ikiwiki/wikilink/&quot;&gt;wikilinks&lt;/a&gt;.  What would happen previously is that
+  ikiwiki would stick some raw HTML into an org file when it thought
+  it saw a wikilink.  Org wouldn&#39;t know what to do with this, and
+  would escape the HTML so that it would show up in the browser.  This
+  is the reason that I couldn&#39;t include images in the posts &amp;ndash; they
+  would get interpreted as wikilinks and then org would choke on the
+  resulting HTML.
+&lt;/p&gt;
+&lt;p&gt;
+  I&#39;m not sure that inserting local picture files works yet, but
+  inserting pictures from other servers works okay.  For example, here
+  is a picture of me standing at the US/Mexico border:
+  &lt;img src=&quot;https://lh5.googleusercontent.com/-JiFi6diO5zM/Tgziytt-fwI/AAAAAAAACDc/dQXeYi-7odI/s144/DSCF0494.JPG&quot;  alt=&quot;https://lh5.googleusercontent.com/-JiFi6diO5zM/Tgziytt-fwI/AAAAAAAACDc/dQXeYi-7odI/s144/DSCF0494.JPG&quot; /&gt;
+  and here is me after hiking to the US/Canada border:
+  &lt;img src=&quot;https://lh3.googleusercontent.com/-j-b_h7_SSlo/TnyPfTGVCyI/AAAAAAAADWA/cFvVuP1QvB8/s144/DSCF0597.JPG&quot;  alt=&quot;https://lh3.googleusercontent.com/-j-b_h7_SSlo/TnyPfTGVCyI/AAAAAAAADWA/cFvVuP1QvB8/s144/DSCF0597.JPG&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  I think I have ironed out most of the kinks that caused things to
+  hang previously when updating the site, but more testing is
+  certainly needed.  Things that remain on my todo list include
+  figuring out why it doesn&#39;t work when the emacs doing the compiling
+  is daemonized, and testing whether locally hosted pictures work.
+&lt;/p&gt;
+&lt;p&gt;
+  Any feedback would be appreciated!
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-2/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-2/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Clojure in Elisp</title>
 
