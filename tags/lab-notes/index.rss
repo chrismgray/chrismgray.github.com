@@ -8,6 +8,224 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Lessons learned (so far) from the ikiwiki plugin</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/org-ikiwiki-plugin-3/</guid>
+
+	<link>http://chrismgray.github.com//posts/org-ikiwiki-plugin-3/</link>
+
+
+	<category>emacs</category>
+
+	<category>ikiwiki</category>
+
+	<category>ikiwiki-org-plugin</category>
+
+	<category>lab-notes</category>
+
+	<category>org-mode</category>
+
+
+	<pubDate>Wed, 07 Dec 2011 15:00:36 -0700</pubDate>
+	<dcterms:modified>2011-12-07T22:42:09Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;Writing my &lt;a href=&quot;http://chrismgray.github.com//tags/lab-notes/./../../posts/org-ikiwiki-plugin&quot;&gt;new plugin&lt;/a&gt; in Emacs Lisp, I learned a few things.  Here are
+some of them, in no particular order.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;xml-rpc.el has some problems &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I don&#39;t mean to be unkind here.  xml-rpc.el seems pretty good if you
+  are doing exactly one kind of thing: calling a method on a server
+  that can be reached by http.  For anything else, it is very hard to
+  use.   My plugin has the following requirements:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It must be called by another program through xml-rpc.
+&lt;/li&gt;
+&lt;li&gt;It must read from and write to files (and not http).
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;    
+  Neither of these things is made easy with xml-rpc.  The first I can
+  understand &amp;ndash; xml-rpc would have to somehow insinuate itself into
+  the emacs event loop and watch for calls all the time.  The second
+  is less easy to understand.  Parsing xml-rpc is not really related
+  to reading from http.  So why are the two things tied together?  In
+  my opinion, xml-rpc.el would be a much nicer library if parsing the
+  xml-rpc was separated completely from the http stuff.  There could
+  be convenience functions, but they would be a layer of abstraction
+  on top of the other two layers.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;xml.el has some problems &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  There isn&#39;t a function to get a list of all nodes with a given name?
+  Are you kidding me?  Here is my implementation, but I bet there is a
+  better one somewhere:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;xml-find-nodes-matching&lt;/span&gt; (node name)
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Returns all children of `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;node&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; that have an `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;xml-node-name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; equal to `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39;.&quot;&lt;/span&gt;
+  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (or (eq node &#39;()) (not (listp node)))
+      &#39;()
+    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply &#39;append (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  In general, both xml-rpc.el and xml.el use a distressing number of
+  calls to &lt;code&gt;car&lt;/code&gt;, &lt;code&gt;cdr&lt;/code&gt;, and &lt;code&gt;cdaddr&lt;/code&gt; (and all the versions in
+  between).  
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Perl has some problems &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  Ikiwiki sends named parameters as an even-lengthed xml-rpc array
+  rather than as an xml-rpc struct.  This is because not all of the
+  functions that can be called via xml-rpc take named parameters and I
+  guess Perl isn&#39;t smart enough to tell a hash from an even-lengthed
+  array.  This isn&#39;t a huge problem, but it does mean that I need to
+  convert the input to each of the functions that I write into a hash
+  before I use it.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Ikiwiki has some problems &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+
+
+&lt;p&gt;
+  I would like to be able to ignore files that don&#39;t have a particular
+  extension.  For &lt;code&gt;htmlify&lt;/code&gt;, this is the way it works by default.  It
+  seems like most of the functions that plugins can implement are not
+  this way by default, though, and that is a shame.  If the plugin is
+  not external &amp;ndash; that is, it is written in Perl &amp;ndash; there is really no
+  problem.  The function is called, checks the extension of the source
+  file, and returns without doing anything.  However, when the plugin
+  is external and the call must happen through xml-rpc, ikiwiki must
+  transmit the data via xml-rpc and receive the returned data back via
+  xml-rpc.  Unnecessary calls take a lot longer in that context.
+&lt;/p&gt;
+&lt;p&gt;
+  So I would like for most calls to &lt;code&gt;hook&lt;/code&gt; to take an optional
+  &lt;code&gt;extension&lt;/code&gt; parameter that takes an extension (or even better, a
+  regexp), and only call the function if the file name has the same
+  extension (or matches the regexp).
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-5&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-5&quot;&gt;Working with emacs buffers is pretty nice &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+
+
+&lt;p&gt;
+  Does a function that you&#39;re trying to write in emacs lisp give you a
+  string?  It&#39;s pretty easy to throw it in a temporary buffer and then
+  tell emacs to do the things that you would normally do while you
+  were editing in order to get the proper information out of the
+  string.  The &lt;code&gt;with-temporary-buffer&lt;/code&gt; macro makes it especially easy
+  to do just that.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-6&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-6&quot;&gt;Getting info from a structured list is easier to do as a recursive function &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
+
+
+&lt;p&gt;
+  One of the things that took me the longest was to figure out what
+  this couple of lines of code was doing:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-elisp&quot;&gt;(setq valtype (car (caddar xml-list))
+      valvalue (caddr (caddar xml-list)))  
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  What should the value of &lt;code&gt;xml-list&lt;/code&gt; look like in order to get the
+  correct thing out of it?  It turned out that I needed to take the
+  &lt;code&gt;cdr&lt;/code&gt; of the &lt;code&gt;cdaddr&lt;/code&gt; of the &lt;code&gt;caddar&lt;/code&gt; of the parsed xml in order to
+  get the correct value.  That only worked when ikiwiki was responding
+  to a method call, though.  I had a much easier time getting the
+  right values out when I simply started using the
+  &lt;code&gt;xml-find-nodes-matching&lt;/code&gt; function that I showed above.
+&lt;/p&gt;
+&lt;p&gt;
+  When you see yourself writing more than a few &lt;code&gt;car&lt;/code&gt; or &lt;code&gt;cdr&lt;/code&gt; calls
+  in a row (or &lt;code&gt;first&lt;/code&gt;, &lt;code&gt;rest&lt;/code&gt;, or &lt;code&gt;nth&lt;/code&gt; calls in Clojure), stop and
+  try to write a function that finds what you are looking for.  The
+  function doesn&#39;t have to be recursive, but that might be the easiest
+  way to do it.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-7&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-7&quot;&gt;It&#39;s nice when all calls and responses are dumped to a file &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
+
+
+&lt;p&gt;
+  In a sense, this is just saying that code can be easier to debug if
+  you&#39;re tracing it.  But since the calls between ikiwiki and the
+  plugin must go through files anyway, we get the program traced
+  automatically.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/org-ikiwiki-plugin-3/#comments</comments>
+
+</item>
+<item>
+
 	<title>Convex Hulls</title>
 
 
@@ -1181,134 +1399,6 @@
 
 
 	<comments>/posts/rationals-followup/#comments</comments>
-
-</item>
-<item>
-
-	<title>Rationals in Clojurescript</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/rationals-in-cljs/</guid>
-
-	<link>http://chrismgray.github.com//posts/rationals-in-cljs/</link>
-
-
-	<category>clojure</category>
-
-	<category>clojurescript</category>
-
-	<category>lab-notes</category>
-
-	<category>rationals</category>
-
-	<category>voronoi-diagram</category>
-
-
-	<pubDate>Wed, 09 Nov 2011 10:13:06 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-Last night, I uploaded some code to compute the &lt;a href=&quot;http://en.wikipedia.org/wiki/Voronoi_diagram&quot;&gt;Voronoi Diagram&lt;/a&gt; of a
-set of points to &lt;a href=&quot;https://github.com/chrismgray/voronoi-diagram/&quot;&gt;github&lt;/a&gt;.  This post is not directly about that code --
-I&#39;ll write about that when it is completely working &amp;ndash; but rather
-about something that I noticed when I tried to convert the code to
-&lt;a href=&quot;https://github.com/clojure/clojurescript&quot;&gt;Clojurescript&lt;/a&gt;.
-&lt;/p&gt;
-&lt;p&gt;
-There are a few things that are known not to work in Clojurescript
-that work in Clojure: I had to convert calls from &lt;code&gt;lazy-cat&lt;/code&gt; to
-&lt;code&gt;concat&lt;/code&gt;, for example.  However, the one difference that really broke
-things for me was the lack of support for rational arithmetic in
-Clojurescript.
-&lt;/p&gt;
-&lt;p&gt;
-One major element of my algorithm is a test to determine whether a
-given point is on a given line segment.  With integer coordinates for
-the sites that determine the Voronoi Diagram and the bounding box,
-everything about this test can be represented as a rational number.
-Since Clojure gives you rational numbers by default, while
-Clojurescript simply uses Javascript&#39;s arithmetic facilities, the test
-works in Clojure but not in Clojurescript.
-&lt;/p&gt;
-&lt;p&gt;
-So what can be done about this?  Here are some options:
-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li id=&quot;sec-1-1&quot;&gt;Use floats, but more smartly &lt;br/&gt;
-
-&lt;p&gt;
-     Probably the simplest option, here we would not test for &lt;i&gt;equality&lt;/i&gt;,
-     but for &lt;i&gt;almost equality&lt;/i&gt;.  That is, if the distance between two
-     points is a very small number (&lt;i&gt;e.g.&lt;/i&gt; a millionth), and all of the
-     input is integer, then the two points are probably the same.  This
-     option is obviously not too satisfying from a theoretical
-     standpoint, especially if the small number is hardcoded.  I am
-     fairly sure that there has been research to determine what the exact
-     value of the small number should be, but that would take the code
-     out of the realm of simplicity.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li id=&quot;sec-1-2&quot;&gt;Implement rationals in Clojurescript &lt;br/&gt;
-
-&lt;p&gt;
-     I am not sure how possible this option is.  However, it is currently
-     the most appealing to me.  Rational arithmetic is not so difficult
-     to implement, especially in the limited use case that I need it for:
-     I am pretty sure that I could get away with &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, and
-     the comparison operators.  These are currently implemented as
-     &lt;a href=&quot;https://github.com/clojure/clojurescript/blob/3c83c62d973b0153a9e28bea7beb73794fbf9065/src/clj/cljs/core.clj#L51&quot;&gt;macros&lt;/a&gt; in Clojurescript, which means that they take the
-     Clojurescript code and change it Javascript code.  This allows
-     the Clojurescript compiler to take the prefix syntax of
-     Clojurescript and change it to the infix syntax of Javascript.
-&lt;/p&gt;
-&lt;p&gt;
-     If we were to redefine the operators to be functions, we might
-     have a chance to run different code given different types of
-     input.  The &lt;code&gt;defmulti&lt;/code&gt; and &lt;code&gt;defmethod&lt;/code&gt; macros seem perfect for
-     this.  The major question is whether it is possible to shadow the
-     names of the operators but use them nevertheless.  That is, will
-     I be able to add &lt;code&gt;(:require-macros [clojure.core :as core])&lt;/code&gt; to
-     my namespace and then use, for example, &lt;code&gt;core/*&lt;/code&gt;?
-&lt;/p&gt;
-&lt;p&gt;
-     The other downside, beyond the potential difficulties, is the
-     fact that the generated Javascript will no longer be quite as
-     pretty.  What used to be infix notation will be converted to
-     function calls.  Additionally, there will be a fairly high
-     penalty for doing arithmetic &amp;ndash; three or four function calls per
-     arithmetic operation (assuming the polymorphic solution I have in
-     mind works) rather than the current single operation.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  I am going to try to implement the rationals in Clojurescript
-  first.  At the very least, I will learn a bit more about how
-  multimethods work in Clojure. 
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/rationals-in-cljs/#comments</comments>
 
 </item>
 

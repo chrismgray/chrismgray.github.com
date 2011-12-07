@@ -17,7 +17,65 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-12-06T21:56:13Z</updated>
+<updated>2011-12-07T18:04:26Z</updated>
+<entry>
+	<title>change to posts/clojel on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_0c0509d2d8555fd95431008fb50e70bd809d3475/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-0c0509d2d8555fd95431008fb50e70bd809d3475"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2011-12-07T18:04:26Z</updated>
+	<published>2011-12-07T18:04:26Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-0c0509d2d8555fd95431008fb50e70bd809d3475&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/clojel
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:04:26 12/07/11&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Updated clojel post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 0c0509d2d8555fd95431008fb50e70bd809d3475 --&gt;
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/org-ikiwiki-plugin-2 on Hiking and Coding</title>
 
@@ -5878,66 +5936,6 @@ To quote Rick Perry, &amp;quot;Oops.&amp;quot;&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- f4fb0d3f88c83a93eb61e4214e536814ca6d08b6 --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/rationals-followup posts/rationals-in-cljs on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_92d4479203c8ca5bff688381da206972f97e8c6a/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-92d4479203c8ca5bff688381da206972f97e8c6a"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-10T20:26:07Z</updated>
-	<published>2011-11-10T20:26:07Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-92d4479203c8ca5bff688381da206972f97e8c6a&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/rationals-followup
-
-posts/rationals-in-cljs
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;01:26:07 PM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Added some more tags&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 92d4479203c8ca5bff688381da206972f97e8c6a --&gt;
 
 	</content>
 

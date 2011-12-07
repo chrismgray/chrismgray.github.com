@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-12-04T00:32:56Z</updated>
+<updated>2011-12-07T18:04:08Z</updated>
 <entry>
 	<title>Clojure in Elisp</title>
 
@@ -35,7 +35,7 @@
 	<category term="emacs" />
 
 
-	<updated>2011-12-04T00:32:56Z</updated>
+	<updated>2011-12-07T18:04:08Z</updated>
 	<published>2011-12-04T00:32:56Z</published>
 
 	<content type="html" xml:lang="en">
@@ -140,6 +140,23 @@
   There are a lot of questions, and here I am working on a plugin for
   a combination of tools that hardly anyone uses.  But everyone has to
   scratch their own itch as they say.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Totally crazy &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+
+
+&lt;p&gt;
+  &lt;b&gt;Update:&lt;/b&gt; As I suspected, this idea won&#39;t work: elisp doesn&#39;t have
+  reader macros, so the difference in read syntaxes of clojure and
+  elisp would be impossible to express to the elisp reader.  Maybe one
+  could write a parser in elisp, but that would probably be slow and
+  hard to do.  The idea was only attractive when large parts were
+  already done.
 &lt;/p&gt;
 
 &lt;/div&gt;
