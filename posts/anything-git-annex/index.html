@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Git Annex in Anything</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+Git Annex in Anything
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">More fun with emacs </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  Lately, I've been playing around with <a href="http://www.emacswiki.org/emacs/Anything">anything.el</a>, which has been
+  described as "Quicksilver for emacs".  I've played around with it
+  before, but have had a hard time changing my habits so that it's the
+  first thing I think of doing when changing buffers or finding
+  files.  The main reason, I think, is that <a href="http://www.emacswiki.org/emacs/IswitchBuffers">iswitch</a> is usually just as
+  fast.
+</p>
+<p>
+  However, I have started using <a href="./../git-annex">git annex</a> to store my music and
+  videos, and that has added some complexity to the way that I deal
+  with them.  My usual flow is to do a <code>git annex find</code> to see what
+  files I have on my laptop, after which I play one of them with
+  <code>smplayer</code>.  When I am done with the file, I either use <code>git annex   drop</code> or <code>git annex move</code> to get rid of the file from my laptop.
+</p>
+<p>
+  All of that takes a lot of typing in the shell, so I wondered
+  whether I could speed it up using <code>anything</code>.  If you guessed that I
+  could (given that I am writing this article), give yourself a gold
+  star.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">How I did it </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  <code>anything</code> is highly extensible.  Anyone can define their own setup
+  with a command like this:
+</p>
+
+
+
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">my-anything</span> ()
+  (interactive)
+  (anything-other-buffer
+   '(anything-c-source-buffers+
+     anything-c-source-recentf
+     anything-c-source-files-in-current-dir+
+     anything-c-source-git-annex
+     anything-c-source-org-headline
+     anything-c-source-bookmarks
+     anything-c-source-bookmark-set
+     anything-c-source-emms-files)
+    <span style="color: #cc9393;">"*anything*"</span>))
+</pre>
+
+
+
+
+<p>
+  which is just a function that tells <code>anything</code> to use a bunch of
+  different "sources" as possible interesting things that you might
+  want to interact with.  For example, <code>anything-c-source-recentf</code>
+  gives a list of files that you recently had open.  That comes with
+  the <code>anything</code> package, though, so it's not too interesting from our
+  point of view.  What is interesting is
+  <code>anything-c-source-git-annex</code>.  It looks like this:
+</p>
+
+
+
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defvar</span> <span style="color: #f0dfaf;">anything-c-source-git-annex</span>
+  '((name . <span style="color: #cc9393;">"Git Annex"</span>)
+    (candidates . (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> ()
+                    (<span style="color: #f0dfaf; font-weight: bold;">with-current-buffer</span> anything-current-buffer
+                     (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
+                       (call-process <span style="color: #cc9393;">"git"</span> nil t nil <span style="color: #cc9393;">"annex"</span> <span style="color: #cc9393;">"find"</span>)
+                       (goto-char (point-min))
+                       (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>)))))
+    (volatile)
+    (action . ((<span style="color: #cc9393;">"Watch"</span> . anything-c-git-annex-play)
+               (<span style="color: #cc9393;">"Drop"</span> . anything-c-git-annex-drop)
+               (<span style="color: #cc9393;">"Move"</span> . anything-c-git-annex-move)
+               (<span style="color: #cc9393;">"Copy"</span> . anything-c-git-annex-copy)))))
+</pre>
+
+
+
+
+<p>
+  It should hopefully be fairly easy to understand.  There are two
+  interesting parts: getting candidate files, and the actions on the
+  candidate files.  Getting the candidate files is as simple as
+  putting the results of <code>git annex find</code> into a temporary buffer
+  (which must be in the same directory as the current buffer) and then
+  putting the lines of the buffer into a list.  (This wouldn't work if
+  the file names contained newlines, but I don't have any of those.
+  If you wanted to be really careful, you could add the "&ndash;print0"
+  option to <code>call-process</code> and split the string on "\0".)
+</p>
+<p>
+  The actions are all functions.  The simplest is
+  <code>anything-c-git-annex-drop</code>, which just looks like
+</p>
+
+
+
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-drop</span> (candidate)
+  (anything-git-annex-command <span style="color: #cc9393;">"drop"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)))
+</pre>
+
+
+
+
+<p>
+  where <code>anything-git-annex-command</code> just starts a shell command.
+  More interesting is <code>anything-c-git-annex-copy</code>, which is defined as
+  follows
+</p>
+
+
+
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-copy</span> (candidate)
+  (<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((to (anything-comp-read
+              <span style="color: #cc9393;">"To Git Annex: "</span>
+              (anything-c-git-remotes)
+              <span style="color: #8cd0d3;">:must-match</span> nil)))
+    (anything-git-annex-command <span style="color: #cc9393;">"copy"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)
+                                <span style="color: #cc9393;">"--to"</span> (concat <span style="color: #cc9393;">"\""</span> to <span style="color: #cc9393;">"\""</span>))))
+
+(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-remotes</span> ()
+  (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
+    (call-process <span style="color: #cc9393;">"git"</span> nil (current-buffer) nil <span style="color: #cc9393;">"remote"</span>)
+    (delete <span style="color: #cc9393;">""</span> (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>))))
+</pre>
+
+
+
+
+<p>
+  The <code>anything-c-git-annex-copy</code> command needs to know to which
+  repository it should copy the candidate that has been selected.  I
+  find out which one I want to copy to by listing the remotes that are
+  known about by the git repository that the file is in.  Using
+  <code>anything-comp-read</code> means that the remotes are listed in the same
+  style all of the <code>anything</code> candidates are listed in.  It's pretty
+  nice, because it keeps me in the same mode of operation as before.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Wrapping up </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  It's a bit hard to write about what makes <code>anything.el</code> an
+  interesting way of doing things in emacs &ndash; a screencast might be
+  more helpful &ndash; but I hope some of the power is evident from this
+  little writeup.  I'm going to try to train myself to use <code>anything</code>
+  more often.  We'll see how it goes.
+</p>
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/anything.el/" rel="tag">anything.el</a>
+
+<a href="../../tags/emacs/" rel="tag">emacs</a>
+
+<a href="../../tags/git-annex/" rel="tag">git-annex</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Mon 12 Dec 2011 01:03:17 PM MST</span>
+<!-- Created <span class="date">Mon 12 Dec 2011 01:03:17 PM MST</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>
