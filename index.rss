@@ -8,6 +8,88 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>More ikiwiki plugin hacking</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/org-ikiwiki-plugin-4/</guid>
+
+	<link>http://chrismgray.github.com//posts/org-ikiwiki-plugin-4/</link>
+
+
+	<category>emacs</category>
+
+	<category>ikiwiki</category>
+
+	<category>ikiwiki-org-plugin</category>
+
+	<category>org-mode</category>
+
+	<category>time-series</category>
+
+
+	<pubDate>Thu, 15 Dec 2011 11:28:05 -0700</pubDate>
+	<dcterms:modified>2011-12-15T18:28:05Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Major progress &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Now I am able to write wikilinks to images on the local server and
+  not just hosted remotely.  For example,
+  &lt;a href=&quot;http://chrismgray.github.com//./posts/time-series-2/interest-rates.png&quot;&gt;&lt;img src=&quot;http://chrismgray.github.com//posts/time-series-2/interest-rates.png&quot; alt=&quot;interest-rates.png&quot;/&gt;&lt;/a&gt; is an image that I wanted to show
+  at the end of &lt;a href=&quot;http://chrismgray.github.com//./posts/time-series-2&quot;&gt;the article on my time-series framework&lt;/a&gt;, but which I
+  couldn&#39;t because the org plugin wasn&#39;t able to show images at the
+  time.
+&lt;/p&gt;
+&lt;p&gt;
+  Another bit of progress is that I finally debugged the little shell
+  shim to allow it to start up the emacs daemon properly.  Now I can
+  just have one emacs window running and one emacs daemon in the
+  background.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Remaining TODOs &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  The remaining work left to do should not be too difficult.  I have
+  some of my own org customization baked into the file which would be
+  better left up to the user&#39;s preferences.  I have to decide whether
+  it makes more sense for the user to customize these preferences in
+  the ikiwiki configuration file or just in their &lt;code&gt;.emacs&lt;/code&gt;.  The
+  latter would be easier for me, but it might be easier for the user
+  (especially if they have multiple wikis set up) to do it in the
+  ikiwiki configuration file.
+&lt;/p&gt;
+&lt;p&gt;
+  I also need to allow for verbatim inclusion of links.  I guess it
+  makes more sense to do this in the standard org manner rather than
+  the ikiwiki manner (with a backslash in front of the link).
+  However, the link must be protected from ikiwiki interpreting it, so
+  things might get a little complex there.
+&lt;/p&gt;
+&lt;p&gt;
+  After those two things are completed, however, I think I&#39;m going to
+  call this project done unless I hear feedback from users.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/org-ikiwiki-plugin-4/#comments</comments>
+
+</item>
+<item>
+
 	<title>Git Annex in Anything</title>
 
 
@@ -68,7 +150,7 @@
 
 
 
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;my-anything&lt;/span&gt; ()
+&lt;pre class=&quot;example&quot;&gt;(defun my-anything ()
   (interactive)
   (anything-other-buffer
    &#39;(anything-c-source-buffers+
@@ -79,7 +161,7 @@
      anything-c-source-bookmarks
      anything-c-source-bookmark-set
      anything-c-source-emms-files)
-    &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;*anything*&quot;&lt;/span&gt;))
+    &quot;*anything*&quot;))
 &lt;/pre&gt;
 
 
@@ -97,19 +179,19 @@
 
 
 
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defvar&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;anything-c-source-git-annex&lt;/span&gt;
-  &#39;((name . &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Git Annex&quot;&lt;/span&gt;)
-    (candidates . (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; ()
-                    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-current-buffer&lt;/span&gt; anything-current-buffer
-                     (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
-                       (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil t nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;annex&quot;&lt;/span&gt; &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;find&quot;&lt;/span&gt;)
+&lt;pre class=&quot;example&quot;&gt;(defvar anything-c-source-git-annex
+  &#39;((name . &quot;Git Annex&quot;)
+    (candidates . (lambda ()
+                    (with-current-buffer anything-current-buffer
+                     (with-temp-buffer
+                       (call-process &quot;git&quot; nil t nil &quot;annex&quot; &quot;find&quot;)
                        (goto-char (point-min))
-                       (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;)))))
+                       (split-string (buffer-string) &quot;\n&quot;)))))
     (volatile)
-    (action . ((&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Watch&quot;&lt;/span&gt; . anything-c-git-annex-play)
-               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Drop&quot;&lt;/span&gt; . anything-c-git-annex-drop)
-               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Move&quot;&lt;/span&gt; . anything-c-git-annex-move)
-               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Copy&quot;&lt;/span&gt; . anything-c-git-annex-copy)))))
+    (action . ((&quot;Watch&quot; . anything-c-git-annex-play)
+               (&quot;Drop&quot; . anything-c-git-annex-drop)
+               (&quot;Move&quot; . anything-c-git-annex-move)
+               (&quot;Copy&quot; . anything-c-git-annex-copy)))))
 &lt;/pre&gt;
 
 
@@ -133,8 +215,8 @@
 
 
 
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-drop&lt;/span&gt; (candidate)
-  (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;drop&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)))
+&lt;pre class=&quot;example&quot;&gt;(defun anything-c-git-annex-drop (candidate)
+  (anything-git-annex-command &quot;drop&quot; (concat &quot;\&quot;&quot; candidate &quot;\&quot;&quot;)))
 &lt;/pre&gt;
 
 
@@ -148,18 +230,18 @@
 
 
 
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-copy&lt;/span&gt; (candidate)
-  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((to (anything-comp-read
-              &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;To Git Annex: &quot;&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defun anything-c-git-annex-copy (candidate)
+  (let* ((to (anything-comp-read
+              &quot;To Git Annex: &quot;
               (anything-c-git-remotes)
-              &lt;span style=&quot;color: #8cd0d3;&quot;&gt;:must-match&lt;/span&gt; nil)))
-    (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;copy&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)
-                                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;--to&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; to &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;))))
+              :must-match nil)))
+    (anything-git-annex-command &quot;copy&quot; (concat &quot;\&quot;&quot; candidate &quot;\&quot;&quot;)
+                                &quot;--to&quot; (concat &quot;\&quot;&quot; to &quot;\&quot;&quot;))))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-remotes&lt;/span&gt; ()
-  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
-    (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil (current-buffer) nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;remote&quot;&lt;/span&gt;)
-    (delete &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;&quot;&lt;/span&gt; (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;))))
+(defun anything-c-git-remotes ()
+  (with-temp-buffer
+    (call-process &quot;git&quot; nil (current-buffer) nil &quot;remote&quot;)
+    (delete &quot;&quot; (split-string (buffer-string) &quot;\n&quot;))))
 &lt;/pre&gt;
 
 
@@ -277,13 +359,13 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;xml-find-nodes-matching&lt;/span&gt; (node name)
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Returns all children of `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;node&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; that have an `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;xml-node-name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; equal to `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39;.&quot;&lt;/span&gt;
-  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (or (eq node &#39;()) (not (listp node)))
+&lt;pre class=&quot;example&quot;&gt;(defun xml-find-nodes-matching (node name)
+  &quot;Returns all children of `node&#39; that have an `xml-node-name&#39; equal to `name&#39;.&quot;
+  (if (or (eq node &#39;()) (not (listp node)))
       &#39;()
-    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply &#39;append (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (if (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply &#39;append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 &lt;/pre&gt;
 
 
@@ -372,7 +454,7 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(setq valtype (car (caddar xml-list))
+&lt;pre class=&quot;example&quot;&gt;(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 &lt;/pre&gt;
 
@@ -522,7 +604,7 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
+&lt;pre class=&quot;example&quot;&gt;(let* ((foo bar)
        (baz foo)))
 &lt;/pre&gt;
 
@@ -540,7 +622,7 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
+&lt;pre class=&quot;example&quot;&gt;(let [foo bar
       baz foo])
 &lt;/pre&gt;
 
@@ -808,18 +890,18 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;chans-algorithm&lt;/span&gt;
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Finds the convex hull of a set of points by&lt;/span&gt;
-&lt;span style=&quot;color: #8fb28f;&quot;&gt;   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defn chans-algorithm
+  &quot;Finds the convex hull of a set of points by
+   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;
   [pts]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; min-key &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:y&lt;/span&gt; pts)]
-   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;loop&lt;/span&gt; [m 3] &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;start out with triangles&lt;/span&gt;
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [partitioned-pts (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; m m [] pts)
-           c-hs (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; grahams-scan partitioned-pts)
-           potential-ch (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;take&lt;/span&gt; m (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; jarvis-march pts c-hs))]
-       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;last&lt;/span&gt; potential-ch)) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;assumes jarvis-march returns bottom-pt last&lt;/span&gt;
+  (let [bottom-pt (apply min-key :y pts)]
+   (loop [m 3] ; start out with triangles
+     (let [partitioned-pts (partition m m [] pts)
+           c-hs (map grahams-scan partitioned-pts)
+           potential-ch (take m (apply jarvis-march pts c-hs))]
+       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
          potential-ch
-         (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;recur&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;min&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; m m) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; pts))))))))
+         (recur (min (* m m) (count pts))))))))
 &lt;/pre&gt;
 
 
@@ -1502,119 +1584,6 @@ some of them, in no particular order.
 
 
 	<comments>/posts/git-annex/#comments</comments>
-
-</item>
-<item>
-
-	<title>Processing</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/processing/</guid>
-
-	<link>http://chrismgray.github.com//posts/processing/</link>
-
-
-	<category>clojure</category>
-
-	<category>lab-notes</category>
-
-	<category>processing</category>
-
-	<category>visibility-polygon</category>
-
-
-	<pubDate>Tue, 22 Nov 2011 12:29:29 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:45:19Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I mentioned yesterday that it would be nice to see the output of my
-  visibility polygon solution.  To that end, I created an extremely
-  simple drawing editor using &lt;a href=&quot;http://processing.org/&quot;&gt;Processing&lt;/a&gt;.  I have to say, I loved it.
-&lt;/p&gt;
-&lt;p&gt;
-  The most important feature to me is the extreme interactivity.  I
-  can change functions extremely quickly with my tools &amp;ndash; redefining a
-  Clojure function is either one or two keystrokes in emacs, depending
-  how I choose to do it &amp;ndash; so I like a graphics environment that
-  changes just as quickly.  This is what Processing, and in particular
-  &lt;code&gt;clj-processing&lt;/code&gt;, offers.  I was able to define a function that
-  draws the various objects (in this case, the polygon, the point
-  where the mouse is, and the visibility polygon of the mouse point
-  inside the polygon).  If I wanted to make any changes to this
-  function &amp;ndash; for example, changing the color of the point where the
-  mouse is &amp;ndash; I can simply redefine the function using my emacs tools
-  and the change shows up immediately on the drawing.
-&lt;/p&gt;
-&lt;p&gt;
-  I was able to use this to find a couple of minor bugs in my
-  visibility-polygon-finding code, but in general, it worked really
-  well on the first try.
-&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings &lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
-
-
-&lt;p&gt;
-   There were a couple of things that slightly bothered me about
-   &lt;code&gt;clj-processing&lt;/code&gt;.  First, it used quite a lot of CPU just to
-   display a simple polygon without too many points.  I am probably
-   using it rather naïvely, so it is possible that this is my problem
-   and not the problem of &lt;code&gt;clj-processing&lt;/code&gt;.  However, the second
-   problem is just that &lt;code&gt;clj-processing&lt;/code&gt; is showing its age.  I think
-   it was probably one of the first Clojure libraries out there and
-   much of the coding style hasn&#39;t evolved with the Clojure best
-   practices that people use.  For example, some of the features do
-   not work if you only &lt;code&gt;require&lt;/code&gt; the library &amp;ndash; you must &lt;code&gt;use&lt;/code&gt; it.  I
-   try to only &lt;code&gt;require&lt;/code&gt; libraries, to avoid my namespace becoming
-   overly populated, so it is frustrating when that doesn&#39;t work.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Going forward &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  I need to clean up the code a bit before I can put it up on github,
-  but it should be there soon.  It currently needs me to explicitly
-  call the function in order to find the visibility polygon.  I would
-  really like it to find the visibility polygon of any point where the
-  mouse is inside the polygon.  However, determining if a point is
-  inside a non-convex polygon tends to be a bit harder than it
-  sounds.  You can shoot a ray in one direction from a point, and
-  count the number of polygon edges that it crosses &amp;ndash; if it&#39;s even
-  you are outside and if it&#39;s odd you are inside &amp;ndash; but what happens
-  if the ray crosses a vertex?  There was a good experimental paper on
-  this problem at a recent EuroCG.
-&lt;/p&gt;
-&lt;p&gt;
-  So that&#39;s a slightly non-trivial problem.  I also coded an
-  implementation of the Voronoi Diagram problem recently.  I should
-  add a Processing UI to that as well.  I have a feeling that would be
-  the easier task to do next, and I would surely discover some bugs in
-  it while I did.
-&lt;/p&gt;
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/processing/#comments</comments>
 
 </item>
 

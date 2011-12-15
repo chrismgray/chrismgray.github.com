@@ -16,8 +16,97 @@
 <id>http://chrismgray.github.com//tags/time-series/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111106">ikiwiki</generator>
-<updated>2011-12-01T07:43:58Z</updated>
+<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<updated>2011-12-15T18:28:05Z</updated>
+<entry>
+	<title>More ikiwiki plugin hacking</title>
+
+	<id>http://chrismgray.github.com//posts/org-ikiwiki-plugin-4/</id>
+
+	<link href="http://chrismgray.github.com//posts/org-ikiwiki-plugin-4/"/>
+
+
+
+
+
+
+	<category term="emacs" />
+
+	<category term="ikiwiki" />
+
+	<category term="ikiwiki-org-plugin" />
+
+	<category term="org-mode" />
+
+	<category term="time-series" />
+
+
+	<updated>2011-12-15T18:28:05Z</updated>
+	<published>2011-12-15T18:28:05Z</published>
+
+	<content type="html" xml:lang="en">
+	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Major progress &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Now I am able to write wikilinks to images on the local server and
+  not just hosted remotely.  For example,
+  &lt;a href=&quot;http://chrismgray.github.com//tags/time-series/./../../posts/time-series-2/interest-rates.png&quot;&gt;&lt;img src=&quot;http://chrismgray.github.com//tags/time-series/../../posts/time-series-2/interest-rates.png&quot; alt=&quot;interest-rates.png&quot;/&gt;&lt;/a&gt; is an image that I wanted to show
+  at the end of &lt;a href=&quot;http://chrismgray.github.com//tags/time-series/./../../posts/time-series-2&quot;&gt;the article on my time-series framework&lt;/a&gt;, but which I
+  couldn&#39;t because the org plugin wasn&#39;t able to show images at the
+  time.
+&lt;/p&gt;
+&lt;p&gt;
+  Another bit of progress is that I finally debugged the little shell
+  shim to allow it to start up the emacs daemon properly.  Now I can
+  just have one emacs window running and one emacs daemon in the
+  background.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Remaining TODOs &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  The remaining work left to do should not be too difficult.  I have
+  some of my own org customization baked into the file which would be
+  better left up to the user&#39;s preferences.  I have to decide whether
+  it makes more sense for the user to customize these preferences in
+  the ikiwiki configuration file or just in their &lt;code&gt;.emacs&lt;/code&gt;.  The
+  latter would be easier for me, but it might be easier for the user
+  (especially if they have multiple wikis set up) to do it in the
+  ikiwiki configuration file.
+&lt;/p&gt;
+&lt;p&gt;
+  I also need to allow for verbatim inclusion of links.  I guess it
+  makes more sense to do this in the standard org manner rather than
+  the ikiwiki manner (with a backslash in front of the link).
+  However, the link must be protected from ikiwiki interpreting it, so
+  things might get a little complex there.
+&lt;/p&gt;
+&lt;p&gt;
+  After those two things are completed, however, I think I&#39;m going to
+  call this project done unless I hear feedback from users.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-4/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-4/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Time Series 2</title>
 
@@ -37,7 +126,7 @@
 	<category term="time-series" />
 
 
-	<updated>2011-12-01T07:43:58Z</updated>
+	<updated>2011-12-15T18:14:05Z</updated>
 	<published>2011-11-13T14:12:16Z</published>
 
 	<content type="html" xml:lang="en">
@@ -56,22 +145,22 @@
 &lt;/p&gt;
 &lt;p&gt;
   Just as a reminder, &lt;a href=&quot;http://chrismgray.github.com/posts/time-series-1&quot;&gt;yesterday&#39;s task&lt;/a&gt; was to build a time-series
-  framework where a function $f$ accepts the previous $n$ outputs of
-  $f$ as input to generate a new output.  Here is my solution, edited
+  framework where a function \(f\) accepts the previous \(n\) outputs of
+  \(f\) as input to generate a new output.  Here is my solution, edited
   for clarity (the actual solution is in a &lt;a href=&quot;http://github.com/chrismgray/time-series&quot;&gt;github repository&lt;/a&gt;):
 &lt;/p&gt;
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
- (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
-                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
-                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
+&lt;pre class=&quot;example&quot;&gt;(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
 &lt;/pre&gt;
 
 
@@ -83,14 +172,14 @@
   taking a list of functions and calling them in order, returning a
   list of their return values.  The list of functions in this case is
   the same function (&lt;code&gt;call-f&lt;/code&gt;) over and over.  All &lt;code&gt;call-f&lt;/code&gt; does is
-  call $f$ and change the state.
+  call \(f\) and change the state.
 &lt;/p&gt;
 &lt;p&gt;
-  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an $O(n)$ function.  After all, we
-  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most $n$
+  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an \(O(n)\) function.  After all, we
+  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most \(n\)
   elements.  However, almost all the behind-the-scenes data structures
   that Clojure uses (including the vector data structure) are
-  guaranteed to have $O(1)$ performance for calling &lt;code&gt;count&lt;/code&gt;.  So
+  guaranteed to have \(O(1)\) performance for calling &lt;code&gt;count&lt;/code&gt;.  So
   that&#39;s nice, and &lt;code&gt;call-f&lt;/code&gt; has the performance characteristics that I
   desired.
 &lt;/p&gt;

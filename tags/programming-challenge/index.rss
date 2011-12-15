@@ -48,16 +48,16 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defn luhn-check
+  &quot;Takes a sequence of digits and determines whether they pass the Luhn test.
+   The sequence must be in order from right to left.&quot;
   [digits]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
-       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
+  (-&amp;gt;&amp;gt; digits
+       (partition 2 2 (repeat 0))
+       (mapcat #(vector (first %) (* 2 (second %))))
+       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
+       (#(mod % 10))
+       (= 0)))
 &lt;/pre&gt;
 
 
@@ -115,7 +115,7 @@
 
 
 	<pubDate>Sun, 13 Nov 2011 07:12:16 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:43:58Z</dcterms:modified>
+	<dcterms:modified>2011-12-15T18:14:05Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;What we have so far &lt;/h2&gt;
@@ -132,22 +132,22 @@
 &lt;/p&gt;
 &lt;p&gt;
   Just as a reminder, &lt;a href=&quot;http://chrismgray.github.com/posts/time-series-1&quot;&gt;yesterday&#39;s task&lt;/a&gt; was to build a time-series
-  framework where a function $f$ accepts the previous $n$ outputs of
-  $f$ as input to generate a new output.  Here is my solution, edited
+  framework where a function \(f\) accepts the previous \(n\) outputs of
+  \(f\) as input to generate a new output.  Here is my solution, edited
   for clarity (the actual solution is in a &lt;a href=&quot;http://github.com/chrismgray/time-series&quot;&gt;github repository&lt;/a&gt;):
 &lt;/p&gt;
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
- (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
-                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
-                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
+&lt;pre class=&quot;example&quot;&gt;(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
 &lt;/pre&gt;
 
 
@@ -159,14 +159,14 @@
   taking a list of functions and calling them in order, returning a
   list of their return values.  The list of functions in this case is
   the same function (&lt;code&gt;call-f&lt;/code&gt;) over and over.  All &lt;code&gt;call-f&lt;/code&gt; does is
-  call $f$ and change the state.
+  call \(f\) and change the state.
 &lt;/p&gt;
 &lt;p&gt;
-  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an $O(n)$ function.  After all, we
-  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most $n$
+  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an \(O(n)\) function.  After all, we
+  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most \(n\)
   elements.  However, almost all the behind-the-scenes data structures
   that Clojure uses (including the vector data structure) are
-  guaranteed to have $O(1)$ performance for calling &lt;code&gt;count&lt;/code&gt;.  So
+  guaranteed to have \(O(1)\) performance for calling &lt;code&gt;count&lt;/code&gt;.  So
   that&#39;s nice, and &lt;code&gt;call-f&lt;/code&gt; has the performance characteristics that I
   desired.
 &lt;/p&gt;

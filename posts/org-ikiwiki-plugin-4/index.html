@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Blogging About Blogging</title>
+<title>More ikiwiki plugin hacking</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
@@ -33,7 +33,7 @@
 
 </span>
 <span class="title">
-Blogging About Blogging
+More ikiwiki plugin hacking
 
 </span>
 </span>
@@ -72,52 +72,53 @@ Blogging About Blogging
 
 <div id="content">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">A new system </h2>
+<h2 id="sec-1">Major progress </h2>
 <div class="outline-text-2" id="text-1">
 
 
 <p>
-  This is the obligatory post about how the new blogging system
-  works.  Isn't that exciting?
+  Now I am able to write wikilinks to images on the local server and
+  not just hosted remotely.  For example,
+  <a href="./../time-series-2/interest-rates.png"><img src="../time-series-2/interest-rates.png" alt="interest-rates.png"/></a> is an image that I wanted to show
+  at the end of <a href="./../time-series-2">the article on my time-series framework</a>, but which I
+  couldn't because the org plugin wasn't able to show images at the
+  time.
 </p>
 <p>
-  By my standards, this is a fairly simple system.  It is based on
-  <a href="http://ikiwiki.info">ikiwiki</a>, which allows me to use <a href="http://orgmode.org">org-mode</a> to edit my posts and <a href="http://git-scm.com">git</a> as
-  the version control system.  Since I already know those tools, I
-  don't have to think about them and can just focus on writing.
-</p>
-<p>
-  I'm less comfortable with making web pages look nice, but I took the
-  CSS file from <a href="https://github.com/AntPortal/ikiwiked/raw/master/theme/gray-orange/local.css">the nice people at antportal.com</a> and added my own
-  panoramic photo that I took while hiking.  I think the output is
-  simple and looks pretty good.
-</p>
-<p>
-  Finally, I am currently hosting the pages on <a href="http://github.com">github</a>.
+  Another bit of progress is that I finally debugged the little shell
+  shim to allow it to start up the emacs daemon properly.  Now I can
+  just have one emacs window running and one emacs daemon in the
+  background.
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">What I intend to write about </h2>
+<h2 id="sec-2">Remaining TODOs </h2>
 <div class="outline-text-2" id="text-2">
 
 
 <p>
-  The blog is currently called "Hiking and Coding".  So far I've only
-  written about the latter, but I'm planning some posts about the
-  former.  My current objective is to write once a day as a way to
-  solidify what I'm thinking about for the day, so my posts will
-  likely be about what I'm working on.  As such, expect them to be
-  really boring.  I'm okay with that.  I'm also okay with you not
-  subscribing.
+  The remaining work left to do should not be too difficult.  I have
+  some of my own org customization baked into the file which would be
+  better left up to the user's preferences.  I have to decide whether
+  it makes more sense for the user to customize these preferences in
+  the ikiwiki configuration file or just in their <code>.emacs</code>.  The
+  latter would be easier for me, but it might be easier for the user
+  (especially if they have multiple wikis set up) to do it in the
+  ikiwiki configuration file.
 </p>
 <p>
-  I will try to write about adventures I had while hiking on days that
-  I'm not really working on anything.  Those posts will be tagged with
-  the hiking tag.  They might be more exciting (though they might
-  not).
+  I also need to allow for verbatim inclusion of links.  I guess it
+  makes more sense to do this in the standard org manner rather than
+  the ikiwiki manner (with a backslash in front of the link).
+  However, the link must be protected from ikiwiki interpreting it, so
+  things might get a little complex there.
+</p>
+<p>
+  After those two things are completed, however, I think I'm going to
+  call this project done unless I hear feedback from users.
 </p>
 
 </div>
@@ -151,17 +152,15 @@ Blogging About Blogging
 <div class="tags">
 Tags:
 
-<a href="../../tags/blogging/" rel="tag">blogging</a>
-
 <a href="../../tags/emacs/" rel="tag">emacs</a>
-
-<a href="../../tags/git/" rel="tag">git</a>
-
-<a href="../../tags/hiking/" rel="tag">hiking</a>
 
 <a href="../../tags/ikiwiki/" rel="tag">ikiwiki</a>
 
+<a href="../../tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
+
 <a href="../../tags/org-mode/" rel="tag">org-mode</a>
+
+<a href="../../tags/time-series/" rel="tag">time-series</a>
 
 </div>
 
@@ -173,8 +172,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu Dec  1 00:37:21 2011</span>
-<!-- Created <span class="date">Thu Nov 10 19:13:21 2011</span> -->
+Last edited <span class="date">Thu Dec 15 11:28:05 2011</span>
+<!-- Created <span class="date">Thu Dec 15 11:28:05 2011</span> -->
 </div>
 
 </div>

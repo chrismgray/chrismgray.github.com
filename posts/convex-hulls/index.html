@@ -180,18 +180,18 @@ Convex Hulls
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">chans-algorithm</span>
-  <span style="color: #8fb28f;">"Finds the convex hull of a set of points by</span>
-<span style="color: #8fb28f;">   the algorithm known as 'Chan's Algorithm'."</span>
+<pre class="example">(defn chans-algorithm
+  "Finds the convex hull of a set of points by
+   the algorithm known as 'Chan's Algorithm'."
   [pts]
-  (<span style="color: #8cd0d3;">let</span> [bottom-pt (<span style="color: #f0dfaf;">apply</span> min-key <span style="color: #dca3a3; font-weight: bold;">:y</span> pts)]
-   (<span style="color: #8cd0d3;">loop</span> [m 3] <span style="color: #708070;">; </span><span style="color: #7f9f7f;">start out with triangles</span>
-     (<span style="color: #8cd0d3;">let</span> [partitioned-pts (<span style="color: #f0dfaf;">partition</span> m m [] pts)
-           c-hs (<span style="color: #f0dfaf;">map</span> grahams-scan partitioned-pts)
-           potential-ch (<span style="color: #f0dfaf;">take</span> m (<span style="color: #f0dfaf;">apply</span> jarvis-march pts c-hs))]
-       (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> bottom-pt (<span style="color: #f0dfaf;">last</span> potential-ch)) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">assumes jarvis-march returns bottom-pt last</span>
+  (let [bottom-pt (apply min-key :y pts)]
+   (loop [m 3] ; start out with triangles
+     (let [partitioned-pts (partition m m [] pts)
+           c-hs (map grahams-scan partitioned-pts)
+           potential-ch (take m (apply jarvis-march pts c-hs))]
+       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
          potential-ch
-         (<span style="color: #8cd0d3;">recur</span> (<span style="color: #f0dfaf;">min</span> (<span style="color: #f0dfaf;">*</span> m m) (<span style="color: #f0dfaf;">count</span> pts))))))))
+         (recur (min (* m m) (count pts))))))))
 </pre>
 
 
@@ -297,8 +297,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Fri 02 Dec 2011 03:05:50 PM MST</span>
-<!-- Created <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span> -->
+Last edited <span class="date">Fri Dec  2 15:05:50 2011</span>
+<!-- Created <span class="date">Wed Nov 30 11:06:31 2011</span> -->
 </div>
 
 </div>

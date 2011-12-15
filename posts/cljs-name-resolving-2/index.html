@@ -83,7 +83,7 @@ Resolving names in Clojurescript (followup)
 
 
 
-<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span> (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">str</span> sym)))))])
+<pre class="example">(let [name (munge (symbol (str (-&gt; env :ns :name) "." (munge (str sym)))))])
 </pre>
 
 
@@ -108,9 +108,9 @@ Resolving names in Clojurescript (followup)
 
 
 
-<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [full-ns (<span style="color: #8cd0d3;">if</span> (<span style="color: #8cd0d3;">and</span> (core-name? env sym) (<span style="color: #f0dfaf;">nil?</span> (<span style="color: #f0dfaf;">get-in</span> @namespaces [(<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #dca3a3; font-weight: bold;">:defs</span> sym])))
+<pre class="example">(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&gt; env :ns :name) :defs sym])))
                 'cljs.core
-                (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>))])
+                (-&gt; env :ns :name))])
 </pre>
 
 
@@ -194,8 +194,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Fri 02 Dec 2011 09:41:31 AM MST</span>
-<!-- Created <span class="date">Fri 11 Nov 2011 06:07:52 PM MST</span> -->
+Last edited <span class="date">Fri Dec  2 09:41:31 2011</span>
+<!-- Created <span class="date">Fri Nov 11 18:07:52 2011</span> -->
 </div>
 
 </div>

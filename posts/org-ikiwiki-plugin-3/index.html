@@ -123,13 +123,13 @@ some of them, in no particular order.
 
 
 
-<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">xml-find-nodes-matching</span> (node name)
-  <span style="color: #8fb28f;">"Returns all children of `</span><span style="color: #dca3a3; font-weight: bold;">node</span><span style="color: #8fb28f;">' that have an `</span><span style="color: #dca3a3; font-weight: bold;">xml-node-name</span><span style="color: #8fb28f;">' equal to `</span><span style="color: #dca3a3; font-weight: bold;">name</span><span style="color: #8fb28f;">'."</span>
-  (<span style="color: #f0dfaf; font-weight: bold;">if</span> (or (eq node '()) (not (listp node)))
+<pre class="example">(defun xml-find-nodes-matching (node name)
+  "Returns all children of `node' that have an `xml-node-name' equal to `name'."
+  (if (or (eq node '()) (not (listp node)))
       '()
-    (<span style="color: #f0dfaf; font-weight: bold;">if</span> (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply 'append (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (if (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply 'append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 </pre>
 
 
@@ -218,7 +218,7 @@ some of them, in no particular order.
 
 
 
-<pre class="src src-elisp">(setq valtype (car (caddar xml-list))
+<pre class="example">(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 </pre>
 

@@ -255,7 +255,7 @@ So what can be done about this?  Here are some options:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 09 Nov 2011 10:13:06 AM MST</span>
+Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
 </span>
 
 
@@ -315,7 +315,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 09 Nov 2011 03:03:16 PM MST</span>
+Posted <span class="date">Wed Nov  9 15:03:16 2011</span>
 </span>
 
 
@@ -388,7 +388,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Thu 10 Nov 2011 09:55:06 AM MST</span>
+Posted <span class="date">Thu Nov 10 09:55:06 2011</span>
 </span>
 
 
@@ -484,7 +484,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Thu 10 Nov 2011 07:13:21 PM MST</span>
+Posted <span class="date">Thu Nov 10 19:13:21 2011</span>
 </span>
 
 
@@ -547,15 +547,15 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defmethod</span> <span style="color: #8cd0d3;">parse</span> 'def
+<pre class="example">(defmethod parse 'def
   [op env form name]
-  (<span style="color: #8cd0d3;">let</span> [pfn (<span style="color: #f0dfaf;">fn</span> ([_ sym] {<span style="color: #dca3a3; font-weight: bold;">:sym</span> sym})
-              ([_ sym init] {<span style="color: #dca3a3; font-weight: bold;">:sym</span> sym <span style="color: #dca3a3; font-weight: bold;">:init</span> init})
-              ([_ sym doc init] {<span style="color: #dca3a3; font-weight: bold;">:sym</span> sym <span style="color: #dca3a3; font-weight: bold;">:doc</span> doc <span style="color: #dca3a3; font-weight: bold;">:init</span> init}))
-        args (<span style="color: #f0dfaf;">apply</span> pfn form)
-        sym (<span style="color: #dca3a3; font-weight: bold;">:sym</span> args)]
-    (<span style="color: #f0dfaf;">assert</span> (<span style="color: #f0dfaf;">not</span> (<span style="color: #f0dfaf;">namespace</span> sym)) <span style="color: #cc9393;">"Can't def ns-qualified name"</span>)
-    (<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #dca3a3; font-weight: bold;">:name</span> (resolve-var (<span style="color: #f0dfaf;">dissoc</span> env <span style="color: #dca3a3; font-weight: bold;">:locals</span>) sym)))])))
+  (let [pfn (fn ([_ sym] {:sym sym})
+              ([_ sym init] {:sym sym :init init})
+              ([_ sym doc init] {:sym sym :doc doc :init init}))
+        args (apply pfn form)
+        sym (:sym args)]
+    (assert (not (namespace sym)) "Can't def ns-qualified name")
+    (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))])))
 </pre>
 
 
@@ -570,11 +570,11 @@ Tags:
 
 
 
-<pre class="src src-clojure">(munge (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span>
-                (<span style="color: #8cd0d3;">if</span> (core-name? env sym)
+<pre class="example">(munge (symbol (str
+                (if (core-name? env sym)
                   'cljs.core
-                  (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>))
-                <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">name</span> sym)))))
+                  (-&gt; env :ns :name))
+                "." (munge (name sym)))))
 </pre>
 
 
@@ -609,7 +609,7 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #dca3a3; font-weight: bold;">:name</span> (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span> (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">name</span> sym))))))])
+<pre class="example">(let [name (munge (:name (symbol (str (-&gt; env :ns :name) "." (munge (name sym))))))])
 </pre>
 
 
@@ -627,7 +627,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri 11 Nov 2011 07:23:38 AM MST</span>
+Posted <span class="date">Fri Nov 11 07:23:38 2011</span>
 </span>
 
 
@@ -678,7 +678,7 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span> (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">str</span> sym)))))])
+<pre class="example">(let [name (munge (symbol (str (-&gt; env :ns :name) "." (munge (str sym)))))])
 </pre>
 
 
@@ -703,9 +703,9 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [full-ns (<span style="color: #8cd0d3;">if</span> (<span style="color: #8cd0d3;">and</span> (core-name? env sym) (<span style="color: #f0dfaf;">nil?</span> (<span style="color: #f0dfaf;">get-in</span> @namespaces [(<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #dca3a3; font-weight: bold;">:defs</span> sym])))
+<pre class="example">(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&gt; env :ns :name) :defs sym])))
                 'cljs.core
-                (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>))])
+                (-&gt; env :ns :name))])
 </pre>
 
 
@@ -748,7 +748,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri 11 Nov 2011 06:07:52 PM MST</span>
+Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
 </span>
 
 
@@ -882,7 +882,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat 12 Nov 2011 09:27:15 AM MST</span>
+Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
 </span>
 
 
@@ -934,22 +934,22 @@ Tags:
 </p>
 <p>
   Just as a reminder, <a href="http://chrismgray.github.com/posts/time-series-1">yesterday's task</a> was to build a time-series
-  framework where a function $f$ accepts the previous $n$ outputs of
-  $f$ as input to generate a new output.  Here is my solution, edited
+  framework where a function \(f\) accepts the previous \(n\) outputs of
+  \(f\) as input to generate a new output.  Here is my solution, edited
   for clarity (the actual solution is in a <a href="http://github.com/chrismgray/time-series">github repository</a>):
 </p>
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">time-series</span> [f init-state n num-iterations]
- (<span style="color: #8cd0d3;">let</span> [call-f (<span style="color: #f0dfaf;">fn</span> [state]
-                (<span style="color: #8cd0d3;">let</span> [retval (f state)
-                      num (<span style="color: #f0dfaf;">count</span> state)
-                      new-state (<span style="color: #f0dfaf;">vec</span> (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> num n) (<span style="color: #f0dfaf;">drop</span> 1 (<span style="color: #f0dfaf;">conj</span> state retval)) (<span style="color: #f0dfaf;">conj</span> state retval)))]
+<pre class="example">(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (<span style="color: #f0dfaf;">repeat</span> num-iterations call-f)))
-    (<span style="color: #f0dfaf;">vector</span> init-state))))
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
 </pre>
 
 
@@ -961,14 +961,14 @@ Tags:
   taking a list of functions and calling them in order, returning a
   list of their return values.  The list of functions in this case is
   the same function (<code>call-f</code>) over and over.  All <code>call-f</code> does is
-  call $f$ and change the state.
+  call \(f\) and change the state.
 </p>
 <p>
-  It might appear that <code>call-f</code> is an $O(n)$ function.  After all, we
-  call <code>count</code> on the state, which is a vector of at most $n$
+  It might appear that <code>call-f</code> is an \(O(n)\) function.  After all, we
+  call <code>count</code> on the state, which is a vector of at most \(n\)
   elements.  However, almost all the behind-the-scenes data structures
   that Clojure uses (including the vector data structure) are
-  guaranteed to have $O(1)$ performance for calling <code>count</code>.  So
+  guaranteed to have \(O(1)\) performance for calling <code>count</code>.  So
   that's nice, and <code>call-f</code> has the performance characteristics that I
   desired.
 </p>
@@ -1021,7 +1021,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 13 Nov 2011 07:12:16 AM MST</span>
+Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
 </span>
 
 
@@ -1064,7 +1064,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 13 Nov 2011 07:37:33 AM MST</span>
+Posted <span class="date">Sun Nov 13 07:37:33 2011</span>
 </span>
 
 
@@ -1228,7 +1228,7 @@ Posted <span class="date">Sun 13 Nov 2011 07:37:33 AM MST</span>
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 13 Nov 2011 08:57:32 AM MST</span>
+Posted <span class="date">Sun Nov 13 08:57:32 2011</span>
 </span>
 
 
@@ -1382,7 +1382,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon 14 Nov 2011 10:11:23 AM MST</span>
+Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
 </span>
 
 
@@ -1449,16 +1449,16 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">luhn-check</span>
-  <span style="color: #8fb28f;">"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
-<span style="color: #8fb28f;">   The sequence must be in order from right to left."</span>
+<pre class="example">(defn luhn-check
+  "Takes a sequence of digits and determines whether they pass the Luhn test.
+   The sequence must be in order from right to left."
   [digits]
-  (<span style="color: #8cd0d3;">-&gt;&gt;</span> digits
-       (<span style="color: #f0dfaf;">partition</span> 2 2 (<span style="color: #f0dfaf;">repeat</span> 0))
-       (<span style="color: #f0dfaf;">mapcat</span> #(<span style="color: #f0dfaf;">vector</span> (<span style="color: #f0dfaf;">first</span> %) (<span style="color: #f0dfaf;">*</span> 2 (<span style="color: #f0dfaf;">second</span> %))))
-       (<span style="color: #f0dfaf;">reduce</span> #(<span style="color: #f0dfaf;">+</span> %1 (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">/</span> %2 10)) (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">mod</span> %2 10))))
-       (#(<span style="color: #f0dfaf;">mod</span> % 10))
-       (<span style="color: #f0dfaf;">=</span> 0)))
+  (-&gt;&gt; digits
+       (partition 2 2 (repeat 0))
+       (mapcat #(vector (first %) (* 2 (second %))))
+       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
+       (#(mod % 10))
+       (= 0)))
 </pre>
 
 
@@ -1498,7 +1498,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span>
+Posted <span class="date">Tue Nov 15 13:22:19 2011</span>
 </span>
 
 
@@ -1562,7 +1562,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 16 Nov 2011 09:20:05 AM MST</span>
+Posted <span class="date">Wed Nov 16 09:20:05 2011</span>
 </span>
 
 
@@ -1807,7 +1807,7 @@ that made the biggest impression on me.
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat 19 Nov 2011 01:34:35 PM MST</span>
+Posted <span class="date">Sat Nov 19 13:34:35 2011</span>
 </span>
 
 
@@ -1934,7 +1934,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 20 Nov 2011 05:58:28 PM MST</span>
+Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
 </span>
 
 
@@ -1986,32 +1986,32 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">add-new-pt</span> [poly]
-  (<span style="color: #f0dfaf;">fn</span> [pt stack]
-    (<span style="color: #8cd0d3;">when</span> (<span style="color: #8cd0d3;">or</span> (<span style="color: #f0dfaf;">empty?</span> stack) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">First two points are guaranteed to be visible</span>
-              (<span style="color: #f0dfaf;">empty?</span> (<span style="color: #f0dfaf;">rest</span> stack))
-              (visible? pt (<span style="color: #f0dfaf;">first</span> poly) (<span style="color: #f0dfaf;">first</span> stack)))
-      [pt (<span style="color: #f0dfaf;">rest</span> poly) (<span style="color: #f0dfaf;">cons</span> (<span style="color: #f0dfaf;">first</span> poly) stack)])))
+<pre class="example">(defn- add-new-pt [poly]
+  (fn [pt stack]
+    (when (or (empty? stack) ; First two points are guaranteed to be visible
+              (empty? (rest stack))
+              (visible? pt (first poly) (first stack)))
+      [pt (rest poly) (cons (first poly) stack)])))
 
-(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">pop-stack</span> [poly]
-  (<span style="color: #f0dfaf;">fn</span> [pt stack]
-    (<span style="color: #8cd0d3;">let</span> [the-seg (seg/new-seg pt (<span style="color: #f0dfaf;">first</span> poly))
-          top-seg (seg/new-seg (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">second</span> stack))]
-      (<span style="color: #8cd0d3;">when</span> (pt/left-turn? (<span style="color: #f0dfaf;">second</span> stack) (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">first</span> poly))
-        (<span style="color: #8cd0d3;">if</span> (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (<span style="color: #f0dfaf;">cons</span> (seg/<span style="color: #dfdfbf; font-weight: bold;">intersection</span> the-seg top-seg) stack)]
-          [pt poly (<span style="color: #f0dfaf;">rest</span> stack)])))))
+(defn- pop-stack [poly]
+  (fn [pt stack]
+    (let [the-seg (seg/new-seg pt (first poly))
+          top-seg (seg/new-seg (first stack) (second stack))]
+      (when (pt/left-turn? (second stack) (first stack) (first poly))
+        (if (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
+          [pt poly (rest stack)])))))
 
-(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">skip-pt</span> [poly]
-  (<span style="color: #f0dfaf;">fn</span> [pt stack]
-   (<span style="color: #8cd0d3;">let</span> [the-seg (seg/new-seg pt (<span style="color: #f0dfaf;">first</span> stack))
-         poly-seg (seg/new-seg (<span style="color: #f0dfaf;">first</span> poly) (<span style="color: #f0dfaf;">second</span> poly))]
-     (<span style="color: #8cd0d3;">when</span> (<span style="color: #f0dfaf;">not</span> (pt/left-turn? (<span style="color: #f0dfaf;">second</span> stack) (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">first</span> poly)))
-       (<span style="color: #8cd0d3;">if</span> (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (<span style="color: #f0dfaf;">cons</span> (seg/<span style="color: #dfdfbf; font-weight: bold;">intersection</span> the-seg poly-seg) (<span style="color: #f0dfaf;">rest</span> poly)) stack]
-         [pt (<span style="color: #f0dfaf;">rest</span> poly) stack])))))
+(defn- skip-pt [poly]
+  (fn [pt stack]
+   (let [the-seg (seg/new-seg pt (first stack))
+         poly-seg (seg/new-seg (first poly) (second poly))]
+     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
+       (if (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
+         [pt (rest poly) stack])))))
 
-(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">all-conditions</span> [poly]
+(defn- all-conditions [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 </pre>
@@ -2047,7 +2047,7 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">visibility-polygon-helper</span> [pt poly]
+<pre class="example">(defn- visibility-polygon-helper [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 </pre>
@@ -2101,7 +2101,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon 21 Nov 2011 12:44:43 PM MST</span>
+Posted <span class="date">Mon Nov 21 12:44:43 2011</span>
 </span>
 
 
@@ -2231,7 +2231,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue 22 Nov 2011 12:29:29 PM MST</span>
+Posted <span class="date">Tue Nov 22 12:29:29 2011</span>
 </span>
 
 
@@ -2406,7 +2406,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 23 Nov 2011 08:02:00 PM MST</span>
+Posted <span class="date">Wed Nov 23 20:02:00 2011</span>
 </span>
 
 
@@ -2691,7 +2691,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 27 Nov 2011 07:23:34 AM MST</span>
+Posted <span class="date">Sun Nov 27 07:23:34 2011</span>
 </span>
 
 
@@ -2908,7 +2908,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon 28 Nov 2011 09:52:35 AM MST</span>
+Posted <span class="date">Mon Nov 28 09:52:35 2011</span>
 </span>
 
 
@@ -3052,18 +3052,18 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">chans-algorithm</span>
-  <span style="color: #8fb28f;">"Finds the convex hull of a set of points by</span>
-<span style="color: #8fb28f;">   the algorithm known as 'Chan's Algorithm'."</span>
+<pre class="example">(defn chans-algorithm
+  "Finds the convex hull of a set of points by
+   the algorithm known as 'Chan's Algorithm'."
   [pts]
-  (<span style="color: #8cd0d3;">let</span> [bottom-pt (<span style="color: #f0dfaf;">apply</span> min-key <span style="color: #dca3a3; font-weight: bold;">:y</span> pts)]
-   (<span style="color: #8cd0d3;">loop</span> [m 3] <span style="color: #708070;">; </span><span style="color: #7f9f7f;">start out with triangles</span>
-     (<span style="color: #8cd0d3;">let</span> [partitioned-pts (<span style="color: #f0dfaf;">partition</span> m m [] pts)
-           c-hs (<span style="color: #f0dfaf;">map</span> grahams-scan partitioned-pts)
-           potential-ch (<span style="color: #f0dfaf;">take</span> m (<span style="color: #f0dfaf;">apply</span> jarvis-march pts c-hs))]
-       (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> bottom-pt (<span style="color: #f0dfaf;">last</span> potential-ch)) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">assumes jarvis-march returns bottom-pt last</span>
+  (let [bottom-pt (apply min-key :y pts)]
+   (loop [m 3] ; start out with triangles
+     (let [partitioned-pts (partition m m [] pts)
+           c-hs (map grahams-scan partitioned-pts)
+           potential-ch (take m (apply jarvis-march pts c-hs))]
+       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
          potential-ch
-         (<span style="color: #8cd0d3;">recur</span> (<span style="color: #f0dfaf;">min</span> (<span style="color: #f0dfaf;">*</span> m m) (<span style="color: #f0dfaf;">count</span> pts))))))))
+         (recur (min (* m m) (count pts))))))))
 </pre>
 
 
@@ -3126,7 +3126,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span>
+Posted <span class="date">Wed Nov 30 11:06:31 2011</span>
 </span>
 
 
@@ -3190,8 +3190,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu 10 Nov 2011 08:38:47 PM MST</span>
-<!-- Created <span class="date">Thu 10 Nov 2011 07:21:15 PM MST</span> -->
+Last edited <span class="date">Thu Nov 10 20:38:47 2011</span>
+<!-- Created <span class="date">Thu Nov 10 19:21:15 2011</span> -->
 </div>
 
 </div>
