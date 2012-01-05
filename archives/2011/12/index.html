@@ -113,8 +113,8 @@
         <td class="month-calendar-day-nolink Saturday">17</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-this-day Sunday"><a href="../../../posts/hiking/southern-maine/" title="southern-maine">18</a></td>
-        <td class="month-calendar-day-future Monday">19</td>
+        <td class="month-calendar-day-link Sunday"><a href="../../../posts/hiking/southern-maine/" title="southern-maine">18</a></td>
+        <td class="month-calendar-day-nolink Monday">19</td>
         <td class="month-calendar-day-nolink Tuesday">20</td>
         <td class="month-calendar-day-nolink Wednesday">21</td>
         <td class="month-calendar-day-nolink Thursday">22</td>
@@ -237,7 +237,7 @@ Tags:
 
 
 
-<pre class="example">(let* ((foo bar)
+<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((foo bar)
        (baz foo)))
 </pre>
 
@@ -255,7 +255,7 @@ Tags:
 
 
 
-<pre class="example">(let [foo bar
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [foo bar
       baz foo])
 </pre>
 
@@ -510,13 +510,13 @@ some of them, in no particular order.
 
 
 
-<pre class="example">(defun xml-find-nodes-matching (node name)
-  "Returns all children of `node' that have an `xml-node-name' equal to `name'."
-  (if (or (eq node '()) (not (listp node)))
+<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">xml-find-nodes-matching</span> (node name)
+  <span style="color: #8fb28f;">"Returns all children of `</span><span style="color: #dca3a3; font-weight: bold;">node</span><span style="color: #8fb28f;">' that have an `</span><span style="color: #dca3a3; font-weight: bold;">xml-node-name</span><span style="color: #8fb28f;">' equal to `</span><span style="color: #dca3a3; font-weight: bold;">name</span><span style="color: #8fb28f;">'."</span>
+  (<span style="color: #f0dfaf; font-weight: bold;">if</span> (or (eq node '()) (not (listp node)))
       '()
-    (if (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply 'append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (<span style="color: #f0dfaf; font-weight: bold;">if</span> (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply 'append (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 </pre>
 
 
@@ -605,7 +605,7 @@ some of them, in no particular order.
 
 
 
-<pre class="example">(setq valtype (car (caddar xml-list))
+<pre class="src src-elisp">(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 </pre>
 
@@ -735,7 +735,7 @@ Tags:
 
 
 
-<pre class="example">(defun my-anything ()
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">my-anything</span> ()
   (interactive)
   (anything-other-buffer
    '(anything-c-source-buffers+
@@ -746,7 +746,7 @@ Tags:
      anything-c-source-bookmarks
      anything-c-source-bookmark-set
      anything-c-source-emms-files)
-    "*anything*"))
+    <span style="color: #cc9393;">"*anything*"</span>))
 </pre>
 
 
@@ -764,19 +764,19 @@ Tags:
 
 
 
-<pre class="example">(defvar anything-c-source-git-annex
-  '((name . "Git Annex")
-    (candidates . (lambda ()
-                    (with-current-buffer anything-current-buffer
-                     (with-temp-buffer
-                       (call-process "git" nil t nil "annex" "find")
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defvar</span> <span style="color: #f0dfaf;">anything-c-source-git-annex</span>
+  '((name . <span style="color: #cc9393;">"Git Annex"</span>)
+    (candidates . (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> ()
+                    (<span style="color: #f0dfaf; font-weight: bold;">with-current-buffer</span> anything-current-buffer
+                     (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
+                       (call-process <span style="color: #cc9393;">"git"</span> nil t nil <span style="color: #cc9393;">"annex"</span> <span style="color: #cc9393;">"find"</span>)
                        (goto-char (point-min))
-                       (split-string (buffer-string) "\n")))))
+                       (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>)))))
     (volatile)
-    (action . (("Watch" . anything-c-git-annex-play)
-               ("Drop" . anything-c-git-annex-drop)
-               ("Move" . anything-c-git-annex-move)
-               ("Copy" . anything-c-git-annex-copy)))))
+    (action . ((<span style="color: #cc9393;">"Watch"</span> . anything-c-git-annex-play)
+               (<span style="color: #cc9393;">"Drop"</span> . anything-c-git-annex-drop)
+               (<span style="color: #cc9393;">"Move"</span> . anything-c-git-annex-move)
+               (<span style="color: #cc9393;">"Copy"</span> . anything-c-git-annex-copy)))))
 </pre>
 
 
@@ -800,8 +800,8 @@ Tags:
 
 
 
-<pre class="example">(defun anything-c-git-annex-drop (candidate)
-  (anything-git-annex-command "drop" (concat "\"" candidate "\"")))
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-drop</span> (candidate)
+  (anything-git-annex-command <span style="color: #cc9393;">"drop"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)))
 </pre>
 
 
@@ -815,18 +815,18 @@ Tags:
 
 
 
-<pre class="example">(defun anything-c-git-annex-copy (candidate)
-  (let* ((to (anything-comp-read
-              "To Git Annex: "
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-copy</span> (candidate)
+  (<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((to (anything-comp-read
+              <span style="color: #cc9393;">"To Git Annex: "</span>
               (anything-c-git-remotes)
-              :must-match nil)))
-    (anything-git-annex-command "copy" (concat "\"" candidate "\"")
-                                "--to" (concat "\"" to "\""))))
+              <span style="color: #8cd0d3;">:must-match</span> nil)))
+    (anything-git-annex-command <span style="color: #cc9393;">"copy"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)
+                                <span style="color: #cc9393;">"--to"</span> (concat <span style="color: #cc9393;">"\""</span> to <span style="color: #cc9393;">"\""</span>))))
 
-(defun anything-c-git-remotes ()
-  (with-temp-buffer
-    (call-process "git" nil (current-buffer) nil "remote")
-    (delete "" (split-string (buffer-string) "\n"))))
+(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-remotes</span> ()
+  (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
+    (call-process <span style="color: #cc9393;">"git"</span> nil (current-buffer) nil <span style="color: #cc9393;">"remote"</span>)
+    (delete <span style="color: #cc9393;">""</span> (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>))))
 </pre>
 
 
