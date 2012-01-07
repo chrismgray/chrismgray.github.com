@@ -8,6 +8,154 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Two Small Clojure Packages</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/small-clojure-libs/</guid>
+
+	<link>http://chrismgray.github.com//posts/small-clojure-libs/</link>
+
+
+	<category>clojure</category>
+
+	<category>lab-notes</category>
+
+	<category>lru-maps</category>
+
+	<category>thrush</category>
+
+
+	<pubDate>Fri, 06 Jan 2012 19:23:15 -0700</pubDate>
+	<dcterms:modified>2012-01-07T02:23:15Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;I&#39;ve been working on a larger project lately, but in doing so I found
+two little things that were independent of the project and useful
+enough for me to release as Clojure packages.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Parallel Thrush &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I discussed the Clojure &lt;a href=&quot;http://chrismgray.github.com//tags/clojure/./../../posts/luhnybin&quot;&gt;thrush operator&lt;/a&gt; once before.  The way that I
+  have been using it lately is to operate on a stream of data, perhaps
+  condensing the stream at the end into one value.  This suggested to
+  me that I should be able to operate on the stream of data in
+  parallel, since all of the functions that I am using are pure.
+&lt;/p&gt;
+&lt;p&gt;
+  What I have done with the new package is to create a new macro
+  called &lt;code&gt;||-&amp;gt;&amp;gt;&lt;/code&gt;.  This operates just like the &lt;code&gt;-&amp;gt;&amp;gt;&lt;/code&gt; macro already in
+  Clojure, except that it splits the data in the stream and runs it in
+  parallel.  Behind the scenes, it uses the Clojure &lt;code&gt;pmap&lt;/code&gt; function,
+  which advises that it should only be used when the operation being
+  done is CPU-intensive enough to exceed the coordination cost.  Since
+  multiple functions are put together by my macro before they are
+  passed to &lt;code&gt;pmap&lt;/code&gt;, following this advice should become easier.
+&lt;/p&gt;
+&lt;p&gt;
+  As an example:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(||-&amp;gt;&amp;gt; data
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
+       &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:merge&lt;/span&gt;
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  is the same as
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; data
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  but everything before the &lt;code&gt;:merge&lt;/code&gt; statement is executed in
+  parallel.
+&lt;/p&gt;
+&lt;p&gt;
+  Of course, the source is on &lt;a href=&quot;https://github.com/chrismgray/parallel-thrush&quot;&gt;my github&lt;/a&gt;.  The jar can also be easily
+  downloaded from &lt;a href=&quot;https://clojars.org/parallel-thrush&quot;&gt;clojars&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;LRU maps &lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  The project I&#39;ve been working on has partly been a struggle to
+  manage resources.  Thus, I&#39;ve needed a good way to keep some of the
+  resources in memory and get rid of the ones that are no longer
+  relevant.  Using a &lt;code&gt;hash-map&lt;/code&gt; data structure is always nice, so I&#39;ve
+  implemented a variant of a &lt;code&gt;hash-map&lt;/code&gt; that has an upper limit on its
+  size.  When you try to add an element that would cause the map to
+  have too many elements, it kicks out the element that was least
+  recently added or modified.
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map 4 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
+&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  Sometimes, you want to do something with an element as it gets
+  kicked out.  For that, there is &lt;code&gt;lru-map-with&lt;/code&gt;.  This takes two
+  extra arguments &amp;ndash; a function that operates on some &quot;state&quot; and the
+  element that is getting kicked out and the initial &quot;state&quot;.  (Behind
+  the scenes, this &quot;state&quot; isn&#39;t really state, but it is helpful to
+  think of it as state.)
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
+&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+  Again, this little package is on &lt;a href=&quot;https://github.com/chrismgray/least-recently-used-map&quot;&gt;github&lt;/a&gt; and the jar is on &lt;a href=&quot;https://clojars.org/least-recently-used-map&quot;&gt;clojars&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/small-clojure-libs/#comments</comments>
+
+</item>
+<item>
+
 	<title>Clojure in Elisp</title>
 
 
@@ -46,7 +194,7 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let* ((foo bar)
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
        (baz foo)))
 &lt;/pre&gt;
 
@@ -64,7 +212,7 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let [foo bar
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
       baz foo])
 &lt;/pre&gt;
 
@@ -285,18 +433,18 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn chans-algorithm
-  &quot;Finds the convex hull of a set of points by
-   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;chans-algorithm&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Finds the convex hull of a set of points by&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;&lt;/span&gt;
   [pts]
-  (let [bottom-pt (apply min-key :y pts)]
-   (loop [m 3] ; start out with triangles
-     (let [partitioned-pts (partition m m [] pts)
-           c-hs (map grahams-scan partitioned-pts)
-           potential-ch (take m (apply jarvis-march pts c-hs))]
-       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; min-key &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:y&lt;/span&gt; pts)]
+   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;loop&lt;/span&gt; [m 3] &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;start out with triangles&lt;/span&gt;
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [partitioned-pts (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; m m [] pts)
+           c-hs (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; grahams-scan partitioned-pts)
+           potential-ch (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;take&lt;/span&gt; m (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; jarvis-march pts c-hs))]
+       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;last&lt;/span&gt; potential-ch)) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;assumes jarvis-march returns bottom-pt last&lt;/span&gt;
          potential-ch
-         (recur (min (* m m) (count pts))))))))
+         (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;recur&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;min&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; m m) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; pts))))))))
 &lt;/pre&gt;
 
 
@@ -779,32 +927,32 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn- add-new-pt [poly]
-  (fn [pt stack]
-    (when (or (empty? stack) ; First two points are guaranteed to be visible
-              (empty? (rest stack))
-              (visible? pt (first poly) (first stack)))
-      [pt (rest poly) (cons (first poly) stack)])))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;add-new-pt&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;or&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; stack) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;First two points are guaranteed to be visible&lt;/span&gt;
+              (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack))
+              (visible? pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack)))
+      [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) stack)])))
 
-(defn- pop-stack [poly]
-  (fn [pt stack]
-    (let [the-seg (seg/new-seg pt (first poly))
-          top-seg (seg/new-seg (first stack) (second stack))]
-      (when (pt/left-turn? (second stack) (first stack) (first poly))
-        (if (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
-          [pt poly (rest stack)])))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;pop-stack&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
+          top-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack))]
+      (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
+        (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg top-seg) stack)]
+          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack)])))))
 
-(defn- skip-pt [poly]
-  (fn [pt stack]
-   (let [the-seg (seg/new-seg pt (first stack))
-         poly-seg (seg/new-seg (first poly) (second poly))]
-     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
-       (if (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
-         [pt (rest poly) stack])))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;skip-pt&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack))
+         poly-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; poly))]
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly)))
+       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg poly-seg) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly)) stack]
+         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) stack])))))
 
-(defn- all-conditions [poly]
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;all-conditions&lt;/span&gt; [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 &lt;/pre&gt;
@@ -840,7 +988,7 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn- visibility-polygon-helper [pt poly]
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;visibility-polygon-helper&lt;/span&gt; [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 &lt;/pre&gt;
@@ -936,16 +1084,16 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn luhn-check
-  &quot;Takes a sequence of digits and determines whether they pass the Luhn test.
-   The sequence must be in order from right to left.&quot;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
   [digits]
-  (-&amp;gt;&amp;gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
+       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
 &lt;/pre&gt;
 
 
@@ -1174,15 +1322,15 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn time-series [f init-state n num-iterations]
- (let [call-f (fn [state]
-                (let [retval (f state)
-                      num (count state)
-                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
+ (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
+                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
+                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
+                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (repeat num-iterations call-f)))
-    (vector init-state))))
+      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
+    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
 &lt;/pre&gt;
 
 
@@ -1367,110 +1515,6 @@
 
 
 	<comments>/posts/time-series-1/#comments</comments>
-
-</item>
-<item>
-
-	<title>Resolving names in Clojurescript (followup)</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving-2/</guid>
-
-	<link>http://chrismgray.github.com//posts/cljs-name-resolving-2/</link>
-
-
-	<category>clojure</category>
-
-	<category>clojurescript</category>
-
-	<category>lab-notes</category>
-
-	<category>rationals</category>
-
-
-	<pubDate>Fri, 11 Nov 2011 18:07:52 -0700</pubDate>
-	<dcterms:modified>2011-12-02T16:41:31Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I was close with my guess in the last post.  What ended up working
-  was
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;example&quot;&gt;(let [name (munge (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (str sym)))))])
-&lt;/pre&gt;
-
-
-
-
-&lt;p&gt;
-  For some reason, &lt;code&gt;(name sym)&lt;/code&gt; would crash the compiler from the
-  &lt;code&gt;parse&lt;/code&gt; method but it wouldn&#39;t from other functions caled from the
-  &lt;code&gt;parse&lt;/code&gt; method.  I finally gave up worrying about that and just used
-  &lt;code&gt;(str sym)&lt;/code&gt; instead, since that is guaranteed to be the same in this
-  case &amp;ndash; there is an &lt;code&gt;(assert (not (namespace sym)))&lt;/code&gt; just before the
-  &lt;code&gt;let&lt;/code&gt; line.  I gave up on worrying about it, but someone who knows
-  more about the compiler than me might want to try to figure out why
-  it is.
-&lt;/p&gt;
-&lt;p&gt;
-  I also needed to allow names defined in &lt;code&gt;cljs.core&lt;/code&gt; but redefined in
-  another namespace to be called or referred to.  This involved
-  changing the &lt;code&gt;resolve-existing-var&lt;/code&gt; function.  Again, &lt;code&gt;cljs.core&lt;/code&gt; is
-  hardcoded:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;example&quot;&gt;(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&amp;gt; env :ns :name) :defs sym])))
-                &#39;cljs.core
-                (-&amp;gt; env :ns :name))])
-&lt;/pre&gt;
-
-
-
-
-&lt;p&gt;
-  I added the second test: it simply asks whether the variable has
-  been defined in the namespace.  If it hasn&#39;t, and the variable is
-  defined in &lt;code&gt;cljs.core&lt;/code&gt;, only then is the namespace set to
-  &lt;code&gt;cljs.core&lt;/code&gt;.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Remove the macros &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  It was also necessary to remove many of the macros from &lt;code&gt;core.clj&lt;/code&gt;
-  in order to redefine the functions that I needed to in my project.
-  As I noted earlier, my project is to implement rationals in
-  Clojurescript, so I need to redefine most of the functions that work
-  with numbers.  (At least, that is the way I am implementing it --
-  there may be a better way that I don&#39;t know about.)  Many of these
-  functions were implemented twice: once as a macro in &lt;code&gt;core.clj&lt;/code&gt; and
-  once as a function in &lt;code&gt;core.cljs&lt;/code&gt;.  I am obviously biased towards
-  being able to redefine these functions, so I think the macros should
-  be removed, but at least one of the implementations is redundant.
-&lt;/p&gt;
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/cljs-name-resolving-2/#comments</comments>
 
 </item>
 

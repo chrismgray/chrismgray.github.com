@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Two Small Clojure Packages</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+Two Small Clojure Packages
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+
+<p>I've been working on a larger project lately, but in doing so I found
+two little things that were independent of the project and useful
+enough for me to release as Clojure packages.
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Parallel Thrush </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I discussed the Clojure <a href="./../luhnybin">thrush operator</a> once before.  The way that I
+  have been using it lately is to operate on a stream of data, perhaps
+  condensing the stream at the end into one value.  This suggested to
+  me that I should be able to operate on the stream of data in
+  parallel, since all of the functions that I am using are pure.
+</p>
+<p>
+  What I have done with the new package is to create a new macro
+  called <code>||-&gt;&gt;</code>.  This operates just like the <code>-&gt;&gt;</code> macro already in
+  Clojure, except that it splits the data in the stream and runs it in
+  parallel.  Behind the scenes, it uses the Clojure <code>pmap</code> function,
+  which advises that it should only be used when the operation being
+  done is CPU-intensive enough to exceed the coordination cost.  Since
+  multiple functions are put together by my macro before they are
+  passed to <code>pmap</code>, following this advice should become easier.
+</p>
+<p>
+  As an example:
+</p>
+
+
+
+<pre class="src src-clojure">(||-&gt;&gt; data
+       (<span style="color: #f0dfaf;">map</span> big-function)
+       (<span style="color: #f0dfaf;">filter</span> odd?)
+       <span style="color: #dca3a3; font-weight: bold;">:merge</span>
+       (<span style="color: #f0dfaf;">reduce</span> +))
+</pre>
+
+
+
+
+<p>
+  is the same as
+</p>
+
+
+
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">-&gt;&gt;</span> data
+     (<span style="color: #f0dfaf;">map</span> big-function)
+     (<span style="color: #f0dfaf;">filter</span> odd?)
+     (<span style="color: #f0dfaf;">reduce</span> +))
+</pre>
+
+
+
+
+<p>
+  but everything before the <code>:merge</code> statement is executed in
+  parallel.
+</p>
+<p>
+  Of course, the source is on <a href="https://github.com/chrismgray/parallel-thrush">my github</a>.  The jar can also be easily
+  downloaded from <a href="https://clojars.org/parallel-thrush">clojars</a>.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">LRU maps </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  The project I've been working on has partly been a struggle to
+  manage resources.  Thus, I've needed a good way to keep some of the
+  resources in memory and get rid of the ones that are no longer
+  relevant.  Using a <code>hash-map</code> data structure is always nice, so I've
+  implemented a variant of a <code>hash-map</code> that has an upper limit on its
+  size.  When you try to add an element that would cause the map to
+  have too many elements, it kicks out the element that was least
+  recently added or modified.
+</p>
+
+
+
+<pre class="src src-clojure">(<span style="color: #f0dfaf;">apply</span> lru-map 4 (<span style="color: #f0dfaf;">range</span> 20))
+<span style="color: #708070;">;</span><span style="color: #7f9f7f;">=&gt; {12 13, 14 15, 16 17, 18 19}</span>
+</pre>
+
+
+
+
+<p>
+  Sometimes, you want to do something with an element as it gets
+  kicked out.  For that, there is <code>lru-map-with</code>.  This takes two
+  extra arguments &ndash; a function that operates on some "state" and the
+  element that is getting kicked out and the initial "state".  (Behind
+  the scenes, this "state" isn't really state, but it is helpful to
+  think of it as state.)
+</p>
+
+
+
+<pre class="src src-clojure">(<span style="color: #f0dfaf;">apply</span> lru-map-with 4 conj [] (<span style="color: #f0dfaf;">range</span> 20))
+<span style="color: #708070;">;</span><span style="color: #7f9f7f;">=&gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}</span>
+</pre>
+
+
+
+
+<p>
+  Again, this little package is on <a href="https://github.com/chrismgray/least-recently-used-map">github</a> and the jar is on <a href="https://clojars.org/least-recently-used-map">clojars</a>.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="../../tags/lru-maps/" rel="tag">lru-maps</a>
+
+<a href="../../tags/thrush/" rel="tag">thrush</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Fri 06 Jan 2012 07:23:15 PM MST</span>
+<!-- Created <span class="date">Fri 06 Jan 2012 07:23:15 PM MST</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

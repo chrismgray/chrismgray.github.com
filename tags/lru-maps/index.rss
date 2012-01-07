@@ -3,8 +3,8 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:dcterms="http://purl.org/dc/terms/" >
 <channel>
-<title>pages tagged thrush</title>
-<link>http://chrismgray.github.com//tags/thrush/</link>
+<title>pages tagged lru-maps</title>
+<link>http://chrismgray.github.com//tags/lru-maps/</link>
 <description>Hiking and Coding</description>
 <item>
 
@@ -40,7 +40,7 @@ enough for me to release as Clojure packages.
 
 
 &lt;p&gt;
-  I discussed the Clojure &lt;a href=&quot;http://chrismgray.github.com//tags/thrush/./../../posts/luhnybin&quot;&gt;thrush operator&lt;/a&gt; once before.  The way that I
+  I discussed the Clojure &lt;a href=&quot;http://chrismgray.github.com//tags/lru-maps/./../../posts/luhnybin&quot;&gt;thrush operator&lt;/a&gt; once before.  The way that I
   have been using it lately is to operate on a stream of data, perhaps
   condensing the stream at the end into one value.  This suggested to
   me that I should be able to operate on the stream of data in
@@ -152,97 +152,6 @@ enough for me to release as Clojure packages.
 
 
 	<comments>/posts/small-clojure-libs/#comments</comments>
-
-</item>
-<item>
-
-	<title>The Luhnybin Challenge</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/luhnybin/</guid>
-
-	<link>http://chrismgray.github.com//posts/luhnybin/</link>
-
-
-	<category>clojure</category>
-
-	<category>programming-challenge</category>
-
-	<category>thrush</category>
-
-
-	<pubDate>Tue, 15 Nov 2011 13:22:19 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:44:18Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I woke up with another programming challenge in my inbox this
-  morning.  This one is from &lt;a href=&quot;http://squareup.com&quot;&gt;Square&lt;/a&gt;.  They are a company that gives
-  you a little device so that you can accept credit cards using a
-  smart phone.  The challenge is &lt;a href=&quot;http://corner.squareup.com/2011/11/luhny-bin.html&quot;&gt;here&lt;/a&gt; &amp;ndash; basically it&#39;s about removing
-  credit cards numbers from logs.  There are some details about what
-  constitutes a credit card number, and how they are distinct from
-  other numbers.  I won&#39;t repeat that here, but you should read it to
-  understand what&#39;s coming up.
-&lt;/p&gt;
-&lt;p&gt;
-  As usual, I implemented my solution in Clojure.  I particularly
-  liked the function I called &lt;code&gt;luhn-check&lt;/code&gt;.  Here it is:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
-  [digits]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
-       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
-&lt;/pre&gt;
-
-
-
-
-&lt;p&gt;
-  I think this is a good illustration of the &lt;code&gt;-&amp;gt;&amp;gt;&lt;/code&gt; operator in
-  Clojure, which is also called the &quot;thrush&quot; operator.  Basically,
-  this operator can be thought of as taking the result from one
-  expression and putting it at the end of the next expression.
-&lt;/p&gt;
-&lt;p&gt;
-  In this case, we start out with a list of digits.  We then partition
-  them into pairs, padding with a zero if necessary.  We then take the
-  pairs and double the second number in the pair, concatenating all
-  the pairs back into a single list.  We then sum up all the digits in
-  the list, using the &lt;code&gt;reduce&lt;/code&gt; function.  This leaves us with a
-  number.  We get its value \(\mod 10\) and test whether it is equal
-  to zero.  If it is, we return &lt;code&gt;true&lt;/code&gt;, otherwise we return &lt;code&gt;false&lt;/code&gt;.
-&lt;/p&gt;
-&lt;p&gt;
-  All of this could be written with nested expressions (and the thrush
-  operator is simply a macro that rewrites what you see as nested
-  expressions), but I think the way it is written nicely shows what
-  the data is doing in the function.
-&lt;/p&gt;
-&lt;p&gt;
-  Anyway, I don&#39;t know if this solution will get me a job, but it was
-  a bit of fun coding and didn&#39;t take too long.
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/luhnybin/#comments</comments>
 
 </item>
 
