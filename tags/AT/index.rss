@@ -8,12 +8,128 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Connecticut</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/hiking/ct/</guid>
+
+	<link>http://chrismgray.github.com//posts/hiking/ct/</link>
+
+
+	<category>at</category>
+
+	<category>hiking</category>
+
+
+	<pubDate>Fri, 27 Jan 2012 12:58:58 -0700</pubDate>
+	<dcterms:modified>2012-01-27T20:06:11Z</dcterms:modified>
+
+	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Camping permitted only at designated sites&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Connecticut begins with a steep uphill, but when you get to the top
+  of that, you are at the highest point of the state.  I always like
+  hitting the high-point of a state because it tells me that the net
+  effort that I must expend in the remainder of that state is less
+  than the effort that I&#39;ve already expended.  For my computer-science
+  readers, there&#39;s also a nice little problem there: how do you
+  compute the set of points on the trail for which there are no higher
+  points remaining in the state?  (It turns out that you can do it
+  with a simple extension of a problem that I had worked on before,
+  but I won&#39;t say more than that to let you have the fun of solving it
+  yourself.)
+&lt;/p&gt;
+&lt;p&gt;
+  We walked down the mountain and stopped in a the town of Salisbury,
+  CT for lunch and a small resupply.  As we were walking into town,
+  a northbound hiker was walking out, and he let us pick through the
+  extra stuff that he had received in the mail.  I took some Jolly
+  Ranchers, but they were really sticky.
+&lt;/p&gt;
+&lt;p&gt;
+  We walked on and arrived at Limestone Spring Lean-to, which is
+  pretty far off the trail on a steep downhill.  It&#39;s quite
+  frustrating when this happens, because that means that you have a
+  long uphill first thing in the morning.  So Picker and I went down
+  to the spring to gather water.  We hiked a mile or so farther that
+  evening and set up a stealth camp.  As the picture ending the
+  &lt;a href=&quot;http://chrismgray.github.com//tags/AT/./../../posts/hiking/massachusetts&quot;&gt;last post&lt;/a&gt; indicates, this is not strictly legal.  We made sure to be
+  quite a ways from the trail, but we worried about rangers all
+  evening.
+&lt;/p&gt;
+&lt;p&gt;
+  The next day was a bit of a long one.  We decided not to camp
+  illegally again, so we had two choices for camp sites &amp;ndash; one about
+  13 miles away and one about 23 miles away.  Naturally, we chose to
+  head for the farther campsite.  When we got within 3 miles, I
+  decided that I didn&#39;t want to walk for more than another hour, so I
+  really pushed hard to get to camp.
+&lt;/p&gt;
+&lt;p&gt;
+  The next day had some nice scenery:
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;img src=&quot;https://lh6.googleusercontent.com/-cEvLxZBiQEM/TOXAywwRf9I/AAAAAAAAAvM/SHS1g8Ih370/s800/DSCF0203.JPG&quot;  alt=&quot;https://lh6.googleusercontent.com/-cEvLxZBiQEM/TOXAywwRf9I/AAAAAAAAAvM/SHS1g8Ih370/s800/DSCF0203.JPG&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  after we went over a small mountain, we got to Kent, CT.  We were
+  rather early to town, so we got breakfast at one of the posh
+  restaurants.  I had a waffle with ice cream.
+&lt;/p&gt;
+&lt;p&gt;
+  As we were walking away from Kent, we met a couple walking their
+  dog.  In the course of conversation, they mentioned that they had
+  sent their daughter to the prep school that we walked past between
+  the trail and town.  Without batting an eye, one of them said that
+  the yearly tuition was $20000!  The school had a beautiful campus,
+  so we could now know where the funds for that came from, but it
+  seemed excessive to me.
+&lt;/p&gt;
+&lt;p&gt;
+  We crossed the border with New York, but we were soon back in
+  Connecticut.  We stopped at a campsite just past a bridge and met up
+  with Just Jill once again.  I slept with the tarp off of my hammock,
+  which turned out to be a mistake as the weather in the small valley
+  where we camped was extremely cold overnight.
+&lt;/p&gt;
+&lt;p&gt;
+  The next morning, we would leave Connecticut for good and enter New
+  York.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Next time&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  New York.  Poorly-maintained trails near big roads.  The lowest
+  point on the whole AT right next to caged bears (it couldn&#39;t get
+  much more symbolic than that).
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/hiking/ct/#comments</comments>
+
+</item>
+<item>
+
 	<title>Massachusetts</title>
 
 
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/massachusetts/</guid>
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/hiking/massachusetts/</guid>
 
-	<link>http://chrismgray.github.com//posts/massachusetts/</link>
+	<link>http://chrismgray.github.com//posts/hiking/massachusetts/</link>
 
 
 	<category>at</category>
@@ -31,7 +147,7 @@ it MA.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Border to Great Barrington &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Border to Great Barrington&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -106,7 +222,7 @@ it MA.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Great Barrington to the border &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Great Barrington to the border&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -149,7 +265,7 @@ it MA.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Next time &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Next time&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -164,7 +280,7 @@ it MA.
 </description>
 
 
-	<comments>/posts/massachusetts/#comments</comments>
+	<comments>/posts/hiking/massachusetts/#comments</comments>
 
 </item>
 <item>
@@ -186,7 +302,7 @@ it MA.
 	<dcterms:modified>2012-01-07T18:00:54Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Hanover to Rutland &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Hanover to Rutland&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -273,7 +389,7 @@ it MA.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Rutland to the Massachusetts border &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Rutland to the Massachusetts border&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -360,7 +476,7 @@ it MA.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Next time &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Next time&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -419,7 +535,7 @@ long as their hike is uninterrupted.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Ethan Pond to Mt. Moosilauke &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Ethan Pond to Mt. Moosilauke&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -537,7 +653,7 @@ long as their hike is uninterrupted.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;The trail to Hanover &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;The trail to Hanover&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -570,7 +686,7 @@ long as their hike is uninterrupted.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Next time &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Next time&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -606,7 +722,7 @@ long as their hike is uninterrupted.
 	<dcterms:modified>2012-01-05T01:02:45Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;The Whites &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;The Whites&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -635,7 +751,7 @@ long as their hike is uninterrupted.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Leaving Gorham &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Leaving Gorham&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -700,7 +816,7 @@ long as their hike is uninterrupted.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Mounts Madison and Washington &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Mounts Madison and Washington&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -837,7 +953,7 @@ long as their hike is uninterrupted.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Wrapup &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Wrapup&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -898,7 +1014,7 @@ to a brand new campsite just past the summit.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Saddleback &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Saddleback&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -945,7 +1061,7 @@ to a brand new campsite just past the summit.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Bemis mountain &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Bemis mountain&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -979,7 +1095,7 @@ to a brand new campsite just past the summit.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Notches &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Notches&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -1074,7 +1190,7 @@ to a brand new campsite just past the summit.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Run to the border &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Run to the border&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -1111,7 +1227,7 @@ to a brand new campsite just past the summit.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-5&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-5&quot;&gt;Next time &lt;/h2&gt;
+&lt;h2 id=&quot;sec-5&quot;&gt;Next time&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
 
 
@@ -1147,7 +1263,7 @@ to a brand new campsite just past the summit.
 	<dcterms:modified>2011-12-01T07:47:32Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Leaving Monson &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Leaving Monson&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1214,7 +1330,7 @@ to a brand new campsite just past the summit.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Without Grinner &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Without Grinner&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1274,7 +1390,7 @@ to a brand new campsite just past the summit.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Stratton &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Stratton&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -1308,7 +1424,7 @@ to a brand new campsite just past the summit.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Next time &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Next time&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -1345,7 +1461,7 @@ to a brand new campsite just past the summit.
 	<dcterms:modified>2011-12-01T07:47:22Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Introduction &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Introduction&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1361,7 +1477,7 @@ that made the biggest impression on me.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;The 100-Mile Wilderness &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;The 100-Mile Wilderness&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1434,7 +1550,7 @@ that made the biggest impression on me.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;White Cap &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;White Cap&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -1462,7 +1578,7 @@ that made the biggest impression on me.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Chairback &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Chairback&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -1502,7 +1618,7 @@ that made the biggest impression on me.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-3&quot;&gt;The rest &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-3&quot;&gt;The rest&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-3&quot;&gt;
 
 
@@ -1526,7 +1642,7 @@ that made the biggest impression on me.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-4&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-4&quot;&gt;Monson &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-4&quot;&gt;Monson&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-4&quot;&gt;
 
 
@@ -1571,7 +1687,7 @@ that made the biggest impression on me.
 	<dcterms:modified>2011-12-01T07:47:10Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Starting on the Appalachian Trail &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Starting on the Appalachian Trail&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1586,7 +1702,7 @@ that made the biggest impression on me.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;July 1 &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;July 1&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1646,7 +1762,7 @@ that made the biggest impression on me.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;July 2 &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;July 2&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
