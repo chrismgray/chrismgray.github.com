@@ -1,0 +1,14 @@
+[
+    {"name": "In theatres now",
+     "description": "Movies that are in theatres right now",
+     "movies": ["tt1601913", "tt1598828"]
+     }
+    {"name": "No shoes",
+     "description": "Movies with John Leguizamo or Joe Pantoliano",
+     "movies": ["tt1598828"]
+     }
+    {"name": "Dermot or McDermott",
+     "description": "Movies with Dermot Mulroney or Dylan McDermott",
+     "movies": ["tt1601913"]
+     }
+]
