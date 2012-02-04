@@ -17,7 +17,123 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-01-27T20:07:49Z</updated>
+<updated>2012-02-04T01:57:57Z</updated>
+<entry>
+	<title>change to posts/hiking/ny on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_8922e563a99523cda690da43bd29dabc0b2ce9ef/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-8922e563a99523cda690da43bd29dabc0b2ce9ef"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-02-04T01:57:57Z</updated>
+	<published>2012-02-04T01:57:57Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-8922e563a99523cda690da43bd29dabc0b2ce9ef&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/ny
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;18:57:57 02/03/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Fixed image sizes&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 8922e563a99523cda690da43bd29dabc0b2ce9ef --&gt;
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/hiking/ny on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_47c881867e52c6877bbc1fc93fbba95956529967/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-47c881867e52c6877bbc1fc93fbba95956529967"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-02-04T01:51:09Z</updated>
+	<published>2012-02-04T01:51:09Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-47c881867e52c6877bbc1fc93fbba95956529967&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/ny
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;18:51:09 02/03/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 47c881867e52c6877bbc1fc93fbba95956529967 --&gt;
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/hiking/ct on Hiking and Coding</title>
 
@@ -5703,64 +5819,6 @@ creating tag page tags/emacs&lt;br /&gt;
 
 </entry>
 <entry>
-	<title>change to tags/org-mode on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_b175424cbf4cdcb60fe6aefa1c97c81a27a77aae/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-b175424cbf4cdcb60fe6aefa1c97c81a27a77aae"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-11T04:00:24Z</updated>
-	<published>2011-11-11T04:00:24Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-b175424cbf4cdcb60fe6aefa1c97c81a27a77aae&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-tags/org-mode
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;21:00:24 11/10/11&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-creating tag page tags/org-mode&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- b175424cbf4cdcb60fe6aefa1c97c81a27a77aae --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
 	<title>change to tags/ikiwiki on Hiking and Coding</title>
 
 	<id>http://chrismgray.github.com//recentchanges/change_69506b3c9f7d7889d0026da49902fd0d4cc7171a/</id>
@@ -5812,64 +5870,6 @@ creating tag page tags/ikiwiki&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- 69506b3c9f7d7889d0026da49902fd0d4cc7171a --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to tags/clojurescript on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_7acbb4cd6e1e96f1d36d9593c218835cc059afd7/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-7acbb4cd6e1e96f1d36d9593c218835cc059afd7"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-11T04:00:24Z</updated>
-	<published>2011-11-11T04:00:24Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-7acbb4cd6e1e96f1d36d9593c218835cc059afd7&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-tags/clojurescript
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;21:00:24 11/10/11&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-creating tag page tags/clojurescript&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 7acbb4cd6e1e96f1d36d9593c218835cc059afd7 --&gt;
 
 	</content>
 
