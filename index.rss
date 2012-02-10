@@ -8,6 +8,85 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>A bit of ikiwiki hackery</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/ikiwiki-hacking/</guid>
+
+	<link>http://chrismgray.github.com//posts/ikiwiki-hacking/</link>
+
+
+	<category>ikiwiki</category>
+
+	<category>lab-notes</category>
+
+
+	<pubDate>Thu, 09 Feb 2012 16:45:17 -0700</pubDate>
+	<dcterms:modified>2012-02-09T23:45:17Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;Spurred on by the first comment by an actual user of my plugin today,
+I tracked down one of the major bottlenecks for external ikiwiki
+plugins.  My fix might not be the most elegant, but it works so far.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;The problem&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Ikiwiki plugins work by calling a function named &lt;code&gt;hook&lt;/code&gt; which lets
+  them tell the ikiwiki compiler that they implement a certain
+  subroutine.  Whenever that subroutine needs to be called, the
+  ikiwiki compiler calls &lt;code&gt;run_hooks&lt;/code&gt;, and that runs all the registered
+  functions.
+&lt;/p&gt;
+&lt;p&gt;
+  For most of these hooked functions (&lt;code&gt;htmlize&lt;/code&gt; is the only exception
+  I can think of), all of the registered functions are called,
+  regardless of file type.  This is normally not a problem, because
+  the plugin can check the type of content that it is given and only
+  operate on the types of content that it knows anything about.
+&lt;/p&gt;
+&lt;p&gt;
+  For external plugins, however, there is a problem.  Ikiwiki
+  communicates with external plugins via xml-rpc on &lt;code&gt;stdin&lt;/code&gt; and
+  &lt;code&gt;stdout&lt;/code&gt;.  Every function call that it makes involves writing the
+  function&#39;s parameters on &lt;code&gt;stdout&lt;/code&gt;.  When there is a file type that
+  is unknown to the external plugin, all that effort (I/O is the main
+  time sink I think, but the content must also be encoded correctly
+  for xml-rpc) is wasted.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;The solution&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I have added a parameter named &quot;exclusive&quot; to the optional arguments
+  that are accepted by the &lt;code&gt;hook&lt;/code&gt; function.  When this argument exists
+  (and is true), the registered function is only run when the type of
+  file is the same as the type of file that the plugin accepts.  So
+  far, it only works with the &lt;code&gt;scan&lt;/code&gt; and &lt;code&gt;linkify&lt;/code&gt; hooks, which were
+  the main areas that slowed my plugin down.  However, it is quite
+  simple to get it to work with other hooks as well.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/ikiwiki-hacking/#comments</comments>
+
+</item>
+<item>
+
 	<title>New York State</title>
 
 
@@ -1599,193 +1678,6 @@ to a brand new campsite just past the summit.
 
 
 	<comments>/posts/org-ikiwiki-plugin-4/#comments</comments>
-
-</item>
-<item>
-
-	<title>Git Annex in Anything</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/anything-git-annex/</guid>
-
-	<link>http://chrismgray.github.com//posts/anything-git-annex/</link>
-
-
-	<category>anything.el</category>
-
-	<category>emacs</category>
-
-	<category>git-annex</category>
-
-
-	<pubDate>Mon, 12 Dec 2011 13:03:17 -0700</pubDate>
-	<dcterms:modified>2011-12-12T20:03:17Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;More fun with emacs&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  Lately, I&#39;ve been playing around with &lt;a href=&quot;http://www.emacswiki.org/emacs/Anything&quot;&gt;anything.el&lt;/a&gt;, which has been
-  described as &quot;Quicksilver for emacs&quot;.  I&#39;ve played around with it
-  before, but have had a hard time changing my habits so that it&#39;s the
-  first thing I think of doing when changing buffers or finding
-  files.  The main reason, I think, is that &lt;a href=&quot;http://www.emacswiki.org/emacs/IswitchBuffers&quot;&gt;iswitch&lt;/a&gt; is usually just as
-  fast.
-&lt;/p&gt;
-&lt;p&gt;
-  However, I have started using &lt;a href=&quot;http://chrismgray.github.com//./posts/git-annex&quot;&gt;git annex&lt;/a&gt; to store my music and
-  videos, and that has added some complexity to the way that I deal
-  with them.  My usual flow is to do a &lt;code&gt;git annex find&lt;/code&gt; to see what
-  files I have on my laptop, after which I play one of them with
-  &lt;code&gt;smplayer&lt;/code&gt;.  When I am done with the file, I either use &lt;code&gt;git annex   drop&lt;/code&gt; or &lt;code&gt;git annex move&lt;/code&gt; to get rid of the file from my laptop.
-&lt;/p&gt;
-&lt;p&gt;
-  All of that takes a lot of typing in the shell, so I wondered
-  whether I could speed it up using &lt;code&gt;anything&lt;/code&gt;.  If you guessed that I
-  could (given that I am writing this article), give yourself a gold
-  star.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;How I did it&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  &lt;code&gt;anything&lt;/code&gt; is highly extensible.  Anyone can define their own setup
-  with a command like this:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;my-anything&lt;/span&gt; ()
-  (interactive)
-  (anything-other-buffer
-   &#39;(anything-c-source-buffers+
-     anything-c-source-recentf
-     anything-c-source-files-in-current-dir+
-     anything-c-source-git-annex
-     anything-c-source-org-headline
-     anything-c-source-bookmarks
-     anything-c-source-bookmark-set
-     anything-c-source-emms-files)
-    &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;*anything*&quot;&lt;/span&gt;))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  which is just a function that tells &lt;code&gt;anything&lt;/code&gt; to use a bunch of
-  different &quot;sources&quot; as possible interesting things that you might
-  want to interact with.  For example, &lt;code&gt;anything-c-source-recentf&lt;/code&gt;
-  gives a list of files that you recently had open.  That comes with
-  the &lt;code&gt;anything&lt;/code&gt; package, though, so it&#39;s not too interesting from our
-  point of view.  What is interesting is
-  &lt;code&gt;anything-c-source-git-annex&lt;/code&gt;.  It looks like this:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defvar&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;anything-c-source-git-annex&lt;/span&gt;
-  &#39;((name . &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Git Annex&quot;&lt;/span&gt;)
-    (candidates . (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; ()
-                    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-current-buffer&lt;/span&gt; anything-current-buffer
-                     (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
-                       (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil t nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;annex&quot;&lt;/span&gt; &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;find&quot;&lt;/span&gt;)
-                       (goto-char (point-min))
-                       (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;)))))
-    (volatile)
-    (action . ((&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Watch&quot;&lt;/span&gt; . anything-c-git-annex-play)
-               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Drop&quot;&lt;/span&gt; . anything-c-git-annex-drop)
-               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Move&quot;&lt;/span&gt; . anything-c-git-annex-move)
-               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Copy&quot;&lt;/span&gt; . anything-c-git-annex-copy)))))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  It should hopefully be fairly easy to understand.  There are two
-  interesting parts: getting candidate files, and the actions on the
-  candidate files.  Getting the candidate files is as simple as
-  putting the results of &lt;code&gt;git annex find&lt;/code&gt; into a temporary buffer
-  (which must be in the same directory as the current buffer) and then
-  putting the lines of the buffer into a list.  (This wouldn&#39;t work if
-  the file names contained newlines, but I don&#39;t have any of those.
-  If you wanted to be really careful, you could add the &quot;&amp;ndash;print0&quot;
-  option to &lt;code&gt;call-process&lt;/code&gt; and split the string on &quot;\0&quot;.)
-&lt;/p&gt;
-&lt;p&gt;
-  The actions are all functions.  The simplest is
-  &lt;code&gt;anything-c-git-annex-drop&lt;/code&gt;, which just looks like
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-drop&lt;/span&gt; (candidate)
-  (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;drop&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  where &lt;code&gt;anything-git-annex-command&lt;/code&gt; just starts a shell command.
-  More interesting is &lt;code&gt;anything-c-git-annex-copy&lt;/code&gt;, which is defined as
-  follows
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-copy&lt;/span&gt; (candidate)
-  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((to (anything-comp-read
-              &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;To Git Annex: &quot;&lt;/span&gt;
-              (anything-c-git-remotes)
-              &lt;span style=&quot;color: #8cd0d3;&quot;&gt;:must-match&lt;/span&gt; nil)))
-    (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;copy&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)
-                                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;--to&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; to &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;))))
-
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-remotes&lt;/span&gt; ()
-  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
-    (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil (current-buffer) nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;remote&quot;&lt;/span&gt;)
-    (delete &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;&quot;&lt;/span&gt; (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;))))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  The &lt;code&gt;anything-c-git-annex-copy&lt;/code&gt; command needs to know to which
-  repository it should copy the candidate that has been selected.  I
-  find out which one I want to copy to by listing the remotes that are
-  known about by the git repository that the file is in.  Using
-  &lt;code&gt;anything-comp-read&lt;/code&gt; means that the remotes are listed in the same
-  style all of the &lt;code&gt;anything&lt;/code&gt; candidates are listed in.  It&#39;s pretty
-  nice, because it keeps me in the same mode of operation as before.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Wrapping up&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-
-
-&lt;p&gt;
-  It&#39;s a bit hard to write about what makes &lt;code&gt;anything.el&lt;/code&gt; an
-  interesting way of doing things in emacs &amp;ndash; a screencast might be
-  more helpful &amp;ndash; but I hope some of the power is evident from this
-  little writeup.  I&#39;m going to try to train myself to use &lt;code&gt;anything&lt;/code&gt;
-  more often.  We&#39;ll see how it goes.
-&lt;/p&gt;
-
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/anything-git-annex/#comments</comments>
 
 </item>
 

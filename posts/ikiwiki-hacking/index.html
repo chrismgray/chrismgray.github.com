@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>More ikiwiki plugin hacking</title>
+<title>A bit of ikiwiki hackery</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
@@ -33,7 +33,7 @@
 
 </span>
 <span class="title">
-More ikiwiki plugin hacking
+A bit of ikiwiki hackery
 
 </span>
 </span>
@@ -71,54 +71,57 @@ More ikiwiki plugin hacking
 <div id="pagebody">
 
 <div id="content">
+
+<p>Spurred on by the first comment by an actual user of my plugin today,
+I tracked down one of the major bottlenecks for external ikiwiki
+plugins.  My fix might not be the most elegant, but it works so far.
+</p>
+
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Major progress</h2>
+<h2 id="sec-1">The problem</h2>
 <div class="outline-text-2" id="text-1">
 
 
 <p>
-  Now I am able to write wikilinks to images on the local server and
-  not just hosted remotely.  For example,
-  <a href="./../time-series-2/interest-rates.png"><img src="../time-series-2/interest-rates.png" alt="interest-rates.png"/></a> is an image that I wanted to show
-  at the end of <a href="./../time-series-2">the article on my time-series framework</a>, but which I
-  couldn't because the org plugin wasn't able to show images at the
-  time.
+  Ikiwiki plugins work by calling a function named <code>hook</code> which lets
+  them tell the ikiwiki compiler that they implement a certain
+  subroutine.  Whenever that subroutine needs to be called, the
+  ikiwiki compiler calls <code>run_hooks</code>, and that runs all the registered
+  functions.
 </p>
 <p>
-  Another bit of progress is that I finally debugged the little shell
-  shim to allow it to start up the emacs daemon properly.  Now I can
-  just have one emacs window running and one emacs daemon in the
-  background.
+  For most of these hooked functions (<code>htmlize</code> is the only exception
+  I can think of), all of the registered functions are called,
+  regardless of file type.  This is normally not a problem, because
+  the plugin can check the type of content that it is given and only
+  operate on the types of content that it knows anything about.
+</p>
+<p>
+  For external plugins, however, there is a problem.  Ikiwiki
+  communicates with external plugins via xml-rpc on <code>stdin</code> and
+  <code>stdout</code>.  Every function call that it makes involves writing the
+  function's parameters on <code>stdout</code>.  When there is a file type that
+  is unknown to the external plugin, all that effort (I/O is the main
+  time sink I think, but the content must also be encoded correctly
+  for xml-rpc) is wasted.
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Remaining TODOs</h2>
+<h2 id="sec-2">The solution</h2>
 <div class="outline-text-2" id="text-2">
 
 
 <p>
-  The remaining work left to do should not be too difficult.  I have
-  some of my own org customization baked into the file which would be
-  better left up to the user's preferences.  I have to decide whether
-  it makes more sense for the user to customize these preferences in
-  the ikiwiki configuration file or just in their <code>.emacs</code>.  The
-  latter would be easier for me, but it might be easier for the user
-  (especially if they have multiple wikis set up) to do it in the
-  ikiwiki configuration file.
-</p>
-<p>
-  I also need to allow for verbatim inclusion of links.  I guess it
-  makes more sense to do this in the standard org manner rather than
-  the ikiwiki manner (with a backslash in front of the link).
-  However, the link must be protected from ikiwiki interpreting it, so
-  things might get a little complex there.
-</p>
-<p>
-  After those two things are completed, however, I think I'm going to
-  call this project done unless I hear feedback from users.
+  I have added a parameter named "exclusive" to the optional arguments
+  that are accepted by the <code>hook</code> function.  When this argument exists
+  (and is true), the registered function is only run when the type of
+  file is the same as the type of file that the plugin accepts.  So
+  far, it only works with the <code>scan</code> and <code>linkify</code> hooks, which were
+  the main areas that slowed my plugin down.  However, it is quite
+  simple to get it to work with other hooks as well.
 </p>
 
 </div>
@@ -152,15 +155,9 @@ More ikiwiki plugin hacking
 <div class="tags">
 Tags:
 
-<a href="../../tags/emacs/" rel="tag">emacs</a>
-
 <a href="../../tags/ikiwiki/" rel="tag">ikiwiki</a>
 
-<a href="../../tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
-
-<a href="../../tags/org-mode/" rel="tag">org-mode</a>
-
-<a href="../../tags/time-series/" rel="tag">time-series</a>
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
 
 </div>
 
@@ -172,8 +169,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu 15 Dec 2011 11:28:05 AM MST</span>
-<!-- Created <span class="date">Thu 15 Dec 2011 11:28:05 AM MST</span> -->
+Last edited <span class="date">Thu Feb  9 16:45:17 2012</span>
+<!-- Created <span class="date">Thu Feb  9 16:45:17 2012</span> -->
 </div>
 
 </div>

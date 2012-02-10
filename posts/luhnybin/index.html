@@ -72,7 +72,7 @@ The Luhnybin Challenge
 
 <div id="content">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Another programming challenge </h2>
+<h2 id="sec-1">Another programming challenge</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -93,19 +93,17 @@ The Luhnybin Challenge
 
 
 
-<pre class="example">(defn luhn-check
-  "Takes a sequence of digits and determines whether they pass the Luhn test.
-   The sequence must be in order from right to left."
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">luhn-check</span>
+  <span style="color: #8fb28f;">"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
+<span style="color: #8fb28f;">   The sequence must be in order from right to left."</span>
   [digits]
-  (-&gt;&gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (<span style="color: #8cd0d3;">-&gt;&gt;</span> digits
+       (<span style="color: #f0dfaf;">partition</span> 2 2 (<span style="color: #f0dfaf;">repeat</span> 0))
+       (<span style="color: #f0dfaf;">mapcat</span> #(<span style="color: #f0dfaf;">vector</span> (<span style="color: #f0dfaf;">first</span> %) (<span style="color: #f0dfaf;">*</span> 2 (<span style="color: #f0dfaf;">second</span> %))))
+       (<span style="color: #f0dfaf;">reduce</span> #(<span style="color: #f0dfaf;">+</span> %1 (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">/</span> %2 10)) (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">mod</span> %2 10))))
+       (#(<span style="color: #f0dfaf;">mod</span> % 10))
+       (<span style="color: #f0dfaf;">=</span> 0)))
 </pre>
-
-
 
 
 <p>
@@ -181,8 +179,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu Dec  1 00:44:18 2011</span>
-<!-- Created <span class="date">Tue Nov 15 13:22:19 2011</span> -->
+Last edited <span class="date">Thu 01 Dec 2011 12:44:18 AM MST</span>
+<!-- Created <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span> -->
 </div>
 
 </div>

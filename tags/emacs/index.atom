@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/emacs/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2011-12-15T18:28:05Z</updated>
 <entry>
 	<title>More ikiwiki plugin hacking</title>
@@ -46,7 +46,7 @@
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Major progress &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Major progress&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -69,7 +69,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Remaining TODOs &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Remaining TODOs&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -131,7 +131,7 @@
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;More fun with emacs &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;More fun with emacs&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -161,7 +161,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;How I did it &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;How I did it&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -172,7 +172,7 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun my-anything ()
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;my-anything&lt;/span&gt; ()
   (interactive)
   (anything-other-buffer
    &#39;(anything-c-source-buffers+
@@ -183,10 +183,8 @@
      anything-c-source-bookmarks
      anything-c-source-bookmark-set
      anything-c-source-emms-files)
-    &quot;*anything*&quot;))
+    &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;*anything*&quot;&lt;/span&gt;))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -201,22 +199,20 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defvar anything-c-source-git-annex
-  &#39;((name . &quot;Git Annex&quot;)
-    (candidates . (lambda ()
-                    (with-current-buffer anything-current-buffer
-                     (with-temp-buffer
-                       (call-process &quot;git&quot; nil t nil &quot;annex&quot; &quot;find&quot;)
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defvar&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;anything-c-source-git-annex&lt;/span&gt;
+  &#39;((name . &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Git Annex&quot;&lt;/span&gt;)
+    (candidates . (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; ()
+                    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-current-buffer&lt;/span&gt; anything-current-buffer
+                     (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
+                       (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil t nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;annex&quot;&lt;/span&gt; &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;find&quot;&lt;/span&gt;)
                        (goto-char (point-min))
-                       (split-string (buffer-string) &quot;\n&quot;)))))
+                       (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;)))))
     (volatile)
-    (action . ((&quot;Watch&quot; . anything-c-git-annex-play)
-               (&quot;Drop&quot; . anything-c-git-annex-drop)
-               (&quot;Move&quot; . anything-c-git-annex-move)
-               (&quot;Copy&quot; . anything-c-git-annex-copy)))))
+    (action . ((&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Watch&quot;&lt;/span&gt; . anything-c-git-annex-play)
+               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Drop&quot;&lt;/span&gt; . anything-c-git-annex-drop)
+               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Move&quot;&lt;/span&gt; . anything-c-git-annex-move)
+               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Copy&quot;&lt;/span&gt; . anything-c-git-annex-copy)))))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -237,11 +233,9 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun anything-c-git-annex-drop (candidate)
-  (anything-git-annex-command &quot;drop&quot; (concat &quot;\&quot;&quot; candidate &quot;\&quot;&quot;)))
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-drop&lt;/span&gt; (candidate)
+  (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;drop&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -252,21 +246,19 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun anything-c-git-annex-copy (candidate)
-  (let* ((to (anything-comp-read
-              &quot;To Git Annex: &quot;
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-copy&lt;/span&gt; (candidate)
+  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((to (anything-comp-read
+              &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;To Git Annex: &quot;&lt;/span&gt;
               (anything-c-git-remotes)
-              :must-match nil)))
-    (anything-git-annex-command &quot;copy&quot; (concat &quot;\&quot;&quot; candidate &quot;\&quot;&quot;)
-                                &quot;--to&quot; (concat &quot;\&quot;&quot; to &quot;\&quot;&quot;))))
+              &lt;span style=&quot;color: #8cd0d3;&quot;&gt;:must-match&lt;/span&gt; nil)))
+    (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;copy&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)
+                                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;--to&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; to &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;))))
 
-(defun anything-c-git-remotes ()
-  (with-temp-buffer
-    (call-process &quot;git&quot; nil (current-buffer) nil &quot;remote&quot;)
-    (delete &quot;&quot; (split-string (buffer-string) &quot;\n&quot;))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-remotes&lt;/span&gt; ()
+  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
+    (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil (current-buffer) nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;remote&quot;&lt;/span&gt;)
+    (delete &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;&quot;&lt;/span&gt; (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;))))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -283,7 +275,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Wrapping up &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Wrapping up&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -342,7 +334,7 @@ some of them, in no particular order.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;xml-rpc.el has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;xml-rpc.el has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -376,7 +368,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;xml.el has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;xml.el has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -388,16 +380,14 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun xml-find-nodes-matching (node name)
-  &quot;Returns all children of `node&#39; that have an `xml-node-name&#39; equal to `name&#39;.&quot;
-  (if (or (eq node &#39;()) (not (listp node)))
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;xml-find-nodes-matching&lt;/span&gt; (node name)
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Returns all children of `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;node&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; that have an `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;xml-node-name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; equal to `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39;.&quot;&lt;/span&gt;
+  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (or (eq node &#39;()) (not (listp node)))
       &#39;()
-    (if (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply &#39;append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply &#39;append (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -410,7 +400,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Perl has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Perl has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -428,7 +418,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Ikiwiki has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Ikiwiki has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -455,7 +445,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-5&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-5&quot;&gt;Working with emacs buffers is pretty nice &lt;/h2&gt;
+&lt;h2 id=&quot;sec-5&quot;&gt;Working with emacs buffers is pretty nice&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
 
 
@@ -472,7 +462,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-6&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-6&quot;&gt;Getting info from a structured list is easier to do as a recursive function &lt;/h2&gt;
+&lt;h2 id=&quot;sec-6&quot;&gt;Getting info from a structured list is easier to do as a recursive function&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
 
 
@@ -483,11 +473,9 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(setq valtype (car (caddar xml-list))
+&lt;pre class=&quot;src src-elisp&quot;&gt;(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -511,7 +499,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-7&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-7&quot;&gt;It&#39;s nice when all calls and responses are dumped to a file &lt;/h2&gt;
+&lt;h2 id=&quot;sec-7&quot;&gt;It&#39;s nice when all calls and responses are dumped to a file&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
 
 
@@ -558,7 +546,7 @@ some of them, in no particular order.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Progress &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Progress&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -626,7 +614,7 @@ some of them, in no particular order.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Probably a bad idea&amp;hellip; &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Probably a bad idea&amp;hellip;&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -647,11 +635,9 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let* ((foo bar)
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
        (baz foo)))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -665,11 +651,9 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let [foo bar
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
       baz foo])
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -688,7 +672,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Maybe not so crazy &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Maybe not so crazy&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -711,7 +695,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Probably pretty crazy after all &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Probably pretty crazy after all&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -732,7 +716,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Totally crazy &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Totally crazy&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -783,7 +767,7 @@ some of them, in no particular order.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;A new plugin &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A new plugin&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -841,7 +825,7 @@ some of them, in no particular order.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;A new system &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A new system&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -869,7 +853,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;What I intend to write about &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What I intend to write about&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 

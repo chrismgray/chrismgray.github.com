@@ -72,7 +72,7 @@ Convex Hulls
 
 <div id="content">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Convex Hulls Three Ways </h2>
+<h2 id="sec-1">Convex Hulls Three Ways</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -92,7 +92,7 @@ Convex Hulls
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">Jarvis March </h3>
+<h3 id="sec-1-1">Jarvis March</h3>
 <div class="outline-text-3" id="text-1-1">
 
 
@@ -122,7 +122,7 @@ Convex Hulls
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">Graham's Scan </h3>
+<h3 id="sec-1-2">Graham's Scan</h3>
 <div class="outline-text-3" id="text-1-2">
 
 
@@ -160,7 +160,7 @@ Convex Hulls
 </div>
 
 <div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">Chan's Algorithm </h3>
+<h3 id="sec-1-3">Chan's Algorithm</h3>
 <div class="outline-text-3" id="text-1-3">
 
 
@@ -180,21 +180,19 @@ Convex Hulls
 
 
 
-<pre class="example">(defn chans-algorithm
-  "Finds the convex hull of a set of points by
-   the algorithm known as 'Chan's Algorithm'."
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">chans-algorithm</span>
+  <span style="color: #8fb28f;">"Finds the convex hull of a set of points by</span>
+<span style="color: #8fb28f;">   the algorithm known as 'Chan's Algorithm'."</span>
   [pts]
-  (let [bottom-pt (apply min-key :y pts)]
-   (loop [m 3] ; start out with triangles
-     (let [partitioned-pts (partition m m [] pts)
-           c-hs (map grahams-scan partitioned-pts)
-           potential-ch (take m (apply jarvis-march pts c-hs))]
-       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+  (<span style="color: #8cd0d3;">let</span> [bottom-pt (<span style="color: #f0dfaf;">apply</span> min-key <span style="color: #dca3a3; font-weight: bold;">:y</span> pts)]
+   (<span style="color: #8cd0d3;">loop</span> [m 3] <span style="color: #708070;">; </span><span style="color: #7f9f7f;">start out with triangles</span>
+     (<span style="color: #8cd0d3;">let</span> [partitioned-pts (<span style="color: #f0dfaf;">partition</span> m m [] pts)
+           c-hs (<span style="color: #f0dfaf;">map</span> grahams-scan partitioned-pts)
+           potential-ch (<span style="color: #f0dfaf;">take</span> m (<span style="color: #f0dfaf;">apply</span> jarvis-march pts c-hs))]
+       (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> bottom-pt (<span style="color: #f0dfaf;">last</span> potential-ch)) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">assumes jarvis-march returns bottom-pt last</span>
          potential-ch
-         (recur (min (* m m) (count pts))))))))
+         (<span style="color: #8cd0d3;">recur</span> (<span style="color: #f0dfaf;">min</span> (<span style="color: #f0dfaf;">*</span> m m) (<span style="color: #f0dfaf;">count</span> pts))))))))
 </pre>
-
-
 
 
 <p>
@@ -211,7 +209,7 @@ Convex Hulls
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Conclusion </h2>
+<h2 id="sec-2">Conclusion</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -297,8 +295,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Fri Dec  2 15:05:50 2011</span>
-<!-- Created <span class="date">Wed Nov 30 11:06:31 2011</span> -->
+Last edited <span class="date">Fri 02 Dec 2011 03:05:50 PM MST</span>
+<!-- Created <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span> -->
 </div>
 
 </div>

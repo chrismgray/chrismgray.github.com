@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/thrush/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2012-01-07T02:23:15Z</updated>
 <entry>
 	<title>Two Small Clojure Packages</title>
@@ -50,7 +50,7 @@ enough for me to release as Clojure packages.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Parallel Thrush &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Parallel Thrush&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -85,8 +85,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   is the same as
 &lt;/p&gt;
@@ -98,8 +96,6 @@ enough for me to release as Clojure packages.
      (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
      (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -115,7 +111,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;LRU maps &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;LRU maps&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -137,8 +133,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   Sometimes, you want to do something with an element as it gets
   kicked out.  For that, there is &lt;code&gt;lru-map-with&lt;/code&gt;.  This takes two
@@ -153,8 +147,6 @@ enough for me to release as Clojure packages.
 &lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
 &lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -197,7 +189,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -229,8 +221,6 @@ enough for me to release as Clojure packages.
        (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
        (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;

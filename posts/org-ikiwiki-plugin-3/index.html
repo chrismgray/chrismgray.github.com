@@ -77,7 +77,7 @@ some of them, in no particular order.
 </p>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">xml-rpc.el has some problems </h2>
+<h2 id="sec-1">xml-rpc.el has some problems</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -111,7 +111,7 @@ some of them, in no particular order.
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">xml.el has some problems </h2>
+<h2 id="sec-2">xml.el has some problems</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -123,16 +123,14 @@ some of them, in no particular order.
 
 
 
-<pre class="example">(defun xml-find-nodes-matching (node name)
-  "Returns all children of `node' that have an `xml-node-name' equal to `name'."
-  (if (or (eq node '()) (not (listp node)))
+<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">xml-find-nodes-matching</span> (node name)
+  <span style="color: #8fb28f;">"Returns all children of `</span><span style="color: #dca3a3; font-weight: bold;">node</span><span style="color: #8fb28f;">' that have an `</span><span style="color: #dca3a3; font-weight: bold;">xml-node-name</span><span style="color: #8fb28f;">' equal to `</span><span style="color: #dca3a3; font-weight: bold;">name</span><span style="color: #8fb28f;">'."</span>
+  (<span style="color: #f0dfaf; font-weight: bold;">if</span> (or (eq node '()) (not (listp node)))
       '()
-    (if (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply 'append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (<span style="color: #f0dfaf; font-weight: bold;">if</span> (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply 'append (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 </pre>
-
-
 
 
 <p>
@@ -145,7 +143,7 @@ some of them, in no particular order.
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Perl has some problems </h2>
+<h2 id="sec-3">Perl has some problems</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -163,7 +161,7 @@ some of them, in no particular order.
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Ikiwiki has some problems </h2>
+<h2 id="sec-4">Ikiwiki has some problems</h2>
 <div class="outline-text-2" id="text-4">
 
 
@@ -190,7 +188,7 @@ some of them, in no particular order.
 </div>
 
 <div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">Working with emacs buffers is pretty nice </h2>
+<h2 id="sec-5">Working with emacs buffers is pretty nice</h2>
 <div class="outline-text-2" id="text-5">
 
 
@@ -207,7 +205,7 @@ some of them, in no particular order.
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Getting info from a structured list is easier to do as a recursive function </h2>
+<h2 id="sec-6">Getting info from a structured list is easier to do as a recursive function</h2>
 <div class="outline-text-2" id="text-6">
 
 
@@ -218,11 +216,9 @@ some of them, in no particular order.
 
 
 
-<pre class="example">(setq valtype (car (caddar xml-list))
+<pre class="src src-elisp">(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 </pre>
-
-
 
 
 <p>
@@ -246,7 +242,7 @@ some of them, in no particular order.
 </div>
 
 <div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">It's nice when all calls and responses are dumped to a file </h2>
+<h2 id="sec-7">It's nice when all calls and responses are dumped to a file</h2>
 <div class="outline-text-2" id="text-7">
 
 
@@ -308,8 +304,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Wed Dec  7 15:42:09 2011</span>
-<!-- Created <span class="date">Wed Dec  7 15:00:36 2011</span> -->
+Last edited <span class="date">Wed 07 Dec 2011 03:42:09 PM MST</span>
+<!-- Created <span class="date">Wed 07 Dec 2011 03:00:36 PM MST</span> -->
 </div>
 
 </div>

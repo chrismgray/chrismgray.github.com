@@ -72,7 +72,7 @@ Git Annex in Anything
 
 <div id="content">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">More fun with emacs </h2>
+<h2 id="sec-1">More fun with emacs</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -102,7 +102,7 @@ Git Annex in Anything
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">How I did it </h2>
+<h2 id="sec-2">How I did it</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -113,7 +113,7 @@ Git Annex in Anything
 
 
 
-<pre class="example">(defun my-anything ()
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">my-anything</span> ()
   (interactive)
   (anything-other-buffer
    '(anything-c-source-buffers+
@@ -124,10 +124,8 @@ Git Annex in Anything
      anything-c-source-bookmarks
      anything-c-source-bookmark-set
      anything-c-source-emms-files)
-    "*anything*"))
+    <span style="color: #cc9393;">"*anything*"</span>))
 </pre>
-
-
 
 
 <p>
@@ -142,22 +140,20 @@ Git Annex in Anything
 
 
 
-<pre class="example">(defvar anything-c-source-git-annex
-  '((name . "Git Annex")
-    (candidates . (lambda ()
-                    (with-current-buffer anything-current-buffer
-                     (with-temp-buffer
-                       (call-process "git" nil t nil "annex" "find")
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defvar</span> <span style="color: #f0dfaf;">anything-c-source-git-annex</span>
+  '((name . <span style="color: #cc9393;">"Git Annex"</span>)
+    (candidates . (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> ()
+                    (<span style="color: #f0dfaf; font-weight: bold;">with-current-buffer</span> anything-current-buffer
+                     (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
+                       (call-process <span style="color: #cc9393;">"git"</span> nil t nil <span style="color: #cc9393;">"annex"</span> <span style="color: #cc9393;">"find"</span>)
                        (goto-char (point-min))
-                       (split-string (buffer-string) "\n")))))
+                       (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>)))))
     (volatile)
-    (action . (("Watch" . anything-c-git-annex-play)
-               ("Drop" . anything-c-git-annex-drop)
-               ("Move" . anything-c-git-annex-move)
-               ("Copy" . anything-c-git-annex-copy)))))
+    (action . ((<span style="color: #cc9393;">"Watch"</span> . anything-c-git-annex-play)
+               (<span style="color: #cc9393;">"Drop"</span> . anything-c-git-annex-drop)
+               (<span style="color: #cc9393;">"Move"</span> . anything-c-git-annex-move)
+               (<span style="color: #cc9393;">"Copy"</span> . anything-c-git-annex-copy)))))
 </pre>
-
-
 
 
 <p>
@@ -178,11 +174,9 @@ Git Annex in Anything
 
 
 
-<pre class="example">(defun anything-c-git-annex-drop (candidate)
-  (anything-git-annex-command "drop" (concat "\"" candidate "\"")))
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-drop</span> (candidate)
+  (anything-git-annex-command <span style="color: #cc9393;">"drop"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)))
 </pre>
-
-
 
 
 <p>
@@ -193,21 +187,19 @@ Git Annex in Anything
 
 
 
-<pre class="example">(defun anything-c-git-annex-copy (candidate)
-  (let* ((to (anything-comp-read
-              "To Git Annex: "
+<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-copy</span> (candidate)
+  (<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((to (anything-comp-read
+              <span style="color: #cc9393;">"To Git Annex: "</span>
               (anything-c-git-remotes)
-              :must-match nil)))
-    (anything-git-annex-command "copy" (concat "\"" candidate "\"")
-                                "--to" (concat "\"" to "\""))))
+              <span style="color: #8cd0d3;">:must-match</span> nil)))
+    (anything-git-annex-command <span style="color: #cc9393;">"copy"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)
+                                <span style="color: #cc9393;">"--to"</span> (concat <span style="color: #cc9393;">"\""</span> to <span style="color: #cc9393;">"\""</span>))))
 
-(defun anything-c-git-remotes ()
-  (with-temp-buffer
-    (call-process "git" nil (current-buffer) nil "remote")
-    (delete "" (split-string (buffer-string) "\n"))))
+(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-remotes</span> ()
+  (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
+    (call-process <span style="color: #cc9393;">"git"</span> nil (current-buffer) nil <span style="color: #cc9393;">"remote"</span>)
+    (delete <span style="color: #cc9393;">""</span> (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>))))
 </pre>
-
-
 
 
 <p>
@@ -224,7 +216,7 @@ Git Annex in Anything
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Wrapping up </h2>
+<h2 id="sec-3">Wrapping up</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -285,8 +277,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Mon Dec 12 13:03:17 2011</span>
-<!-- Created <span class="date">Mon Dec 12 13:03:17 2011</span> -->
+Last edited <span class="date">Mon 12 Dec 2011 01:03:17 PM MST</span>
+<!-- Created <span class="date">Mon 12 Dec 2011 01:03:17 PM MST</span> -->
 </div>
 
 </div>

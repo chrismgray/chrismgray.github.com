@@ -78,7 +78,7 @@ enough for me to release as Clojure packages.
 </p>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Parallel Thrush </h2>
+<h2 id="sec-1">Parallel Thrush</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -113,8 +113,6 @@ enough for me to release as Clojure packages.
 </pre>
 
 
-
-
 <p>
   is the same as
 </p>
@@ -126,8 +124,6 @@ enough for me to release as Clojure packages.
      (<span style="color: #f0dfaf;">filter</span> odd?)
      (<span style="color: #f0dfaf;">reduce</span> +))
 </pre>
-
-
 
 
 <p>
@@ -143,7 +139,7 @@ enough for me to release as Clojure packages.
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">LRU maps </h2>
+<h2 id="sec-2">LRU maps</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -165,8 +161,6 @@ enough for me to release as Clojure packages.
 </pre>
 
 
-
-
 <p>
   Sometimes, you want to do something with an element as it gets
   kicked out.  For that, there is <code>lru-map-with</code>.  This takes two
@@ -181,8 +175,6 @@ enough for me to release as Clojure packages.
 <pre class="src src-clojure">(<span style="color: #f0dfaf;">apply</span> lru-map-with 4 conj [] (<span style="color: #f0dfaf;">range</span> 20))
 <span style="color: #708070;">;</span><span style="color: #7f9f7f;">=&gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}</span>
 </pre>
-
-
 
 
 <p>

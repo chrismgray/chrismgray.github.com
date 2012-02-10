@@ -27,7 +27,7 @@
 	<dcterms:modified>2011-12-12T20:03:17Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;More fun with emacs &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;More fun with emacs&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -57,7 +57,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;How I did it &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;How I did it&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -68,7 +68,7 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun my-anything ()
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;my-anything&lt;/span&gt; ()
   (interactive)
   (anything-other-buffer
    &#39;(anything-c-source-buffers+
@@ -79,10 +79,8 @@
      anything-c-source-bookmarks
      anything-c-source-bookmark-set
      anything-c-source-emms-files)
-    &quot;*anything*&quot;))
+    &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;*anything*&quot;&lt;/span&gt;))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -97,22 +95,20 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defvar anything-c-source-git-annex
-  &#39;((name . &quot;Git Annex&quot;)
-    (candidates . (lambda ()
-                    (with-current-buffer anything-current-buffer
-                     (with-temp-buffer
-                       (call-process &quot;git&quot; nil t nil &quot;annex&quot; &quot;find&quot;)
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defvar&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;anything-c-source-git-annex&lt;/span&gt;
+  &#39;((name . &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Git Annex&quot;&lt;/span&gt;)
+    (candidates . (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; ()
+                    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-current-buffer&lt;/span&gt; anything-current-buffer
+                     (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
+                       (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil t nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;annex&quot;&lt;/span&gt; &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;find&quot;&lt;/span&gt;)
                        (goto-char (point-min))
-                       (split-string (buffer-string) &quot;\n&quot;)))))
+                       (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;)))))
     (volatile)
-    (action . ((&quot;Watch&quot; . anything-c-git-annex-play)
-               (&quot;Drop&quot; . anything-c-git-annex-drop)
-               (&quot;Move&quot; . anything-c-git-annex-move)
-               (&quot;Copy&quot; . anything-c-git-annex-copy)))))
+    (action . ((&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Watch&quot;&lt;/span&gt; . anything-c-git-annex-play)
+               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Drop&quot;&lt;/span&gt; . anything-c-git-annex-drop)
+               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Move&quot;&lt;/span&gt; . anything-c-git-annex-move)
+               (&lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Copy&quot;&lt;/span&gt; . anything-c-git-annex-copy)))))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -133,11 +129,9 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun anything-c-git-annex-drop (candidate)
-  (anything-git-annex-command &quot;drop&quot; (concat &quot;\&quot;&quot; candidate &quot;\&quot;&quot;)))
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-drop&lt;/span&gt; (candidate)
+  (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;drop&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -148,21 +142,19 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun anything-c-git-annex-copy (candidate)
-  (let* ((to (anything-comp-read
-              &quot;To Git Annex: &quot;
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-annex-copy&lt;/span&gt; (candidate)
+  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((to (anything-comp-read
+              &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;To Git Annex: &quot;&lt;/span&gt;
               (anything-c-git-remotes)
-              :must-match nil)))
-    (anything-git-annex-command &quot;copy&quot; (concat &quot;\&quot;&quot; candidate &quot;\&quot;&quot;)
-                                &quot;--to&quot; (concat &quot;\&quot;&quot; to &quot;\&quot;&quot;))))
+              &lt;span style=&quot;color: #8cd0d3;&quot;&gt;:must-match&lt;/span&gt; nil)))
+    (anything-git-annex-command &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;copy&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; candidate &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;)
+                                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;--to&quot;&lt;/span&gt; (concat &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt; to &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\&quot;&quot;&lt;/span&gt;))))
 
-(defun anything-c-git-remotes ()
-  (with-temp-buffer
-    (call-process &quot;git&quot; nil (current-buffer) nil &quot;remote&quot;)
-    (delete &quot;&quot; (split-string (buffer-string) &quot;\n&quot;))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;anything-c-git-remotes&lt;/span&gt; ()
+  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;with-temp-buffer&lt;/span&gt;
+    (call-process &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;git&quot;&lt;/span&gt; nil (current-buffer) nil &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;remote&quot;&lt;/span&gt;)
+    (delete &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;&quot;&lt;/span&gt; (split-string (buffer-string) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;\n&quot;&lt;/span&gt;))))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -179,7 +171,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Wrapping up &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Wrapping up&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -220,7 +212,7 @@
 	<dcterms:modified>2011-12-03T03:47:16Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Using git annex &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Using git annex&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -262,7 +254,6 @@
 &lt;/pre&gt;
 
 
-
 &lt;p&gt;
   at this point, I set the &lt;code&gt;backends&lt;/code&gt; keyword in the &lt;code&gt;[annex]&lt;/code&gt; section
   to either &lt;code&gt;SHA1E&lt;/code&gt; or &lt;code&gt;SHA256E&lt;/code&gt;.  There is a tradeoff there between
@@ -283,7 +274,6 @@
 &lt;/pre&gt;
 
 
-
 &lt;p&gt;
   Now it is possible to clone this repository back on the laptop
 &lt;/p&gt;
@@ -297,7 +287,6 @@
 ~/music $ cd /media/mybook/music
 /media/mybook/music $ git remote add laptop-music ~/music
 &lt;/pre&gt;
-
 
 
 &lt;p&gt;
@@ -315,7 +304,6 @@
 &lt;/pre&gt;
 
 
-
 &lt;p&gt;
   I can now take my laptop on the plane and listen to the Beatles.
   When I&#39;m back from my trip, I can free up the space by doing
@@ -325,7 +313,6 @@
 
 &lt;pre class=&quot;example&quot;&gt;~/music $ git annex drop Beatles/
 &lt;/pre&gt;
-
 
 
 &lt;p&gt;
@@ -384,7 +371,7 @@
 	<dcterms:modified>2011-12-01T07:43:31Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Scattered &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Scattered&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -398,7 +385,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;New programming project &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;New programming project&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -422,7 +409,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -436,7 +423,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -451,7 +438,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -469,7 +456,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Git annex &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Git annex&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 

@@ -31,7 +31,7 @@
 	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -62,7 +62,7 @@ works in Clojure but not in Clojurescript.
 So what can be done about this?  Here are some options:
 &lt;/p&gt;
 &lt;ul&gt;
-&lt;li id=&quot;sec-1-1&quot;&gt;Use floats, but more smartly &lt;br/&gt;
+&lt;li id=&quot;sec-1-1&quot;&gt;Use floats, but more smartly&lt;br/&gt;
 
 &lt;p&gt;
      Probably the simplest option, here we would not test for &lt;i&gt;equality&lt;/i&gt;,
@@ -78,7 +78,7 @@ So what can be done about this?  Here are some options:
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
-&lt;li id=&quot;sec-1-2&quot;&gt;Implement rationals in Clojurescript &lt;br/&gt;
+&lt;li id=&quot;sec-1-2&quot;&gt;Implement rationals in Clojurescript&lt;br/&gt;
 
 &lt;p&gt;
      I am not sure how possible this option is.  However, it is currently
@@ -116,7 +116,7 @@ So what can be done about this?  Here are some options:
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 

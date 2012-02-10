@@ -8,6 +8,85 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>A bit of ikiwiki hackery</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/ikiwiki-hacking/</guid>
+
+	<link>http://chrismgray.github.com//posts/ikiwiki-hacking/</link>
+
+
+	<category>ikiwiki</category>
+
+	<category>lab-notes</category>
+
+
+	<pubDate>Thu, 09 Feb 2012 16:45:17 -0700</pubDate>
+	<dcterms:modified>2012-02-09T23:45:17Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;Spurred on by the first comment by an actual user of my plugin today,
+I tracked down one of the major bottlenecks for external ikiwiki
+plugins.  My fix might not be the most elegant, but it works so far.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;The problem&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Ikiwiki plugins work by calling a function named &lt;code&gt;hook&lt;/code&gt; which lets
+  them tell the ikiwiki compiler that they implement a certain
+  subroutine.  Whenever that subroutine needs to be called, the
+  ikiwiki compiler calls &lt;code&gt;run_hooks&lt;/code&gt;, and that runs all the registered
+  functions.
+&lt;/p&gt;
+&lt;p&gt;
+  For most of these hooked functions (&lt;code&gt;htmlize&lt;/code&gt; is the only exception
+  I can think of), all of the registered functions are called,
+  regardless of file type.  This is normally not a problem, because
+  the plugin can check the type of content that it is given and only
+  operate on the types of content that it knows anything about.
+&lt;/p&gt;
+&lt;p&gt;
+  For external plugins, however, there is a problem.  Ikiwiki
+  communicates with external plugins via xml-rpc on &lt;code&gt;stdin&lt;/code&gt; and
+  &lt;code&gt;stdout&lt;/code&gt;.  Every function call that it makes involves writing the
+  function&#39;s parameters on &lt;code&gt;stdout&lt;/code&gt;.  When there is a file type that
+  is unknown to the external plugin, all that effort (I/O is the main
+  time sink I think, but the content must also be encoded correctly
+  for xml-rpc) is wasted.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;The solution&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I have added a parameter named &quot;exclusive&quot; to the optional arguments
+  that are accepted by the &lt;code&gt;hook&lt;/code&gt; function.  When this argument exists
+  (and is true), the registered function is only run when the type of
+  file is the same as the type of file that the plugin accepts.  So
+  far, it only works with the &lt;code&gt;scan&lt;/code&gt; and &lt;code&gt;linkify&lt;/code&gt; hooks, which were
+  the main areas that slowed my plugin down.  However, it is quite
+  simple to get it to work with other hooks as well.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/ikiwiki-hacking/#comments</comments>
+
+</item>
+<item>
+
 	<title>Two Small Clojure Packages</title>
 
 
@@ -35,7 +114,7 @@ enough for me to release as Clojure packages.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Parallel Thrush &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Parallel Thrush&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -70,8 +149,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   is the same as
 &lt;/p&gt;
@@ -83,8 +160,6 @@ enough for me to release as Clojure packages.
      (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
      (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -100,7 +175,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;LRU maps &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;LRU maps&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -122,8 +197,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   Sometimes, you want to do something with an element as it gets
   kicked out.  For that, there is &lt;code&gt;lru-map-with&lt;/code&gt;.  This takes two
@@ -138,8 +211,6 @@ enough for me to release as Clojure packages.
 &lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
 &lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -184,7 +255,7 @@ some of them, in no particular order.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;xml-rpc.el has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;xml-rpc.el has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -218,7 +289,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;xml.el has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;xml.el has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -240,8 +311,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   In general, both xml-rpc.el and xml.el use a distressing number of
   calls to &lt;code&gt;car&lt;/code&gt;, &lt;code&gt;cdr&lt;/code&gt;, and &lt;code&gt;cdaddr&lt;/code&gt; (and all the versions in
@@ -252,7 +321,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Perl has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Perl has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -270,7 +339,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Ikiwiki has some problems &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Ikiwiki has some problems&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -297,7 +366,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-5&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-5&quot;&gt;Working with emacs buffers is pretty nice &lt;/h2&gt;
+&lt;h2 id=&quot;sec-5&quot;&gt;Working with emacs buffers is pretty nice&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
 
 
@@ -314,7 +383,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-6&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-6&quot;&gt;Getting info from a structured list is easier to do as a recursive function &lt;/h2&gt;
+&lt;h2 id=&quot;sec-6&quot;&gt;Getting info from a structured list is easier to do as a recursive function&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
 
 
@@ -328,8 +397,6 @@ some of them, in no particular order.
 &lt;pre class=&quot;src src-elisp&quot;&gt;(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -353,7 +420,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-7&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-7&quot;&gt;It&#39;s nice when all calls and responses are dumped to a file &lt;/h2&gt;
+&lt;h2 id=&quot;sec-7&quot;&gt;It&#39;s nice when all calls and responses are dumped to a file&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
 
 
@@ -397,7 +464,7 @@ some of them, in no particular order.
 	<dcterms:modified>2011-12-02T22:05:50Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -417,7 +484,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Jarvis March &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Jarvis March&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 
 
@@ -447,7 +514,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-2&quot;&gt;Graham&#39;s Scan &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-2&quot;&gt;Graham&#39;s Scan&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
 
 
@@ -485,7 +552,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-3&quot;&gt;Chan&#39;s Algorithm &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-3&quot;&gt;Chan&#39;s Algorithm&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
 
 
@@ -520,8 +587,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
    The great thing about Chan&#39;s Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
@@ -536,7 +601,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -600,7 +665,7 @@ some of them, in no particular order.
 	<dcterms:modified>2011-12-01T07:45:44Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Penance&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -631,7 +696,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Heap Sort &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Heap Sort&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -646,7 +711,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Heap &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Heap&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -669,7 +734,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Building a Heap &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Building a Heap&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -707,7 +772,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-3&quot;&gt;Using a heap to sort &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-3&quot;&gt;Using a heap to sort&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-3&quot;&gt;
 
 
@@ -737,7 +802,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-4&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-4&quot;&gt;Advantages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-4&quot;&gt;Advantages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-4&quot;&gt;
 
 
@@ -772,7 +837,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-5&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-5&quot;&gt;Disadvantages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-5&quot;&gt;Disadvantages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-5&quot;&gt;
 
 
@@ -799,7 +864,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Implementation &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Implementation&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -830,7 +895,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -872,7 +937,7 @@ some of them, in no particular order.
 	<dcterms:modified>2011-12-01T07:45:19Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -904,7 +969,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 
 
@@ -928,7 +993,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Going forward &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Going forward&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -985,7 +1050,7 @@ some of them, in no particular order.
 	<dcterms:modified>2011-12-01T07:45:06Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1030,8 +1095,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   This defines three actions to be performed when the polygon and
   stack are in certain configurations.  The first executes when the
@@ -1066,8 +1129,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   Doing something like that with a &lt;code&gt;reduce&lt;/code&gt; seems like it would veer
   off into unreadability fairly quickly.
@@ -1086,7 +1147,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;On the horizon &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;On the horizon&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1135,7 +1196,7 @@ some of them, in no particular order.
 	<dcterms:modified>2011-12-01T07:44:52Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Functional programming &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Functional programming&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1176,7 +1237,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Visibility polygons &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Visibility polygons&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1205,7 +1266,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Monads &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Monads&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -1249,7 +1310,7 @@ some of them, in no particular order.
 	<dcterms:modified>2011-12-02T16:41:31Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Done!&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1262,8 +1323,6 @@ some of them, in no particular order.
 
 &lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; sym)))))])
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -1291,8 +1350,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   I added the second test: it simply asks whether the variable has
   been defined in the namespace.  If it hasn&#39;t, and the variable is
@@ -1304,7 +1361,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Remove the macros &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Remove the macros&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1353,7 +1410,7 @@ some of them, in no particular order.
 	<dcterms:modified>2011-12-02T16:39:57Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1384,8 +1441,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   The important line there is the last: when defining a new name,
   &lt;code&gt;resolve-var&lt;/code&gt; is called on the symbol.  Let&#39;s have a look at that
@@ -1403,8 +1458,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   This is seeing if the symbol name is in &lt;code&gt;cljs.core&lt;/code&gt;, and if it is
   setting the namespace of the symbol to &lt;code&gt;cljs.core&lt;/code&gt;.  Normally that
@@ -1418,7 +1471,7 @@ some of them, in no particular order.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;What to do &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What to do&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1438,8 +1491,6 @@ some of them, in no particular order.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   might work in the &lt;code&gt;parse&lt;/code&gt; method.
 &lt;/p&gt;
@@ -1450,62 +1501,6 @@ some of them, in no particular order.
 
 
 	<comments>/posts/cljs-name-resolving/#comments</comments>
-
-</item>
-<item>
-
-	<title>More Rationals</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/more-rationals/</guid>
-
-	<link>http://chrismgray.github.com//posts/more-rationals/</link>
-
-
-	<category>clojure</category>
-
-	<category>clojurescript</category>
-
-	<category>lab-notes</category>
-
-	<category>rationals</category>
-
-
-	<pubDate>Thu, 10 Nov 2011 09:55:06 -0700</pubDate>
-	<dcterms:modified>2011-12-01T07:42:23Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;More about rationals &lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  While attempting to implement &lt;a href=&quot;http://chrismgray.github.com/posts/rationals-in-cljs/&quot;&gt;support for rationals&lt;/a&gt; yesterday, I
-  stumbled on what is (or at least, seems to me to be) a bug in the
-  Clojure compiler itself.  That is, one can not refer to the function
-  &lt;code&gt;/&lt;/code&gt; in namespaces other than &lt;code&gt;clojure.core&lt;/code&gt;.  Now, this is probably
-  the first time that anyone has wanted to do this, so it&#39;s not
-  surprising that no one had seen the bug before.  But what was
-  surprising to me was that I could fix it fairly easily.  I submitted
-  my patch, and I should be a real-life contributor to Clojure pretty
-  soon.  As a person who doesn&#39;t see himself as a compiler guy, that&#39;s
-  pretty exciting.
-&lt;/p&gt;
-&lt;p&gt;
-  The next problem that I&#39;m having is that redefining the basic
-  arithmetic operations does not seem to work properly in
-  Clojurescript.  The compiled javascript is trying (at least as far
-  as I can tell) to redefine &lt;code&gt;cljs.core/+&lt;/code&gt; rather than &lt;code&gt;rationals/+&lt;/code&gt;,
-  for example.  This is the problem that I am going to try to solve
-  today.  
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/more-rationals/#comments</comments>
 
 </item>
 

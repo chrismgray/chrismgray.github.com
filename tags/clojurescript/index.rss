@@ -27,7 +27,7 @@
 	<dcterms:modified>2011-12-01T07:44:36Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Where I was &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Where I was&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -82,7 +82,7 @@
 	<dcterms:modified>2011-12-01T07:43:31Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Scattered &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Scattered&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -96,7 +96,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;New programming project &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;New programming project&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -120,7 +120,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -134,7 +134,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -149,7 +149,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -167,7 +167,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Git annex &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Git annex&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -223,7 +223,7 @@
 	<dcterms:modified>2011-12-02T16:41:31Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Done! &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Done!&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -234,10 +234,8 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let [name (munge (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (str sym)))))])
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; sym)))))])
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -259,12 +257,10 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&amp;gt; env :ns :name) :defs sym])))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [full-ns (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;and&lt;/span&gt; (core-name? env sym) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;nil?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;get-in&lt;/span&gt; @namespaces [(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:defs&lt;/span&gt; sym])))
                 &#39;cljs.core
-                (-&amp;gt; env :ns :name))])
+                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;))])
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -278,7 +274,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Remove the macros &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Remove the macros&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -327,7 +323,7 @@
 	<dcterms:modified>2011-12-02T16:39:57Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -346,18 +342,16 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defmethod parse &#39;def
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmethod&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;parse&lt;/span&gt; &#39;def
   [op env form name]
-  (let [pfn (fn ([_ sym] {:sym sym})
-              ([_ sym init] {:sym sym :init init})
-              ([_ sym doc init] {:sym sym :doc doc :init init}))
-        args (apply pfn form)
-        sym (:sym args)]
-    (assert (not (namespace sym)) &quot;Can&#39;t def ns-qualified name&quot;)
-    (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))])))
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [pfn (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; ([_ sym] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym})
+              ([_ sym init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init})
+              ([_ sym doc init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:doc&lt;/span&gt; doc &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init}))
+        args (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; pfn form)
+        sym (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; args)]
+    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;assert&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;namespace&lt;/span&gt; sym)) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Can&#39;t def ns-qualified name&quot;&lt;/span&gt;)
+    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (resolve-var (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;dissoc&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:locals&lt;/span&gt;) sym)))])))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -369,14 +363,12 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(munge (symbol (str
-                (if (core-name? env sym)
+&lt;pre class=&quot;src src-clojure&quot;&gt;(munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt;
+                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (core-name? env sym)
                   &#39;cljs.core
-                  (-&amp;gt; env :ns :name))
-                &quot;.&quot; (munge (name sym)))))
+                  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;))
+                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym)))))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -392,7 +384,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;What to do &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What to do&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -408,10 +400,8 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let [name (munge (:name (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (name sym))))))])
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym))))))])
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -449,7 +439,7 @@
 	<dcterms:modified>2011-12-01T07:42:23Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;More about rationals &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;More about rationals&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -505,7 +495,7 @@
 	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;A small followup &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A small followup&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -548,7 +538,7 @@
 	<dcterms:modified>2011-12-01T07:46:11Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Rationals in Clojurescript&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -579,7 +569,7 @@ works in Clojure but not in Clojurescript.
 So what can be done about this?  Here are some options:
 &lt;/p&gt;
 &lt;ul&gt;
-&lt;li id=&quot;sec-1-1&quot;&gt;Use floats, but more smartly &lt;br/&gt;
+&lt;li id=&quot;sec-1-1&quot;&gt;Use floats, but more smartly&lt;br/&gt;
 
 &lt;p&gt;
      Probably the simplest option, here we would not test for &lt;i&gt;equality&lt;/i&gt;,
@@ -595,7 +585,7 @@ So what can be done about this?  Here are some options:
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
-&lt;li id=&quot;sec-1-2&quot;&gt;Implement rationals in Clojurescript &lt;br/&gt;
+&lt;li id=&quot;sec-1-2&quot;&gt;Implement rationals in Clojurescript&lt;br/&gt;
 
 &lt;p&gt;
      I am not sure how possible this option is.  However, it is currently
@@ -633,7 +623,7 @@ So what can be done about this?  Here are some options:
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 

@@ -72,7 +72,7 @@ Time Series 2
 
 <div id="content">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">What we have so far </h2>
+<h2 id="sec-1">What we have so far</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -93,18 +93,16 @@ Time Series 2
 
 
 
-<pre class="example">(defn time-series [f init-state n num-iterations]
- (let [call-f (fn [state]
-                (let [retval (f state)
-                      num (count state)
-                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">time-series</span> [f init-state n num-iterations]
+ (<span style="color: #8cd0d3;">let</span> [call-f (<span style="color: #f0dfaf;">fn</span> [state]
+                (<span style="color: #8cd0d3;">let</span> [retval (f state)
+                      num (<span style="color: #f0dfaf;">count</span> state)
+                      new-state (<span style="color: #f0dfaf;">vec</span> (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> num n) (<span style="color: #f0dfaf;">drop</span> 1 (<span style="color: #f0dfaf;">conj</span> state retval)) (<span style="color: #f0dfaf;">conj</span> state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (repeat num-iterations call-f)))
-    (vector init-state))))
+      (m-seq (<span style="color: #f0dfaf;">repeat</span> num-iterations call-f)))
+    (<span style="color: #f0dfaf;">vector</span> init-state))))
 </pre>
-
-
 
 
 <p>
@@ -129,7 +127,7 @@ Time Series 2
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Monads </h2>
+<h2 id="sec-2">Monads</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -154,7 +152,7 @@ Time Series 2
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">The rest </h2>
+<h2 id="sec-3">The rest</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -212,8 +210,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu Dec 15 11:14:05 2011</span>
-<!-- Created <span class="date">Sun Nov 13 07:12:16 2011</span> -->
+Last edited <span class="date">Thu 15 Dec 2011 11:14:05 AM MST</span>
+<!-- Created <span class="date">Sun 13 Nov 2011 07:12:16 AM MST</span> -->
 </div>
 
 </div>

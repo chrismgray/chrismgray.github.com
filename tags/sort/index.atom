@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/sort/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2011-12-01T07:45:44Z</updated>
 <entry>
 	<title>Lazy Sorting in Clojure</title>
@@ -42,7 +42,7 @@
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Penance&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -73,7 +73,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Heap Sort &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Heap Sort&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -88,7 +88,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Heap &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Heap&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -111,7 +111,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Building a Heap &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Building a Heap&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -149,7 +149,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-3&quot;&gt;Using a heap to sort &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-3&quot;&gt;Using a heap to sort&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-3&quot;&gt;
 
 
@@ -179,7 +179,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-4&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-4&quot;&gt;Advantages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-4&quot;&gt;Advantages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-4&quot;&gt;
 
 
@@ -214,7 +214,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-5&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-5&quot;&gt;Disadvantages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-5&quot;&gt;Disadvantages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-5&quot;&gt;
 
 
@@ -241,7 +241,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Implementation &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Implementation&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -272,7 +272,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 

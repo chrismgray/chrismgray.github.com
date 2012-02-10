@@ -152,7 +152,7 @@
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Rationals in Clojurescript </h2>
+<h2 id="sec-1">Rationals in Clojurescript</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -183,7 +183,7 @@ works in Clojure but not in Clojurescript.
 So what can be done about this?  Here are some options:
 </p>
 <ul>
-<li id="sec-1-1">Use floats, but more smartly <br/>
+<li id="sec-1-1">Use floats, but more smartly<br/>
 
 <p>
      Probably the simplest option, here we would not test for <i>equality</i>,
@@ -199,7 +199,7 @@ So what can be done about this?  Here are some options:
 </li>
 </ul>
 <ul>
-<li id="sec-1-2">Implement rationals in Clojurescript <br/>
+<li id="sec-1-2">Implement rationals in Clojurescript<br/>
 
 <p>
      I am not sure how possible this option is.  However, it is currently
@@ -237,7 +237,7 @@ So what can be done about this?  Here are some options:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Conclusion </h2>
+<h2 id="sec-2">Conclusion</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -255,7 +255,7 @@ So what can be done about this?  Here are some options:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov  9 10:13:06 2011</span>
+Posted <span class="date">Wed 09 Nov 2011 10:13:06 AM MST</span>
 </span>
 
 
@@ -297,7 +297,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">A small followup </h2>
+<h2 id="sec-1">A small followup</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -315,7 +315,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov  9 15:03:16 2011</span>
+Posted <span class="date">Wed 09 Nov 2011 03:03:16 PM MST</span>
 </span>
 
 
@@ -355,7 +355,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">More about rationals </h2>
+<h2 id="sec-1">More about rationals</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -388,7 +388,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Thu Nov 10 09:55:06 2011</span>
+Posted <span class="date">Thu 10 Nov 2011 09:55:06 AM MST</span>
 </span>
 
 
@@ -428,7 +428,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">A new system </h2>
+<h2 id="sec-1">A new system</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -456,7 +456,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">What I intend to write about </h2>
+<h2 id="sec-2">What I intend to write about</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -484,7 +484,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Thu Nov 10 19:13:21 2011</span>
+Posted <span class="date">Thu 10 Nov 2011 07:13:21 PM MST</span>
 </span>
 
 
@@ -528,7 +528,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Resolving names as they are compiled in Clojurescript </h2>
+<h2 id="sec-1">Resolving names as they are compiled in Clojurescript</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -547,18 +547,16 @@ Tags:
 
 
 
-<pre class="example">(defmethod parse 'def
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defmethod</span> <span style="color: #8cd0d3;">parse</span> 'def
   [op env form name]
-  (let [pfn (fn ([_ sym] {:sym sym})
-              ([_ sym init] {:sym sym :init init})
-              ([_ sym doc init] {:sym sym :doc doc :init init}))
-        args (apply pfn form)
-        sym (:sym args)]
-    (assert (not (namespace sym)) "Can't def ns-qualified name")
-    (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))])))
+  (<span style="color: #8cd0d3;">let</span> [pfn (<span style="color: #f0dfaf;">fn</span> ([_ sym] {<span style="color: #dca3a3; font-weight: bold;">:sym</span> sym})
+              ([_ sym init] {<span style="color: #dca3a3; font-weight: bold;">:sym</span> sym <span style="color: #dca3a3; font-weight: bold;">:init</span> init})
+              ([_ sym doc init] {<span style="color: #dca3a3; font-weight: bold;">:sym</span> sym <span style="color: #dca3a3; font-weight: bold;">:doc</span> doc <span style="color: #dca3a3; font-weight: bold;">:init</span> init}))
+        args (<span style="color: #f0dfaf;">apply</span> pfn form)
+        sym (<span style="color: #dca3a3; font-weight: bold;">:sym</span> args)]
+    (<span style="color: #f0dfaf;">assert</span> (<span style="color: #f0dfaf;">not</span> (<span style="color: #f0dfaf;">namespace</span> sym)) <span style="color: #cc9393;">"Can't def ns-qualified name"</span>)
+    (<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #dca3a3; font-weight: bold;">:name</span> (resolve-var (<span style="color: #f0dfaf;">dissoc</span> env <span style="color: #dca3a3; font-weight: bold;">:locals</span>) sym)))])))
 </pre>
-
-
 
 
 <p>
@@ -570,14 +568,12 @@ Tags:
 
 
 
-<pre class="example">(munge (symbol (str
-                (if (core-name? env sym)
+<pre class="src src-clojure">(munge (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span>
+                (<span style="color: #8cd0d3;">if</span> (core-name? env sym)
                   'cljs.core
-                  (-&gt; env :ns :name))
-                "." (munge (name sym)))))
+                  (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>))
+                <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">name</span> sym)))))
 </pre>
-
-
 
 
 <p>
@@ -593,7 +589,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">What to do </h2>
+<h2 id="sec-2">What to do</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -609,10 +605,8 @@ Tags:
 
 
 
-<pre class="example">(let [name (munge (:name (symbol (str (-&gt; env :ns :name) "." (munge (name sym))))))])
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #dca3a3; font-weight: bold;">:name</span> (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span> (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">name</span> sym))))))])
 </pre>
-
-
 
 
 <p>
@@ -627,7 +621,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri Nov 11 07:23:38 2011</span>
+Posted <span class="date">Fri 11 Nov 2011 07:23:38 AM MST</span>
 </span>
 
 
@@ -667,7 +661,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Done! </h2>
+<h2 id="sec-1">Done!</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -678,10 +672,8 @@ Tags:
 
 
 
-<pre class="example">(let [name (munge (symbol (str (-&gt; env :ns :name) "." (munge (str sym)))))])
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [name (munge (<span style="color: #f0dfaf;">symbol</span> (<span style="color: #f0dfaf;">str</span> (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #cc9393;">"."</span> (munge (<span style="color: #f0dfaf;">str</span> sym)))))])
 </pre>
-
-
 
 
 <p>
@@ -703,12 +695,10 @@ Tags:
 
 
 
-<pre class="example">(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&gt; env :ns :name) :defs sym])))
+<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [full-ns (<span style="color: #8cd0d3;">if</span> (<span style="color: #8cd0d3;">and</span> (core-name? env sym) (<span style="color: #f0dfaf;">nil?</span> (<span style="color: #f0dfaf;">get-in</span> @namespaces [(<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>) <span style="color: #dca3a3; font-weight: bold;">:defs</span> sym])))
                 'cljs.core
-                (-&gt; env :ns :name))])
+                (<span style="color: #8cd0d3;">-&gt;</span> env <span style="color: #dca3a3; font-weight: bold;">:ns</span> <span style="color: #dca3a3; font-weight: bold;">:name</span>))])
 </pre>
-
-
 
 
 <p>
@@ -722,7 +712,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Remove the macros </h2>
+<h2 id="sec-2">Remove the macros</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -748,7 +738,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri Nov 11 18:07:52 2011</span>
+Posted <span class="date">Fri 11 Nov 2011 06:07:52 PM MST</span>
 </span>
 
 
@@ -788,7 +778,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Programming challenges </h2>
+<h2 id="sec-1">Programming challenges</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -805,7 +795,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Time series framework </h2>
+<h2 id="sec-2">Time series framework</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -840,7 +830,7 @@ Tags:
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Ideas so far </h2>
+<h2 id="sec-3">Ideas so far</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -882,7 +872,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat Nov 12 09:27:15 2011</span>
+Posted <span class="date">Sat 12 Nov 2011 09:27:15 AM MST</span>
 </span>
 
 
@@ -920,7 +910,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">What we have so far </h2>
+<h2 id="sec-1">What we have so far</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -941,18 +931,16 @@ Tags:
 
 
 
-<pre class="example">(defn time-series [f init-state n num-iterations]
- (let [call-f (fn [state]
-                (let [retval (f state)
-                      num (count state)
-                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">time-series</span> [f init-state n num-iterations]
+ (<span style="color: #8cd0d3;">let</span> [call-f (<span style="color: #f0dfaf;">fn</span> [state]
+                (<span style="color: #8cd0d3;">let</span> [retval (f state)
+                      num (<span style="color: #f0dfaf;">count</span> state)
+                      new-state (<span style="color: #f0dfaf;">vec</span> (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> num n) (<span style="color: #f0dfaf;">drop</span> 1 (<span style="color: #f0dfaf;">conj</span> state retval)) (<span style="color: #f0dfaf;">conj</span> state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (repeat num-iterations call-f)))
-    (vector init-state))))
+      (m-seq (<span style="color: #f0dfaf;">repeat</span> num-iterations call-f)))
+    (<span style="color: #f0dfaf;">vector</span> init-state))))
 </pre>
-
-
 
 
 <p>
@@ -977,7 +965,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Monads </h2>
+<h2 id="sec-2">Monads</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -1002,7 +990,7 @@ Tags:
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">The rest </h2>
+<h2 id="sec-3">The rest</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -1021,7 +1009,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun Nov 13 07:12:16 2011</span>
+Posted <span class="date">Sun 13 Nov 2011 07:12:16 AM MST</span>
 </span>
 
 
@@ -1064,7 +1052,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun Nov 13 07:37:33 2011</span>
+Posted <span class="date">Sun 13 Nov 2011 07:37:33 AM MST</span>
 </span>
 
 
@@ -1091,7 +1079,7 @@ Posted <span class="date">Sun Nov 13 07:37:33 2011</span>
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Starting on the Appalachian Trail </h2>
+<h2 id="sec-1">Starting on the Appalachian Trail</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -1106,7 +1094,7 @@ Posted <span class="date">Sun Nov 13 07:37:33 2011</span>
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">July 1 </h2>
+<h2 id="sec-2">July 1</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -1166,7 +1154,7 @@ Posted <span class="date">Sun Nov 13 07:37:33 2011</span>
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">July 2 </h2>
+<h2 id="sec-3">July 2</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -1228,7 +1216,7 @@ Posted <span class="date">Sun Nov 13 07:37:33 2011</span>
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun Nov 13 08:57:32 2011</span>
+Posted <span class="date">Sun 13 Nov 2011 08:57:32 AM MST</span>
 </span>
 
 
@@ -1264,7 +1252,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Scattered </h2>
+<h2 id="sec-1">Scattered</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -1278,7 +1266,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">New programming project </h2>
+<h2 id="sec-2">New programming project</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -1302,7 +1290,7 @@ Tags:
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">Getting the coordinates and times of the SPOT messages </h3>
+<h3 id="sec-2-1">Getting the coordinates and times of the SPOT messages</h3>
 <div class="outline-text-3" id="text-2-1">
 
 
@@ -1316,7 +1304,7 @@ Tags:
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">Putting them on the Google Map </h3>
+<h3 id="sec-2-2">Putting them on the Google Map</h3>
 <div class="outline-text-3" id="text-2-2">
 
 
@@ -1331,7 +1319,7 @@ Tags:
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Notmuch </h2>
+<h2 id="sec-3">Notmuch</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -1349,7 +1337,7 @@ Tags:
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Git annex </h2>
+<h2 id="sec-4">Git annex</h2>
 <div class="outline-text-2" id="text-4">
 
 
@@ -1382,7 +1370,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon Nov 14 10:11:23 2011</span>
+Posted <span class="date">Mon 14 Nov 2011 10:11:23 AM MST</span>
 </span>
 
 
@@ -1428,7 +1416,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Another programming challenge </h2>
+<h2 id="sec-1">Another programming challenge</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -1449,19 +1437,17 @@ Tags:
 
 
 
-<pre class="example">(defn luhn-check
-  "Takes a sequence of digits and determines whether they pass the Luhn test.
-   The sequence must be in order from right to left."
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">luhn-check</span>
+  <span style="color: #8fb28f;">"Takes a sequence of digits and determines whether they pass the Luhn test.</span>
+<span style="color: #8fb28f;">   The sequence must be in order from right to left."</span>
   [digits]
-  (-&gt;&gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (<span style="color: #8cd0d3;">-&gt;&gt;</span> digits
+       (<span style="color: #f0dfaf;">partition</span> 2 2 (<span style="color: #f0dfaf;">repeat</span> 0))
+       (<span style="color: #f0dfaf;">mapcat</span> #(<span style="color: #f0dfaf;">vector</span> (<span style="color: #f0dfaf;">first</span> %) (<span style="color: #f0dfaf;">*</span> 2 (<span style="color: #f0dfaf;">second</span> %))))
+       (<span style="color: #f0dfaf;">reduce</span> #(<span style="color: #f0dfaf;">+</span> %1 (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">/</span> %2 10)) (<span style="color: #f0dfaf;">int</span> (<span style="color: #f0dfaf;">mod</span> %2 10))))
+       (#(<span style="color: #f0dfaf;">mod</span> % 10))
+       (<span style="color: #f0dfaf;">=</span> 0)))
 </pre>
-
-
 
 
 <p>
@@ -1498,7 +1484,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue Nov 15 13:22:19 2011</span>
+Posted <span class="date">Tue 15 Nov 2011 01:22:19 PM MST</span>
 </span>
 
 
@@ -1536,7 +1522,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Where I was </h2>
+<h2 id="sec-1">Where I was</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -1562,7 +1548,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov 16 09:20:05 2011</span>
+Posted <span class="date">Wed 16 Nov 2011 09:20:05 AM MST</span>
 </span>
 
 
@@ -1600,7 +1586,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Introduction </h2>
+<h2 id="sec-1">Introduction</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -1616,7 +1602,7 @@ that made the biggest impression on me.
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">The 100-Mile Wilderness </h2>
+<h2 id="sec-2">The 100-Mile Wilderness</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -1689,7 +1675,7 @@ that made the biggest impression on me.
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">White Cap </h3>
+<h3 id="sec-2-1">White Cap</h3>
 <div class="outline-text-3" id="text-2-1">
 
 
@@ -1717,7 +1703,7 @@ that made the biggest impression on me.
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">Chairback </h3>
+<h3 id="sec-2-2">Chairback</h3>
 <div class="outline-text-3" id="text-2-2">
 
 
@@ -1757,7 +1743,7 @@ that made the biggest impression on me.
 </div>
 
 <div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3">The rest </h3>
+<h3 id="sec-2-3">The rest</h3>
 <div class="outline-text-3" id="text-2-3">
 
 
@@ -1781,7 +1767,7 @@ that made the biggest impression on me.
 </div>
 
 <div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4">Monson </h3>
+<h3 id="sec-2-4">Monson</h3>
 <div class="outline-text-3" id="text-2-4">
 
 
@@ -1807,7 +1793,7 @@ that made the biggest impression on me.
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat Nov 19 13:34:35 2011</span>
+Posted <span class="date">Sat 19 Nov 2011 01:34:35 PM MST</span>
 </span>
 
 
@@ -1843,7 +1829,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Functional programming </h2>
+<h2 id="sec-1">Functional programming</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -1884,7 +1870,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Visibility polygons </h2>
+<h2 id="sec-2">Visibility polygons</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -1913,7 +1899,7 @@ Tags:
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Monads </h2>
+<h2 id="sec-3">Monads</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -1934,7 +1920,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun Nov 20 17:58:28 2011</span>
+Posted <span class="date">Sun 20 Nov 2011 05:58:28 PM MST</span>
 </span>
 
 
@@ -1972,7 +1958,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Visibility Polygon </h2>
+<h2 id="sec-1">Visibility Polygon</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -1986,37 +1972,35 @@ Tags:
 
 
 
-<pre class="example">(defn- add-new-pt [poly]
-  (fn [pt stack]
-    (when (or (empty? stack) ; First two points are guaranteed to be visible
-              (empty? (rest stack))
-              (visible? pt (first poly) (first stack)))
-      [pt (rest poly) (cons (first poly) stack)])))
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">add-new-pt</span> [poly]
+  (<span style="color: #f0dfaf;">fn</span> [pt stack]
+    (<span style="color: #8cd0d3;">when</span> (<span style="color: #8cd0d3;">or</span> (<span style="color: #f0dfaf;">empty?</span> stack) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">First two points are guaranteed to be visible</span>
+              (<span style="color: #f0dfaf;">empty?</span> (<span style="color: #f0dfaf;">rest</span> stack))
+              (visible? pt (<span style="color: #f0dfaf;">first</span> poly) (<span style="color: #f0dfaf;">first</span> stack)))
+      [pt (<span style="color: #f0dfaf;">rest</span> poly) (<span style="color: #f0dfaf;">cons</span> (<span style="color: #f0dfaf;">first</span> poly) stack)])))
 
-(defn- pop-stack [poly]
-  (fn [pt stack]
-    (let [the-seg (seg/new-seg pt (first poly))
-          top-seg (seg/new-seg (first stack) (second stack))]
-      (when (pt/left-turn? (second stack) (first stack) (first poly))
-        (if (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
-          [pt poly (rest stack)])))))
+(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">pop-stack</span> [poly]
+  (<span style="color: #f0dfaf;">fn</span> [pt stack]
+    (<span style="color: #8cd0d3;">let</span> [the-seg (seg/new-seg pt (<span style="color: #f0dfaf;">first</span> poly))
+          top-seg (seg/new-seg (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">second</span> stack))]
+      (<span style="color: #8cd0d3;">when</span> (pt/left-turn? (<span style="color: #f0dfaf;">second</span> stack) (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">first</span> poly))
+        (<span style="color: #8cd0d3;">if</span> (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (<span style="color: #f0dfaf;">cons</span> (seg/<span style="color: #dfdfbf; font-weight: bold;">intersection</span> the-seg top-seg) stack)]
+          [pt poly (<span style="color: #f0dfaf;">rest</span> stack)])))))
 
-(defn- skip-pt [poly]
-  (fn [pt stack]
-   (let [the-seg (seg/new-seg pt (first stack))
-         poly-seg (seg/new-seg (first poly) (second poly))]
-     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
-       (if (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
-         [pt (rest poly) stack])))))
+(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">skip-pt</span> [poly]
+  (<span style="color: #f0dfaf;">fn</span> [pt stack]
+   (<span style="color: #8cd0d3;">let</span> [the-seg (seg/new-seg pt (<span style="color: #f0dfaf;">first</span> stack))
+         poly-seg (seg/new-seg (<span style="color: #f0dfaf;">first</span> poly) (<span style="color: #f0dfaf;">second</span> poly))]
+     (<span style="color: #8cd0d3;">when</span> (<span style="color: #f0dfaf;">not</span> (pt/left-turn? (<span style="color: #f0dfaf;">second</span> stack) (<span style="color: #f0dfaf;">first</span> stack) (<span style="color: #f0dfaf;">first</span> poly)))
+       (<span style="color: #8cd0d3;">if</span> (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (<span style="color: #f0dfaf;">cons</span> (seg/<span style="color: #dfdfbf; font-weight: bold;">intersection</span> the-seg poly-seg) (<span style="color: #f0dfaf;">rest</span> poly)) stack]
+         [pt (<span style="color: #f0dfaf;">rest</span> poly) stack])))))
 
-(defn- all-conditions [poly]
+(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">all-conditions</span> [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 </pre>
-
-
 
 
 <p>
@@ -2047,12 +2031,10 @@ Tags:
 
 
 
-<pre class="example">(defn- visibility-polygon-helper [pt poly]
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn-</span> <span style="color: #8cd0d3;">visibility-polygon-helper</span> [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 </pre>
-
-
 
 
 <p>
@@ -2073,7 +2055,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">On the horizon </h2>
+<h2 id="sec-2">On the horizon</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -2101,7 +2083,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon Nov 21 12:44:43 2011</span>
+Posted <span class="date">Mon 21 Nov 2011 12:44:43 PM MST</span>
 </span>
 
 
@@ -2141,7 +2123,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Viewing visibility polygons </h2>
+<h2 id="sec-1">Viewing visibility polygons</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -2173,7 +2155,7 @@ Tags:
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">Shortcomings </h3>
+<h3 id="sec-1-1">Shortcomings</h3>
 <div class="outline-text-3" id="text-1-1">
 
 
@@ -2197,7 +2179,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Going forward </h2>
+<h2 id="sec-2">Going forward</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -2231,7 +2213,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue Nov 22 12:29:29 2011</span>
+Posted <span class="date">Tue 22 Nov 2011 12:29:29 PM MST</span>
 </span>
 
 
@@ -2271,7 +2253,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Using git annex </h2>
+<h2 id="sec-1">Using git annex</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -2313,7 +2295,6 @@ Tags:
 </pre>
 
 
-
 <p>
   at this point, I set the <code>backends</code> keyword in the <code>[annex]</code> section
   to either <code>SHA1E</code> or <code>SHA256E</code>.  There is a tradeoff there between
@@ -2334,7 +2315,6 @@ Tags:
 </pre>
 
 
-
 <p>
   Now it is possible to clone this repository back on the laptop
 </p>
@@ -2348,7 +2328,6 @@ Tags:
 ~/music $ cd /media/mybook/music
 /media/mybook/music $ git remote add laptop-music ~/music
 </pre>
-
 
 
 <p>
@@ -2366,7 +2345,6 @@ Tags:
 </pre>
 
 
-
 <p>
   I can now take my laptop on the plane and listen to the Beatles.
   When I'm back from my trip, I can free up the space by doing
@@ -2376,7 +2354,6 @@ Tags:
 
 <pre class="example">~/music $ git annex drop Beatles/
 </pre>
-
 
 
 <p>
@@ -2406,7 +2383,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov 23 20:02:00 2011</span>
+Posted <span class="date">Wed 23 Nov 2011 08:02:00 PM MST</span>
 </span>
 
 
@@ -2442,7 +2419,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Penance </h2>
+<h2 id="sec-1">Penance</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -2473,7 +2450,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Heap Sort </h2>
+<h2 id="sec-2">Heap Sort</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -2488,7 +2465,7 @@ Tags:
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">Heap </h3>
+<h3 id="sec-2-1">Heap</h3>
 <div class="outline-text-3" id="text-2-1">
 
 
@@ -2511,7 +2488,7 @@ Tags:
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">Building a Heap </h3>
+<h3 id="sec-2-2">Building a Heap</h3>
 <div class="outline-text-3" id="text-2-2">
 
 
@@ -2549,7 +2526,7 @@ Tags:
 </div>
 
 <div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3">Using a heap to sort </h3>
+<h3 id="sec-2-3">Using a heap to sort</h3>
 <div class="outline-text-3" id="text-2-3">
 
 
@@ -2579,7 +2556,7 @@ Tags:
 </div>
 
 <div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4">Advantages </h3>
+<h3 id="sec-2-4">Advantages</h3>
 <div class="outline-text-3" id="text-2-4">
 
 
@@ -2614,7 +2591,7 @@ Tags:
 </div>
 
 <div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5">Disadvantages </h3>
+<h3 id="sec-2-5">Disadvantages</h3>
 <div class="outline-text-3" id="text-2-5">
 
 
@@ -2641,7 +2618,7 @@ Tags:
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Implementation </h2>
+<h2 id="sec-3">Implementation</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -2672,7 +2649,7 @@ Tags:
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Conclusion </h2>
+<h2 id="sec-4">Conclusion</h2>
 <div class="outline-text-2" id="text-4">
 
 
@@ -2691,7 +2668,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun Nov 27 07:23:34 2011</span>
+Posted <span class="date">Sun 27 Nov 2011 07:23:34 AM MST</span>
 </span>
 
 
@@ -2729,7 +2706,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Leaving Monson </h2>
+<h2 id="sec-1">Leaving Monson</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -2796,7 +2773,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Without Grinner </h2>
+<h2 id="sec-2">Without Grinner</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -2856,7 +2833,7 @@ Tags:
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Stratton </h2>
+<h2 id="sec-3">Stratton</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -2890,7 +2867,7 @@ Tags:
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Next time </h2>
+<h2 id="sec-4">Next time</h2>
 <div class="outline-text-2" id="text-4">
 
 
@@ -2908,7 +2885,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon Nov 28 09:52:35 2011</span>
+Posted <span class="date">Mon 28 Nov 2011 09:52:35 AM MST</span>
 </span>
 
 
@@ -2944,7 +2921,7 @@ Tags:
 
 <div class="inlinecontent">
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Convex Hulls Three Ways </h2>
+<h2 id="sec-1">Convex Hulls Three Ways</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -2964,7 +2941,7 @@ Tags:
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">Jarvis March </h3>
+<h3 id="sec-1-1">Jarvis March</h3>
 <div class="outline-text-3" id="text-1-1">
 
 
@@ -2994,7 +2971,7 @@ Tags:
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">Graham's Scan </h3>
+<h3 id="sec-1-2">Graham's Scan</h3>
 <div class="outline-text-3" id="text-1-2">
 
 
@@ -3032,7 +3009,7 @@ Tags:
 </div>
 
 <div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">Chan's Algorithm </h3>
+<h3 id="sec-1-3">Chan's Algorithm</h3>
 <div class="outline-text-3" id="text-1-3">
 
 
@@ -3052,21 +3029,19 @@ Tags:
 
 
 
-<pre class="example">(defn chans-algorithm
-  "Finds the convex hull of a set of points by
-   the algorithm known as 'Chan's Algorithm'."
+<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">chans-algorithm</span>
+  <span style="color: #8fb28f;">"Finds the convex hull of a set of points by</span>
+<span style="color: #8fb28f;">   the algorithm known as 'Chan's Algorithm'."</span>
   [pts]
-  (let [bottom-pt (apply min-key :y pts)]
-   (loop [m 3] ; start out with triangles
-     (let [partitioned-pts (partition m m [] pts)
-           c-hs (map grahams-scan partitioned-pts)
-           potential-ch (take m (apply jarvis-march pts c-hs))]
-       (if (= bottom-pt (last potential-ch)) ; assumes jarvis-march returns bottom-pt last
+  (<span style="color: #8cd0d3;">let</span> [bottom-pt (<span style="color: #f0dfaf;">apply</span> min-key <span style="color: #dca3a3; font-weight: bold;">:y</span> pts)]
+   (<span style="color: #8cd0d3;">loop</span> [m 3] <span style="color: #708070;">; </span><span style="color: #7f9f7f;">start out with triangles</span>
+     (<span style="color: #8cd0d3;">let</span> [partitioned-pts (<span style="color: #f0dfaf;">partition</span> m m [] pts)
+           c-hs (<span style="color: #f0dfaf;">map</span> grahams-scan partitioned-pts)
+           potential-ch (<span style="color: #f0dfaf;">take</span> m (<span style="color: #f0dfaf;">apply</span> jarvis-march pts c-hs))]
+       (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> bottom-pt (<span style="color: #f0dfaf;">last</span> potential-ch)) <span style="color: #708070;">; </span><span style="color: #7f9f7f;">assumes jarvis-march returns bottom-pt last</span>
          potential-ch
-         (recur (min (* m m) (count pts))))))))
+         (<span style="color: #8cd0d3;">recur</span> (<span style="color: #f0dfaf;">min</span> (<span style="color: #f0dfaf;">*</span> m m) (<span style="color: #f0dfaf;">count</span> pts))))))))
 </pre>
-
-
 
 
 <p>
@@ -3083,7 +3058,7 @@ Tags:
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Conclusion </h2>
+<h2 id="sec-2">Conclusion</h2>
 <div class="outline-text-2" id="text-2">
 
 
@@ -3126,7 +3101,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed Nov 30 11:06:31 2011</span>
+Posted <span class="date">Wed 30 Nov 2011 11:06:31 AM MST</span>
 </span>
 
 
@@ -3190,8 +3165,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu Nov 10 20:38:47 2011</span>
-<!-- Created <span class="date">Thu Nov 10 19:21:15 2011</span> -->
+Last edited <span class="date">Thu 10 Nov 2011 08:38:47 PM MST</span>
+<!-- Created <span class="date">Thu 10 Nov 2011 07:21:15 PM MST</span> -->
 </div>
 
 </div>

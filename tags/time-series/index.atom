@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/time-series/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2011-12-15T18:28:05Z</updated>
 <entry>
 	<title>More ikiwiki plugin hacking</title>
@@ -46,7 +46,7 @@
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Major progress &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Major progress&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -69,7 +69,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Remaining TODOs &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Remaining TODOs&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -131,7 +131,7 @@
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;What we have so far &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;What we have so far&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -152,18 +152,16 @@
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn time-series [f init-state n num-iterations]
- (let [call-f (fn [state]
-                (let [retval (f state)
-                      num (count state)
-                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
+ (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
+                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
+                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
+                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (repeat num-iterations call-f)))
-    (vector init-state))))
+      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
+    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -188,7 +186,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Monads &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Monads&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -213,7 +211,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;The rest &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;The rest&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -260,7 +258,7 @@
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -277,7 +275,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Time series framework &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Time series framework&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -312,7 +310,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Ideas so far &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Ideas so far&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
