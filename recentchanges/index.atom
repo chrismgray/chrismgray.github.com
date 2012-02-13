@@ -17,7 +17,65 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
-<updated>2012-02-13T18:46:46Z</updated>
+<updated>2012-02-13T20:00:27Z</updated>
+<entry>
+	<title>change to posts/hiking/nj on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_11831c6bf6de8412ea57dfbcde87b80a6d81eb9b/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-11831c6bf6de8412ea57dfbcde87b80a6d81eb9b"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-02-13T20:00:27Z</updated>
+	<published>2012-02-13T20:00:27Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-11831c6bf6de8412ea57dfbcde87b80a6d81eb9b&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/nj
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;01:00:27 PM 02/13/2012&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Fixed image link&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 11831c6bf6de8412ea57dfbcde87b80a6d81eb9b --&gt;
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/hiking/nj on Hiking and Coding</title>
 
@@ -5812,64 +5870,6 @@ creating tag page tags/git&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- cec5a8d9bcc1ca0e7bc0d3e1b131756e2d7ce200 --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to tags/ikiwiki on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_69506b3c9f7d7889d0026da49902fd0d4cc7171a/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-69506b3c9f7d7889d0026da49902fd0d4cc7171a"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-11T04:00:24Z</updated>
-	<published>2011-11-11T04:00:24Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-69506b3c9f7d7889d0026da49902fd0d4cc7171a&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-tags/ikiwiki
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;09:00:24 PM 11/10/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-creating tag page tags/ikiwiki&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 69506b3c9f7d7889d0026da49902fd0d4cc7171a --&gt;
 
 	</content>
 
