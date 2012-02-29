@@ -8,6 +8,58 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to posts/hiking/central-va on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_dedb8590b6b194ac16a025e8c8a3060f1119a7c5/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-dedb8590b6b194ac16a025e8c8a3060f1119a7c5</link>
+
+	<pubDate>Wed, 29 Feb 2012 12:10:49 -0700</pubDate>
+	<dcterms:modified>2012-02-29T19:10:49Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-dedb8590b6b194ac16a025e8c8a3060f1119a7c5&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/central-va
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;12:10:49 PM 02/29/2012&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- dedb8590b6b194ac16a025e8c8a3060f1119a7c5 --&gt;
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/hiking/north-va on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
@@ -5208,58 +5260,6 @@ Added tags&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- a5dc90e3ec8228cdaffc1d4f0fcbb618c1f40000 --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to posts/cljs-name-resolving on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_3279fd27769a0fd063ae09e961d0e87e533c2618/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-3279fd27769a0fd063ae09e961d0e87e533c2618</link>
-
-	<pubDate>Fri, 11 Nov 2011 08:04:21 -0700</pubDate>
-	<dcterms:modified>2011-11-11T15:04:21Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-3279fd27769a0fd063ae09e961d0e87e533c2618&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/cljs-name-resolving
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:04:21 AM 11/11/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-New post about clojurescript&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 3279fd27769a0fd063ae09e961d0e87e533c2618 --&gt;
 </description>
 
 
