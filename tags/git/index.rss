@@ -25,7 +25,7 @@
 	<dcterms:modified>2011-12-03T03:47:16Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Using git annex &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Using git annex&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -67,7 +67,6 @@
 &lt;/pre&gt;
 
 
-
 &lt;p&gt;
   at this point, I set the &lt;code&gt;backends&lt;/code&gt; keyword in the &lt;code&gt;[annex]&lt;/code&gt; section
   to either &lt;code&gt;SHA1E&lt;/code&gt; or &lt;code&gt;SHA256E&lt;/code&gt;.  There is a tradeoff there between
@@ -88,7 +87,6 @@
 &lt;/pre&gt;
 
 
-
 &lt;p&gt;
   Now it is possible to clone this repository back on the laptop
 &lt;/p&gt;
@@ -102,7 +100,6 @@
 ~/music $ cd /media/mybook/music
 /media/mybook/music $ git remote add laptop-music ~/music
 &lt;/pre&gt;
-
 
 
 &lt;p&gt;
@@ -120,7 +117,6 @@
 &lt;/pre&gt;
 
 
-
 &lt;p&gt;
   I can now take my laptop on the plane and listen to the Beatles.
   When I&#39;m back from my trip, I can free up the space by doing
@@ -130,7 +126,6 @@
 
 &lt;pre class=&quot;example&quot;&gt;~/music $ git annex drop Beatles/
 &lt;/pre&gt;
-
 
 
 &lt;p&gt;
@@ -189,7 +184,7 @@
 	<dcterms:modified>2011-12-01T07:43:31Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Scattered &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Scattered&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -203,7 +198,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;New programming project &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;New programming project&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -227,7 +222,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -241,7 +236,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -256,7 +251,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -274,7 +269,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Git annex &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Git annex&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -334,7 +329,7 @@
 	<dcterms:modified>2011-12-01T07:37:21Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;A new system &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;A new system&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -362,7 +357,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;What I intend to write about &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What I intend to write about&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 

@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/clojure/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2012-01-07T02:23:15Z</updated>
 <entry>
 	<title>Two Small Clojure Packages</title>
@@ -50,7 +50,7 @@ enough for me to release as Clojure packages.
 &lt;/p&gt;
 
 &lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Parallel Thrush &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Parallel Thrush&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -85,8 +85,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   is the same as
 &lt;/p&gt;
@@ -98,8 +96,6 @@ enough for me to release as Clojure packages.
      (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
      (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -115,7 +111,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;LRU maps &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;LRU maps&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -137,8 +133,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   Sometimes, you want to do something with an element as it gets
   kicked out.  For that, there is &lt;code&gt;lru-map-with&lt;/code&gt;.  This takes two
@@ -153,8 +147,6 @@ enough for me to release as Clojure packages.
 &lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
 &lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -195,7 +187,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Probably a bad idea&amp;hellip; &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Probably a bad idea&amp;hellip;&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -221,8 +213,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   Instead of calling &lt;code&gt;let&lt;/code&gt; there, I had to call &lt;code&gt;let*&lt;/code&gt;, so that the
   results of the first assignment were known to the second assignment.
@@ -237,8 +227,6 @@ enough for me to release as Clojure packages.
 &lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
       baz foo])
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -257,7 +245,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Maybe not so crazy &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Maybe not so crazy&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -280,7 +268,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Probably pretty crazy after all &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Probably pretty crazy after all&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -301,7 +289,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Totally crazy &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Totally crazy&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -354,7 +342,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -374,7 +362,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Jarvis March &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Jarvis March&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 
 
@@ -404,7 +392,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-2&quot;&gt;Graham&#39;s Scan &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-2&quot;&gt;Graham&#39;s Scan&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
 
 
@@ -442,7 +430,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-3&quot;&gt;Chan&#39;s Algorithm &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-3&quot;&gt;Chan&#39;s Algorithm&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
 
 
@@ -477,8 +465,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
    The great thing about Chan&#39;s Algorithm is that it is also
    output-sensitive.  But instead of being \(O(nh)\) (which is
@@ -493,7 +479,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -564,7 +550,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Penance &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Penance&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -595,7 +581,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Heap Sort &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Heap Sort&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -610,7 +596,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Heap &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Heap&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -633,7 +619,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Building a Heap &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Building a Heap&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -671,7 +657,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-3&quot;&gt;Using a heap to sort &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-3&quot;&gt;Using a heap to sort&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-3&quot;&gt;
 
 
@@ -701,7 +687,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-4&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-4&quot;&gt;Advantages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-4&quot;&gt;Advantages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-4&quot;&gt;
 
 
@@ -736,7 +722,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-5&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-5&quot;&gt;Disadvantages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-5&quot;&gt;Disadvantages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-5&quot;&gt;
 
 
@@ -763,7 +749,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Implementation &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Implementation&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -794,7 +780,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -843,7 +829,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -875,7 +861,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 
 
@@ -883,7 +869,7 @@ enough for me to release as Clojure packages.
    There were a couple of things that slightly bothered me about
    &lt;code&gt;clj-processing&lt;/code&gt;.  First, it used quite a lot of CPU just to
    display a simple polygon without too many points.  I am probably
-   using it rather naïvely, so it is possible that this is my problem
+   using it rather naÃ¯vely, so it is possible that this is my problem
    and not the problem of &lt;code&gt;clj-processing&lt;/code&gt;.  However, the second
    problem is just that &lt;code&gt;clj-processing&lt;/code&gt; is showing its age.  I think
    it was probably one of the first Clojure libraries out there and
@@ -899,7 +885,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Going forward &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Going forward&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -963,7 +949,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1008,8 +994,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   This defines three actions to be performed when the polygon and
   stack are in certain configurations.  The first executes when the
@@ -1044,8 +1028,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   Doing something like that with a &lt;code&gt;reduce&lt;/code&gt; seems like it would veer
   off into unreadability fairly quickly.
@@ -1064,7 +1046,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;On the horizon &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;On the horizon&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1120,7 +1102,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Another programming challenge&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1152,8 +1134,6 @@ enough for me to release as Clojure packages.
        (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
        (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
 &lt;/pre&gt;
-
-
 
 
 &lt;p&gt;
@@ -1226,7 +1206,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Scattered &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Scattered&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1240,7 +1220,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;New programming project &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;New programming project&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1264,7 +1244,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 
 
@@ -1278,7 +1258,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map &lt;/h3&gt;
+&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
 
 
@@ -1293,7 +1273,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -1311,7 +1291,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Git annex &lt;/h2&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Git annex&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 
 
@@ -1372,7 +1352,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;What we have so far &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;What we have so far&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1405,8 +1385,6 @@ enough for me to release as Clojure packages.
 &lt;/pre&gt;
 
 
-
-
 &lt;p&gt;
   As you can see, the heavy lifting is done by the &lt;code&gt;state&lt;/code&gt; monad and
   by &lt;code&gt;m-seq&lt;/code&gt;.  What do they do?  Well, &lt;code&gt;m-seq&lt;/code&gt; can be thought of as
@@ -1429,7 +1407,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Monads &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Monads&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1454,7 +1432,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;The rest &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;The rest&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 
@@ -1501,7 +1479,7 @@ enough for me to release as Clojure packages.
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -1518,7 +1496,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Time series framework &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Time series framework&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 
@@ -1553,7 +1531,7 @@ enough for me to release as Clojure packages.
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Ideas so far &lt;/h2&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Ideas so far&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 
 

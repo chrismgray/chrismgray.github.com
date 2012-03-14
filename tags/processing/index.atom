@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/processing/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2011-12-01T07:45:19Z</updated>
 <entry>
 	<title>Processing</title>
@@ -44,7 +44,7 @@
 
 	<content type="html" xml:lang="en">
 	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons &lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Viewing visibility polygons&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 
 
@@ -76,7 +76,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings &lt;/h3&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Shortcomings&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 
 
@@ -84,7 +84,7 @@
    There were a couple of things that slightly bothered me about
    &lt;code&gt;clj-processing&lt;/code&gt;.  First, it used quite a lot of CPU just to
    display a simple polygon without too many points.  I am probably
-   using it rather naïvely, so it is possible that this is my problem
+   using it rather naÃ¯vely, so it is possible that this is my problem
    and not the problem of &lt;code&gt;clj-processing&lt;/code&gt;.  However, the second
    problem is just that &lt;code&gt;clj-processing&lt;/code&gt; is showing its age.  I think
    it was probably one of the first Clojure libraries out there and
@@ -100,7 +100,7 @@
 &lt;/div&gt;
 
 &lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Going forward &lt;/h2&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Going forward&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 

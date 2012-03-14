@@ -8,6 +8,58 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to posts/hiking/philosophy on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_e388c06d9174c9ef2d572d7c0b7965da33c9fd13/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-e388c06d9174c9ef2d572d7c0b7965da33c9fd13</link>
+
+	<pubDate>Tue, 13 Mar 2012 22:52:31 -0600</pubDate>
+	<dcterms:modified>2012-03-14T04:52:31Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-e388c06d9174c9ef2d572d7c0b7965da33c9fd13&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/philosophy
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;22:52:31 03/13/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- e388c06d9174c9ef2d572d7c0b7965da33c9fd13 --&gt;
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/hiking/ga on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
@@ -457,7 +509,7 @@ chrismgray
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
 &lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;18:21:06 02/09/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;06:21:06 PM 02/09/2012&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
 
 &lt;/div&gt;
@@ -5208,58 +5260,6 @@ And another&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- 6b62d1bb574eddbc23c009fe92467383945521dc --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to posts/cljs-name-resolving on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_85f61dc939d855d1564b30dc6c3597fd30732b33/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-85f61dc939d855d1564b30dc6c3597fd30732b33</link>
-
-	<pubDate>Fri, 11 Nov 2011 08:15:26 -0700</pubDate>
-	<dcterms:modified>2011-11-11T15:15:26Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-85f61dc939d855d1564b30dc6c3597fd30732b33&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/cljs-name-resolving
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:15:26 AM 11/11/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Another recompile&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 85f61dc939d855d1564b30dc6c3597fd30732b33 --&gt;
 </description>
 
 
