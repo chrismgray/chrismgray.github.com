@@ -8,6 +8,114 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Org Plugin Rethink</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/org-ikiwiki-plugin-5/</guid>
+
+	<link>http://chrismgray.github.com//posts/org-ikiwiki-plugin-5/</link>
+
+
+	<category>emacs</category>
+
+	<category>ikiwiki</category>
+
+	<category>ikiwiki-org-plugin</category>
+
+	<category>lab-notes</category>
+
+	<category>org-mode</category>
+
+
+	<pubDate>Wed, 14 Mar 2012 09:47:03 -0600</pubDate>
+	<dcterms:modified>2012-03-14T15:47:03Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;I am glad to announce a new version of my &lt;a href=&quot;https://github.com/chrismgray/ikiwiki-org-plugin&quot;&gt;ikiwiki org plugin&lt;/a&gt;.  This is
+a major change to the way things had worked previously, and is much
+faster than previous versions.
+&lt;/p&gt;
+&lt;p&gt;
+The installation procedure has changed, so please read the
+&lt;code&gt;README.org&lt;/code&gt; file in the repository for information about how to
+install the plugin.  Also, if you have installed a previous version,
+please remove that since it may conflict.  Also be sure that you kill
+any daemonized versions of emacs that are running.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  This version of the plugin is no longer what ikiwiki calls an
+  &quot;external plugin&quot;.  The overhead associated with XML-RPC was simply
+  too high (at least on the emacs side of things).  I tried
+  &lt;a href=&quot;http://chrismgray.github.com//tags/lab-notes/./../../posts/ikiwiki-hacking&quot;&gt;working around&lt;/a&gt; it by having less communication between the compiler
+  and the plugin, but the ikiwiki developers &lt;a href=&quot;http://ikiwiki.info/todo/be_more_selective_about_running_hooks/&quot;&gt;didn&#39;t really think it was a great idea&lt;/a&gt;.  So I have basically scrapped the idea of the
+  plugin being external.
+&lt;/p&gt;
+&lt;p&gt;
+  The nice thing about that is that it allowed me to remove a lot of
+  code on the emacs side.  Instead of communication via XML-RPC, the
+  new plugin can put the content to be interpreted in a file and call
+  emacsclient directly.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Security&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I note in &lt;code&gt;README.org&lt;/code&gt; that there is a concern about security.  This
+  is because any program that calls another program with
+  user-generated arguments should be concerned about security.  As far
+  as I can tell, the only way that something bad can happen is if
+  someone creates a filename with an unmatched double-quote and
+  convinces ikiwiki to accept it.  Since ikiwiki doesn&#39;t accept
+  filenames with double-quotes anyway, there really shouldn&#39;t be a
+  problem.
+&lt;/p&gt;
+&lt;p&gt;
+  However, I would recommend that this plugin not be used in
+  situations where untrusted people can create files (such as from the
+  CGI interface), unless you personally verify that nothing bad can
+  happen.  As always, this is free software and comes with no
+  warranty.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Remaining todos&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I would like to get rid of the potential security hole so that
+  people could feel safe running this plugin from the CGI interface.
+  I would also like to get rid of the hardcoded org configuration and
+  let that be stored in the user&#39;s setup file.  I have a branch that
+  does that using the old architecture, so it should not be too
+  difficult to port to the new architecture.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/org-ikiwiki-plugin-5/#comments</comments>
+
+</item>
+<item>
+
 	<title>A bit of ikiwiki hackery</title>
 
 
@@ -1385,122 +1493,6 @@ some of them, in no particular order.
 
 
 	<comments>/posts/cljs-name-resolving-2/#comments</comments>
-
-</item>
-<item>
-
-	<title>Resolving names in Clojurescript</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-name-resolving/</guid>
-
-	<link>http://chrismgray.github.com//posts/cljs-name-resolving/</link>
-
-
-	<category>clojure</category>
-
-	<category>clojurescript</category>
-
-	<category>lab-notes</category>
-
-	<category>rationals</category>
-
-
-	<pubDate>Fri, 11 Nov 2011 07:23:38 -0700</pubDate>
-	<dcterms:modified>2011-12-02T16:39:57Z</dcterms:modified>
-
-	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Resolving names as they are compiled in Clojurescript&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I think I found the bug in the Clojurescript compiler that I was
-  &lt;a href=&quot;http://chrismgray.github.com/more-rationals&quot;&gt;looking for yesterday&lt;/a&gt;.  Just to refresh the memory, when defining a
-  function that has a function of the same name in &lt;code&gt;cljs.core&lt;/code&gt;, the
-  compiler will assume that you are trying to redefine the function
-  from &lt;code&gt;cljs.core&lt;/code&gt;, rather than the function in the namespace that you
-  are actually in.  Since I am trying to redefine functions like &lt;code&gt;/&lt;/code&gt;
-  and &lt;code&gt;*&lt;/code&gt;, this is a problem.
-&lt;/p&gt;
-&lt;p&gt;
-  Let&#39;s look at the evidence.  First, there&#39;s this:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmethod&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;parse&lt;/span&gt; &#39;def
-  [op env form name]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [pfn (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; ([_ sym] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym})
-              ([_ sym init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init})
-              ([_ sym doc init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:doc&lt;/span&gt; doc &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init}))
-        args (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; pfn form)
-        sym (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; args)]
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;assert&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;namespace&lt;/span&gt; sym)) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Can&#39;t def ns-qualified name&quot;&lt;/span&gt;)
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (resolve-var (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;dissoc&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:locals&lt;/span&gt;) sym)))])))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  The important line there is the last: when defining a new name,
-  &lt;code&gt;resolve-var&lt;/code&gt; is called on the symbol.  Let&#39;s have a look at that
-  function.  There is a &lt;code&gt;cond&lt;/code&gt;, and when none of the tests return
-  true, the following is done:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt;
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (core-name? env sym)
-                  &#39;cljs.core
-                  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;))
-                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym)))))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  This is seeing if the symbol name is in &lt;code&gt;cljs.core&lt;/code&gt;, and if it is
-  setting the namespace of the symbol to &lt;code&gt;cljs.core&lt;/code&gt;.  Normally that
-  would be correct &amp;ndash; one doesn&#39;t want to need to &lt;code&gt;use&lt;/code&gt; &lt;code&gt;cljs.core&lt;/code&gt; in
-  every file &amp;ndash; but it doesn&#39;t allow for redefinition of functions
-  that are in &lt;code&gt;cljs.core&lt;/code&gt; (at least without completely shadowing
-  them).
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;What to do&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  So what can we do about this?  The first thing that seems odd to me
-  is that the symbol being defined is being resolved first.  Every
-  symbol that is defined is defined within its own namespace, so there
-  should be no need to resolve it.  That suggests that we should be
-  able to take the part of &lt;code&gt;resolve-var&lt;/code&gt; that doesn&#39;t have a special
-  case for &lt;code&gt;cljs.core&lt;/code&gt; and put it into the &lt;code&gt;parse&lt;/code&gt; method.  Something
-  like
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym))))))])
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  might work in the &lt;code&gt;parse&lt;/code&gt; method.
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/cljs-name-resolving/#comments</comments>
 
 </item>
 

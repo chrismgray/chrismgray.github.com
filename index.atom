@@ -17,7 +17,122 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-03-14T04:52:20Z</updated>
+<updated>2012-03-14T15:47:03Z</updated>
+<entry>
+	<title>Org Plugin Rethink</title>
+
+	<id>http://chrismgray.github.com//posts/org-ikiwiki-plugin-5/</id>
+
+	<link href="http://chrismgray.github.com//posts/org-ikiwiki-plugin-5/"/>
+
+
+
+
+
+
+	<category term="emacs" />
+
+	<category term="ikiwiki" />
+
+	<category term="ikiwiki-org-plugin" />
+
+	<category term="lab-notes" />
+
+	<category term="org-mode" />
+
+
+	<updated>2012-03-14T15:47:03Z</updated>
+	<published>2012-03-14T15:47:03Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;I am glad to announce a new version of my &lt;a href=&quot;https://github.com/chrismgray/ikiwiki-org-plugin&quot;&gt;ikiwiki org plugin&lt;/a&gt;.  This is
+a major change to the way things had worked previously, and is much
+faster than previous versions.
+&lt;/p&gt;
+&lt;p&gt;
+The installation procedure has changed, so please read the
+&lt;code&gt;README.org&lt;/code&gt; file in the repository for information about how to
+install the plugin.  Also, if you have installed a previous version,
+please remove that since it may conflict.  Also be sure that you kill
+any daemonized versions of emacs that are running.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  This version of the plugin is no longer what ikiwiki calls an
+  &quot;external plugin&quot;.  The overhead associated with XML-RPC was simply
+  too high (at least on the emacs side of things).  I tried
+  &lt;a href=&quot;http://chrismgray.github.com//./posts/ikiwiki-hacking&quot;&gt;working around&lt;/a&gt; it by having less communication between the compiler
+  and the plugin, but the ikiwiki developers &lt;a href=&quot;http://ikiwiki.info/todo/be_more_selective_about_running_hooks/&quot;&gt;didn&#39;t really think it was a great idea&lt;/a&gt;.  So I have basically scrapped the idea of the
+  plugin being external.
+&lt;/p&gt;
+&lt;p&gt;
+  The nice thing about that is that it allowed me to remove a lot of
+  code on the emacs side.  Instead of communication via XML-RPC, the
+  new plugin can put the content to be interpreted in a file and call
+  emacsclient directly.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Security&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I note in &lt;code&gt;README.org&lt;/code&gt; that there is a concern about security.  This
+  is because any program that calls another program with
+  user-generated arguments should be concerned about security.  As far
+  as I can tell, the only way that something bad can happen is if
+  someone creates a filename with an unmatched double-quote and
+  convinces ikiwiki to accept it.  Since ikiwiki doesn&#39;t accept
+  filenames with double-quotes anyway, there really shouldn&#39;t be a
+  problem.
+&lt;/p&gt;
+&lt;p&gt;
+  However, I would recommend that this plugin not be used in
+  situations where untrusted people can create files (such as from the
+  CGI interface), unless you personally verify that nothing bad can
+  happen.  As always, this is free software and comes with no
+  warranty.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Remaining todos&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I would like to get rid of the potential security hole so that
+  people could feel safe running this plugin from the CGI interface.
+  I would also like to get rid of the hardcoded org configuration and
+  let that be stored in the user&#39;s setup file.  I have a branch that
+  does that using the old architecture, so it should not be too
+  difficult to port to the new architecture.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-5/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-5/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Hiking Philosophy</title>
 
@@ -1882,129 +1997,6 @@ dogs, he laughed at me), and before long, we crossed into New Jersey.
 
 
 	<link rel="comments" href="/posts/hiking/ny/comments.atom" type="application/atom+xml" />
-
-</entry>
-<entry>
-	<title>Connecticut</title>
-
-	<id>http://chrismgray.github.com//posts/hiking/ct/</id>
-
-	<link href="http://chrismgray.github.com//posts/hiking/ct/"/>
-
-
-
-
-
-
-	<category term="at" />
-
-	<category term="hiking" />
-
-
-	<updated>2012-01-27T20:06:11Z</updated>
-	<published>2012-01-27T19:58:58Z</published>
-
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Camping permitted only at designated sites&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  Connecticut begins with a steep uphill, but when you get to the top
-  of that, you are at the highest point of the state.  I always like
-  hitting the high-point of a state because it tells me that the net
-  effort that I must expend in the remainder of that state is less
-  than the effort that I&#39;ve already expended.  For my computer-science
-  readers, there&#39;s also a nice little problem there: how do you
-  compute the set of points on the trail for which there are no higher
-  points remaining in the state?  (It turns out that you can do it
-  with a simple extension of a problem that I had worked on before,
-  but I won&#39;t say more than that to let you have the fun of solving it
-  yourself.)
-&lt;/p&gt;
-&lt;p&gt;
-  We walked down the mountain and stopped in a the town of Salisbury,
-  CT for lunch and a small resupply.  As we were walking into town,
-  a northbound hiker was walking out, and he let us pick through the
-  extra stuff that he had received in the mail.  I took some Jolly
-  Ranchers, but they were really sticky.
-&lt;/p&gt;
-&lt;p&gt;
-  We walked on and arrived at Limestone Spring Lean-to, which is
-  pretty far off the trail on a steep downhill.  It&#39;s quite
-  frustrating when this happens, because that means that you have a
-  long uphill first thing in the morning.  So Picker and I went down
-  to the spring to gather water.  We hiked a mile or so farther that
-  evening and set up a stealth camp.  As the picture ending the
-  &lt;a href=&quot;http://chrismgray.github.com//./posts/hiking/massachusetts&quot;&gt;last post&lt;/a&gt; indicates, this is not strictly legal.  We made sure to be
-  quite a ways from the trail, but we worried about rangers all
-  evening.
-&lt;/p&gt;
-&lt;p&gt;
-  The next day was a bit of a long one.  We decided not to camp
-  illegally again, so we had two choices for camp sites &amp;ndash; one about
-  13 miles away and one about 23 miles away.  Naturally, we chose to
-  head for the farther campsite.  When we got within 3 miles, I
-  decided that I didn&#39;t want to walk for more than another hour, so I
-  really pushed hard to get to camp.
-&lt;/p&gt;
-&lt;p&gt;
-  The next day had some nice scenery:
-&lt;/p&gt;
-&lt;p&gt;
-  &lt;img src=&quot;https://lh6.googleusercontent.com/-cEvLxZBiQEM/TOXAywwRf9I/AAAAAAAAAvM/SHS1g8Ih370/s800/DSCF0203.JPG&quot;  alt=&quot;https://lh6.googleusercontent.com/-cEvLxZBiQEM/TOXAywwRf9I/AAAAAAAAAvM/SHS1g8Ih370/s800/DSCF0203.JPG&quot; /&gt;
-&lt;/p&gt;
-&lt;p&gt;
-  after we went over a small mountain, we got to Kent, CT.  We were
-  rather early to town, so we got breakfast at one of the posh
-  restaurants.  I had a waffle with ice cream.
-&lt;/p&gt;
-&lt;p&gt;
-  As we were walking away from Kent, we met a couple walking their
-  dog.  In the course of conversation, they mentioned that they had
-  sent their daughter to the prep school that we walked past between
-  the trail and town.  Without batting an eye, one of them said that
-  the yearly tuition was $20000!  The school had a beautiful campus,
-  so we could now know where the funds for that came from, but it
-  seemed excessive to me.
-&lt;/p&gt;
-&lt;p&gt;
-  We crossed the border with New York, but we were soon back in
-  Connecticut.  We stopped at a campsite just past a bridge and met up
-  with Just Jill once again.  I slept with the tarp off of my hammock,
-  which turned out to be a mistake as the weather in the small valley
-  where we camped was extremely cold overnight.
-&lt;/p&gt;
-&lt;p&gt;
-  The next morning, we would leave Connecticut for good and enter New
-  York.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Next time&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  New York.  Poorly-maintained trails near big roads.  The lowest
-  point on the whole AT right next to caged bears (it couldn&#39;t get
-  much more symbolic than that).
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/hiking/ct/#comments" type="text/html" />
-
-
-	<link rel="comments" href="/posts/hiking/ct/comments.atom" type="application/atom+xml" />
 
 </entry>
 

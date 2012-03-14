@@ -100,9 +100,9 @@ Hiking and Coding
     <tr>
         <td class="month-calendar-day-nolink Sunday">11</td>
         <td class="month-calendar-day-nolink Monday">12</td>
-        <td class="month-calendar-day-this-day Tuesday"><a href="./posts/hiking/philosophy/" title="philosophy">13</a></td>
-        <td class="month-calendar-day-future Wednesday">14</td>
-        <td class="month-calendar-day-nolink Thursday">15</td>
+        <td class="month-calendar-day-link Tuesday"><a href="./posts/hiking/philosophy/" title="philosophy">13</a></td>
+        <td class="month-calendar-day-this-day Wednesday"><a href="./posts/org-ikiwiki-plugin-5/" title="org-ikiwiki-plugin-5">14</a></td>
+        <td class="month-calendar-day-future Thursday">15</td>
         <td class="month-calendar-day-nolink Friday">16</td>
         <td class="month-calendar-day-nolink Saturday">17</td>
     </tr>
@@ -140,7 +140,7 @@ Hiking and Coding
 </li><li><span class="smallPC"><a href="./tags/clojurescript/">clojurescript</a></span>
 </li><li><span class="smallestPC"><a href="./tags/computational-geometry/">computational-geometry</a></span>
 </li><li><span class="smallestPC"><a href="./tags/convex-hull/">convex-hull</a></span>
-</li><li><span class="smallPC"><a href="./tags/emacs/">emacs</a></span>
+</li><li><span class="normalPC"><a href="./tags/emacs/">emacs</a></span>
 </li><li><span class="smallestPC"><a href="./tags/email/">email</a></span>
 </li><li><span class="smallestPC"><a href="./tags/gear/">gear</a></span>
 </li><li><span class="smallestPC"><a href="./tags/git/">git</a></span>
@@ -164,9 +164,9 @@ Hiking and Coding
 </li></ul>
 
 <p>Post interval:
-<img src="./sidebar/sparkline-db5f3be425bbf7af1c35ba2fec63b21513d9f70e.png" alt="graph" /></p>
+<img src="./sidebar/sparkline-ca487a0a21d2f90062d31d54d18e734631fa60f5.png" alt="graph" /></p>
 
-<p><a href="http://twitter.com/frogmanjack">Twitter</a>: last checked <span class="date">Mon 27 Feb 2012 07:05:52 PM MST</span> (111 posts; 15 new)</p>
+<p><a href="http://twitter.com/frogmanjack">Twitter</a>: <em>Can't connect to api.twitter.com:80 (timeout)</em> (111 posts)</p>
 
 <div class="microblog">
 
@@ -337,6 +337,131 @@ frogmanjack: RT @DougBenson: When you love somebody, set them free. That person 
 
 
 <a class="feedbutton" type="application/atom+xml" rel="alternate" title="Hiking and Coding (Atom feed)" href="index.atom">Atom</a>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/org-ikiwiki-plugin-5/">Org Plugin Rethink</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+
+<p>I am glad to announce a new version of my <a href="https://github.com/chrismgray/ikiwiki-org-plugin">ikiwiki org plugin</a>.  This is
+a major change to the way things had worked previously, and is much
+faster than previous versions.
+</p>
+<p>
+The installation procedure has changed, so please read the
+<code>README.org</code> file in the repository for information about how to
+install the plugin.  Also, if you have installed a previous version,
+please remove that since it may conflict.  Also be sure that you kill
+any daemonized versions of emacs that are running.
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Background</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  This version of the plugin is no longer what ikiwiki calls an
+  "external plugin".  The overhead associated with XML-RPC was simply
+  too high (at least on the emacs side of things).  I tried
+  <a href="./posts/ikiwiki-hacking">working around</a> it by having less communication between the compiler
+  and the plugin, but the ikiwiki developers <a href="http://ikiwiki.info/todo/be_more_selective_about_running_hooks/">didn't really think it was a great idea</a>.  So I have basically scrapped the idea of the
+  plugin being external.
+</p>
+<p>
+  The nice thing about that is that it allowed me to remove a lot of
+  code on the emacs side.  Instead of communication via XML-RPC, the
+  new plugin can put the content to be interpreted in a file and call
+  emacsclient directly.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Security</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  I note in <code>README.org</code> that there is a concern about security.  This
+  is because any program that calls another program with
+  user-generated arguments should be concerned about security.  As far
+  as I can tell, the only way that something bad can happen is if
+  someone creates a filename with an unmatched double-quote and
+  convinces ikiwiki to accept it.  Since ikiwiki doesn't accept
+  filenames with double-quotes anyway, there really shouldn't be a
+  problem.
+</p>
+<p>
+  However, I would recommend that this plugin not be used in
+  situations where untrusted people can create files (such as from the
+  CGI interface), unless you personally verify that nothing bad can
+  happen.  As always, this is free software and comes with no
+  warranty.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Remaining todos</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  I would like to get rid of the potential security hole so that
+  people could feel safe running this plugin from the CGI interface.
+  I would also like to get rid of the hardcoded org configuration and
+  let that be stored in the user's setup file.  I have a branch that
+  does that using the old architecture, so it should not be too
+  difficult to port to the new architecture.
+</p>
+
+</div>
+</div>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wed Mar 14 09:47:03 2012</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/emacs/" rel="tag">emacs</a>
+
+<a href="./tags/ikiwiki/" rel="tag">ikiwiki</a>
+
+<a href="./tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
+
+<a href="./tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="./tags/org-mode/" rel="tag">org-mode</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
@@ -2280,139 +2405,6 @@ Posted <span class="date">Fri Feb  3 18:50:44 2012</span>
 Tags:
 
 <a href="./tags/AT/" rel="tag">AT</a>
-
-<a href="./tags/hiking/" rel="tag">hiking</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/hiking/ct/">Connecticut</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Camping permitted only at designated sites</h2>
-<div class="outline-text-2" id="text-1">
-
-
-<p>
-  Connecticut begins with a steep uphill, but when you get to the top
-  of that, you are at the highest point of the state.  I always like
-  hitting the high-point of a state because it tells me that the net
-  effort that I must expend in the remainder of that state is less
-  than the effort that I've already expended.  For my computer-science
-  readers, there's also a nice little problem there: how do you
-  compute the set of points on the trail for which there are no higher
-  points remaining in the state?  (It turns out that you can do it
-  with a simple extension of a problem that I had worked on before,
-  but I won't say more than that to let you have the fun of solving it
-  yourself.)
-</p>
-<p>
-  We walked down the mountain and stopped in a the town of Salisbury,
-  CT for lunch and a small resupply.  As we were walking into town,
-  a northbound hiker was walking out, and he let us pick through the
-  extra stuff that he had received in the mail.  I took some Jolly
-  Ranchers, but they were really sticky.
-</p>
-<p>
-  We walked on and arrived at Limestone Spring Lean-to, which is
-  pretty far off the trail on a steep downhill.  It's quite
-  frustrating when this happens, because that means that you have a
-  long uphill first thing in the morning.  So Picker and I went down
-  to the spring to gather water.  We hiked a mile or so farther that
-  evening and set up a stealth camp.  As the picture ending the
-  <a href="./posts/hiking/massachusetts">last post</a> indicates, this is not strictly legal.  We made sure to be
-  quite a ways from the trail, but we worried about rangers all
-  evening.
-</p>
-<p>
-  The next day was a bit of a long one.  We decided not to camp
-  illegally again, so we had two choices for camp sites &ndash; one about
-  13 miles away and one about 23 miles away.  Naturally, we chose to
-  head for the farther campsite.  When we got within 3 miles, I
-  decided that I didn't want to walk for more than another hour, so I
-  really pushed hard to get to camp.
-</p>
-<p>
-  The next day had some nice scenery:
-</p>
-<p>
-  <img src="https://lh6.googleusercontent.com/-cEvLxZBiQEM/TOXAywwRf9I/AAAAAAAAAvM/SHS1g8Ih370/s800/DSCF0203.JPG"  alt="https://lh6.googleusercontent.com/-cEvLxZBiQEM/TOXAywwRf9I/AAAAAAAAAvM/SHS1g8Ih370/s800/DSCF0203.JPG" />
-</p>
-<p>
-  after we went over a small mountain, we got to Kent, CT.  We were
-  rather early to town, so we got breakfast at one of the posh
-  restaurants.  I had a waffle with ice cream.
-</p>
-<p>
-  As we were walking away from Kent, we met a couple walking their
-  dog.  In the course of conversation, they mentioned that they had
-  sent their daughter to the prep school that we walked past between
-  the trail and town.  Without batting an eye, one of them said that
-  the yearly tuition was $20000!  The school had a beautiful campus,
-  so we could now know where the funds for that came from, but it
-  seemed excessive to me.
-</p>
-<p>
-  We crossed the border with New York, but we were soon back in
-  Connecticut.  We stopped at a campsite just past a bridge and met up
-  with Just Jill once again.  I slept with the tarp off of my hammock,
-  which turned out to be a mistake as the weather in the small valley
-  where we camped was extremely cold overnight.
-</p>
-<p>
-  The next morning, we would leave Connecticut for good and enter New
-  York.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Next time</h2>
-<div class="outline-text-2" id="text-2">
-
-
-<p>
-  New York.  Poorly-maintained trails near big roads.  The lowest
-  point on the whole AT right next to caged bears (it couldn't get
-  much more symbolic than that).
-</p>
-
-</div>
-</div>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Fri Jan 27 12:58:58 2012</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/AT/" rel="tag">at</a>
 
 <a href="./tags/hiking/" rel="tag">hiking</a>
 

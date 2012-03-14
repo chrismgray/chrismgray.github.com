@@ -16,8 +16,123 @@
 <id>http://chrismgray.github.com//tags/ikiwiki/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
-<updated>2012-02-09T23:45:17Z</updated>
+<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<updated>2012-03-14T15:47:03Z</updated>
+<entry>
+	<title>Org Plugin Rethink</title>
+
+	<id>http://chrismgray.github.com//posts/org-ikiwiki-plugin-5/</id>
+
+	<link href="http://chrismgray.github.com//posts/org-ikiwiki-plugin-5/"/>
+
+
+
+
+
+
+	<category term="emacs" />
+
+	<category term="ikiwiki" />
+
+	<category term="ikiwiki-org-plugin" />
+
+	<category term="lab-notes" />
+
+	<category term="org-mode" />
+
+
+	<updated>2012-03-14T15:47:03Z</updated>
+	<published>2012-03-14T15:47:03Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;I am glad to announce a new version of my &lt;a href=&quot;https://github.com/chrismgray/ikiwiki-org-plugin&quot;&gt;ikiwiki org plugin&lt;/a&gt;.  This is
+a major change to the way things had worked previously, and is much
+faster than previous versions.
+&lt;/p&gt;
+&lt;p&gt;
+The installation procedure has changed, so please read the
+&lt;code&gt;README.org&lt;/code&gt; file in the repository for information about how to
+install the plugin.  Also, if you have installed a previous version,
+please remove that since it may conflict.  Also be sure that you kill
+any daemonized versions of emacs that are running.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  This version of the plugin is no longer what ikiwiki calls an
+  &quot;external plugin&quot;.  The overhead associated with XML-RPC was simply
+  too high (at least on the emacs side of things).  I tried
+  &lt;a href=&quot;http://chrismgray.github.com//tags/ikiwiki/./../../posts/ikiwiki-hacking&quot;&gt;working around&lt;/a&gt; it by having less communication between the compiler
+  and the plugin, but the ikiwiki developers &lt;a href=&quot;http://ikiwiki.info/todo/be_more_selective_about_running_hooks/&quot;&gt;didn&#39;t really think it was a great idea&lt;/a&gt;.  So I have basically scrapped the idea of the
+  plugin being external.
+&lt;/p&gt;
+&lt;p&gt;
+  The nice thing about that is that it allowed me to remove a lot of
+  code on the emacs side.  Instead of communication via XML-RPC, the
+  new plugin can put the content to be interpreted in a file and call
+  emacsclient directly.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Security&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I note in &lt;code&gt;README.org&lt;/code&gt; that there is a concern about security.  This
+  is because any program that calls another program with
+  user-generated arguments should be concerned about security.  As far
+  as I can tell, the only way that something bad can happen is if
+  someone creates a filename with an unmatched double-quote and
+  convinces ikiwiki to accept it.  Since ikiwiki doesn&#39;t accept
+  filenames with double-quotes anyway, there really shouldn&#39;t be a
+  problem.
+&lt;/p&gt;
+&lt;p&gt;
+  However, I would recommend that this plugin not be used in
+  situations where untrusted people can create files (such as from the
+  CGI interface), unless you personally verify that nothing bad can
+  happen.  As always, this is free software and comes with no
+  warranty.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Remaining todos&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I would like to get rid of the potential security hole so that
+  people could feel safe running this plugin from the CGI interface.
+  I would also like to get rid of the hardcoded org configuration and
+  let that be stored in the user&#39;s setup file.  I have a branch that
+  does that using the old architecture, so it should not be too
+  difficult to port to the new architecture.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-5/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/org-ikiwiki-plugin-5/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>A bit of ikiwiki hackery</title>
 

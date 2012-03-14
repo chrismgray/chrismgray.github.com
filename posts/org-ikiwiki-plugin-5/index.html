@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Org Plugin Rethink</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+Org Plugin Rethink
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+
+<p>I am glad to announce a new version of my <a href="https://github.com/chrismgray/ikiwiki-org-plugin">ikiwiki org plugin</a>.  This is
+a major change to the way things had worked previously, and is much
+faster than previous versions.
+</p>
+<p>
+The installation procedure has changed, so please read the
+<code>README.org</code> file in the repository for information about how to
+install the plugin.  Also, if you have installed a previous version,
+please remove that since it may conflict.  Also be sure that you kill
+any daemonized versions of emacs that are running.
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Background</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  This version of the plugin is no longer what ikiwiki calls an
+  "external plugin".  The overhead associated with XML-RPC was simply
+  too high (at least on the emacs side of things).  I tried
+  <a href="./../ikiwiki-hacking">working around</a> it by having less communication between the compiler
+  and the plugin, but the ikiwiki developers <a href="http://ikiwiki.info/todo/be_more_selective_about_running_hooks/">didn't really think it was a great idea</a>.  So I have basically scrapped the idea of the
+  plugin being external.
+</p>
+<p>
+  The nice thing about that is that it allowed me to remove a lot of
+  code on the emacs side.  Instead of communication via XML-RPC, the
+  new plugin can put the content to be interpreted in a file and call
+  emacsclient directly.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Security</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  I note in <code>README.org</code> that there is a concern about security.  This
+  is because any program that calls another program with
+  user-generated arguments should be concerned about security.  As far
+  as I can tell, the only way that something bad can happen is if
+  someone creates a filename with an unmatched double-quote and
+  convinces ikiwiki to accept it.  Since ikiwiki doesn't accept
+  filenames with double-quotes anyway, there really shouldn't be a
+  problem.
+</p>
+<p>
+  However, I would recommend that this plugin not be used in
+  situations where untrusted people can create files (such as from the
+  CGI interface), unless you personally verify that nothing bad can
+  happen.  As always, this is free software and comes with no
+  warranty.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Remaining todos</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  I would like to get rid of the potential security hole so that
+  people could feel safe running this plugin from the CGI interface.
+  I would also like to get rid of the hardcoded org configuration and
+  let that be stored in the user's setup file.  I have a branch that
+  does that using the old architecture, so it should not be too
+  difficult to port to the new architecture.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/emacs/" rel="tag">emacs</a>
+
+<a href="../../tags/ikiwiki/" rel="tag">ikiwiki</a>
+
+<a href="../../tags/ikiwiki-org-plugin/" rel="tag">ikiwiki-org-plugin</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="../../tags/org-mode/" rel="tag">org-mode</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wed Mar 14 09:47:03 2012</span>
+<!-- Created <span class="date">Wed Mar 14 09:47:03 2012</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>
