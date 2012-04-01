@@ -16,8 +16,212 @@
 <id>http://chrismgray.github.com//tags/clojure/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
-<updated>2012-01-07T02:23:15Z</updated>
+<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<updated>2012-04-01T01:27:15Z</updated>
+<entry>
+	<title>Clojure Data Structures</title>
+
+	<id>http://chrismgray.github.com//posts/clojure-data-structures/</id>
+
+	<link href="http://chrismgray.github.com//posts/clojure-data-structures/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+
+	<updated>2012-04-01T01:27:15Z</updated>
+	<published>2012-04-01T01:27:15Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;This past week, I&#39;ve been knee-deep in Clojure data structures --
+mostly persistent vector and hash-map.  The goal has been to provide
+replacements written in pure Clojure that can be ported to
+ClojureScript, but it has also been a great way to learn about how
+these structures work.  So in this post, I&#39;ll try to summarize what I
+learned, and give some the results of my hacking.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Vector&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  I started this project inspired by a tweet by &lt;a href=&quot;https://twitter.com/#!/swannodette&quot;&gt;David Nolen&lt;/a&gt;.  I can&#39;t
+  find it any more, but he mentioned that he had ported the
+  persistent-vector data structure to JavaScript and that he was
+  hoping to use it in ClojureScript.  That made me think: since
+  the ClojureScript compiler now supports languages other than
+  JavaScript as its backends, wouldn&#39;t it be helpful, at least for
+  those backends, to port the data structure to pure Clojure, so that
+  any ClojureScript backend could use it?
+&lt;/p&gt;
+&lt;p&gt;
+  So I did.  The result is &lt;a href=&quot;https://github.com/chrismgray/persistent-data-structures/blob/master/src/persistent_data_structures/vector.clj&quot;&gt;here&lt;/a&gt;.  Instead of merely mechanically
+  porting the Java into Clojure, I tried to really understand what was
+  going on.  The gist is really simple (and has been talked about
+  before): the vector is actually a tree with branching-factor 32, and
+  a buffer of size 32.  When you add to the vector, you really add to
+  the buffer if you can, copying the buffer before writing to it.
+  When the buffer fills up, it is put in the tree, and again nodes are
+  copied rather than simply written-to.
+&lt;/p&gt;
+&lt;p&gt;
+  This procedure means that adding an element is a \(O(\log n)\)
+  operation, but the constants are really good: for one thing, the
+  base of the \(\log\) is 32, so the influence of the \(\log n\) in
+  the overall running time is pretty small even for very large \(n\).
+  For another thing, the \(\log n\) penalty is only incurred on every
+  thirty-second insert.  Most inserts are constant-time.
+&lt;/p&gt;
+&lt;p&gt;
+  Another cool feature is the way that the tree is structured.  Each
+  node has its children in an array of length 32.  This means that the
+  subtree that contains a given element can be found very quickly by
+  simple bit operations.  To find the subtree containing element \(i\)
+  in tree level \(k\), you shift \(i\) to the right by \(5k\) places
+  and take the rightmost 5 bits.  This procedure would work with
+  arrays that are of length of any power of 2, where you replace 5 by
+  the \(\log_2\) of the length.
+&lt;/p&gt;
+&lt;p&gt;
+  Anyway, László Török had pretty much the same idea as I did (and the
+  author of gvec.clj, which is in the core distribution, had the same
+  idea before either of us), and his code was better-tuned than mine,
+  so it is what went into the new release of ClojureScript.
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;An aside&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+
+
+&lt;p&gt;
+   When vectors are created in Clojure (but not yet in ClojureScript),
+   they are created by way of a transient vector.  The idea behind this
+   is that the transient vector is only around for the creation of the
+   vector, so it does not need to be persistent.  Thus, it does not
+   need to use the copy-on-write policy that persistent vectors use.
+   In order to build a larger vector, it simply adds to an empty vector
+   using the same procedure that I outlined above.
+&lt;/p&gt;
+&lt;p&gt;
+   Theoretically at least, that is not the optimal algorithm.  The
+   trees can be built from the bottom-up (much like &lt;a href=&quot;http://chrismgray.github.com//tags/clojure/./../../posts/clojure-sorting&quot;&gt;heaps&lt;/a&gt;), giving a
+   \(O(n)\) algorithm, which also has very good constants.  I haven&#39;t
+   computed the constant, but it should be less than \(1 {1 \over
+   16}\).  I implemented this algorithm in Clojure, but the difference
+   in constants between Clojure code and pure Java code, and the fact
+   that the constants in the Java implementation are &lt;b&gt;so&lt;/b&gt; low meant
+   that my implementation was slower even for very large \(n\).  I may
+   one day try to port my bottom-up algorithm back to Java, but I kind
+   of doubt it would make much difference.  Sometimes the
+   theoretically better solution just isn&#39;t better in the real world.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Hash Maps&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  I also had a look at hash maps.  The basic idea behind any hash-map
+  is to store a key-value pair by first computing the &lt;i&gt;hash&lt;/i&gt; of the
+  key to something much smaller &amp;ndash; in Clojure&#39;s case a 32-bit integer
+  &amp;ndash; and then storing the pair in a location based on that hash.
+  There are many ways that this could be done, and I had a look at the
+  Java implementation used in Clojure and decided that I didn&#39;t really
+  want to do much more porting.  So I came up with a couple of ideas
+  that are related to Clojure&#39;s way of doing it.
+&lt;/p&gt;
+&lt;p&gt;
+  The first idea was to make the same tree as used in the vector
+  implementation, but to fill it in only as needed.  In essence, this
+  was a sparse vector.  The Clojure implementation does something
+  similar to this, but goes one step further by using a bit-map to
+  signify which branches of the tree are actually used.  In this way,
+  it can avoid copying arrays that are mostly full of placeholders.
+&lt;/p&gt;
+&lt;p&gt;
+  The next idea was a bit more radical.  It involved making a &lt;a href=&quot;https://en.wikipedia.org/wiki/Patricia_trie&quot;&gt;radix tree&lt;/a&gt; of the input data.  Of all my experiments, this might have been
+  the most successful.  In Clojure, its performance is very close to
+  the built-in data structure.  In ClojureScript, for some reason it
+  is much faster at storing new data than the built-in data structure
+  but somewhat slower at retrieving data.  I am thinking that there
+  must be some JavaScript-specific reason for this, but I haven&#39;t
+  found it yet.  It could just be that the ClojureScript data
+  structure is asymmetric in the opposite way (I haven&#39;t yet looked
+  very deeply at it).
+&lt;/p&gt;
+&lt;p&gt;
+  In all cases, the theoretical running times are pretty much what
+  you&#39;d expect.  To either insert a new key-value pair or to find a
+  key, it&#39;s basically the sum of the time needed to hash the key, a
+  constant to find the place where the key is stored, and then
+  something proportional to the number of other keys that have the
+  same hash value that have been inserted so far.
+&lt;/p&gt;
+&lt;p&gt;
+  In practice, large collections must be hashed each time they&#39;re
+  inserted or searched for, so using them as keys is probably not a
+  great idea.  In Clojure, negative numbers hash to one less than
+  their absolute value, so there will probably be collisions if you
+  use a large number of positive and negative numbers as keys, but
+  it&#39;s not that big of a deal, since the number of collisions
+  generated by this is at most two.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  At the very least, this was a good way to learn what&#39;s really going
+  on under the hood.  I also did a lot of tuning &amp;ndash; not only adding
+  typehints, but re-implementing some lazy functions to be non-lazy --
+  which is certainly good experience.  I never made a data structure
+  that was faster than one of the ones implemented in Java, but I got
+  pretty close in both cases.  In order to get meaningful tests, I had
+  to do things in a very big way: putting millions of things in
+  vectors, and querying hash-maps hundreds of thousands of times.
+  Most programs will not do these operations at such scales, and most
+  of the tests still took less than a second on my underpowered
+  laptop.  That makes me think pretty highly of the existing data
+  structures in Clojure.
+&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/clojure-data-structures/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/clojure-data-structures/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Two Small Clojure Packages</title>
 
@@ -341,181 +545,7 @@ enough for me to release as Clojure packages.
 	<published>2011-11-30T18:06:31Z</published>
 
 	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Convex Hulls Three Ways&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  Whenever I watch cooking competition shows, they always have chefs
-  presenting a foodstuff cooked in multiple different ways.  Today,
-  I&#39;m doing that with algorithms.
-&lt;/p&gt;
-&lt;p&gt;
-  The algorithm in question today is the &lt;a href=&quot;http://en.wikipedia.org/wiki/Convex_hull&quot;&gt;convex hull&lt;/a&gt; algorithm.  In
-  order of implementation complexity, and descending order of
-  theoretical running time, there is the Jarvis March, Graham&#39;s Scan,
-  and Chan&#39;s Algorithm.  All three are implemented in Clojure in my
-  &lt;a href=&quot;https://github.com/chrismgray/convex-hull&quot;&gt;github repository&lt;/a&gt;.
-&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Jarvis March&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
-
-
-&lt;p&gt;
-   The simplest of the algorithms, the Jarvis March was also one of
-   the first output-sensitive computational geometry algorithms.  In a
-   nutshell, you first find a point that you know to be on the convex
-   hull, and then you find the next point by looking at all the rest
-   of the points and determining which one has a segment that has the
-   property that all the rest of the points are on one side of it.
-   You repeatedly find the next point using this procedure until you
-   get back to the first point.  There is basically no way to
-   implement this algorithm that does not have a running time of
-   \(O(hn)\), where \(h\) is the number of points on the convex hull
-   and \(n\) is the number of input points.
-&lt;/p&gt;
-&lt;p&gt;
-   The one implementation detail of the Jarvis March that is
-   interesting is that whenever you see the concept of &quot;finding the
-   next thing&quot; given some previous information, the Clojure
-   implementation should almost always be lazy.  It turns out that
-   implementing Jarvis March lazily will help in implementing Chan&#39;s
-   Algorithm, so keep that in mind.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-1-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-2&quot;&gt;Graham&#39;s Scan&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
-
-
-&lt;p&gt;
-   Graham&#39;s Scan is one of the algorithms I remember most vividly from
-   the undergraduate computational geometry course that I took.  The
-   professor, Godfried Toussaint, always referred to it as the &quot;three
-   coins&quot; algorithm, so I have kept up that tradition in some of my
-   function names in my implementation.
-&lt;/p&gt;
-&lt;p&gt;
-   The algorithm first makes a polygon of the input points by sorting
-   them by angle about the bottom-most point.  Then it goes around the
-   polygon with a stack, pushing and popping points as it goes.  If
-   that sounds familiar, it should &amp;ndash; it&#39;s the same idea as what I was
-   talking about when I brought up the idea of &lt;a href=&quot;http://chrismgray.github.com/posts/parsing-polygons/&quot;&gt;parsing polygons&lt;/a&gt; a week
-   and a half ago. 
-&lt;/p&gt;
-&lt;p&gt;
-   Thus, I used the same polygon-parsing monad in my implementation as
-   when I computed the visibility polygons last week.  It still works
-   just as well.
-&lt;/p&gt;
-&lt;p&gt;
-   Since the points must be sorted, Graham&#39;s Scan takes \(\Theta(n
-   \log n)\).  Sorting can be reduced to computing convex hulls, so
-   computing convex hulls has a \(\Omega(n \log n)\) lower bound,
-   meaning that this algorithm is optimal.
-&lt;/p&gt;
-&lt;p&gt;
-   But Chan&#39;s algorithm is better.  Weird huh?
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-1-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-3&quot;&gt;Chan&#39;s Algorithm&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
-
-
-&lt;p&gt;
-   I must confess that I had always been a little intimidated by
-   Chan&#39;s Algorithm.  It was invented by Timothy Chan, who has a
-   well-earned reputation for being a genius, so I thought it would be
-   really complicated.  It&#39;s not.  There is a decent &lt;a href=&quot;http://en.wikipedia.org/wiki/Chan&#39;s_algorithm&quot;&gt;description&lt;/a&gt; of it
-   on Wikipedia, so I won&#39;t go into the details.  The gist is that you
-   combine the two previous algorithms that I discussed.  The Jarvis
-   March needs to be modified so that the points can be input as a
-   list of smaller convex hulls, and the next point on the convex hull
-   is found by doing a binary search on the smaller convex hulls.  But
-   that is really the hardest part about the algorithm.  I have put
-   the whole thing below, because I think it&#39;s pretty beautiful.
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;chans-algorithm&lt;/span&gt;
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Finds the convex hull of a set of points by&lt;/span&gt;
-&lt;span style=&quot;color: #8fb28f;&quot;&gt;   the algorithm known as &#39;Chan&#39;s Algorithm&#39;.&quot;&lt;/span&gt;
-  [pts]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; min-key &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:y&lt;/span&gt; pts)]
-   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;loop&lt;/span&gt; [m 3] &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;start out with triangles&lt;/span&gt;
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [partitioned-pts (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; m m [] pts)
-           c-hs (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; grahams-scan partitioned-pts)
-           potential-ch (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;take&lt;/span&gt; m (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; jarvis-march pts c-hs))]
-       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; bottom-pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;last&lt;/span&gt; potential-ch)) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;assumes jarvis-march returns bottom-pt last&lt;/span&gt;
-         potential-ch
-         (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;recur&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;min&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; m m) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; pts))))))))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-   The great thing about Chan&#39;s Algorithm is that it is also
-   output-sensitive.  But instead of being \(O(nh)\) (which is
-   \(O(n^2)\) in the worst case), it is \(O(n \log h)\), which is at
-   least as good as Graham&#39;s Scan, but often better.  It is also quite
-   simple to implement, given decent implementations of Jarvis March
-   and Graham&#39;s Scan.  
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  Convex hull algorithms are great.  If I was ever to teach a
-  computational geometry course (admittedly that&#39;s looking like a long
-  shot now), I might start and finish the course with them.  The
-  progression from the ultra-simple Jarvis March to the
-  more-complicated Chan&#39;s Algorithm is really nice, and there are
-  interesting new things to talk about the whole way.  They also show
-  that computational geometry is not so hard to do in a functional
-  style.  In fact, using laziness is what makes the implementation of
-  Chan&#39;s Algorithm so simple.  So this might make a nice talk to give
-  people who are already into functional programming as well.
-&lt;/p&gt;
-&lt;p&gt;
-  The next thing I have in mind for this project is to animate the
-  algorithms.  Viewing the output of algorithms is already pretty easy
-  using Processing, but I would like to be able to see them as they
-  are operating.  It would be great if I could do that without
-  changing the code too much.  I have a couple of ideas, but I&#39;m not
-  sure if they&#39;ll work yet.
-&lt;/p&gt;
-&lt;p&gt;
-  Also, it is slightly embarrassing to admit, but my blogging system
-  seems to not support putting images in posts.  So I am going to have
-  to figure out how to work around (or even fix) that before I can
-  show any results.
-&lt;/p&gt;
-
-
-
-
-
-&lt;/div&gt;
-&lt;/div&gt;
+	
 
 	</content>
 
@@ -869,7 +899,7 @@ enough for me to release as Clojure packages.
    There were a couple of things that slightly bothered me about
    &lt;code&gt;clj-processing&lt;/code&gt;.  First, it used quite a lot of CPU just to
    display a simple polygon without too many points.  I am probably
-   using it rather naÃ¯vely, so it is possible that this is my problem
+   using it rather naïvely, so it is possible that this is my problem
    and not the problem of &lt;code&gt;clj-processing&lt;/code&gt;.  However, the second
    problem is just that &lt;code&gt;clj-processing&lt;/code&gt; is showing its age.  I think
    it was probably one of the first Clojure libraries out there and
@@ -1453,128 +1483,6 @@ enough for me to release as Clojure packages.
 
 
 	<link rel="comments" href="/posts/time-series-2/comments.atom" type="application/atom+xml" />
-
-</entry>
-<entry>
-	<title>Time Series</title>
-
-	<id>http://chrismgray.github.com//posts/time-series-1/</id>
-
-	<link href="http://chrismgray.github.com//posts/time-series-1/"/>
-
-
-
-
-
-
-	<category term="clojure" />
-
-	<category term="programming-challenge" />
-
-	<category term="time-series" />
-
-
-	<updated>2011-12-01T07:43:43Z</updated>
-	<published>2011-11-12T16:27:15Z</published>
-
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Programming challenges&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  One of the interesting aspects of looking for a job this time around
-  is that most of the companies that I have applied at have asked me
-  to do a programming challenge as a kind of weed-out step.  It has
-  been fun and a good way of keeping in practice.  In fact, I have
-  resolved to learn at least one new feature of the programming
-  language that I am using for each one.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Time series framework&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  My latest programming challenge is to build a framework for &lt;a href=&quot;http://en.wikipedia.org/wiki/Time_series&quot;&gt;time series&lt;/a&gt; generation.  The framework will take a function $f$ that
-  looks at the $n$ previous timesteps and returns the next timestep.
-  The other goals are:
-&lt;/p&gt;&lt;ul&gt;
-&lt;li&gt;Efficiency
-
-&lt;p&gt;    
-    Adding a new timestep should be a $O(1)$ operation.
-&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Ease of debugging
-
-&lt;p&gt;    
-    If an error occurs in computing the next timestep, the stack trace
-    should be easily comprehensible and show the current state of the
-    time series.
-&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Traceability
-
-&lt;p&gt;    
-    It should be possible to see the differences between two different
-    functions.  
-&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Ideas so far&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-
-
-&lt;p&gt;
-  This seems like the perfect time to learn about &lt;a href=&quot;http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/&quot;&gt;monads&lt;/a&gt;.  Yikes!
-  I&#39;ve tried before, but have never seen a practical use for them.  As
-  far as I understand so far, they should be very good for storing the
-  state (&lt;i&gt;i.e.&lt;/i&gt; the previous $n$ timesteps).
-&lt;/p&gt;
-&lt;p&gt;
-  A simpler solution might be just to use lazy sequences.  There&#39;s not
-  much to such a solution, so I might just implement it first and then
-  try to replicate it with monads.  In this solution, the previous $n$
-  timesteps are simply the last $n$ elements of the lazy sequence.
-  Getting those elements might be tough to do in constant time, but I
-  have a feeling it&#39;s possible.
-&lt;/p&gt;
-&lt;p&gt;
-  On the debugging front, there shouldn&#39;t be too much complexity: it
-  should just be a combination of &lt;code&gt;try&lt;/code&gt;, &lt;code&gt;catch&lt;/code&gt;, and &lt;code&gt;throw&lt;/code&gt;.
-  There&#39;s also &lt;code&gt;clojure.stacktrace&lt;/code&gt; if I want to get even fancier.
-&lt;/p&gt;
-&lt;p&gt;
-  As far as tracing goes, I might have a look at &lt;code&gt;tools.trace&lt;/code&gt; to see
-  if there&#39;s anything interesting there that I can use.  I think that
-  monads might provide another way of doing the same thing.  We&#39;ll see
-  which is simpler.  It might also be nice to use &lt;a href=&quot;http://incanter.org&quot;&gt;incanter&lt;/a&gt; to display
-  the differences between two (or more) different functions.
-&lt;/p&gt;
-&lt;p&gt;
-  On to the coding!
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/time-series-1/#comments" type="text/html" />
-
-
-	<link rel="comments" href="/posts/time-series-1/comments.atom" type="application/atom+xml" />
 
 </entry>
 

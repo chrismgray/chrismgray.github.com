@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Clojure Data Structures</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+Clojure Data Structures
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+
+<p>This past week, I've been knee-deep in Clojure data structures --
+mostly persistent vector and hash-map.  The goal has been to provide
+replacements written in pure Clojure that can be ported to
+ClojureScript, but it has also been a great way to learn about how
+these structures work.  So in this post, I'll try to summarize what I
+learned, and give some the results of my hacking.
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Vector</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  I started this project inspired by a tweet by <a href="https://twitter.com/#!/swannodette">David Nolen</a>.  I can't
+  find it any more, but he mentioned that he had ported the
+  persistent-vector data structure to JavaScript and that he was
+  hoping to use it in ClojureScript.  That made me think: since
+  the ClojureScript compiler now supports languages other than
+  JavaScript as its backends, wouldn't it be helpful, at least for
+  those backends, to port the data structure to pure Clojure, so that
+  any ClojureScript backend could use it?
+</p>
+<p>
+  So I did.  The result is <a href="https://github.com/chrismgray/persistent-data-structures/blob/master/src/persistent_data_structures/vector.clj">here</a>.  Instead of merely mechanically
+  porting the Java into Clojure, I tried to really understand what was
+  going on.  The gist is really simple (and has been talked about
+  before): the vector is actually a tree with branching-factor 32, and
+  a buffer of size 32.  When you add to the vector, you really add to
+  the buffer if you can, copying the buffer before writing to it.
+  When the buffer fills up, it is put in the tree, and again nodes are
+  copied rather than simply written-to.
+</p>
+<p>
+  This procedure means that adding an element is a \(O(\log n)\)
+  operation, but the constants are really good: for one thing, the
+  base of the \(\log\) is 32, so the influence of the \(\log n\) in
+  the overall running time is pretty small even for very large \(n\).
+  For another thing, the \(\log n\) penalty is only incurred on every
+  thirty-second insert.  Most inserts are constant-time.
+</p>
+<p>
+  Another cool feature is the way that the tree is structured.  Each
+  node has its children in an array of length 32.  This means that the
+  subtree that contains a given element can be found very quickly by
+  simple bit operations.  To find the subtree containing element \(i\)
+  in tree level \(k\), you shift \(i\) to the right by \(5k\) places
+  and take the rightmost 5 bits.  This procedure would work with
+  arrays that are of length of any power of 2, where you replace 5 by
+  the \(\log_2\) of the length.
+</p>
+<p>
+  Anyway, László Török had pretty much the same idea as I did (and the
+  author of gvec.clj, which is in the core distribution, had the same
+  idea before either of us), and his code was better-tuned than mine,
+  so it is what went into the new release of ClojureScript.
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">An aside</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<p>
+   When vectors are created in Clojure (but not yet in ClojureScript),
+   they are created by way of a transient vector.  The idea behind this
+   is that the transient vector is only around for the creation of the
+   vector, so it does not need to be persistent.  Thus, it does not
+   need to use the copy-on-write policy that persistent vectors use.
+   In order to build a larger vector, it simply adds to an empty vector
+   using the same procedure that I outlined above.
+</p>
+<p>
+   Theoretically at least, that is not the optimal algorithm.  The
+   trees can be built from the bottom-up (much like <a href="./../clojure-sorting">heaps</a>), giving a
+   \(O(n)\) algorithm, which also has very good constants.  I haven't
+   computed the constant, but it should be less than \(1 {1 \over
+   16}\).  I implemented this algorithm in Clojure, but the difference
+   in constants between Clojure code and pure Java code, and the fact
+   that the constants in the Java implementation are <b>so</b> low meant
+   that my implementation was slower even for very large \(n\).  I may
+   one day try to port my bottom-up algorithm back to Java, but I kind
+   of doubt it would make much difference.  Sometimes the
+   theoretically better solution just isn't better in the real world.
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Hash Maps</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  I also had a look at hash maps.  The basic idea behind any hash-map
+  is to store a key-value pair by first computing the <i>hash</i> of the
+  key to something much smaller &ndash; in Clojure's case a 32-bit integer
+  &ndash; and then storing the pair in a location based on that hash.
+  There are many ways that this could be done, and I had a look at the
+  Java implementation used in Clojure and decided that I didn't really
+  want to do much more porting.  So I came up with a couple of ideas
+  that are related to Clojure's way of doing it.
+</p>
+<p>
+  The first idea was to make the same tree as used in the vector
+  implementation, but to fill it in only as needed.  In essence, this
+  was a sparse vector.  The Clojure implementation does something
+  similar to this, but goes one step further by using a bit-map to
+  signify which branches of the tree are actually used.  In this way,
+  it can avoid copying arrays that are mostly full of placeholders.
+</p>
+<p>
+  The next idea was a bit more radical.  It involved making a <a href="https://en.wikipedia.org/wiki/Patricia_trie">radix tree</a> of the input data.  Of all my experiments, this might have been
+  the most successful.  In Clojure, its performance is very close to
+  the built-in data structure.  In ClojureScript, for some reason it
+  is much faster at storing new data than the built-in data structure
+  but somewhat slower at retrieving data.  I am thinking that there
+  must be some JavaScript-specific reason for this, but I haven't
+  found it yet.  It could just be that the ClojureScript data
+  structure is asymmetric in the opposite way (I haven't yet looked
+  very deeply at it).
+</p>
+<p>
+  In all cases, the theoretical running times are pretty much what
+  you'd expect.  To either insert a new key-value pair or to find a
+  key, it's basically the sum of the time needed to hash the key, a
+  constant to find the place where the key is stored, and then
+  something proportional to the number of other keys that have the
+  same hash value that have been inserted so far.
+</p>
+<p>
+  In practice, large collections must be hashed each time they're
+  inserted or searched for, so using them as keys is probably not a
+  great idea.  In Clojure, negative numbers hash to one less than
+  their absolute value, so there will probably be collisions if you
+  use a large number of positive and negative numbers as keys, but
+  it's not that big of a deal, since the number of collisions
+  generated by this is at most two.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Conclusions</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  At the very least, this was a good way to learn what's really going
+  on under the hood.  I also did a lot of tuning &ndash; not only adding
+  typehints, but re-implementing some lazy functions to be non-lazy --
+  which is certainly good experience.  I never made a data structure
+  that was faster than one of the ones implemented in Java, but I got
+  pretty close in both cases.  In order to get meaningful tests, I had
+  to do things in a very big way: putting millions of things in
+  vectors, and querying hash-maps hundreds of thousands of times.
+  Most programs will not do these operations at such scales, and most
+  of the tests still took less than a second on my underpowered
+  laptop.  That makes me think pretty highly of the existing data
+  structures in Clojure.
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sat Mar 31 19:27:15 2012</span>
+<!-- Created <span class="date">Sat Mar 31 19:27:15 2012</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

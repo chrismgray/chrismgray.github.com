@@ -17,7 +17,123 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-03-14T15:47:20Z</updated>
+<updated>2012-04-01T01:27:30Z</updated>
+<entry>
+	<title>change to posts/clojure-data-structures on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_578237de75d7d1a1649f183ca873dad4e2d223be/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-578237de75d7d1a1649f183ca873dad4e2d223be"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-04-01T01:27:30Z</updated>
+	<published>2012-04-01T01:27:30Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-578237de75d7d1a1649f183ca873dad4e2d223be&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/clojure-data-structures
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;19:27:30 03/31/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 578237de75d7d1a1649f183ca873dad4e2d223be --&gt;
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to posts/hiking/philosophy on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_07c9032b3ef1c1df32febc2c3bbdfe8079b1dd1c/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-07c9032b3ef1c1df32febc2c3bbdfe8079b1dd1c"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-03-15T17:24:36Z</updated>
+	<published>2012-03-15T17:24:36Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-07c9032b3ef1c1df32febc2c3bbdfe8079b1dd1c&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/philosophy
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:24:36 03/15/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Removed parsing error&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 07c9032b3ef1c1df32febc2c3bbdfe8079b1dd1c --&gt;
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/org-ikiwiki-plugin-5 on Hiking and Coding</title>
 
@@ -57,7 +173,7 @@ chrismgray
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
 &lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;09:47:20 03/14/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;09:47:20 AM 03/14/2012&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
 
 &lt;/div&gt;
@@ -115,7 +231,7 @@ chrismgray
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
 &lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;22:52:35 03/13/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;10:52:35 PM 03/13/2012&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
 
 &lt;/div&gt;
@@ -173,7 +289,7 @@ chrismgray
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
 &lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;22:52:35 03/13/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;10:52:35 PM 03/13/2012&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
 
 &lt;/div&gt;
@@ -5754,122 +5870,6 @@ Fixed the Disqus links&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- d6a55afd6e5c9d82acd221ccca9057f081623731 --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to templates/page.tmpl on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_da1875ea107919fe805319bb034bed1862d01ed1/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-da1875ea107919fe805319bb034bed1862d01ed1"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-11T16:06:40Z</updated>
-	<published>2011-11-11T16:06:40Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-da1875ea107919fe805319bb034bed1862d01ed1&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-templates/page.tmpl
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;09:06:40 AM 11/11/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Put in the disqus links&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- da1875ea107919fe805319bb034bed1862d01ed1 --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/cljs-name-resolving on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_5431f45a935a763bcb1fa759b0896c1f7553773c/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-5431f45a935a763bcb1fa759b0896c1f7553773c"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-11T15:42:07Z</updated>
-	<published>2011-11-11T15:42:07Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-5431f45a935a763bcb1fa759b0896c1f7553773c&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/cljs-name-resolving
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;08:42:07 AM 11/11/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Another recompile&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 5431f45a935a763bcb1fa759b0896c1f7553773c --&gt;
 
 	</content>
 
