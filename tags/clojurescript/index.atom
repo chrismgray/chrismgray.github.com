@@ -17,7 +17,158 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-01T01:27:15Z</updated>
+<updated>2012-04-11T06:29:32Z</updated>
+<entry>
+	<title>Clojurescript Macros</title>
+
+	<id>http://chrismgray.github.com//posts/cljs-macros/</id>
+
+	<link href="http://chrismgray.github.com//posts/cljs-macros/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+	<category term="macros" />
+
+
+	<updated>2012-04-11T06:29:32Z</updated>
+	<published>2012-04-11T05:36:33Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;Today I wrote a proof-of-concept implementation of a macro system for
+Clojurescript.  The code is &lt;a href=&quot;https://github.com/chrismgray/clojurescript/tree/defmacro&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+Clojurescript already had a sort of macro system in the form of
+Clojure macros, but this is different &amp;ndash; the macros are written in
+Clojurescript, get compiled to JavaScript, and are evaluated by a
+JavaScript interpreter.  They can be mixed in with Clojurescript code
+and call Clojurescript functions.  In theory, they should work with
+any Clojurescript backend that implements the REPL-related protocols
+(but who knows if that&#39;s true).
+&lt;/p&gt;
+&lt;p&gt;
+So that&#39;s the big announcement.  What follows are some implementation
+details and other notes.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Implementation details&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  The macros are defined by passing strings back and forth between the
+  Clojurescript compiler and the Rhino JavaScript interpreter.  The
+  strings from Rhino are read by Clojure using &lt;code&gt;read-string&lt;/code&gt;, so
+  macros are limited to things that can be printed by Clojurescript in
+  a form that Clojure can read.
+&lt;/p&gt;
+&lt;p&gt;
+  Macros are not yet put into the correct namespaces.  I don&#39;t think
+  it will be too hard to do that correctly though.
+&lt;/p&gt;
+&lt;p&gt;
+  Rhino is a slow beast.  It adds multiple seconds to the startup time
+  of the compiler.  It might be smart to scan the file for =defmacro=s
+  before including the macro-interpreting code.  However, since macro
+  expansion requires that all functions are defined in the
+  interpreter, once a &lt;code&gt;defmacro&lt;/code&gt; is hit, all the functions in the file
+  preceding it (and in all =require=d files) must be re-parsed.
+&lt;/p&gt;
+&lt;p&gt;
+  Existing Clojure macros should still work.  If two macros have the
+  same name, the Clojurescript one will take precedence, but of course
+  getting namespaces working should eliminate most conflicts.
+&lt;/p&gt;
+&lt;p&gt;
+  It should go without saying that this is completely experimental at
+  this point.  Things seem like they work to me, but they might yet
+  blow up in unexpected ways.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;An example&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  Here is a simple Clojurescript file which implements the &lt;code&gt;unless&lt;/code&gt;
+  macro (also known as &lt;code&gt;when-not&lt;/code&gt; in Clojure, but I think giving it a
+  different name shows better that it is really not using the Clojure
+  macros).
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
+  [pred &amp;amp; body]
+  `(if (not ~pred)
+     (do ~@body)
+     nil))
+
+(let [a (unless true (/ 1 0) (+ 1 1))]
+  a)
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  And here is its output:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
+
+a__5799;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  It&#39;s a bit ugly, but it should be obvious what&#39;s going on.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I&#39;m pretty happy with the progress so far.  It really shows how
+  flexible the Clojurescript compiler is that a macro system could be
+  added in under 75 lines of code, with nearly half of that being very
+  lightly modified from the compiler itself.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/cljs-macros/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/cljs-macros/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Clojure Data Structures</title>
 
@@ -467,7 +618,7 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; sym)))))])
+&lt;pre class=&quot;example&quot;&gt;(let [name (munge (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (str sym)))))])
 &lt;/pre&gt;
 
 
@@ -490,9 +641,9 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [full-ns (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;and&lt;/span&gt; (core-name? env sym) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;nil?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;get-in&lt;/span&gt; @namespaces [(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:defs&lt;/span&gt; sym])))
+&lt;pre class=&quot;example&quot;&gt;(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&amp;gt; env :ns :name) :defs sym])))
                 &#39;cljs.core
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;))])
+                (-&amp;gt; env :ns :name))])
 &lt;/pre&gt;
 
 
@@ -582,15 +733,15 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmethod&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;parse&lt;/span&gt; &#39;def
+&lt;pre class=&quot;example&quot;&gt;(defmethod parse &#39;def
   [op env form name]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [pfn (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; ([_ sym] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym})
-              ([_ sym init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init})
-              ([_ sym doc init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:doc&lt;/span&gt; doc &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init}))
-        args (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; pfn form)
-        sym (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; args)]
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;assert&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;namespace&lt;/span&gt; sym)) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Can&#39;t def ns-qualified name&quot;&lt;/span&gt;)
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (resolve-var (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;dissoc&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:locals&lt;/span&gt;) sym)))])))
+  (let [pfn (fn ([_ sym] {:sym sym})
+              ([_ sym init] {:sym sym :init init})
+              ([_ sym doc init] {:sym sym :doc doc :init init}))
+        args (apply pfn form)
+        sym (:sym args)]
+    (assert (not (namespace sym)) &quot;Can&#39;t def ns-qualified name&quot;)
+    (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))])))
 &lt;/pre&gt;
 
 
@@ -603,11 +754,11 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt;
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (core-name? env sym)
+&lt;pre class=&quot;example&quot;&gt;(munge (symbol (str
+                (if (core-name? env sym)
                   &#39;cljs.core
-                  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;))
-                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym)))))
+                  (-&amp;gt; env :ns :name))
+                &quot;.&quot; (munge (name sym)))))
 &lt;/pre&gt;
 
 
@@ -640,7 +791,7 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym))))))])
+&lt;pre class=&quot;example&quot;&gt;(let [name (munge (:name (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (name sym))))))])
 &lt;/pre&gt;
 
 

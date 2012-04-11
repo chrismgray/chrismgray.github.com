@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<rss version="2.0"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dcterms="http://purl.org/dc/terms/" >
+<channel>
+<title>pages tagged macros</title>
+<link>http://chrismgray.github.com//tags/macros/</link>
+<description>Hiking and Coding</description>
+<item>
+
+	<title>Clojurescript Macros</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/cljs-macros/</guid>
+
+	<link>http://chrismgray.github.com//posts/cljs-macros/</link>
+
+
+	<category>clojure</category>
+
+	<category>clojurescript</category>
+
+	<category>lab-notes</category>
+
+	<category>macros</category>
+
+
+	<pubDate>Tue, 10 Apr 2012 23:36:33 -0600</pubDate>
+	<dcterms:modified>2012-04-11T06:29:32Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;Today I wrote a proof-of-concept implementation of a macro system for
+Clojurescript.  The code is &lt;a href=&quot;https://github.com/chrismgray/clojurescript/tree/defmacro&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+Clojurescript already had a sort of macro system in the form of
+Clojure macros, but this is different &amp;ndash; the macros are written in
+Clojurescript, get compiled to JavaScript, and are evaluated by a
+JavaScript interpreter.  They can be mixed in with Clojurescript code
+and call Clojurescript functions.  In theory, they should work with
+any Clojurescript backend that implements the REPL-related protocols
+(but who knows if that&#39;s true).
+&lt;/p&gt;
+&lt;p&gt;
+So that&#39;s the big announcement.  What follows are some implementation
+details and other notes.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Implementation details&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  The macros are defined by passing strings back and forth between the
+  Clojurescript compiler and the Rhino JavaScript interpreter.  The
+  strings from Rhino are read by Clojure using &lt;code&gt;read-string&lt;/code&gt;, so
+  macros are limited to things that can be printed by Clojurescript in
+  a form that Clojure can read.
+&lt;/p&gt;
+&lt;p&gt;
+  Macros are not yet put into the correct namespaces.  I don&#39;t think
+  it will be too hard to do that correctly though.
+&lt;/p&gt;
+&lt;p&gt;
+  Rhino is a slow beast.  It adds multiple seconds to the startup time
+  of the compiler.  It might be smart to scan the file for =defmacro=s
+  before including the macro-interpreting code.  However, since macro
+  expansion requires that all functions are defined in the
+  interpreter, once a &lt;code&gt;defmacro&lt;/code&gt; is hit, all the functions in the file
+  preceding it (and in all =require=d files) must be re-parsed.
+&lt;/p&gt;
+&lt;p&gt;
+  Existing Clojure macros should still work.  If two macros have the
+  same name, the Clojurescript one will take precedence, but of course
+  getting namespaces working should eliminate most conflicts.
+&lt;/p&gt;
+&lt;p&gt;
+  It should go without saying that this is completely experimental at
+  this point.  Things seem like they work to me, but they might yet
+  blow up in unexpected ways.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;An example&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  Here is a simple Clojurescript file which implements the &lt;code&gt;unless&lt;/code&gt;
+  macro (also known as &lt;code&gt;when-not&lt;/code&gt; in Clojure, but I think giving it a
+  different name shows better that it is really not using the Clojure
+  macros).
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
+  [pred &amp;amp; body]
+  `(if (not ~pred)
+     (do ~@body)
+     nil))
+
+(let [a (unless true (/ 1 0) (+ 1 1))]
+  a)
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  And here is its output:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
+
+a__5799;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  It&#39;s a bit ugly, but it should be obvious what&#39;s going on.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I&#39;m pretty happy with the progress so far.  It really shows how
+  flexible the Clojurescript compiler is that a macro system could be
+  added in under 75 lines of code, with nearly half of that being very
+  lightly modified from the compiler itself.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/cljs-macros/#comments</comments>
+
+</item>
+
+</channel>
+</rss>

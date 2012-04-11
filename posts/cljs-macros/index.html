@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Clojurescript Macros</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+Clojurescript Macros
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+
+<p>Today I wrote a proof-of-concept implementation of a macro system for
+Clojurescript.  The code is <a href="https://github.com/chrismgray/clojurescript/tree/defmacro">here</a>.
+</p>
+<p>
+Clojurescript already had a sort of macro system in the form of
+Clojure macros, but this is different &ndash; the macros are written in
+Clojurescript, get compiled to JavaScript, and are evaluated by a
+JavaScript interpreter.  They can be mixed in with Clojurescript code
+and call Clojurescript functions.  In theory, they should work with
+any Clojurescript backend that implements the REPL-related protocols
+(but who knows if that's true).
+</p>
+<p>
+So that's the big announcement.  What follows are some implementation
+details and other notes.
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Implementation details</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  The macros are defined by passing strings back and forth between the
+  Clojurescript compiler and the Rhino JavaScript interpreter.  The
+  strings from Rhino are read by Clojure using <code>read-string</code>, so
+  macros are limited to things that can be printed by Clojurescript in
+  a form that Clojure can read.
+</p>
+<p>
+  Macros are not yet put into the correct namespaces.  I don't think
+  it will be too hard to do that correctly though.
+</p>
+<p>
+  Rhino is a slow beast.  It adds multiple seconds to the startup time
+  of the compiler.  It might be smart to scan the file for =defmacro=s
+  before including the macro-interpreting code.  However, since macro
+  expansion requires that all functions are defined in the
+  interpreter, once a <code>defmacro</code> is hit, all the functions in the file
+  preceding it (and in all =require=d files) must be re-parsed.
+</p>
+<p>
+  Existing Clojure macros should still work.  If two macros have the
+  same name, the Clojurescript one will take precedence, but of course
+  getting namespaces working should eliminate most conflicts.
+</p>
+<p>
+  It should go without saying that this is completely experimental at
+  this point.  Things seem like they work to me, but they might yet
+  blow up in unexpected ways.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">An example</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  Here is a simple Clojurescript file which implements the <code>unless</code>
+  macro (also known as <code>when-not</code> in Clojure, but I think giving it a
+  different name shows better that it is really not using the Clojure
+  macros).
+</p>
+
+
+
+<pre class="example">(defmacro unless
+  [pred &amp; body]
+  `(if (not ~pred)
+     (do ~@body)
+     nil))
+
+(let [a (unless true (/ 1 0) (+ 1 1))]
+  a)
+</pre>
+
+
+<p>
+  And here is its output:
+</p>
+
+
+
+<pre class="example">var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
+
+a__5799;
+</pre>
+
+
+<p>
+  It's a bit ugly, but it should be obvious what's going on.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Conclusion</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  I'm pretty happy with the progress so far.  It really shows how
+  flexible the Clojurescript compiler is that a macro system could be
+  added in under 75 lines of code, with nearly half of that being very
+  lightly modified from the compiler itself.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="../../tags/macros/" rel="tag">macros</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wed Apr 11 00:29:32 2012</span>
+<!-- Created <span class="date">Tue Apr 10 23:36:33 2012</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

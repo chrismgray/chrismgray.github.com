@@ -17,7 +17,158 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-01T01:27:15Z</updated>
+<updated>2012-04-11T06:29:32Z</updated>
+<entry>
+	<title>Clojurescript Macros</title>
+
+	<id>http://chrismgray.github.com//posts/cljs-macros/</id>
+
+	<link href="http://chrismgray.github.com//posts/cljs-macros/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+	<category term="macros" />
+
+
+	<updated>2012-04-11T06:29:32Z</updated>
+	<published>2012-04-11T05:36:33Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;Today I wrote a proof-of-concept implementation of a macro system for
+Clojurescript.  The code is &lt;a href=&quot;https://github.com/chrismgray/clojurescript/tree/defmacro&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+Clojurescript already had a sort of macro system in the form of
+Clojure macros, but this is different &amp;ndash; the macros are written in
+Clojurescript, get compiled to JavaScript, and are evaluated by a
+JavaScript interpreter.  They can be mixed in with Clojurescript code
+and call Clojurescript functions.  In theory, they should work with
+any Clojurescript backend that implements the REPL-related protocols
+(but who knows if that&#39;s true).
+&lt;/p&gt;
+&lt;p&gt;
+So that&#39;s the big announcement.  What follows are some implementation
+details and other notes.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Implementation details&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  The macros are defined by passing strings back and forth between the
+  Clojurescript compiler and the Rhino JavaScript interpreter.  The
+  strings from Rhino are read by Clojure using &lt;code&gt;read-string&lt;/code&gt;, so
+  macros are limited to things that can be printed by Clojurescript in
+  a form that Clojure can read.
+&lt;/p&gt;
+&lt;p&gt;
+  Macros are not yet put into the correct namespaces.  I don&#39;t think
+  it will be too hard to do that correctly though.
+&lt;/p&gt;
+&lt;p&gt;
+  Rhino is a slow beast.  It adds multiple seconds to the startup time
+  of the compiler.  It might be smart to scan the file for =defmacro=s
+  before including the macro-interpreting code.  However, since macro
+  expansion requires that all functions are defined in the
+  interpreter, once a &lt;code&gt;defmacro&lt;/code&gt; is hit, all the functions in the file
+  preceding it (and in all =require=d files) must be re-parsed.
+&lt;/p&gt;
+&lt;p&gt;
+  Existing Clojure macros should still work.  If two macros have the
+  same name, the Clojurescript one will take precedence, but of course
+  getting namespaces working should eliminate most conflicts.
+&lt;/p&gt;
+&lt;p&gt;
+  It should go without saying that this is completely experimental at
+  this point.  Things seem like they work to me, but they might yet
+  blow up in unexpected ways.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;An example&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  Here is a simple Clojurescript file which implements the &lt;code&gt;unless&lt;/code&gt;
+  macro (also known as &lt;code&gt;when-not&lt;/code&gt; in Clojure, but I think giving it a
+  different name shows better that it is really not using the Clojure
+  macros).
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
+  [pred &amp;amp; body]
+  `(if (not ~pred)
+     (do ~@body)
+     nil))
+
+(let [a (unless true (/ 1 0) (+ 1 1))]
+  a)
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  And here is its output:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
+
+a__5799;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  It&#39;s a bit ugly, but it should be obvious what&#39;s going on.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I&#39;m pretty happy with the progress so far.  It really shows how
+  flexible the Clojurescript compiler is that a macro system could be
+  added in under 75 lines of code, with nearly half of that being very
+  lightly modified from the compiler itself.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/cljs-macros/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/cljs-macros/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Clojure Data Structures</title>
 
@@ -281,11 +432,11 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(||-&amp;gt;&amp;gt; data
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-       &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:merge&lt;/span&gt;
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(||-&amp;gt;&amp;gt; data
+       (map big-function)
+       (filter odd?)
+       :merge
+       (reduce +))
 &lt;/pre&gt;
 
 
@@ -295,10 +446,10 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; data
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(-&amp;gt;&amp;gt; data
+     (map big-function)
+     (filter odd?)
+     (reduce +))
 &lt;/pre&gt;
 
 
@@ -332,8 +483,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map 4 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map 4 (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19}
 &lt;/pre&gt;
 
 
@@ -348,8 +499,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map-with 4 conj [] (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}
 &lt;/pre&gt;
 
 
@@ -412,7 +563,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
+&lt;pre class=&quot;example&quot;&gt;(let* ((foo bar)
        (baz foo)))
 &lt;/pre&gt;
 
@@ -428,7 +579,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
+&lt;pre class=&quot;example&quot;&gt;(let [foo bar
       baz foo])
 &lt;/pre&gt;
 
@@ -993,32 +1144,32 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;add-new-pt&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;or&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; stack) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;First two points are guaranteed to be visible&lt;/span&gt;
-              (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack))
-              (visible? pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack)))
-      [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) stack)])))
+&lt;pre class=&quot;example&quot;&gt;(defn- add-new-pt [poly]
+  (fn [pt stack]
+    (when (or (empty? stack) ; First two points are guaranteed to be visible
+              (empty? (rest stack))
+              (visible? pt (first poly) (first stack)))
+      [pt (rest poly) (cons (first poly) stack)])))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;pop-stack&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
-          top-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack))]
-      (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
-        (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg top-seg) stack)]
-          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack)])))))
+(defn- pop-stack [poly]
+  (fn [pt stack]
+    (let [the-seg (seg/new-seg pt (first poly))
+          top-seg (seg/new-seg (first stack) (second stack))]
+      (when (pt/left-turn? (second stack) (first stack) (first poly))
+        (if (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
+          [pt poly (rest stack)])))))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;skip-pt&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack))
-         poly-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; poly))]
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly)))
-       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg poly-seg) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly)) stack]
-         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) stack])))))
+(defn- skip-pt [poly]
+  (fn [pt stack]
+   (let [the-seg (seg/new-seg pt (first stack))
+         poly-seg (seg/new-seg (first poly) (second poly))]
+     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
+       (if (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
+         [pt (rest poly) stack])))))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;all-conditions&lt;/span&gt; [poly]
+(defn- all-conditions [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 &lt;/pre&gt;
@@ -1052,7 +1203,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;visibility-polygon-helper&lt;/span&gt; [pt poly]
+&lt;pre class=&quot;example&quot;&gt;(defn- visibility-polygon-helper [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 &lt;/pre&gt;
@@ -1153,16 +1304,16 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defn luhn-check
+  &quot;Takes a sequence of digits and determines whether they pass the Luhn test.
+   The sequence must be in order from right to left.&quot;
   [digits]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
-       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
+  (-&amp;gt;&amp;gt; digits
+       (partition 2 2 (repeat 0))
+       (mapcat #(vector (first %) (* 2 (second %))))
+       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
+       (#(mod % 10))
+       (= 0)))
 &lt;/pre&gt;
 
 
@@ -1356,133 +1507,6 @@ enough for me to release as Clojure packages.
 
 
 	<link rel="comments" href="/posts/scattered/comments.atom" type="application/atom+xml" />
-
-</entry>
-<entry>
-	<title>Time Series 2</title>
-
-	<id>http://chrismgray.github.com//posts/time-series-2/</id>
-
-	<link href="http://chrismgray.github.com//posts/time-series-2/"/>
-
-
-
-
-
-
-	<category term="clojure" />
-
-	<category term="programming-challenge" />
-
-	<category term="time-series" />
-
-
-	<updated>2011-12-15T18:14:05Z</updated>
-	<published>2011-11-13T14:12:16Z</published>
-
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;What we have so far&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  Well, yesterday was either a very productive day or a very lucky day
-  for me.  I read up on monads &amp;ndash; I found that &lt;a href=&quot;http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/&quot;&gt;khinsen&#39;s tutorials&lt;/a&gt; and
-  &lt;a href=&quot;http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_101.html&quot;&gt;Jim Duey&#39;s tutorials&lt;/a&gt; complemented each other nicely.  Then I went
-  for a long run (about 18 miles I think) and let the ideas sink in.
-  When I got home, I found &lt;code&gt;state-m&lt;/code&gt; and &lt;code&gt;m-seq&lt;/code&gt; and the job was
-  almost done.
-&lt;/p&gt;
-&lt;p&gt;
-  Just as a reminder, &lt;a href=&quot;http://chrismgray.github.com/posts/time-series-1&quot;&gt;yesterday&#39;s task&lt;/a&gt; was to build a time-series
-  framework where a function \(f\) accepts the previous \(n\) outputs of
-  \(f\) as input to generate a new output.  Here is my solution, edited
-  for clarity (the actual solution is in a &lt;a href=&quot;http://github.com/chrismgray/time-series&quot;&gt;github repository&lt;/a&gt;):
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
- (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
-                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
-                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
-                  [retval new-state]))]
-   ((with-monad state-m
-      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  As you can see, the heavy lifting is done by the &lt;code&gt;state&lt;/code&gt; monad and
-  by &lt;code&gt;m-seq&lt;/code&gt;.  What do they do?  Well, &lt;code&gt;m-seq&lt;/code&gt; can be thought of as
-  taking a list of functions and calling them in order, returning a
-  list of their return values.  The list of functions in this case is
-  the same function (&lt;code&gt;call-f&lt;/code&gt;) over and over.  All &lt;code&gt;call-f&lt;/code&gt; does is
-  call \(f\) and change the state.
-&lt;/p&gt;
-&lt;p&gt;
-  It might appear that &lt;code&gt;call-f&lt;/code&gt; is an \(O(n)\) function.  After all, we
-  call &lt;code&gt;count&lt;/code&gt; on the state, which is a vector of at most \(n\)
-  elements.  However, almost all the behind-the-scenes data structures
-  that Clojure uses (including the vector data structure) are
-  guaranteed to have \(O(1)\) performance for calling &lt;code&gt;count&lt;/code&gt;.  So
-  that&#39;s nice, and &lt;code&gt;call-f&lt;/code&gt; has the performance characteristics that I
-  desired.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Monads&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  They&#39;re still a slightly confusing and magical-seeming thing to me,
-  but monads have some obvious utility.  I guess the way to think
-  about them is that if you put your input and output in a common
-  format, then they aid you in stringing functions together very
-  easily.  I used them in this case to encapsulate state, and that is
-  probably the most common use of them in Clojure (judging by the
-  number of state functions in the Clojure monads library).  However,
-  I think I should probably try to understand all the monads in the
-  library and know how to combine them.
-&lt;/p&gt;
-&lt;p&gt;
-  I could have written the function above without monads, but the code
-  would not have been nearly as concise, and there probably would have
-  been many more edge-cases to consider.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;The rest&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-
-
-&lt;p&gt;
-  I also wrote some stuff to make debugging easier, and used incanter
-  to compare multiple time series.  However, neither required me to
-  bend my brain as much as monads, so I won&#39;t talk about them very
-  much.  In fact, not at all, because that is the end of my post.
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/time-series-2/#comments" type="text/html" />
-
-
-	<link rel="comments" href="/posts/time-series-2/comments.atom" type="application/atom+xml" />
 
 </entry>
 

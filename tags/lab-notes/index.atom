@@ -17,7 +17,158 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-01T01:27:15Z</updated>
+<updated>2012-04-11T06:29:32Z</updated>
+<entry>
+	<title>Clojurescript Macros</title>
+
+	<id>http://chrismgray.github.com//posts/cljs-macros/</id>
+
+	<link href="http://chrismgray.github.com//posts/cljs-macros/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+	<category term="macros" />
+
+
+	<updated>2012-04-11T06:29:32Z</updated>
+	<published>2012-04-11T05:36:33Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;Today I wrote a proof-of-concept implementation of a macro system for
+Clojurescript.  The code is &lt;a href=&quot;https://github.com/chrismgray/clojurescript/tree/defmacro&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+Clojurescript already had a sort of macro system in the form of
+Clojure macros, but this is different &amp;ndash; the macros are written in
+Clojurescript, get compiled to JavaScript, and are evaluated by a
+JavaScript interpreter.  They can be mixed in with Clojurescript code
+and call Clojurescript functions.  In theory, they should work with
+any Clojurescript backend that implements the REPL-related protocols
+(but who knows if that&#39;s true).
+&lt;/p&gt;
+&lt;p&gt;
+So that&#39;s the big announcement.  What follows are some implementation
+details and other notes.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Implementation details&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  The macros are defined by passing strings back and forth between the
+  Clojurescript compiler and the Rhino JavaScript interpreter.  The
+  strings from Rhino are read by Clojure using &lt;code&gt;read-string&lt;/code&gt;, so
+  macros are limited to things that can be printed by Clojurescript in
+  a form that Clojure can read.
+&lt;/p&gt;
+&lt;p&gt;
+  Macros are not yet put into the correct namespaces.  I don&#39;t think
+  it will be too hard to do that correctly though.
+&lt;/p&gt;
+&lt;p&gt;
+  Rhino is a slow beast.  It adds multiple seconds to the startup time
+  of the compiler.  It might be smart to scan the file for =defmacro=s
+  before including the macro-interpreting code.  However, since macro
+  expansion requires that all functions are defined in the
+  interpreter, once a &lt;code&gt;defmacro&lt;/code&gt; is hit, all the functions in the file
+  preceding it (and in all =require=d files) must be re-parsed.
+&lt;/p&gt;
+&lt;p&gt;
+  Existing Clojure macros should still work.  If two macros have the
+  same name, the Clojurescript one will take precedence, but of course
+  getting namespaces working should eliminate most conflicts.
+&lt;/p&gt;
+&lt;p&gt;
+  It should go without saying that this is completely experimental at
+  this point.  Things seem like they work to me, but they might yet
+  blow up in unexpected ways.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;An example&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  Here is a simple Clojurescript file which implements the &lt;code&gt;unless&lt;/code&gt;
+  macro (also known as &lt;code&gt;when-not&lt;/code&gt; in Clojure, but I think giving it a
+  different name shows better that it is really not using the Clojure
+  macros).
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
+  [pred &amp;amp; body]
+  `(if (not ~pred)
+     (do ~@body)
+     nil))
+
+(let [a (unless true (/ 1 0) (+ 1 1))]
+  a)
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  And here is its output:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
+
+a__5799;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  It&#39;s a bit ugly, but it should be obvious what&#39;s going on.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  I&#39;m pretty happy with the progress so far.  It really shows how
+  flexible the Clojurescript compiler is that a macro system could be
+  added in under 75 lines of code, with nearly half of that being very
+  lightly modified from the compiler itself.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/cljs-macros/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/cljs-macros/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Clojure Data Structures</title>
 
@@ -482,11 +633,11 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(||-&amp;gt;&amp;gt; data
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-       &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:merge&lt;/span&gt;
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(||-&amp;gt;&amp;gt; data
+       (map big-function)
+       (filter odd?)
+       :merge
+       (reduce +))
 &lt;/pre&gt;
 
 
@@ -496,10 +647,10 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; data
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(-&amp;gt;&amp;gt; data
+     (map big-function)
+     (filter odd?)
+     (reduce +))
 &lt;/pre&gt;
 
 
@@ -533,8 +684,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map 4 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map 4 (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19}
 &lt;/pre&gt;
 
 
@@ -549,8 +700,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map-with 4 conj [] (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}
 &lt;/pre&gt;
 
 
@@ -649,13 +800,13 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;xml-find-nodes-matching&lt;/span&gt; (node name)
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Returns all children of `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;node&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; that have an `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;xml-node-name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; equal to `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39;.&quot;&lt;/span&gt;
-  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (or (eq node &#39;()) (not (listp node)))
+&lt;pre class=&quot;example&quot;&gt;(defun xml-find-nodes-matching (node name)
+  &quot;Returns all children of `node&#39; that have an `xml-node-name&#39; equal to `name&#39;.&quot;
+  (if (or (eq node &#39;()) (not (listp node)))
       &#39;()
-    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply &#39;append (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (if (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply &#39;append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 &lt;/pre&gt;
 
 
@@ -742,7 +893,7 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(setq valtype (car (caddar xml-list))
+&lt;pre class=&quot;example&quot;&gt;(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 &lt;/pre&gt;
 
@@ -1266,32 +1417,32 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;add-new-pt&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;or&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; stack) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;First two points are guaranteed to be visible&lt;/span&gt;
-              (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack))
-              (visible? pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack)))
-      [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) stack)])))
+&lt;pre class=&quot;example&quot;&gt;(defn- add-new-pt [poly]
+  (fn [pt stack]
+    (when (or (empty? stack) ; First two points are guaranteed to be visible
+              (empty? (rest stack))
+              (visible? pt (first poly) (first stack)))
+      [pt (rest poly) (cons (first poly) stack)])))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;pop-stack&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
-          top-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack))]
-      (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
-        (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg top-seg) stack)]
-          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack)])))))
+(defn- pop-stack [poly]
+  (fn [pt stack]
+    (let [the-seg (seg/new-seg pt (first poly))
+          top-seg (seg/new-seg (first stack) (second stack))]
+      (when (pt/left-turn? (second stack) (first stack) (first poly))
+        (if (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
+          [pt poly (rest stack)])))))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;skip-pt&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack))
-         poly-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; poly))]
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly)))
-       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg poly-seg) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly)) stack]
-         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) stack])))))
+(defn- skip-pt [poly]
+  (fn [pt stack]
+   (let [the-seg (seg/new-seg pt (first stack))
+         poly-seg (seg/new-seg (first poly) (second poly))]
+     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
+       (if (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
+         [pt (rest poly) stack])))))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;all-conditions&lt;/span&gt; [poly]
+(defn- all-conditions [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 &lt;/pre&gt;
@@ -1325,7 +1476,7 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;visibility-polygon-helper&lt;/span&gt; [pt poly]
+&lt;pre class=&quot;example&quot;&gt;(defn- visibility-polygon-helper [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 &lt;/pre&gt;
@@ -1379,125 +1530,6 @@ some of them, in no particular order.
 
 
 	<link rel="comments" href="/posts/visibility-polygon/comments.atom" type="application/atom+xml" />
-
-</entry>
-<entry>
-	<title>Parsing Polygons</title>
-
-	<id>http://chrismgray.github.com//posts/parsing-polygons/</id>
-
-	<link href="http://chrismgray.github.com//posts/parsing-polygons/"/>
-
-
-
-
-
-
-	<category term="computational-geometry" />
-
-	<category term="lab-notes" />
-
-	<category term="visibility-polygon" />
-
-
-	<updated>2011-12-01T07:44:52Z</updated>
-	<published>2011-11-21T00:58:28Z</published>
-
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Functional programming&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I&#39;ve gotten a bit obsessed by functional programming over the last
-  couple of years.  I have even seriously thought about writing a book
-  that looks at computational geometry (which is the subject in which
-  I was trained) in the light of functional programming.  Most of the
-  standard computational-geometry texts these days approach the
-  writing of code from an imperative standpoint.
-&lt;/p&gt;
-&lt;p&gt;
-  I think functional programming is a good way to think about
-  computational geometry for a couple of reasons.  First, most
-  problems in computational geometry can be expressed in a purely
-  functional manner.  That is, the answers to the problems are usually
-  the same given the same inputs.  Secondly, I have bought into the
-  idea that parallel and distributed computing are much easier when
-  state is not being modified.  Functional programming forces you to
-  think this way.  While many problems in computational geometry are
-  inherently sequential, not all of them are.  Using a programming
-  method that allows for the easy addition of more cores seems like a
-  good practice when a problem is encountered that is easily made
-  parallel. 
-&lt;/p&gt;
-&lt;p&gt;
-  One of the things I have been thinking about as a final chapter for
-  the book that I would like to write is the introduction of monads as
-  a way to &quot;parse&quot; polygons.  Monads are commonly used (well, commonly
-  in the functional programming world) to parse strings.  They
-  generally scan through with the aid of a stack.  There are many
-  algorithms that scan through the points of a polygon with a stack --
-  the example that I have thought about the most is the visibility
-  polygon.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;Visibility polygons&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  A &lt;i&gt;visibility polygon&lt;/i&gt; is the subset of a polygon that can be &quot;seen&quot;
-  from a point inside the polygon.  Here, we regard the segments of
-  the polygon as opaque walls.
-&lt;/p&gt;
-&lt;p&gt;
-  The standard algorithm for computing the visibility polygon is not
-  too difficult to implement in an imperative language.  In fact, I
-  &lt;a href=&quot;http://www.win.tue.nl/~cgray/ipelets.html&quot;&gt;implemented&lt;/a&gt; it already in C++ for the drawing editor &lt;a href=&quot;http://tclab.kaist.ac.kr/ipe/&quot;&gt;ipe&lt;/a&gt;.  (Though I
-  think that code is now obsolete since the release of ipe 7.)
-&lt;/p&gt;
-&lt;p&gt;
-  I&#39;ve already tipped my hand at how I would think about implementing
-  such an algorithm in a functional language.  I would use a variant
-  of a monadic parser to go through the polygon and find the parts
-  that are visible.  (That last sentence doesn&#39;t give much of a hint
-  about how it&#39;s done, but the whole algorithm would take too much
-  space to describe.  Suffice it to say that a stack is kept with the
-  &quot;currently visible&quot; portion of the polygon always on the stack.)
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Monads&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-
-
-&lt;p&gt;
-  I used monads &lt;a href=&quot;http://chrismgray.github.com/posts/time-series-2/&quot;&gt;earlier&lt;/a&gt; to make a framework for creating and comparing
-  time-series.  However, I only used a monad that was already defined
-  by someone else.  I think I might need to define a monad on my own
-  this time &amp;ndash; a slightly daunting idea.  I definitely need to read
-  the rest of &lt;a href=&quot;http://intensivesystems.s3-website-us-east-1.amazonaws.com/tutorials/monads_201.html&quot;&gt;Jim Duey&#39;s tutorial&lt;/a&gt; to make sense of how to do it.
-&lt;/p&gt;
-
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/parsing-polygons/#comments" type="text/html" />
-
-
-	<link rel="comments" href="/posts/parsing-polygons/comments.atom" type="application/atom+xml" />
 
 </entry>
 
