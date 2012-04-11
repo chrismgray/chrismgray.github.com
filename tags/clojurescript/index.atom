@@ -17,7 +17,7 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-11T06:29:32Z</updated>
+<updated>2012-04-11T06:33:51Z</updated>
 <entry>
 	<title>Clojurescript Macros</title>
 
@@ -39,7 +39,7 @@
 	<category term="macros" />
 
 
-	<updated>2012-04-11T06:29:32Z</updated>
+	<updated>2012-04-11T06:33:51Z</updated>
 	<published>2012-04-11T05:36:33Z</published>
 
 	<content type="html" xml:lang="en">
@@ -79,11 +79,11 @@ details and other notes.
 &lt;/p&gt;
 &lt;p&gt;
   Rhino is a slow beast.  It adds multiple seconds to the startup time
-  of the compiler.  It might be smart to scan the file for =defmacro=s
-  before including the macro-interpreting code.  However, since macro
-  expansion requires that all functions are defined in the
+  of the compiler.  It might be smart to scan the file for calls to
+  &lt;code&gt;defmacro&lt;/code&gt; before including the macro-interpreting code.  However,
+  since macro expansion requires that all functions are defined in the
   interpreter, once a &lt;code&gt;defmacro&lt;/code&gt; is hit, all the functions in the file
-  preceding it (and in all =require=d files) must be re-parsed.
+  preceding it (and in all &lt;code&gt;require&lt;/code&gt;&#39;d files) must be re-parsed.
 &lt;/p&gt;
 &lt;p&gt;
   Existing Clojure macros should still work.  If two macros have the

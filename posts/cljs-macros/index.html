@@ -107,11 +107,11 @@ details and other notes.
 </p>
 <p>
   Rhino is a slow beast.  It adds multiple seconds to the startup time
-  of the compiler.  It might be smart to scan the file for =defmacro=s
-  before including the macro-interpreting code.  However, since macro
-  expansion requires that all functions are defined in the
+  of the compiler.  It might be smart to scan the file for calls to
+  <code>defmacro</code> before including the macro-interpreting code.  However,
+  since macro expansion requires that all functions are defined in the
   interpreter, once a <code>defmacro</code> is hit, all the functions in the file
-  preceding it (and in all =require=d files) must be re-parsed.
+  preceding it (and in all <code>require</code>'d files) must be re-parsed.
 </p>
 <p>
   Existing Clojure macros should still work.  If two macros have the
@@ -234,7 +234,7 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Wed Apr 11 00:29:32 2012</span>
+Last edited <span class="date">Wed Apr 11 00:33:51 2012</span>
 <!-- Created <span class="date">Tue Apr 10 23:36:33 2012</span> -->
 </div>
 

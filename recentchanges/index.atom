@@ -17,7 +17,123 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-11T06:29:41Z</updated>
+<updated>2012-04-11T06:34:04Z</updated>
+<entry>
+	<title>change to posts/cljs-macros on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_276ce74c99ed2ad505f167a0cfe4e6da4023a7c0/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-276ce74c99ed2ad505f167a0cfe4e6da4023a7c0"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-04-11T06:34:04Z</updated>
+	<published>2012-04-11T06:34:04Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-276ce74c99ed2ad505f167a0cfe4e6da4023a7c0&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/cljs-macros
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;00:34:04 04/11/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+Fixed some font troubles&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 276ce74c99ed2ad505f167a0cfe4e6da4023a7c0 --&gt;
+
+	</content>
+
+
+
+</entry>
+<entry>
+	<title>change to tags/macros on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_995eba4f64d805c76692282850edb3cbeba15c49/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-995eba4f64d805c76692282850edb3cbeba15c49"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-04-11T06:29:45Z</updated>
+	<published>2012-04-11T06:29:45Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-995eba4f64d805c76692282850edb3cbeba15c49&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+tags/macros
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;00:29:45 04/11/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+creating tag page tags/macros&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 995eba4f64d805c76692282850edb3cbeba15c49 --&gt;
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/cljs-macros on Hiking and Coding</title>
 
@@ -5744,130 +5860,6 @@ creating tag page tags/lab-notes&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- ce3108459ef07f34eb5632b608625262ca804cd9 --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/cljs-name-resolving-2 posts/cljs-name-resolving posts/more-rationals posts/rationals-followup posts/rationals-in-cljs on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_def1362f2147d6bffa8d11b7a5e5f9316e706f5e/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-def1362f2147d6bffa8d11b7a5e5f9316e706f5e"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-12T01:25:34Z</updated>
-	<published>2011-11-12T01:25:34Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-def1362f2147d6bffa8d11b7a5e5f9316e706f5e&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/cljs-name-resolving-2
-
-posts/cljs-name-resolving
-
-posts/more-rationals
-
-posts/rationals-followup
-
-posts/rationals-in-cljs
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;06:25:34 PM 11/11/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-New post and new tags&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- def1362f2147d6bffa8d11b7a5e5f9316e706f5e --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to templates/inlinepage.tmpl on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_41b22403bf03554473291b8fc954a8d4dc38f50a/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-41b22403bf03554473291b8fc954a8d4dc38f50a"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-11T16:30:44Z</updated>
-	<published>2011-11-11T16:30:44Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-41b22403bf03554473291b8fc954a8d4dc38f50a&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-templates/inlinepage.tmpl
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;09:30:44 AM 11/11/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Added a comment link&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 41b22403bf03554473291b8fc954a8d4dc38f50a --&gt;
 
 	</content>
 
