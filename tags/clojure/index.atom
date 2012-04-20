@@ -17,7 +17,131 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-11T06:33:51Z</updated>
+<updated>2012-04-20T23:18:48Z</updated>
+<entry>
+	<title>More Clojurescript Macros</title>
+
+	<id>http://chrismgray.github.com//posts/cljs-macros-02/</id>
+
+	<link href="http://chrismgray.github.com//posts/cljs-macros-02/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+	<category term="macros" />
+
+
+	<updated>2012-04-20T23:18:48Z</updated>
+	<published>2012-04-20T22:47:21Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;Most of my time this week was spent traveling and in meetings, but I
+did have a chance to work on the Clojurescript macro system that I
+have been working on.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Testing&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Things didn&#39;t start too well for the system, since it would not run
+  the simplest of tests written for it in the Clojurescript testing
+  system.  My test was a macro that would take a positive integer,
+  recursively decrease it until it was zero, and then output the
+  zero.  (Clearly not the smartest macro in the world &amp;ndash; it was just
+  meant to test recursion.)  However, I kept getting errors saying
+  that the system didn&#39;t know how to test equality among numbers.
+  This seemed strange until I realized that the &lt;code&gt;extend-type&lt;/code&gt; call for
+  numbers wasn&#39;t getting executed because it wasn&#39;t expanded into a
+  &lt;code&gt;def&lt;/code&gt;.  (I had been executing all &lt;code&gt;def&lt;/code&gt; calls, which defined all
+  functions and variables, but nothing else.)
+&lt;/p&gt;
+&lt;p&gt;
+  So I briefly flirted with executing a bunch of other special forms,
+  including &lt;code&gt;set!&lt;/code&gt; and &lt;code&gt;deftype&lt;/code&gt;, but I could see that this would make
+  things pretty unwieldy, and that the compiler would be doing a lot
+  of confusing things, for example trying to execute a &lt;code&gt;set!&lt;/code&gt; that was
+  buried deep inside a function without being able to know anything
+  about the locals that it was being set to.
+&lt;/p&gt;
+&lt;p&gt;
+  That was clearly the way of madness, so I eventually decided to
+  execute every special form that was at the top level.  This worked
+  really well, and the tests started passing.
+&lt;/p&gt;
+&lt;p&gt;
+  I also added tests to make sure that the namespaces work as
+  expected.  You can &lt;code&gt;use&lt;/code&gt; or &lt;code&gt;require&lt;/code&gt; macros from other namespaces
+  just like other functions.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What&#39;s not there (yet)&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  So far I have not added the &lt;code&gt;&amp;amp;env&lt;/code&gt; and &lt;code&gt;&amp;amp;form&lt;/code&gt; variables to macros.
+  I expect that it will be necessary to add them at some point (and
+  honestly not too hard).  I know they are extremely useful in some
+  projects like &lt;a href=&quot;https://github.com/clojure/core.match&quot;&gt;core.match&lt;/a&gt;, but that project has already been ported
+  to Clojurescript (via Clojure macros), so it might make more sense
+  to leave the large macros that need those facilities to Clojure.
+&lt;/p&gt;
+&lt;p&gt;
+  Backquoted forms don&#39;t work as nicely as in Clojure.  The reason is
+  that we are using Clojure&#39;s reader, which qualifies backquoted
+  symbols with their full namespace.  Unfortunately, it doesn&#39;t know
+  anything about Clojurescript namespaces, so expect to need to
+  qualify symbols inside backquotes.  This is an area where true
+  reader macros inside Clojure would be really helpful, but we have to
+  live with what we have.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;One step closer&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  &amp;hellip; to Clojure in Clojure.  Clojurescript already has a reader and a
+  compiler that can compile most of itself.  The reader isn&#39;t totally
+  complete &amp;ndash; it doesn&#39;t have backquote working yet for example &amp;ndash; but
+  it is close.  It recently got persistent vectors and persistent
+  hash-maps.  With macros added, all that&#39;s left for Clojure in
+  Clojure is to finish up the reader and get rid of the calls to
+  Java.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/cljs-macros-02/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/cljs-macros-02/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Clojurescript Macros</title>
 
@@ -113,13 +237,13 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defmacro unless
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmacro&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;unless&lt;/span&gt;
   [pred &amp;amp; body]
-  `(if (not ~pred)
-     (do ~@body)
+  `(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; ~pred)
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;do&lt;/span&gt; ~@body)
      nil))
 
-(let [a (unless true (/ 1 0) (+ 1 1))]
+(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [a (unless true (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; 1 0) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; 1 1))]
   a)
 &lt;/pre&gt;
 
@@ -130,9 +254,9 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
-return (1 + 1);
-})():null);
+&lt;pre class=&quot;src src-javascript&quot;&gt;&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;var&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;a__5799&lt;/span&gt; = (cljs.core.truth_(cljs.core.not.call(&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;,&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;true&lt;/span&gt;))?(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;function&lt;/span&gt; (){(1 / 0);
+&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;return&lt;/span&gt; (1 + 1);
+})():&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;);
 
 a__5799;
 &lt;/pre&gt;
@@ -432,11 +556,11 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(||-&amp;gt;&amp;gt; data
-       (map big-function)
-       (filter odd?)
-       :merge
-       (reduce +))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(||-&amp;gt;&amp;gt; data
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
+       &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:merge&lt;/span&gt;
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
 &lt;/pre&gt;
 
 
@@ -446,10 +570,10 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(-&amp;gt;&amp;gt; data
-     (map big-function)
-     (filter odd?)
-     (reduce +))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; data
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
 &lt;/pre&gt;
 
 
@@ -483,8 +607,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(apply lru-map 4 (range 20))
-;=&amp;gt; {12 13, 14 15, 16 17, 18 19}
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map 4 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
+&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19}&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -499,8 +623,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(apply lru-map-with 4 conj [] (range 20))
-;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
+&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -563,7 +687,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let* ((foo bar)
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
        (baz foo)))
 &lt;/pre&gt;
 
@@ -579,7 +703,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(let [foo bar
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
       baz foo])
 &lt;/pre&gt;
 
@@ -1144,32 +1268,32 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn- add-new-pt [poly]
-  (fn [pt stack]
-    (when (or (empty? stack) ; First two points are guaranteed to be visible
-              (empty? (rest stack))
-              (visible? pt (first poly) (first stack)))
-      [pt (rest poly) (cons (first poly) stack)])))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;add-new-pt&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;or&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; stack) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;First two points are guaranteed to be visible&lt;/span&gt;
+              (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack))
+              (visible? pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack)))
+      [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) stack)])))
 
-(defn- pop-stack [poly]
-  (fn [pt stack]
-    (let [the-seg (seg/new-seg pt (first poly))
-          top-seg (seg/new-seg (first stack) (second stack))]
-      (when (pt/left-turn? (second stack) (first stack) (first poly))
-        (if (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
-          [pt poly (rest stack)])))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;pop-stack&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
+          top-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack))]
+      (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
+        (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg top-seg) stack)]
+          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack)])))))
 
-(defn- skip-pt [poly]
-  (fn [pt stack]
-   (let [the-seg (seg/new-seg pt (first stack))
-         poly-seg (seg/new-seg (first poly) (second poly))]
-     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
-       (if (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
-         [pt (rest poly) stack])))))
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;skip-pt&lt;/span&gt; [poly]
+  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
+   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack))
+         poly-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; poly))]
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly)))
+       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg poly-seg) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly)) stack]
+         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) stack])))))
 
-(defn- all-conditions [poly]
+(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;all-conditions&lt;/span&gt; [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 &lt;/pre&gt;
@@ -1203,7 +1327,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn- visibility-polygon-helper [pt poly]
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;visibility-polygon-helper&lt;/span&gt; [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 &lt;/pre&gt;
@@ -1304,16 +1428,16 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defn luhn-check
-  &quot;Takes a sequence of digits and determines whether they pass the Luhn test.
-   The sequence must be in order from right to left.&quot;
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
+&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
   [digits]
-  (-&amp;gt;&amp;gt; digits
-       (partition 2 2 (repeat 0))
-       (mapcat #(vector (first %) (* 2 (second %))))
-       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
-       (#(mod % 10))
-       (= 0)))
+  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
+       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
 &lt;/pre&gt;
 
 
@@ -1353,160 +1477,6 @@ enough for me to release as Clojure packages.
 
 
 	<link rel="comments" href="/posts/luhnybin/comments.atom" type="application/atom+xml" />
-
-</entry>
-<entry>
-	<title>Scattered</title>
-
-	<id>http://chrismgray.github.com//posts/scattered/</id>
-
-	<link href="http://chrismgray.github.com//posts/scattered/"/>
-
-
-
-
-
-
-	<category term="clojure" />
-
-	<category term="clojurescript" />
-
-	<category term="email" />
-
-	<category term="git" />
-
-	<category term="git-annex" />
-
-	<category term="notmuch" />
-
-	<category term="spot" />
-
-
-	<updated>2011-12-01T07:43:31Z</updated>
-	<published>2011-11-14T17:11:23Z</published>
-
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Scattered&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I am doing a bunch of things today, all fairly small.  I think it&#39;s
-  because I finished working on the time series framework yesterday,
-  so I&#39;m kind of at loose ends.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;New programming project&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  One thing that I would like to do is to take all the messages that I
-  sent with my &lt;a href=&quot;http://findmespot.com&quot;&gt;SPOT&lt;/a&gt; device while hiking and make a small animation of
-  them on Google Maps.  This would be another use of Clojurescript.
-  My previous project &amp;ndash; a Clojurescript program for computing the
-  Voronoi Diagram of a set of points input by a user &amp;ndash; is a bit
-  stalled at the moment, so it&#39;s good to have something else to work
-  on.  Also, I feel like adding points to a Google Map is something
-  that Clojurescript is better suited to, rather than the fiddly
-  numeric stuff that I was trying to make it do.  I will come back to
-  the Voronoi Diagram at some point (hopefully fairly soon), but I am
-  putting it on the back burner for the moment.
-&lt;/p&gt;
-&lt;p&gt;
-  So far, I see two major tasks:
-&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-1&quot;&gt;Getting the coordinates and times of the SPOT messages&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
-
-
-&lt;p&gt;
-   Every SPOT message is an email that contains the coordinates of
-   where and when the message was sent.  Parsing the email can be done
-   offline, so I will probably just use Clojure for that.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-2-2&quot;&gt;Putting them on the Google Map&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-2&quot;&gt;
-
-
-&lt;p&gt;
-   The &lt;a href=&quot;http://code.google.com/apis/maps/documentation/javascript/overlays.html#Markers&quot;&gt;API&lt;/a&gt; for using Google Maps appears to be easy to use and
-   well-thought-out.  There&#39;s even a way to drop the markers at
-   different intervals &amp;ndash; just what I want to do.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;Notmuch&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-
-
-&lt;p&gt;
-  I am also playing with the &lt;a href=&quot;http://notmuch.org&quot;&gt;notmuch&lt;/a&gt; email client.  So far I quite
-  like it.  It&#39;s a heck of a lot faster than my previous mail client,
-  mainly because it doesn&#39;t do as much.  Like gmail, it is optimized
-  towards two operations: searching and tagging.  I never really used
-  tags in gmail, because doing so involves clicking around, but it&#39;s
-  much faster in notmuch.  So far, this seems like the big advantage
-  for notmuch.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;Git annex&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
-
-
-&lt;p&gt;
-  In an effort to use all the software written by &lt;a href=&quot;http://joey.kitenet.net/&quot;&gt;Joey Hess&lt;/a&gt; (not
-  really, but it seems like it), I am also trying out &lt;a href=&quot;http://git-annex.branchable.com/&quot;&gt;git annex&lt;/a&gt;.
-&lt;/p&gt;
-&lt;p&gt;
-  So far, I have come up with one really compelling use case --
-  syncing podcasts to my mp3 player.  My mp3 player has the problem
-  that it will delete all the files on it at random times.  Thus, I
-  need to keep a backup of all the files on it on my computer.
-  However, when I am done listening to a podcast, I like to remove the
-  file.  Hopefully, I will be able to sync the files that I remove
-  myself (that is, remove them from the laptop), but not the files
-  that get removed by the stupid thing crashing.
-&lt;/p&gt;
-&lt;p&gt;
-  Another thing that I would like to do is put my music and video
-  collections in git annex.  I&#39;m not sure that anything special would
-  come from doing that, but it seems nice to have these things in
-  version control.
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/scattered/#comments" type="text/html" />
-
-
-	<link rel="comments" href="/posts/scattered/comments.atom" type="application/atom+xml" />
 
 </entry>
 

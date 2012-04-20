@@ -17,7 +17,131 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-11T06:33:51Z</updated>
+<updated>2012-04-20T23:18:48Z</updated>
+<entry>
+	<title>More Clojurescript Macros</title>
+
+	<id>http://chrismgray.github.com//posts/cljs-macros-02/</id>
+
+	<link href="http://chrismgray.github.com//posts/cljs-macros-02/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+	<category term="macros" />
+
+
+	<updated>2012-04-20T23:18:48Z</updated>
+	<published>2012-04-20T22:47:21Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;Most of my time this week was spent traveling and in meetings, but I
+did have a chance to work on the Clojurescript macro system that I
+have been working on.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Testing&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Things didn&#39;t start too well for the system, since it would not run
+  the simplest of tests written for it in the Clojurescript testing
+  system.  My test was a macro that would take a positive integer,
+  recursively decrease it until it was zero, and then output the
+  zero.  (Clearly not the smartest macro in the world &amp;ndash; it was just
+  meant to test recursion.)  However, I kept getting errors saying
+  that the system didn&#39;t know how to test equality among numbers.
+  This seemed strange until I realized that the &lt;code&gt;extend-type&lt;/code&gt; call for
+  numbers wasn&#39;t getting executed because it wasn&#39;t expanded into a
+  &lt;code&gt;def&lt;/code&gt;.  (I had been executing all &lt;code&gt;def&lt;/code&gt; calls, which defined all
+  functions and variables, but nothing else.)
+&lt;/p&gt;
+&lt;p&gt;
+  So I briefly flirted with executing a bunch of other special forms,
+  including &lt;code&gt;set!&lt;/code&gt; and &lt;code&gt;deftype&lt;/code&gt;, but I could see that this would make
+  things pretty unwieldy, and that the compiler would be doing a lot
+  of confusing things, for example trying to execute a &lt;code&gt;set!&lt;/code&gt; that was
+  buried deep inside a function without being able to know anything
+  about the locals that it was being set to.
+&lt;/p&gt;
+&lt;p&gt;
+  That was clearly the way of madness, so I eventually decided to
+  execute every special form that was at the top level.  This worked
+  really well, and the tests started passing.
+&lt;/p&gt;
+&lt;p&gt;
+  I also added tests to make sure that the namespaces work as
+  expected.  You can &lt;code&gt;use&lt;/code&gt; or &lt;code&gt;require&lt;/code&gt; macros from other namespaces
+  just like other functions.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What&#39;s not there (yet)&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  So far I have not added the &lt;code&gt;&amp;amp;env&lt;/code&gt; and &lt;code&gt;&amp;amp;form&lt;/code&gt; variables to macros.
+  I expect that it will be necessary to add them at some point (and
+  honestly not too hard).  I know they are extremely useful in some
+  projects like &lt;a href=&quot;https://github.com/clojure/core.match&quot;&gt;core.match&lt;/a&gt;, but that project has already been ported
+  to Clojurescript (via Clojure macros), so it might make more sense
+  to leave the large macros that need those facilities to Clojure.
+&lt;/p&gt;
+&lt;p&gt;
+  Backquoted forms don&#39;t work as nicely as in Clojure.  The reason is
+  that we are using Clojure&#39;s reader, which qualifies backquoted
+  symbols with their full namespace.  Unfortunately, it doesn&#39;t know
+  anything about Clojurescript namespaces, so expect to need to
+  qualify symbols inside backquotes.  This is an area where true
+  reader macros inside Clojure would be really helpful, but we have to
+  live with what we have.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;One step closer&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  &amp;hellip; to Clojure in Clojure.  Clojurescript already has a reader and a
+  compiler that can compile most of itself.  The reader isn&#39;t totally
+  complete &amp;ndash; it doesn&#39;t have backquote working yet for example &amp;ndash; but
+  it is close.  It recently got persistent vectors and persistent
+  hash-maps.  With macros added, all that&#39;s left for Clojure in
+  Clojure is to finish up the reader and get rid of the calls to
+  Java.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/cljs-macros-02/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/cljs-macros-02/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Clojurescript Macros</title>
 
@@ -113,13 +237,13 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defmacro unless
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmacro&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;unless&lt;/span&gt;
   [pred &amp;amp; body]
-  `(if (not ~pred)
-     (do ~@body)
+  `(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; ~pred)
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;do&lt;/span&gt; ~@body)
      nil))
 
-(let [a (unless true (/ 1 0) (+ 1 1))]
+(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [a (unless true (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; 1 0) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; 1 1))]
   a)
 &lt;/pre&gt;
 
@@ -130,9 +254,9 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
-return (1 + 1);
-})():null);
+&lt;pre class=&quot;src src-javascript&quot;&gt;&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;var&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;a__5799&lt;/span&gt; = (cljs.core.truth_(cljs.core.not.call(&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;,&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;true&lt;/span&gt;))?(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;function&lt;/span&gt; (){(1 / 0);
+&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;return&lt;/span&gt; (1 + 1);
+})():&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;);
 
 a__5799;
 &lt;/pre&gt;

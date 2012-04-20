@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>More Clojurescript Macros</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">Hiking and Coding</a>/ 
+
+<a href="../">posts</a>/ 
+
+</span>
+<span class="title">
+More Clojurescript Macros
+
+</span>
+</span>
+
+</div>
+
+
+<div class="actions">
+<ul>
+
+
+<li><a href="../../recentchanges/">RecentChanges</a></li>
+
+
+
+
+
+
+<li>
+
+<a href="">Comment</a>
+
+</li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+
+<p>Most of my time this week was spent traveling and in meetings, but I
+did have a chance to work on the Clojurescript macro system that I
+have been working on.
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Testing</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  Things didn't start too well for the system, since it would not run
+  the simplest of tests written for it in the Clojurescript testing
+  system.  My test was a macro that would take a positive integer,
+  recursively decrease it until it was zero, and then output the
+  zero.  (Clearly not the smartest macro in the world &ndash; it was just
+  meant to test recursion.)  However, I kept getting errors saying
+  that the system didn't know how to test equality among numbers.
+  This seemed strange until I realized that the <code>extend-type</code> call for
+  numbers wasn't getting executed because it wasn't expanded into a
+  <code>def</code>.  (I had been executing all <code>def</code> calls, which defined all
+  functions and variables, but nothing else.)
+</p>
+<p>
+  So I briefly flirted with executing a bunch of other special forms,
+  including <code>set!</code> and <code>deftype</code>, but I could see that this would make
+  things pretty unwieldy, and that the compiler would be doing a lot
+  of confusing things, for example trying to execute a <code>set!</code> that was
+  buried deep inside a function without being able to know anything
+  about the locals that it was being set to.
+</p>
+<p>
+  That was clearly the way of madness, so I eventually decided to
+  execute every special form that was at the top level.  This worked
+  really well, and the tests started passing.
+</p>
+<p>
+  I also added tests to make sure that the namespaces work as
+  expected.  You can <code>use</code> or <code>require</code> macros from other namespaces
+  just like other functions.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">What's not there (yet)</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  So far I have not added the <code>&amp;env</code> and <code>&amp;form</code> variables to macros.
+  I expect that it will be necessary to add them at some point (and
+  honestly not too hard).  I know they are extremely useful in some
+  projects like <a href="https://github.com/clojure/core.match">core.match</a>, but that project has already been ported
+  to Clojurescript (via Clojure macros), so it might make more sense
+  to leave the large macros that need those facilities to Clojure.
+</p>
+<p>
+  Backquoted forms don't work as nicely as in Clojure.  The reason is
+  that we are using Clojure's reader, which qualifies backquoted
+  symbols with their full namespace.  Unfortunately, it doesn't know
+  anything about Clojurescript namespaces, so expect to need to
+  qualify symbols inside backquotes.  This is an area where true
+  reader macros inside Clojure would be really helpful, but we have to
+  live with what we have.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">One step closer</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  &hellip; to Clojure in Clojure.  Clojurescript already has a reader and a
+  compiler that can compile most of itself.  The reader isn't totally
+  complete &ndash; it doesn't have backquote working yet for example &ndash; but
+  it is close.  It recently got persistent vectors and persistent
+  hash-maps.  With macros added, all that's left for Clojure in
+  Clojure is to finish up the reader and get rid of the calls to
+  Java.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hikingandcoding'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/clojure/" rel="tag">clojure</a>
+
+<a href="../../tags/clojurescript/" rel="tag">clojurescript</a>
+
+<a href="../../tags/lab-notes/" rel="tag">lab-notes</a>
+
+<a href="../../tags/macros/" rel="tag">macros</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Fri Apr 20 17:18:48 2012</span>
+<!-- Created <span class="date">Fri Apr 20 16:47:21 2012</span> -->
+</div>
+
+</div>
+
+
+<!-- from Hiking and Coding -->
+</div>
+
+</div>
+
+</body>
+</html>

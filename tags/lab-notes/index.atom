@@ -17,7 +17,131 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
-<updated>2012-04-11T06:33:51Z</updated>
+<updated>2012-04-20T23:18:48Z</updated>
+<entry>
+	<title>More Clojurescript Macros</title>
+
+	<id>http://chrismgray.github.com//posts/cljs-macros-02/</id>
+
+	<link href="http://chrismgray.github.com//posts/cljs-macros-02/"/>
+
+
+
+
+
+
+	<category term="clojure" />
+
+	<category term="clojurescript" />
+
+	<category term="lab-notes" />
+
+	<category term="macros" />
+
+
+	<updated>2012-04-20T23:18:48Z</updated>
+	<published>2012-04-20T22:47:21Z</published>
+
+	<content type="html" xml:lang="en">
+	
+&lt;p&gt;Most of my time this week was spent traveling and in meetings, but I
+did have a chance to work on the Clojurescript macro system that I
+have been working on.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Testing&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  Things didn&#39;t start too well for the system, since it would not run
+  the simplest of tests written for it in the Clojurescript testing
+  system.  My test was a macro that would take a positive integer,
+  recursively decrease it until it was zero, and then output the
+  zero.  (Clearly not the smartest macro in the world &amp;ndash; it was just
+  meant to test recursion.)  However, I kept getting errors saying
+  that the system didn&#39;t know how to test equality among numbers.
+  This seemed strange until I realized that the &lt;code&gt;extend-type&lt;/code&gt; call for
+  numbers wasn&#39;t getting executed because it wasn&#39;t expanded into a
+  &lt;code&gt;def&lt;/code&gt;.  (I had been executing all &lt;code&gt;def&lt;/code&gt; calls, which defined all
+  functions and variables, but nothing else.)
+&lt;/p&gt;
+&lt;p&gt;
+  So I briefly flirted with executing a bunch of other special forms,
+  including &lt;code&gt;set!&lt;/code&gt; and &lt;code&gt;deftype&lt;/code&gt;, but I could see that this would make
+  things pretty unwieldy, and that the compiler would be doing a lot
+  of confusing things, for example trying to execute a &lt;code&gt;set!&lt;/code&gt; that was
+  buried deep inside a function without being able to know anything
+  about the locals that it was being set to.
+&lt;/p&gt;
+&lt;p&gt;
+  That was clearly the way of madness, so I eventually decided to
+  execute every special form that was at the top level.  This worked
+  really well, and the tests started passing.
+&lt;/p&gt;
+&lt;p&gt;
+  I also added tests to make sure that the namespaces work as
+  expected.  You can &lt;code&gt;use&lt;/code&gt; or &lt;code&gt;require&lt;/code&gt; macros from other namespaces
+  just like other functions.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;What&#39;s not there (yet)&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  So far I have not added the &lt;code&gt;&amp;amp;env&lt;/code&gt; and &lt;code&gt;&amp;amp;form&lt;/code&gt; variables to macros.
+  I expect that it will be necessary to add them at some point (and
+  honestly not too hard).  I know they are extremely useful in some
+  projects like &lt;a href=&quot;https://github.com/clojure/core.match&quot;&gt;core.match&lt;/a&gt;, but that project has already been ported
+  to Clojurescript (via Clojure macros), so it might make more sense
+  to leave the large macros that need those facilities to Clojure.
+&lt;/p&gt;
+&lt;p&gt;
+  Backquoted forms don&#39;t work as nicely as in Clojure.  The reason is
+  that we are using Clojure&#39;s reader, which qualifies backquoted
+  symbols with their full namespace.  Unfortunately, it doesn&#39;t know
+  anything about Clojurescript namespaces, so expect to need to
+  qualify symbols inside backquotes.  This is an area where true
+  reader macros inside Clojure would be really helpful, but we have to
+  live with what we have.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;One step closer&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  &amp;hellip; to Clojure in Clojure.  Clojurescript already has a reader and a
+  compiler that can compile most of itself.  The reader isn&#39;t totally
+  complete &amp;ndash; it doesn&#39;t have backquote working yet for example &amp;ndash; but
+  it is close.  It recently got persistent vectors and persistent
+  hash-maps.  With macros added, all that&#39;s left for Clojure in
+  Clojure is to finish up the reader and get rid of the calls to
+  Java.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+	</content>
+
+
+	<link rel="comments" href="/posts/cljs-macros-02/#comments" type="text/html" />
+
+
+	<link rel="comments" href="/posts/cljs-macros-02/comments.atom" type="application/atom+xml" />
+
+</entry>
 <entry>
 	<title>Clojurescript Macros</title>
 
@@ -113,13 +237,13 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defmacro unless
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmacro&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;unless&lt;/span&gt;
   [pred &amp;amp; body]
-  `(if (not ~pred)
-     (do ~@body)
+  `(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; ~pred)
+     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;do&lt;/span&gt; ~@body)
      nil))
 
-(let [a (unless true (/ 1 0) (+ 1 1))]
+(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [a (unless true (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; 1 0) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; 1 1))]
   a)
 &lt;/pre&gt;
 
@@ -130,9 +254,9 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
-return (1 + 1);
-})():null);
+&lt;pre class=&quot;src src-javascript&quot;&gt;&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;var&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;a__5799&lt;/span&gt; = (cljs.core.truth_(cljs.core.not.call(&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;,&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;true&lt;/span&gt;))?(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;function&lt;/span&gt; (){(1 / 0);
+&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;return&lt;/span&gt; (1 + 1);
+})():&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;);
 
 a__5799;
 &lt;/pre&gt;
@@ -633,11 +757,11 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(||-&amp;gt;&amp;gt; data
-       (map big-function)
-       (filter odd?)
-       :merge
-       (reduce +))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(||-&amp;gt;&amp;gt; data
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
+       &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:merge&lt;/span&gt;
+       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
 &lt;/pre&gt;
 
 
@@ -647,10 +771,10 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(-&amp;gt;&amp;gt; data
-     (map big-function)
-     (filter odd?)
-     (reduce +))
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; data
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
+     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
 &lt;/pre&gt;
 
 
@@ -684,8 +808,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(apply lru-map 4 (range 20))
-;=&amp;gt; {12 13, 14 15, 16 17, 18 19}
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map 4 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
+&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19}&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -700,8 +824,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(apply lru-map-with 4 conj [] (range 20))
-;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}
+&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
+&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
 &lt;/pre&gt;
 
 
@@ -800,13 +924,13 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(defun xml-find-nodes-matching (node name)
-  &quot;Returns all children of `node&#39; that have an `xml-node-name&#39; equal to `name&#39;.&quot;
-  (if (or (eq node &#39;()) (not (listp node)))
+&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;xml-find-nodes-matching&lt;/span&gt; (node name)
+  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Returns all children of `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;node&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; that have an `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;xml-node-name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; equal to `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39;.&quot;&lt;/span&gt;
+  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (or (eq node &#39;()) (not (listp node)))
       &#39;()
-    (if (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply &#39;append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply &#39;append (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 &lt;/pre&gt;
 
 
@@ -893,7 +1017,7 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;example&quot;&gt;(setq valtype (car (caddar xml-list))
+&lt;pre class=&quot;src src-elisp&quot;&gt;(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 &lt;/pre&gt;
 
@@ -1375,161 +1499,6 @@ some of them, in no particular order.
 
 
 	<link rel="comments" href="/posts/processing/comments.atom" type="application/atom+xml" />
-
-</entry>
-<entry>
-	<title>Visibility Polygons</title>
-
-	<id>http://chrismgray.github.com//posts/visibility-polygon/</id>
-
-	<link href="http://chrismgray.github.com//posts/visibility-polygon/"/>
-
-
-
-
-
-
-	<category term="clojure" />
-
-	<category term="computational-geometry" />
-
-	<category term="lab-notes" />
-
-	<category term="visibility-polygon" />
-
-
-	<updated>2011-12-01T07:45:06Z</updated>
-	<published>2011-11-21T19:44:43Z</published>
-
-	<content type="html" xml:lang="en">
-	&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Visibility Polygon&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  I&#39;ve put up some preliminary code for finding visibility polygons on
-  my &lt;a href=&quot;https://github.com/chrismgray/visibility-polygon&quot;&gt;github repo&lt;/a&gt;.  I have only tested it with one polygon, but so far
-  things are looking good.  My idea from yesterday of using monads to
-  &quot;parse&quot; the polygon seems to be paying off.  Here is the relevant
-  code:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;example&quot;&gt;(defn- add-new-pt [poly]
-  (fn [pt stack]
-    (when (or (empty? stack) ; First two points are guaranteed to be visible
-              (empty? (rest stack))
-              (visible? pt (first poly) (first stack)))
-      [pt (rest poly) (cons (first poly) stack)])))
-
-(defn- pop-stack [poly]
-  (fn [pt stack]
-    (let [the-seg (seg/new-seg pt (first poly))
-          top-seg (seg/new-seg (first stack) (second stack))]
-      (when (pt/left-turn? (second stack) (first stack) (first poly))
-        (if (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
-          [pt poly (rest stack)])))))
-
-(defn- skip-pt [poly]
-  (fn [pt stack]
-   (let [the-seg (seg/new-seg pt (first stack))
-         poly-seg (seg/new-seg (first poly) (second poly))]
-     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
-       (if (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
-         [pt (rest poly) stack])))))
-
-(defn- all-conditions [poly]
-  (with-monad polygon-parser-m
-    (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  This defines three actions to be performed when the polygon and
-  stack are in certain configurations.  The first executes when the
-  next point on the polygon doesn&#39;t obscure any of the stack.  In that
-  case, it removes the point from &lt;code&gt;poly&lt;/code&gt; and puts it on &lt;code&gt;stack&lt;/code&gt;.  The
-  second executes by popping points off the stack until the next point
-  on the polygon no longer obscures the stack.  The final condition
-  activates when the next point on the polygon is hidden by the
-  stack.  It skips the points of &lt;code&gt;poly&lt;/code&gt; until it finds one that would
-  be visible.  We combine the three conditions using &lt;code&gt;m-plus&lt;/code&gt;, which
-  is defined to try the conditions in order until one returns
-  something that is not &lt;code&gt;nil&lt;/code&gt;.
-&lt;/p&gt;
-&lt;p&gt;
-  Is this solution any better than a functional programming solution
-  without monads?  I think it is.  First, the conditions are easy to
-  see and very explicitly laid out.  Using a &lt;code&gt;cond&lt;/code&gt; to accomplish the
-  same thing is certainly possible, but gets more complicated as the
-  number of conditions grows.  Also, we are explicitly managing state
-  in this solution.  Doing so in an ad-hoc manner would be much more
-  difficult.  In fact, I am not really sure how I would loop until
-  there are no more points in &lt;code&gt;poly&lt;/code&gt; in a solution without monads
-  (especially since not all the conditions consume a point from
-  &lt;code&gt;poly&lt;/code&gt;).  With monads, it is quite simple:
-&lt;/p&gt;
-
-
-
-&lt;pre class=&quot;example&quot;&gt;(defn- visibility-polygon-helper [pt poly]
-  ((with-monad polygon-parser-m
-     (m-until empty? all-conditions poly)) pt []))
-&lt;/pre&gt;
-
-
-&lt;p&gt;
-  Doing something like that with a &lt;code&gt;reduce&lt;/code&gt; seems like it would veer
-  off into unreadability fairly quickly.
-&lt;/p&gt;
-&lt;p&gt;
-  Are there downsides to this solution?  I think there is at least
-  one.  That is, the conditions must be functions that return functions.
-  This makes them a bit more confusing than they really should be.  I
-  needed to do this so that I could have a test in the &lt;code&gt;m-until&lt;/code&gt;
-  function above.  On the whole, though, this is a fairly cosmetic
-  gripe, and can be hidden by using helper functions like the one
-  above.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;On the horizon&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-
-
-&lt;p&gt;
-  I would like to test the code quite a bit more.  However, doing so
-  by drawing out polygons by hand and then figuring out their
-  visibility polygons is quite tedious.  Therefore, I need some sort
-  of GUI to be able to draw polygons and then I will be able to
-  see whether the computed visibility polygon makes sense.
-&lt;/p&gt;
-&lt;p&gt;
-  I am thinking that it might be nice to use the &lt;a href=&quot;https://github.com/rosado/clj-processing&quot;&gt;&lt;code&gt;clj-processing&lt;/code&gt; library&lt;/a&gt; to do this.  Unfortunately, that library is currently only
-  using Clojure 1.2.  Since I am using Clojure 1.3, that might be a
-  problem.  So I might need to do some porting from 1.2 to 1.3.
-  However, doing so should give me a good idea of how processing
-  works, and could give a nice tool for more interactive geometry
-  programs. 
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-	</content>
-
-
-	<link rel="comments" href="/posts/visibility-polygon/#comments" type="text/html" />
-
-
-	<link rel="comments" href="/posts/visibility-polygon/comments.atom" type="application/atom+xml" />
 
 </entry>
 
