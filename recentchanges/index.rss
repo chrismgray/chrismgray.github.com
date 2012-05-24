@@ -8,6 +8,58 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to posts/hiking/socal-03 on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_e565976eceb8f84605c3bb0d8e015b0f4393670c/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-e565976eceb8f84605c3bb0d8e015b0f4393670c</link>
+
+	<pubDate>Wed, 23 May 2012 22:49:51 -0700</pubDate>
+	<dcterms:modified>2012-05-24T05:49:51Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-e565976eceb8f84605c3bb0d8e015b0f4393670c&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/socal-03
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;22:49:51 05/23/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New hiking post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- e565976eceb8f84605c3bb0d8e015b0f4393670c --&gt;
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/hiking/socal-02 on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
@@ -16,7 +68,7 @@
 
 	<link>http://chrismgray.github.com/recentchanges/#change-4f585e8423405d81c612449642a333a1957c941e</link>
 
-	<pubDate>Sun, 22 Apr 2012 18:33:55 -0600</pubDate>
+	<pubDate>Sun, 22 Apr 2012 17:33:55 -0700</pubDate>
 	<dcterms:modified>2012-04-23T00:33:55Z</dcterms:modified>
 
 	<description>
@@ -68,7 +120,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-6c953ee05942e6fefa7f3a7d54dc910231a4c5c3</link>
 
-	<pubDate>Fri, 20 Apr 2012 17:19:57 -0600</pubDate>
+	<pubDate>Fri, 20 Apr 2012 16:19:57 -0700</pubDate>
 	<dcterms:modified>2012-04-20T23:19:57Z</dcterms:modified>
 
 	<description>
@@ -120,7 +172,7 @@ New CLJS post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-c3cdca32f48bec302f513b5716448b4465eb8adc</link>
 
-	<pubDate>Sun, 15 Apr 2012 13:22:02 -0600</pubDate>
+	<pubDate>Sun, 15 Apr 2012 12:22:02 -0700</pubDate>
 	<dcterms:modified>2012-04-15T19:22:02Z</dcterms:modified>
 
 	<description>
@@ -172,7 +224,7 @@ Removed a bunch of scare quotes&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-6b04ea50978dc9565de7a56137045306e2f21023</link>
 
-	<pubDate>Sun, 15 Apr 2012 13:18:43 -0600</pubDate>
+	<pubDate>Sun, 15 Apr 2012 12:18:43 -0700</pubDate>
 	<dcterms:modified>2012-04-15T19:18:43Z</dcterms:modified>
 
 	<description>
@@ -224,7 +276,7 @@ Fixed image&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-6463d55a8c204a8097cf322e2fdb9914035ea05c</link>
 
-	<pubDate>Sun, 15 Apr 2012 13:16:58 -0600</pubDate>
+	<pubDate>Sun, 15 Apr 2012 12:16:58 -0700</pubDate>
 	<dcterms:modified>2012-04-15T19:16:58Z</dcterms:modified>
 
 	<description>
@@ -276,7 +328,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-276ce74c99ed2ad505f167a0cfe4e6da4023a7c0</link>
 
-	<pubDate>Wed, 11 Apr 2012 00:34:04 -0600</pubDate>
+	<pubDate>Tue, 10 Apr 2012 23:34:04 -0700</pubDate>
 	<dcterms:modified>2012-04-11T06:34:04Z</dcterms:modified>
 
 	<description>
@@ -328,7 +380,7 @@ Fixed some font troubles&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-995eba4f64d805c76692282850edb3cbeba15c49</link>
 
-	<pubDate>Wed, 11 Apr 2012 00:29:45 -0600</pubDate>
+	<pubDate>Tue, 10 Apr 2012 23:29:45 -0700</pubDate>
 	<dcterms:modified>2012-04-11T06:29:45Z</dcterms:modified>
 
 	<description>
@@ -380,7 +432,7 @@ creating tag page tags/macros&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-ace735f173e3ded0e0689cd911cea8ae7b473452</link>
 
-	<pubDate>Wed, 11 Apr 2012 00:29:41 -0600</pubDate>
+	<pubDate>Tue, 10 Apr 2012 23:29:41 -0700</pubDate>
 	<dcterms:modified>2012-04-11T06:29:41Z</dcterms:modified>
 
 	<description>
@@ -432,7 +484,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-578237de75d7d1a1649f183ca873dad4e2d223be</link>
 
-	<pubDate>Sat, 31 Mar 2012 19:27:30 -0600</pubDate>
+	<pubDate>Sat, 31 Mar 2012 18:27:30 -0700</pubDate>
 	<dcterms:modified>2012-04-01T01:27:30Z</dcterms:modified>
 
 	<description>
@@ -484,7 +536,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-07c9032b3ef1c1df32febc2c3bbdfe8079b1dd1c</link>
 
-	<pubDate>Thu, 15 Mar 2012 11:24:36 -0600</pubDate>
+	<pubDate>Thu, 15 Mar 2012 10:24:36 -0700</pubDate>
 	<dcterms:modified>2012-03-15T17:24:36Z</dcterms:modified>
 
 	<description>
@@ -536,7 +588,7 @@ Removed parsing error&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-f4a4774f8441628c291d482d310bee87341121dd</link>
 
-	<pubDate>Wed, 14 Mar 2012 09:47:20 -0600</pubDate>
+	<pubDate>Wed, 14 Mar 2012 08:47:20 -0700</pubDate>
 	<dcterms:modified>2012-03-14T15:47:20Z</dcterms:modified>
 
 	<description>
@@ -588,7 +640,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-279692cbeed85c257f1b20cfaf067aae484a3bd8</link>
 
-	<pubDate>Tue, 13 Mar 2012 22:52:35 -0600</pubDate>
+	<pubDate>Tue, 13 Mar 2012 21:52:35 -0700</pubDate>
 	<dcterms:modified>2012-03-14T04:52:35Z</dcterms:modified>
 
 	<description>
@@ -640,7 +692,7 @@ creating tag page tags/gear&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-79069837eea92c8674369d60d308a0ebe2924fda</link>
 
-	<pubDate>Tue, 13 Mar 2012 22:52:35 -0600</pubDate>
+	<pubDate>Tue, 13 Mar 2012 21:52:35 -0700</pubDate>
 	<dcterms:modified>2012-03-14T04:52:35Z</dcterms:modified>
 
 	<description>
@@ -692,7 +744,7 @@ creating tag page tags/PCT&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-e388c06d9174c9ef2d572d7c0b7965da33c9fd13</link>
 
-	<pubDate>Tue, 13 Mar 2012 22:52:31 -0600</pubDate>
+	<pubDate>Tue, 13 Mar 2012 21:52:31 -0700</pubDate>
 	<dcterms:modified>2012-03-14T04:52:31Z</dcterms:modified>
 
 	<description>
@@ -744,7 +796,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-54534832018684984775cb1c1655783abefb4b8b</link>
 
-	<pubDate>Tue, 06 Mar 2012 11:26:50 -0700</pubDate>
+	<pubDate>Tue, 06 Mar 2012 10:26:50 -0800</pubDate>
 	<dcterms:modified>2012-03-06T18:26:50Z</dcterms:modified>
 
 	<description>
@@ -796,7 +848,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-ce465fc16b9b45b2429c010d30ca182e7de50dd4</link>
 
-	<pubDate>Mon, 05 Mar 2012 14:19:39 -0700</pubDate>
+	<pubDate>Mon, 05 Mar 2012 13:19:39 -0800</pubDate>
 	<dcterms:modified>2012-03-05T21:19:39Z</dcterms:modified>
 
 	<description>
@@ -848,7 +900,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-dedb8590b6b194ac16a025e8c8a3060f1119a7c5</link>
 
-	<pubDate>Wed, 29 Feb 2012 12:10:49 -0700</pubDate>
+	<pubDate>Wed, 29 Feb 2012 11:10:49 -0800</pubDate>
 	<dcterms:modified>2012-02-29T19:10:49Z</dcterms:modified>
 
 	<description>
@@ -900,7 +952,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-78d77da5c608a5909dd628b170657d628c7d4017</link>
 
-	<pubDate>Tue, 28 Feb 2012 20:08:49 -0700</pubDate>
+	<pubDate>Tue, 28 Feb 2012 19:08:49 -0800</pubDate>
 	<dcterms:modified>2012-02-29T03:08:49Z</dcterms:modified>
 
 	<description>
@@ -952,7 +1004,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-75bb50345f40cbebb544b1489adc4620fb16895f</link>
 
-	<pubDate>Mon, 27 Feb 2012 19:08:59 -0700</pubDate>
+	<pubDate>Mon, 27 Feb 2012 18:08:59 -0800</pubDate>
 	<dcterms:modified>2012-02-28T02:08:59Z</dcterms:modified>
 
 	<description>
@@ -1004,7 +1056,7 @@ Recompile&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-9d13d1c87b4664b14a9e74400cf1ce17624e064c</link>
 
-	<pubDate>Mon, 27 Feb 2012 19:00:57 -0700</pubDate>
+	<pubDate>Mon, 27 Feb 2012 18:00:57 -0800</pubDate>
 	<dcterms:modified>2012-02-28T02:00:57Z</dcterms:modified>
 
 	<description>
@@ -1056,7 +1108,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-11831c6bf6de8412ea57dfbcde87b80a6d81eb9b</link>
 
-	<pubDate>Mon, 13 Feb 2012 13:00:27 -0700</pubDate>
+	<pubDate>Mon, 13 Feb 2012 12:00:27 -0800</pubDate>
 	<dcterms:modified>2012-02-13T20:00:27Z</dcterms:modified>
 
 	<description>
@@ -1108,7 +1160,7 @@ Fixed image link&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-29169497b45ee0037ffcee5556e7c777cded32b5</link>
 
-	<pubDate>Mon, 13 Feb 2012 11:46:46 -0700</pubDate>
+	<pubDate>Mon, 13 Feb 2012 10:46:46 -0800</pubDate>
 	<dcterms:modified>2012-02-13T18:46:46Z</dcterms:modified>
 
 	<description>
@@ -1160,7 +1212,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-df21cab8a09c79dcbffc562ce835849e322d0d5c</link>
 
-	<pubDate>Thu, 09 Feb 2012 18:21:06 -0700</pubDate>
+	<pubDate>Thu, 09 Feb 2012 17:21:06 -0800</pubDate>
 	<dcterms:modified>2012-02-10T01:21:06Z</dcterms:modified>
 
 	<description>
@@ -1212,7 +1264,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-8922e563a99523cda690da43bd29dabc0b2ce9ef</link>
 
-	<pubDate>Fri, 03 Feb 2012 18:57:57 -0700</pubDate>
+	<pubDate>Fri, 03 Feb 2012 17:57:57 -0800</pubDate>
 	<dcterms:modified>2012-02-04T01:57:57Z</dcterms:modified>
 
 	<description>
@@ -1264,7 +1316,7 @@ Fixed image sizes&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-47c881867e52c6877bbc1fc93fbba95956529967</link>
 
-	<pubDate>Fri, 03 Feb 2012 18:51:09 -0700</pubDate>
+	<pubDate>Fri, 03 Feb 2012 17:51:09 -0800</pubDate>
 	<dcterms:modified>2012-02-04T01:51:09Z</dcterms:modified>
 
 	<description>
@@ -1316,7 +1368,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-da94f7f71ff30000d893c3c82f5fb8c5c974444e</link>
 
-	<pubDate>Fri, 27 Jan 2012 13:07:49 -0700</pubDate>
+	<pubDate>Fri, 27 Jan 2012 12:07:49 -0800</pubDate>
 	<dcterms:modified>2012-01-27T20:07:49Z</dcterms:modified>
 
 	<description>
@@ -1368,7 +1420,7 @@ Took out extra rather&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-28d8a34732f93c84c9f004f1ad749cdc2418e372</link>
 
-	<pubDate>Fri, 27 Jan 2012 12:59:13 -0700</pubDate>
+	<pubDate>Fri, 27 Jan 2012 11:59:13 -0800</pubDate>
 	<dcterms:modified>2012-01-27T19:59:13Z</dcterms:modified>
 
 	<description>
@@ -1424,7 +1476,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-3be1d12e01ce84a201c42ab71e1ccddb2ab61cea</link>
 
-	<pubDate>Fri, 13 Jan 2012 19:09:59 -0700</pubDate>
+	<pubDate>Fri, 13 Jan 2012 18:09:59 -0800</pubDate>
 	<dcterms:modified>2012-01-14T02:09:59Z</dcterms:modified>
 
 	<description>
@@ -1476,7 +1528,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-433171cb0643e7fb426d7b4be4454f83d7fa9e2d</link>
 
-	<pubDate>Sat, 07 Jan 2012 11:02:29 -0700</pubDate>
+	<pubDate>Sat, 07 Jan 2012 10:02:29 -0800</pubDate>
 	<dcterms:modified>2012-01-07T18:02:29Z</dcterms:modified>
 
 	<description>
@@ -1528,7 +1580,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-467c5300190ad5d6c919d606a8ac48dde13d3085</link>
 
-	<pubDate>Fri, 06 Jan 2012 19:27:38 -0700</pubDate>
+	<pubDate>Fri, 06 Jan 2012 18:27:38 -0800</pubDate>
 	<dcterms:modified>2012-01-07T02:27:38Z</dcterms:modified>
 
 	<description>
@@ -1580,7 +1632,7 @@ creating tag page tags/lru-maps&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-e00bea575038788c62e923ba431a89c63d63b298</link>
 
-	<pubDate>Fri, 06 Jan 2012 19:23:38 -0700</pubDate>
+	<pubDate>Fri, 06 Jan 2012 18:23:38 -0800</pubDate>
 	<dcterms:modified>2012-01-07T02:23:38Z</dcterms:modified>
 
 	<description>
@@ -1632,7 +1684,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-6755eac70e9f03b371c39b7ded02d24432bdf38c</link>
 
-	<pubDate>Thu, 05 Jan 2012 11:36:17 -0700</pubDate>
+	<pubDate>Thu, 05 Jan 2012 10:36:17 -0800</pubDate>
 	<dcterms:modified>2012-01-05T18:36:17Z</dcterms:modified>
 
 	<description>
@@ -1684,7 +1736,7 @@ Fixed a picture&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-4e682f5ca0fc35d35e76804fed56c9340455eec4</link>
 
-	<pubDate>Thu, 05 Jan 2012 11:29:03 -0700</pubDate>
+	<pubDate>Thu, 05 Jan 2012 10:29:03 -0800</pubDate>
 	<dcterms:modified>2012-01-05T18:29:03Z</dcterms:modified>
 
 	<description>
@@ -1736,7 +1788,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-f3ed0a06ff4a6f3d002ad2969e7e890844858577</link>
 
-	<pubDate>Wed, 04 Jan 2012 18:03:08 -0700</pubDate>
+	<pubDate>Wed, 04 Jan 2012 17:03:08 -0800</pubDate>
 	<dcterms:modified>2012-01-05T01:03:08Z</dcterms:modified>
 
 	<description>
@@ -1788,7 +1840,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-d8b103450104afae6fc9e0beb9b18bdbe3780d1b</link>
 
-	<pubDate>Sun, 18 Dec 2011 18:00:50 -0700</pubDate>
+	<pubDate>Sun, 18 Dec 2011 17:00:50 -0800</pubDate>
 	<dcterms:modified>2011-12-19T01:00:50Z</dcterms:modified>
 
 	<description>
@@ -1840,7 +1892,7 @@ Added the other lilypad pic back&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-40d23aeb56f02b46656c748a8f0c3d3af5d59a46</link>
 
-	<pubDate>Sun, 18 Dec 2011 17:53:54 -0700</pubDate>
+	<pubDate>Sun, 18 Dec 2011 16:53:54 -0800</pubDate>
 	<dcterms:modified>2011-12-19T00:53:54Z</dcterms:modified>
 
 	<description>
@@ -1892,7 +1944,7 @@ Fixed image links&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-b3aeebefc084b698a282c0d898cfcee61575f1c8</link>
 
-	<pubDate>Sun, 18 Dec 2011 17:44:50 -0700</pubDate>
+	<pubDate>Sun, 18 Dec 2011 16:44:50 -0800</pubDate>
 	<dcterms:modified>2011-12-19T00:44:50Z</dcterms:modified>
 
 	<description>
@@ -1944,7 +1996,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-3952080906b58372536b5dc29b51057d83138a48</link>
 
-	<pubDate>Thu, 15 Dec 2011 11:30:07 -0700</pubDate>
+	<pubDate>Thu, 15 Dec 2011 10:30:07 -0800</pubDate>
 	<dcterms:modified>2011-12-15T18:30:07Z</dcterms:modified>
 
 	<description>
@@ -2000,7 +2052,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-f389625e9a408fd5bc70bb8b5e5a713afd9af304</link>
 
-	<pubDate>Mon, 12 Dec 2011 13:06:03 -0700</pubDate>
+	<pubDate>Mon, 12 Dec 2011 12:06:03 -0800</pubDate>
 	<dcterms:modified>2011-12-12T20:06:03Z</dcterms:modified>
 
 	<description>
@@ -2052,7 +2104,7 @@ creating tag page tags/anything.el&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-a7b23a359fa31db705622249d2e98b032eb63c40</link>
 
-	<pubDate>Mon, 12 Dec 2011 13:03:28 -0700</pubDate>
+	<pubDate>Mon, 12 Dec 2011 12:03:28 -0800</pubDate>
 	<dcterms:modified>2011-12-12T20:03:28Z</dcterms:modified>
 
 	<description>
@@ -2104,7 +2156,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-51fa7000d59a7e1cf128e165bd8f677a74997dfe</link>
 
-	<pubDate>Wed, 07 Dec 2011 15:42:18 -0700</pubDate>
+	<pubDate>Wed, 07 Dec 2011 14:42:18 -0800</pubDate>
 	<dcterms:modified>2011-12-07T22:42:18Z</dcterms:modified>
 
 	<description>
@@ -2156,7 +2208,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-0c0509d2d8555fd95431008fb50e70bd809d3475</link>
 
-	<pubDate>Wed, 07 Dec 2011 11:04:26 -0700</pubDate>
+	<pubDate>Wed, 07 Dec 2011 10:04:26 -0800</pubDate>
 	<dcterms:modified>2011-12-07T18:04:26Z</dcterms:modified>
 
 	<description>
@@ -2208,7 +2260,7 @@ Updated clojel post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-46a02ecd9febde83d4a922db14ed3e3188c45fe3</link>
 
-	<pubDate>Tue, 06 Dec 2011 14:56:13 -0700</pubDate>
+	<pubDate>Tue, 06 Dec 2011 13:56:13 -0800</pubDate>
 	<dcterms:modified>2011-12-06T21:56:13Z</dcterms:modified>
 
 	<description>
@@ -2260,7 +2312,7 @@ Fixed the tags&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-0646e1aecdde1c638096b86b385e659cc4516797</link>
 
-	<pubDate>Tue, 06 Dec 2011 14:54:57 -0700</pubDate>
+	<pubDate>Tue, 06 Dec 2011 13:54:57 -0800</pubDate>
 	<dcterms:modified>2011-12-06T21:54:57Z</dcterms:modified>
 
 	<description>
@@ -2312,7 +2364,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-911f9c15a78666745eee51a28f5868439e3e8b8d</link>
 
-	<pubDate>Sat, 03 Dec 2011 17:33:39 -0700</pubDate>
+	<pubDate>Sat, 03 Dec 2011 16:33:39 -0800</pubDate>
 	<dcterms:modified>2011-12-04T00:33:39Z</dcterms:modified>
 
 	<description>
@@ -2364,7 +2416,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-e305da561bdb0df5d02a60fe73dd379ca0898f92</link>
 
-	<pubDate>Sat, 03 Dec 2011 17:33:31 -0700</pubDate>
+	<pubDate>Sat, 03 Dec 2011 16:33:31 -0800</pubDate>
 	<dcterms:modified>2011-12-04T00:33:31Z</dcterms:modified>
 
 	<description>
@@ -2416,7 +2468,7 @@ Changed begin_src to begin_example, because org-babel was interfering&lt;br /&gt
 
 	<link>http://chrismgray.github.com/recentchanges/#change-981078df51c49dee5faebf71de9296c73a539e9c</link>
 
-	<pubDate>Fri, 02 Dec 2011 16:32:27 -0700</pubDate>
+	<pubDate>Fri, 02 Dec 2011 15:32:27 -0800</pubDate>
 	<dcterms:modified>2011-12-02T23:32:27Z</dcterms:modified>
 
 	<description>
@@ -2468,7 +2520,7 @@ Force recompile of sparkline&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-ab0b375c5723abbcfc145397faba0629fd003322</link>
 
-	<pubDate>Fri, 02 Dec 2011 16:30:44 -0700</pubDate>
+	<pubDate>Fri, 02 Dec 2011 15:30:44 -0800</pubDate>
 	<dcterms:modified>2011-12-02T23:30:44Z</dcterms:modified>
 
 	<description>
@@ -2520,7 +2572,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-53ceed524cb5e899db223c0fba9d3fd35bf5aaa7</link>
 
-	<pubDate>Fri, 02 Dec 2011 16:30:04 -0700</pubDate>
+	<pubDate>Fri, 02 Dec 2011 15:30:04 -0800</pubDate>
 	<dcterms:modified>2011-12-02T23:30:04Z</dcterms:modified>
 
 	<description>
@@ -2582,7 +2634,7 @@ creating tag page tags/ikiwiki-org-plugin&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-ebdf6152152bf3c0348496a8feec7e08ccc644e7</link>
 
-	<pubDate>Thu, 01 Dec 2011 00:53:23 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 23:53:23 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:53:23Z</dcterms:modified>
 
 	<description>
@@ -2634,7 +2686,7 @@ Added a title that I had missed&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-c7700933862bc647da1cbff5553ff1ad63c7f71c</link>
 
-	<pubDate>Thu, 01 Dec 2011 00:47:46 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 23:47:46 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:47:46Z</dcterms:modified>
 
 	<description>
@@ -2706,7 +2758,7 @@ Added titles to the existing posts&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-db4f3355f3ca4c890fc83cd3acd7d613a2a8b930</link>
 
-	<pubDate>Thu, 01 Dec 2011 00:23:29 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 23:23:29 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:23:29Z</dcterms:modified>
 
 	<description>
@@ -2758,7 +2810,7 @@ Fixed a link&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-097247f9e94b00dd2dbd84384fbfcbb8e8822286</link>
 
-	<pubDate>Wed, 30 Nov 2011 15:21:50 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 14:21:50 -0800</pubDate>
 	<dcterms:modified>2011-11-30T22:21:50Z</dcterms:modified>
 
 	<description>
@@ -2810,7 +2862,7 @@ Added a link to explain what a convex hull is.&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-1c78bc86644e4f8fc33ab478b8fbe9eacd95d2a5</link>
 
-	<pubDate>Wed, 30 Nov 2011 15:11:52 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 14:11:52 -0800</pubDate>
 	<dcterms:modified>2011-11-30T22:11:52Z</dcterms:modified>
 
 	<description>
@@ -2862,7 +2914,7 @@ Added a tag&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-2e596ee64abfabf56eb673f530c4651159e7877f</link>
 
-	<pubDate>Wed, 30 Nov 2011 15:06:50 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 14:06:50 -0800</pubDate>
 	<dcterms:modified>2011-11-30T22:06:50Z</dcterms:modified>
 
 	<description>
@@ -2914,7 +2966,7 @@ creating tag page tags/convex-hull&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-27d07f7c24eb74f1ac14b74ea5c0bab1d05f719c</link>
 
-	<pubDate>Wed, 30 Nov 2011 15:06:46 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 14:06:46 -0800</pubDate>
 	<dcterms:modified>2011-11-30T22:06:46Z</dcterms:modified>
 
 	<description>
@@ -2966,7 +3018,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-379a84ee9948cba7a943f392bab2d7b9a9e3598b</link>
 
-	<pubDate>Mon, 28 Nov 2011 11:18:09 -0700</pubDate>
+	<pubDate>Mon, 28 Nov 2011 10:18:09 -0800</pubDate>
 	<dcterms:modified>2011-11-28T18:18:09Z</dcterms:modified>
 
 	<description>
@@ -3018,7 +3070,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-c87b5c85a9d129d6a947ef5075561905db5b5b49</link>
 
-	<pubDate>Sun, 27 Nov 2011 12:02:59 -0700</pubDate>
+	<pubDate>Sun, 27 Nov 2011 11:02:59 -0800</pubDate>
 	<dcterms:modified>2011-11-27T19:02:59Z</dcterms:modified>
 
 	<description>
@@ -3070,7 +3122,7 @@ Made one point a bit stronger&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-faed570fa50633e09345b50a453de7125af1095f</link>
 
-	<pubDate>Sun, 27 Nov 2011 10:07:42 -0700</pubDate>
+	<pubDate>Sun, 27 Nov 2011 09:07:42 -0800</pubDate>
 	<dcterms:modified>2011-11-27T17:07:42Z</dcterms:modified>
 
 	<description>
@@ -3122,7 +3174,7 @@ Dumb typo&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-7492a458d251754604691f00f77c9065f72ef95b</link>
 
-	<pubDate>Sun, 27 Nov 2011 10:04:38 -0700</pubDate>
+	<pubDate>Sun, 27 Nov 2011 09:04:38 -0800</pubDate>
 	<dcterms:modified>2011-11-27T17:04:38Z</dcterms:modified>
 
 	<description>
@@ -3174,7 +3226,7 @@ Fixed a typographical error (and broke a pun)&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-fe9ef2e0050394d9cc609c177b76889f06e72bea</link>
 
-	<pubDate>Sun, 27 Nov 2011 09:58:54 -0700</pubDate>
+	<pubDate>Sun, 27 Nov 2011 08:58:54 -0800</pubDate>
 	<dcterms:modified>2011-11-27T16:58:54Z</dcterms:modified>
 
 	<description>
@@ -3226,7 +3278,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-e37f8be18a96b979a212c50fa9d3e30579b76638</link>
 
-	<pubDate>Sun, 27 Nov 2011 09:45:03 -0700</pubDate>
+	<pubDate>Sun, 27 Nov 2011 08:45:03 -0800</pubDate>
 	<dcterms:modified>2011-11-27T16:45:03Z</dcterms:modified>
 
 	<description>
@@ -3278,7 +3330,7 @@ creating tag page tags/sort&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-c7cb01b471027eac940887cabe81942e11385bac</link>
 
-	<pubDate>Wed, 23 Nov 2011 22:55:25 -0700</pubDate>
+	<pubDate>Wed, 23 Nov 2011 21:55:25 -0800</pubDate>
 	<dcterms:modified>2011-11-24T05:55:25Z</dcterms:modified>
 
 	<description>
@@ -3330,7 +3382,7 @@ Fixed a link&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-c4c76052cbf2aa7f815435df8119d234a8ce56d4</link>
 
-	<pubDate>Wed, 23 Nov 2011 22:52:47 -0700</pubDate>
+	<pubDate>Wed, 23 Nov 2011 21:52:47 -0800</pubDate>
 	<dcterms:modified>2011-11-24T05:52:47Z</dcterms:modified>
 
 	<description>
@@ -3382,7 +3434,7 @@ Try again&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-91d4c964c5eb557ac2eb9c00774f71cec5069230</link>
 
-	<pubDate>Wed, 23 Nov 2011 22:50:39 -0700</pubDate>
+	<pubDate>Wed, 23 Nov 2011 21:50:39 -0800</pubDate>
 	<dcterms:modified>2011-11-24T05:50:39Z</dcterms:modified>
 
 	<description>
@@ -3434,7 +3486,7 @@ Removed the stuff that started up the shell&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-e884ed3aaa21e032ffcf8d9babbe6db8157853e8</link>
 
-	<pubDate>Wed, 23 Nov 2011 22:46:39 -0700</pubDate>
+	<pubDate>Wed, 23 Nov 2011 21:46:39 -0800</pubDate>
 	<dcterms:modified>2011-11-24T05:46:39Z</dcterms:modified>
 
 	<description>
@@ -3486,7 +3538,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-b5c17c7e15631f1c3eda9f3e158b0432643d436b</link>
 
-	<pubDate>Tue, 22 Nov 2011 14:07:01 -0700</pubDate>
+	<pubDate>Tue, 22 Nov 2011 13:07:01 -0800</pubDate>
 	<dcterms:modified>2011-11-22T21:07:01Z</dcterms:modified>
 
 	<description>
@@ -3538,7 +3590,7 @@ Recompile&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-9ff038487db71a37c27c8d28c074e33d6de33746</link>
 
-	<pubDate>Tue, 22 Nov 2011 14:04:09 -0700</pubDate>
+	<pubDate>Tue, 22 Nov 2011 13:04:09 -0800</pubDate>
 	<dcterms:modified>2011-11-22T21:04:09Z</dcterms:modified>
 
 	<description>
@@ -3590,7 +3642,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-62d66b0568903931b0fdd5610a281cfcfb3cbbcb</link>
 
-	<pubDate>Tue, 22 Nov 2011 14:00:05 -0700</pubDate>
+	<pubDate>Tue, 22 Nov 2011 13:00:05 -0800</pubDate>
 	<dcterms:modified>2011-11-22T21:00:05Z</dcterms:modified>
 
 	<description>
@@ -3642,7 +3694,7 @@ creating tag page tags/processing&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-fdf93f4a722d9bd3b3d8d82ba3b26a6bf9bb0e58</link>
 
-	<pubDate>Mon, 21 Nov 2011 13:00:04 -0700</pubDate>
+	<pubDate>Mon, 21 Nov 2011 12:00:04 -0800</pubDate>
 	<dcterms:modified>2011-11-21T20:00:04Z</dcterms:modified>
 
 	<description>
@@ -3694,7 +3746,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-faf58406c1a32621fa43f44d13ea8f6900f77e32</link>
 
-	<pubDate>Sun, 20 Nov 2011 18:16:49 -0700</pubDate>
+	<pubDate>Sun, 20 Nov 2011 17:16:49 -0800</pubDate>
 	<dcterms:modified>2011-11-21T01:16:49Z</dcterms:modified>
 
 	<description>
@@ -3746,7 +3798,7 @@ Did the post get uploaded?&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-89915e6024b896f8696095fbbae3cd810782bf5f</link>
 
-	<pubDate>Sun, 20 Nov 2011 18:15:04 -0700</pubDate>
+	<pubDate>Sun, 20 Nov 2011 17:15:04 -0800</pubDate>
 	<dcterms:modified>2011-11-21T01:15:04Z</dcterms:modified>
 
 	<description>
@@ -3798,7 +3850,7 @@ creating tag page tags/computational-geometry&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-e8defe3565cca9ffa54cac4597d2463a31ebaf10</link>
 
-	<pubDate>Sun, 20 Nov 2011 18:15:03 -0700</pubDate>
+	<pubDate>Sun, 20 Nov 2011 17:15:03 -0800</pubDate>
 	<dcterms:modified>2011-11-21T01:15:03Z</dcterms:modified>
 
 	<description>
@@ -3854,7 +3906,7 @@ creating tag page tags/visibility-polygon&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-9ada090ab228d306738f7304d47be1a8891b18b0</link>
 
-	<pubDate>Sat, 19 Nov 2011 13:45:54 -0700</pubDate>
+	<pubDate>Sat, 19 Nov 2011 12:45:54 -0800</pubDate>
 	<dcterms:modified>2011-11-19T20:45:54Z</dcterms:modified>
 
 	<description>
@@ -3906,7 +3958,7 @@ Really fixed link&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-740e3881fd1218cd7ba25d2fca5db9c4d29e621c</link>
 
-	<pubDate>Sat, 19 Nov 2011 13:42:35 -0700</pubDate>
+	<pubDate>Sat, 19 Nov 2011 12:42:35 -0800</pubDate>
 	<dcterms:modified>2011-11-19T20:42:35Z</dcterms:modified>
 
 	<description>
@@ -3958,7 +4010,7 @@ Fixed link&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-efd45119ae76c0e69a81ebf8e0389caa617b8497</link>
 
-	<pubDate>Sat, 19 Nov 2011 13:34:50 -0700</pubDate>
+	<pubDate>Sat, 19 Nov 2011 12:34:50 -0800</pubDate>
 	<dcterms:modified>2011-11-19T20:34:50Z</dcterms:modified>
 
 	<description>
@@ -4010,7 +4062,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-4efa2c8b277da0a6bbf158cfe575fc99ea26dfc9</link>
 
-	<pubDate>Wed, 16 Nov 2011 09:20:38 -0700</pubDate>
+	<pubDate>Wed, 16 Nov 2011 08:20:38 -0800</pubDate>
 	<dcterms:modified>2011-11-16T16:20:38Z</dcterms:modified>
 
 	<description>
@@ -4062,7 +4114,7 @@ Added source code link and changed a tag&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-048b5e73e95207b6692608d852db93faf450ec99</link>
 
-	<pubDate>Wed, 16 Nov 2011 09:17:15 -0700</pubDate>
+	<pubDate>Wed, 16 Nov 2011 08:17:15 -0800</pubDate>
 	<dcterms:modified>2011-11-16T16:17:15Z</dcterms:modified>
 
 	<description>
@@ -4114,7 +4166,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-dcd5dc52c391543f248dbcf1cb93b177e552b171</link>
 
-	<pubDate>Tue, 15 Nov 2011 15:18:18 -0700</pubDate>
+	<pubDate>Tue, 15 Nov 2011 14:18:18 -0800</pubDate>
 	<dcterms:modified>2011-11-15T22:18:18Z</dcterms:modified>
 
 	<description>
@@ -4166,7 +4218,7 @@ Weasel-worded a bit&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-3ca4146bcbfe5d8653cb3dbad2dcc16839f20c9f</link>
 
-	<pubDate>Tue, 15 Nov 2011 14:04:40 -0700</pubDate>
+	<pubDate>Tue, 15 Nov 2011 13:04:40 -0800</pubDate>
 	<dcterms:modified>2011-11-15T21:04:40Z</dcterms:modified>
 
 	<description>
@@ -4218,7 +4270,7 @@ creating tag page tags/thrush&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-1f351a7cad74888097ae11fd74ef6ae21506f8c6</link>
 
-	<pubDate>Tue, 15 Nov 2011 14:04:39 -0700</pubDate>
+	<pubDate>Tue, 15 Nov 2011 13:04:39 -0800</pubDate>
 	<dcterms:modified>2011-11-15T21:04:39Z</dcterms:modified>
 
 	<description>
@@ -4270,7 +4322,7 @@ creating tag page tags/programming-challenge&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-b2615d32853b4e1a18c84805eef2d0a039c79791</link>
 
-	<pubDate>Tue, 15 Nov 2011 13:23:42 -0700</pubDate>
+	<pubDate>Tue, 15 Nov 2011 12:23:42 -0800</pubDate>
 	<dcterms:modified>2011-11-15T20:23:42Z</dcterms:modified>
 
 	<description>
@@ -4326,7 +4378,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-cd39eeaffe34f850cf2ae17f19717eedbbd7068a</link>
 
-	<pubDate>Mon, 14 Nov 2011 11:17:22 -0700</pubDate>
+	<pubDate>Mon, 14 Nov 2011 10:17:22 -0800</pubDate>
 	<dcterms:modified>2011-11-14T18:17:22Z</dcterms:modified>
 
 	<description>
@@ -4378,7 +4430,7 @@ Added tags&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-06a67034029b65a800d6debb9fc2bd4b00f46206</link>
 
-	<pubDate>Mon, 14 Nov 2011 11:15:03 -0700</pubDate>
+	<pubDate>Mon, 14 Nov 2011 10:15:03 -0800</pubDate>
 	<dcterms:modified>2011-11-14T18:15:03Z</dcterms:modified>
 
 	<description>
@@ -4430,7 +4482,7 @@ creating tag page tags/git-annex&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-ea7b4d798c7e946fb39f63e181ef5d75d32d43ca</link>
 
-	<pubDate>Mon, 14 Nov 2011 11:15:03 -0700</pubDate>
+	<pubDate>Mon, 14 Nov 2011 10:15:03 -0800</pubDate>
 	<dcterms:modified>2011-11-14T18:15:03Z</dcterms:modified>
 
 	<description>
@@ -4482,7 +4534,7 @@ creating tag page tags/notmuch&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-b59cd642becedd4aa51e1ae9c9b5de7f0c83ae89</link>
 
-	<pubDate>Mon, 14 Nov 2011 11:15:03 -0700</pubDate>
+	<pubDate>Mon, 14 Nov 2011 10:15:03 -0800</pubDate>
 	<dcterms:modified>2011-11-14T18:15:03Z</dcterms:modified>
 
 	<description>
@@ -4534,7 +4586,7 @@ creating tag page tags/email&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-3680e673cc132a33e2ad3e659393c1a2b51158b4</link>
 
-	<pubDate>Mon, 14 Nov 2011 11:15:03 -0700</pubDate>
+	<pubDate>Mon, 14 Nov 2011 10:15:03 -0800</pubDate>
 	<dcterms:modified>2011-11-14T18:15:03Z</dcterms:modified>
 
 	<description>
@@ -4586,7 +4638,7 @@ creating tag page tags/spot&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-80eceeb9cf6262016de20d9025a3099d384c79fa</link>
 
-	<pubDate>Mon, 14 Nov 2011 11:07:31 -0700</pubDate>
+	<pubDate>Mon, 14 Nov 2011 10:07:31 -0800</pubDate>
 	<dcterms:modified>2011-11-14T18:07:31Z</dcterms:modified>
 
 	<description>
@@ -4638,7 +4690,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-641f05980c2414de6b1eff1cc68a3c7208f1f222</link>
 
-	<pubDate>Sun, 13 Nov 2011 09:06:08 -0700</pubDate>
+	<pubDate>Sun, 13 Nov 2011 08:06:08 -0800</pubDate>
 	<dcterms:modified>2011-11-13T16:06:08Z</dcterms:modified>
 
 	<description>
@@ -4690,7 +4742,7 @@ creating tag page tags/AT&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-abd3740bef45b65844b3b58a0e37f161ec63771d</link>
 
-	<pubDate>Sun, 13 Nov 2011 09:06:04 -0700</pubDate>
+	<pubDate>Sun, 13 Nov 2011 08:06:04 -0800</pubDate>
 	<dcterms:modified>2011-11-13T16:06:04Z</dcterms:modified>
 
 	<description>
@@ -4742,7 +4794,7 @@ New hiking post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-c6a8f3c564915dcf43400507590ddc13342a3447</link>
 
-	<pubDate>Sun, 13 Nov 2011 07:54:45 -0700</pubDate>
+	<pubDate>Sun, 13 Nov 2011 06:54:45 -0800</pubDate>
 	<dcterms:modified>2011-11-13T14:54:45Z</dcterms:modified>
 
 	<description>
@@ -4794,7 +4846,7 @@ Removed the image&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-a96f3c5ec60781db110799d2fb358054b055f4ed</link>
 
-	<pubDate>Sun, 13 Nov 2011 07:48:30 -0700</pubDate>
+	<pubDate>Sun, 13 Nov 2011 06:48:30 -0800</pubDate>
 	<dcterms:modified>2011-11-13T14:48:30Z</dcterms:modified>
 
 	<description>
@@ -4846,7 +4898,7 @@ Changed the picture link&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-5582a0040a0bf775c649beceef1605d43fc4a895</link>
 
-	<pubDate>Sun, 13 Nov 2011 07:43:42 -0700</pubDate>
+	<pubDate>Sun, 13 Nov 2011 06:43:42 -0800</pubDate>
 	<dcterms:modified>2011-11-13T14:43:42Z</dcterms:modified>
 
 	<description>
@@ -4898,7 +4950,7 @@ Added tags to the post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-be91e60c722473ad2a75b48a3107759d529c81c8</link>
 
-	<pubDate>Sun, 13 Nov 2011 07:43:08 -0700</pubDate>
+	<pubDate>Sun, 13 Nov 2011 06:43:08 -0800</pubDate>
 	<dcterms:modified>2011-11-13T14:43:08Z</dcterms:modified>
 
 	<description>
@@ -4952,7 +5004,7 @@ New post&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-553507194697ac5a0f189e50813a164dd87151d6</link>
 
-	<pubDate>Sat, 12 Nov 2011 22:21:32 -0700</pubDate>
+	<pubDate>Sat, 12 Nov 2011 21:21:32 -0800</pubDate>
 	<dcterms:modified>2011-11-13T05:21:32Z</dcterms:modified>
 
 	<description>
@@ -5004,7 +5056,7 @@ Fixed a typo&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-933cfbd443092d0d410bf8038682c3d2a657bc87</link>
 
-	<pubDate>Sat, 12 Nov 2011 15:37:10 -0700</pubDate>
+	<pubDate>Sat, 12 Nov 2011 14:37:10 -0800</pubDate>
 	<dcterms:modified>2011-11-12T22:37:10Z</dcterms:modified>
 
 	<description>
@@ -5056,7 +5108,7 @@ Make the explanations new paragraphs&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-8f6749de6f5902e4638468c9a136d7ce45a8b8f0</link>
 
-	<pubDate>Sat, 12 Nov 2011 10:43:40 -0700</pubDate>
+	<pubDate>Sat, 12 Nov 2011 09:43:40 -0800</pubDate>
 	<dcterms:modified>2011-11-12T17:43:40Z</dcterms:modified>
 
 	<description>
@@ -5108,7 +5160,7 @@ Another recompile&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-fed15e3deec3c4e8c2e06a1db6467e5ab0bb04f3</link>
 
-	<pubDate>Sat, 12 Nov 2011 10:41:13 -0700</pubDate>
+	<pubDate>Sat, 12 Nov 2011 09:41:13 -0800</pubDate>
 	<dcterms:modified>2011-11-12T17:41:13Z</dcterms:modified>
 
 	<description>
@@ -5160,7 +5212,7 @@ Recompile&lt;br /&gt;
 
 	<link>http://chrismgray.github.com/recentchanges/#change-a6ecfa08f9d6ffa75d14622ad7cfd42a12c36384</link>
 
-	<pubDate>Sat, 12 Nov 2011 10:35:37 -0700</pubDate>
+	<pubDate>Sat, 12 Nov 2011 09:35:37 -0800</pubDate>
 	<dcterms:modified>2011-11-12T17:35:37Z</dcterms:modified>
 
 	<description>
@@ -5198,58 +5250,6 @@ Put mathjax and other org goodies in the page template&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- a6ecfa08f9d6ffa75d14622ad7cfd42a12c36384 --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to tags/time-series on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_81fa04aa534000035ab7e794f7bbf2ea090dea24/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-81fa04aa534000035ab7e794f7bbf2ea090dea24</link>
-
-	<pubDate>Sat, 12 Nov 2011 10:11:45 -0700</pubDate>
-	<dcterms:modified>2011-11-12T17:11:45Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-81fa04aa534000035ab7e794f7bbf2ea090dea24&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-tags/time-series
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;10:11:45 AM 11/12/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-creating tag page tags/time-series&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- 81fa04aa534000035ab7e794f7bbf2ea090dea24 --&gt;
 </description>
 
 
