@@ -8,6 +8,60 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>chrismgray: change to posts/hiking/mountainmishap.png posts/hiking/socal-04 on Hiking and Coding</title>
+	<dcterms:creator>chrismgray</dcterms:creator>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_4eda6a9093a19d39775fac5618f7af9d86406c1c/</guid>
+
+	<link>http://chrismgray.github.com/recentchanges/#change-4eda6a9093a19d39775fac5618f7af9d86406c1c</link>
+
+	<pubDate>Sun, 27 May 2012 14:35:23 -0700</pubDate>
+	<dcterms:modified>2012-05-27T21:35:23Z</dcterms:modified>
+
+	<description>
+
+
+
+
+
+&lt;div id=&quot;change-4eda6a9093a19d39775fac5618f7af9d86406c1c&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/mountainmishap.png
+
+posts/hiking/socal-04
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;14:35:23 05/27/12&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New hiking post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- 4eda6a9093a19d39775fac5618f7af9d86406c1c --&gt;
+</description>
+
+
+</item>
+<item>
+
 	<title>chrismgray: change to posts/hiking/socal-03 on Hiking and Coding</title>
 	<dcterms:creator>chrismgray</dcterms:creator>
 
@@ -5198,58 +5252,6 @@ Recompile&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- fed15e3deec3c4e8c2e06a1db6467e5ab0bb04f3 --&gt;
-</description>
-
-
-</item>
-<item>
-
-	<title>chrismgray: change to templates/page.tmpl on Hiking and Coding</title>
-	<dcterms:creator>chrismgray</dcterms:creator>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//recentchanges/change_a6ecfa08f9d6ffa75d14622ad7cfd42a12c36384/</guid>
-
-	<link>http://chrismgray.github.com/recentchanges/#change-a6ecfa08f9d6ffa75d14622ad7cfd42a12c36384</link>
-
-	<pubDate>Sat, 12 Nov 2011 09:35:37 -0800</pubDate>
-	<dcterms:modified>2011-11-12T17:35:37Z</dcterms:modified>
-
-	<description>
-
-
-
-
-
-&lt;div id=&quot;change-a6ecfa08f9d6ffa75d14622ad7cfd42a12c36384&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-templates/page.tmpl
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;10:35:37 AM 11/12/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Put mathjax and other org goodies in the page template&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- a6ecfa08f9d6ffa75d14622ad7cfd42a12c36384 --&gt;
 </description>
 
 
