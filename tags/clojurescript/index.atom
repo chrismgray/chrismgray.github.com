@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/clojurescript/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2012-04-20T23:18:48Z</updated>
 <entry>
 	<title>More Clojurescript Macros</title>
@@ -237,13 +237,13 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmacro&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;unless&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
   [pred &amp;amp; body]
-  `(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; ~pred)
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;do&lt;/span&gt; ~@body)
+  `(if (not ~pred)
+     (do ~@body)
      nil))
 
-(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [a (unless true (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; 1 0) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; 1 1))]
+(let [a (unless true (/ 1 0) (+ 1 1))]
   a)
 &lt;/pre&gt;
 
@@ -254,9 +254,9 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-javascript&quot;&gt;&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;var&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;a__5799&lt;/span&gt; = (cljs.core.truth_(cljs.core.not.call(&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;,&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;true&lt;/span&gt;))?(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;function&lt;/span&gt; (){(1 / 0);
-&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;return&lt;/span&gt; (1 + 1);
-})():&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;);
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
 
 a__5799;
 &lt;/pre&gt;
@@ -742,7 +742,7 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; sym)))))])
+&lt;pre class=&quot;example&quot;&gt;(let [name (munge (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (str sym)))))])
 &lt;/pre&gt;
 
 
@@ -765,9 +765,9 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [full-ns (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;and&lt;/span&gt; (core-name? env sym) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;nil?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;get-in&lt;/span&gt; @namespaces [(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:defs&lt;/span&gt; sym])))
+&lt;pre class=&quot;example&quot;&gt;(let [full-ns (if (and (core-name? env sym) (nil? (get-in @namespaces [(-&amp;gt; env :ns :name) :defs sym])))
                 &#39;cljs.core
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;))])
+                (-&amp;gt; env :ns :name))])
 &lt;/pre&gt;
 
 
@@ -857,15 +857,15 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmethod&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;parse&lt;/span&gt; &#39;def
+&lt;pre class=&quot;example&quot;&gt;(defmethod parse &#39;def
   [op env form name]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [pfn (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; ([_ sym] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym})
-              ([_ sym init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init})
-              ([_ sym doc init] {&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; sym &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:doc&lt;/span&gt; doc &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:init&lt;/span&gt; init}))
-        args (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; pfn form)
-        sym (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:sym&lt;/span&gt; args)]
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;assert&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;namespace&lt;/span&gt; sym)) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;Can&#39;t def ns-qualified name&quot;&lt;/span&gt;)
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (resolve-var (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;dissoc&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:locals&lt;/span&gt;) sym)))])))
+  (let [pfn (fn ([_ sym] {:sym sym})
+              ([_ sym init] {:sym sym :init init})
+              ([_ sym doc init] {:sym sym :doc doc :init init}))
+        args (apply pfn form)
+        sym (:sym args)]
+    (assert (not (namespace sym)) &quot;Can&#39;t def ns-qualified name&quot;)
+    (let [name (munge (:name (resolve-var (dissoc env :locals) sym)))])))
 &lt;/pre&gt;
 
 
@@ -878,11 +878,11 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt;
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (core-name? env sym)
+&lt;pre class=&quot;example&quot;&gt;(munge (symbol (str
+                (if (core-name? env sym)
                   &#39;cljs.core
-                  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;))
-                &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym)))))
+                  (-&amp;gt; env :ns :name))
+                &quot;.&quot; (munge (name sym)))))
 &lt;/pre&gt;
 
 
@@ -915,7 +915,7 @@ learned, and give some the results of my hacking.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [name (munge (&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;symbol&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;str&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&lt;/span&gt; env &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:ns&lt;/span&gt; &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:name&lt;/span&gt;) &lt;span style=&quot;color: #cc9393;&quot;&gt;&quot;.&quot;&lt;/span&gt; (munge (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;name&lt;/span&gt; sym))))))])
+&lt;pre class=&quot;example&quot;&gt;(let [name (munge (:name (symbol (str (-&amp;gt; env :ns :name) &quot;.&quot; (munge (name sym))))))])
 &lt;/pre&gt;
 
 

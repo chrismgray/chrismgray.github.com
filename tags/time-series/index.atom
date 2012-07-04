@@ -152,15 +152,15 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
- (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
-                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
-                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
+&lt;pre class=&quot;example&quot;&gt;(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
 &lt;/pre&gt;
 
 

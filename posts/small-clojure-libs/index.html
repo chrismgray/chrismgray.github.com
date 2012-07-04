@@ -105,11 +105,11 @@ enough for me to release as Clojure packages.
 
 
 
-<pre class="src src-clojure">(||-&gt;&gt; data
-       (<span style="color: #f0dfaf;">map</span> big-function)
-       (<span style="color: #f0dfaf;">filter</span> odd?)
-       <span style="color: #dca3a3; font-weight: bold;">:merge</span>
-       (<span style="color: #f0dfaf;">reduce</span> +))
+<pre class="example">(||-&gt;&gt; data
+       (map big-function)
+       (filter odd?)
+       :merge
+       (reduce +))
 </pre>
 
 
@@ -119,10 +119,10 @@ enough for me to release as Clojure packages.
 
 
 
-<pre class="src src-clojure">(<span style="color: #8cd0d3;">-&gt;&gt;</span> data
-     (<span style="color: #f0dfaf;">map</span> big-function)
-     (<span style="color: #f0dfaf;">filter</span> odd?)
-     (<span style="color: #f0dfaf;">reduce</span> +))
+<pre class="example">(-&gt;&gt; data
+     (map big-function)
+     (filter odd?)
+     (reduce +))
 </pre>
 
 
@@ -156,8 +156,8 @@ enough for me to release as Clojure packages.
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf;">apply</span> lru-map 4 (<span style="color: #f0dfaf;">range</span> 20))
-<span style="color: #708070;">;</span><span style="color: #7f9f7f;">=&gt; {12 13, 14 15, 16 17, 18 19}</span>
+<pre class="example">(apply lru-map 4 (range 20))
+;=&gt; {12 13, 14 15, 16 17, 18 19}
 </pre>
 
 
@@ -172,8 +172,8 @@ enough for me to release as Clojure packages.
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf;">apply</span> lru-map-with 4 conj [] (<span style="color: #f0dfaf;">range</span> 20))
-<span style="color: #708070;">;</span><span style="color: #7f9f7f;">=&gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}</span>
+<pre class="example">(apply lru-map-with 4 conj [] (range 20))
+;=&gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}
 </pre>
 
 
@@ -230,8 +230,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Fri 06 Jan 2012 07:23:15 PM MST</span>
-<!-- Created <span class="date">Fri 06 Jan 2012 07:23:15 PM MST</span> -->
+Last edited <span class="date">Fri 06 Jan 2012 06:23:15 PM PST</span>
+<!-- Created <span class="date">Fri 06 Jan 2012 06:23:15 PM PST</span> -->
 </div>
 
 </div>

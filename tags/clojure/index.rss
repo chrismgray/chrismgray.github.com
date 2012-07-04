@@ -25,7 +25,7 @@
 	<category>macros</category>
 
 
-	<pubDate>Fri, 20 Apr 2012 16:47:21 -0600</pubDate>
+	<pubDate>Fri, 20 Apr 2012 15:47:21 -0700</pubDate>
 	<dcterms:modified>2012-04-20T23:18:48Z</dcterms:modified>
 
 	<description>
@@ -142,7 +142,7 @@ have been working on.
 	<category>macros</category>
 
 
-	<pubDate>Tue, 10 Apr 2012 23:36:33 -0600</pubDate>
+	<pubDate>Tue, 10 Apr 2012 22:36:33 -0700</pubDate>
 	<dcterms:modified>2012-04-11T06:33:51Z</dcterms:modified>
 
 	<description>
@@ -215,13 +215,13 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmacro&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;unless&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
   [pred &amp;amp; body]
-  `(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; ~pred)
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;do&lt;/span&gt; ~@body)
+  `(if (not ~pred)
+     (do ~@body)
      nil))
 
-(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [a (unless true (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; 1 0) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; 1 1))]
+(let [a (unless true (/ 1 0) (+ 1 1))]
   a)
 &lt;/pre&gt;
 
@@ -232,9 +232,9 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-javascript&quot;&gt;&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;var&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;a__5799&lt;/span&gt; = (cljs.core.truth_(cljs.core.not.call(&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;,&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;true&lt;/span&gt;))?(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;function&lt;/span&gt; (){(1 / 0);
-&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;return&lt;/span&gt; (1 + 1);
-})():&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;);
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
 
 a__5799;
 &lt;/pre&gt;
@@ -284,7 +284,7 @@ a__5799;
 	<category>lab-notes</category>
 
 
-	<pubDate>Sat, 31 Mar 2012 19:27:15 -0600</pubDate>
+	<pubDate>Sat, 31 Mar 2012 18:27:15 -0700</pubDate>
 	<dcterms:modified>2012-04-01T01:27:15Z</dcterms:modified>
 
 	<description>
@@ -483,7 +483,7 @@ learned, and give some the results of my hacking.
 	<category>thrush</category>
 
 
-	<pubDate>Fri, 06 Jan 2012 19:23:15 -0700</pubDate>
+	<pubDate>Fri, 06 Jan 2012 18:23:15 -0800</pubDate>
 	<dcterms:modified>2012-01-07T02:23:15Z</dcterms:modified>
 
 	<description>
@@ -520,11 +520,11 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(||-&amp;gt;&amp;gt; data
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-       &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:merge&lt;/span&gt;
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(||-&amp;gt;&amp;gt; data
+       (map big-function)
+       (filter odd?)
+       :merge
+       (reduce +))
 &lt;/pre&gt;
 
 
@@ -534,10 +534,10 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; data
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(-&amp;gt;&amp;gt; data
+     (map big-function)
+     (filter odd?)
+     (reduce +))
 &lt;/pre&gt;
 
 
@@ -571,8 +571,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map 4 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map 4 (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19}
 &lt;/pre&gt;
 
 
@@ -587,8 +587,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map-with 4 conj [] (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}
 &lt;/pre&gt;
 
 
@@ -619,7 +619,7 @@ enough for me to release as Clojure packages.
 	<category>emacs</category>
 
 
-	<pubDate>Sat, 03 Dec 2011 17:32:56 -0700</pubDate>
+	<pubDate>Sat, 03 Dec 2011 16:32:56 -0800</pubDate>
 	<dcterms:modified>2011-12-07T18:04:08Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
@@ -644,7 +644,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;let*&lt;/span&gt; ((foo bar)
+&lt;pre class=&quot;example&quot;&gt;(let* ((foo bar)
        (baz foo)))
 &lt;/pre&gt;
 
@@ -660,7 +660,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [foo bar
+&lt;pre class=&quot;example&quot;&gt;(let [foo bar
       baz foo])
 &lt;/pre&gt;
 
@@ -767,7 +767,7 @@ enough for me to release as Clojure packages.
 	<category>lab-notes</category>
 
 
-	<pubDate>Wed, 30 Nov 2011 11:06:31 -0700</pubDate>
+	<pubDate>Wed, 30 Nov 2011 10:06:31 -0800</pubDate>
 	<dcterms:modified>2011-12-02T22:05:50Z</dcterms:modified>
 
 	<description>
@@ -794,7 +794,7 @@ enough for me to release as Clojure packages.
 	<category>sort</category>
 
 
-	<pubDate>Sun, 27 Nov 2011 07:23:34 -0700</pubDate>
+	<pubDate>Sun, 27 Nov 2011 06:23:34 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:45:44Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
@@ -1066,7 +1066,7 @@ enough for me to release as Clojure packages.
 	<category>visibility-polygon</category>
 
 
-	<pubDate>Tue, 22 Nov 2011 12:29:29 -0700</pubDate>
+	<pubDate>Tue, 22 Nov 2011 11:29:29 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:45:19Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
@@ -1179,7 +1179,7 @@ enough for me to release as Clojure packages.
 	<category>visibility-polygon</category>
 
 
-	<pubDate>Mon, 21 Nov 2011 12:44:43 -0700</pubDate>
+	<pubDate>Mon, 21 Nov 2011 11:44:43 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:45:06Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
@@ -1197,32 +1197,32 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;add-new-pt&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;or&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; stack) &lt;span style=&quot;color: #708070;&quot;&gt;; &lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;First two points are guaranteed to be visible&lt;/span&gt;
-              (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;empty?&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack))
-              (visible? pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack)))
-      [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) stack)])))
+&lt;pre class=&quot;example&quot;&gt;(defn- add-new-pt [poly]
+  (fn [pt stack]
+    (when (or (empty? stack) ; First two points are guaranteed to be visible
+              (empty? (rest stack))
+              (visible? pt (first poly) (first stack)))
+      [pt (rest poly) (cons (first poly) stack)])))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;pop-stack&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-    (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
-          top-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack))]
-      (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly))
-        (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg top-seg)
-          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg top-seg) stack)]
-          [pt poly (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; stack)])))))
+(defn- pop-stack [poly]
+  (fn [pt stack]
+    (let [the-seg (seg/new-seg pt (first poly))
+          top-seg (seg/new-seg (first stack) (second stack))]
+      (when (pt/left-turn? (second stack) (first stack) (first poly))
+        (if (seg/intersection-on-seg? the-seg top-seg)
+          [pt poly (cons (seg/intersection the-seg top-seg) stack)]
+          [pt poly (rest stack)])))))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;skip-pt&lt;/span&gt; [poly]
-  (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [pt stack]
-   (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [the-seg (seg/new-seg pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack))
-         poly-seg (seg/new-seg (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; poly))]
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;when&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; (pt/left-turn? (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; stack) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; poly)))
-       (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (seg/intersection-on-seg? the-seg poly-seg)
-         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;cons&lt;/span&gt; (seg/&lt;span style=&quot;color: #dfdfbf; font-weight: bold;&quot;&gt;intersection&lt;/span&gt; the-seg poly-seg) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly)) stack]
-         [pt (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;rest&lt;/span&gt; poly) stack])))))
+(defn- skip-pt [poly]
+  (fn [pt stack]
+   (let [the-seg (seg/new-seg pt (first stack))
+         poly-seg (seg/new-seg (first poly) (second poly))]
+     (when (not (pt/left-turn? (second stack) (first stack) (first poly)))
+       (if (seg/intersection-on-seg? the-seg poly-seg)
+         [pt (cons (seg/intersection the-seg poly-seg) (rest poly)) stack]
+         [pt (rest poly) stack])))))
 
-(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;all-conditions&lt;/span&gt; [poly]
+(defn- all-conditions [poly]
   (with-monad polygon-parser-m
     (m-plus (add-new-pt poly) (pop-stack poly) (skip-pt poly))))
 &lt;/pre&gt;
@@ -1256,7 +1256,7 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn-&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;visibility-polygon-helper&lt;/span&gt; [pt poly]
+&lt;pre class=&quot;example&quot;&gt;(defn- visibility-polygon-helper [pt poly]
   ((with-monad polygon-parser-m
      (m-until empty? all-conditions poly)) pt []))
 &lt;/pre&gt;
@@ -1325,7 +1325,7 @@ enough for me to release as Clojure packages.
 	<category>thrush</category>
 
 
-	<pubDate>Tue, 15 Nov 2011 13:22:19 -0700</pubDate>
+	<pubDate>Tue, 15 Nov 2011 12:22:19 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:44:18Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
@@ -1350,16 +1350,16 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defn luhn-check
+  &quot;Takes a sequence of digits and determines whether they pass the Luhn test.
+   The sequence must be in order from right to left.&quot;
   [digits]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
-       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
+  (-&amp;gt;&amp;gt; digits
+       (partition 2 2 (repeat 0))
+       (mapcat #(vector (first %) (* 2 (second %))))
+       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
+       (#(mod % 10))
+       (= 0)))
 &lt;/pre&gt;
 
 

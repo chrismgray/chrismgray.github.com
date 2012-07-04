@@ -93,15 +93,15 @@ Time Series 2
 
 
 
-<pre class="src src-clojure">(<span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #8cd0d3;">time-series</span> [f init-state n num-iterations]
- (<span style="color: #8cd0d3;">let</span> [call-f (<span style="color: #f0dfaf;">fn</span> [state]
-                (<span style="color: #8cd0d3;">let</span> [retval (f state)
-                      num (<span style="color: #f0dfaf;">count</span> state)
-                      new-state (<span style="color: #f0dfaf;">vec</span> (<span style="color: #8cd0d3;">if</span> (<span style="color: #f0dfaf;">=</span> num n) (<span style="color: #f0dfaf;">drop</span> 1 (<span style="color: #f0dfaf;">conj</span> state retval)) (<span style="color: #f0dfaf;">conj</span> state retval)))]
+<pre class="example">(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (<span style="color: #f0dfaf;">repeat</span> num-iterations call-f)))
-    (<span style="color: #f0dfaf;">vector</span> init-state))))
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
 </pre>
 
 
@@ -218,8 +218,8 @@ Links:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu 15 Dec 2011 11:14:05 AM MST</span>
-<!-- Created <span class="date">Sun 13 Nov 2011 07:12:16 AM MST</span> -->
+Last edited <span class="date">Thu 15 Dec 2011 10:14:05 AM PST</span>
+<!-- Created <span class="date">Sun 13 Nov 2011 06:12:16 AM PST</span> -->
 </div>
 
 </div>

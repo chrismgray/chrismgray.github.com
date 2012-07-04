@@ -16,7 +16,7 @@
 <id>http://chrismgray.github.com//tags/macros/</id>
 
 <subtitle type="html">Hiking and Coding</subtitle>
-<generator uri="http://ikiwiki.info/" version="3.20111107">ikiwiki</generator>
+<generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
 <updated>2012-04-20T23:18:48Z</updated>
 <entry>
 	<title>More Clojurescript Macros</title>
@@ -237,13 +237,13 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmacro&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;unless&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
   [pred &amp;amp; body]
-  `(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; ~pred)
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;do&lt;/span&gt; ~@body)
+  `(if (not ~pred)
+     (do ~@body)
      nil))
 
-(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [a (unless true (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; 1 0) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; 1 1))]
+(let [a (unless true (/ 1 0) (+ 1 1))]
   a)
 &lt;/pre&gt;
 
@@ -254,9 +254,9 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-javascript&quot;&gt;&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;var&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;a__5799&lt;/span&gt; = (cljs.core.truth_(cljs.core.not.call(&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;,&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;true&lt;/span&gt;))?(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;function&lt;/span&gt; (){(1 / 0);
-&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;return&lt;/span&gt; (1 + 1);
-})():&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;);
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
 
 a__5799;
 &lt;/pre&gt;

@@ -176,7 +176,7 @@
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Fri 02 Dec 2011 04:29:47 PM MST</span>
+Posted <span class="date">Fri 02 Dec 2011 03:29:47 PM PST</span>
 </span>
 
 
@@ -237,7 +237,7 @@ Tags:
 
 
 
-<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((foo bar)
+<pre class="example">(let* ((foo bar)
        (baz foo)))
 </pre>
 
@@ -253,7 +253,7 @@ Tags:
 
 
 
-<pre class="src src-clojure">(<span style="color: #8cd0d3;">let</span> [foo bar
+<pre class="example">(let [foo bar
       baz foo])
 </pre>
 
@@ -339,7 +339,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sat 03 Dec 2011 05:32:56 PM MST</span>
+Posted <span class="date">Sat 03 Dec 2011 04:32:56 PM PST</span>
 </span>
 
 
@@ -417,7 +417,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Tue 06 Dec 2011 02:55:28 PM MST</span>
+Posted <span class="date">Tue 06 Dec 2011 01:55:28 PM PST</span>
 </span>
 
 
@@ -506,13 +506,13 @@ some of them, in no particular order.
 
 
 
-<pre class="src src-elisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">xml-find-nodes-matching</span> (node name)
-  <span style="color: #8fb28f;">"Returns all children of `</span><span style="color: #dca3a3; font-weight: bold;">node</span><span style="color: #8fb28f;">' that have an `</span><span style="color: #dca3a3; font-weight: bold;">xml-node-name</span><span style="color: #8fb28f;">' equal to `</span><span style="color: #dca3a3; font-weight: bold;">name</span><span style="color: #8fb28f;">'."</span>
-  (<span style="color: #f0dfaf; font-weight: bold;">if</span> (or (eq node '()) (not (listp node)))
+<pre class="example">(defun xml-find-nodes-matching (node name)
+  "Returns all children of `node' that have an `xml-node-name' equal to `name'."
+  (if (or (eq node '()) (not (listp node)))
       '()
-    (<span style="color: #f0dfaf; font-weight: bold;">if</span> (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply 'append (mapcar (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (if (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply 'append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 </pre>
 
 
@@ -599,7 +599,7 @@ some of them, in no particular order.
 
 
 
-<pre class="src src-elisp">(setq valtype (car (caddar xml-list))
+<pre class="example">(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 </pre>
 
@@ -644,7 +644,7 @@ some of them, in no particular order.
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Wed 07 Dec 2011 03:00:36 PM MST</span>
+Posted <span class="date">Wed 07 Dec 2011 02:00:36 PM PST</span>
 </span>
 
 
@@ -727,7 +727,7 @@ Tags:
 
 
 
-<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">my-anything</span> ()
+<pre class="example">(defun my-anything ()
   (interactive)
   (anything-other-buffer
    '(anything-c-source-buffers+
@@ -738,7 +738,7 @@ Tags:
      anything-c-source-bookmarks
      anything-c-source-bookmark-set
      anything-c-source-emms-files)
-    <span style="color: #cc9393;">"*anything*"</span>))
+    "*anything*"))
 </pre>
 
 
@@ -754,19 +754,19 @@ Tags:
 
 
 
-<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defvar</span> <span style="color: #f0dfaf;">anything-c-source-git-annex</span>
-  '((name . <span style="color: #cc9393;">"Git Annex"</span>)
-    (candidates . (<span style="color: #f0dfaf; font-weight: bold;">lambda</span> ()
-                    (<span style="color: #f0dfaf; font-weight: bold;">with-current-buffer</span> anything-current-buffer
-                     (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
-                       (call-process <span style="color: #cc9393;">"git"</span> nil t nil <span style="color: #cc9393;">"annex"</span> <span style="color: #cc9393;">"find"</span>)
+<pre class="example">(defvar anything-c-source-git-annex
+  '((name . "Git Annex")
+    (candidates . (lambda ()
+                    (with-current-buffer anything-current-buffer
+                     (with-temp-buffer
+                       (call-process "git" nil t nil "annex" "find")
                        (goto-char (point-min))
-                       (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>)))))
+                       (split-string (buffer-string) "\n")))))
     (volatile)
-    (action . ((<span style="color: #cc9393;">"Watch"</span> . anything-c-git-annex-play)
-               (<span style="color: #cc9393;">"Drop"</span> . anything-c-git-annex-drop)
-               (<span style="color: #cc9393;">"Move"</span> . anything-c-git-annex-move)
-               (<span style="color: #cc9393;">"Copy"</span> . anything-c-git-annex-copy)))))
+    (action . (("Watch" . anything-c-git-annex-play)
+               ("Drop" . anything-c-git-annex-drop)
+               ("Move" . anything-c-git-annex-move)
+               ("Copy" . anything-c-git-annex-copy)))))
 </pre>
 
 
@@ -788,8 +788,8 @@ Tags:
 
 
 
-<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-drop</span> (candidate)
-  (anything-git-annex-command <span style="color: #cc9393;">"drop"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)))
+<pre class="example">(defun anything-c-git-annex-drop (candidate)
+  (anything-git-annex-command "drop" (concat "\"" candidate "\"")))
 </pre>
 
 
@@ -801,18 +801,18 @@ Tags:
 
 
 
-<pre class="src src-emacs-lisp">(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-annex-copy</span> (candidate)
-  (<span style="color: #f0dfaf; font-weight: bold;">let*</span> ((to (anything-comp-read
-              <span style="color: #cc9393;">"To Git Annex: "</span>
+<pre class="example">(defun anything-c-git-annex-copy (candidate)
+  (let* ((to (anything-comp-read
+              "To Git Annex: "
               (anything-c-git-remotes)
-              <span style="color: #8cd0d3;">:must-match</span> nil)))
-    (anything-git-annex-command <span style="color: #cc9393;">"copy"</span> (concat <span style="color: #cc9393;">"\""</span> candidate <span style="color: #cc9393;">"\""</span>)
-                                <span style="color: #cc9393;">"--to"</span> (concat <span style="color: #cc9393;">"\""</span> to <span style="color: #cc9393;">"\""</span>))))
+              :must-match nil)))
+    (anything-git-annex-command "copy" (concat "\"" candidate "\"")
+                                "--to" (concat "\"" to "\""))))
 
-(<span style="color: #f0dfaf; font-weight: bold;">defun</span> <span style="color: #8cd0d3;">anything-c-git-remotes</span> ()
-  (<span style="color: #f0dfaf; font-weight: bold;">with-temp-buffer</span>
-    (call-process <span style="color: #cc9393;">"git"</span> nil (current-buffer) nil <span style="color: #cc9393;">"remote"</span>)
-    (delete <span style="color: #cc9393;">""</span> (split-string (buffer-string) <span style="color: #cc9393;">"\n"</span>))))
+(defun anything-c-git-remotes ()
+  (with-temp-buffer
+    (call-process "git" nil (current-buffer) nil "remote")
+    (delete "" (split-string (buffer-string) "\n"))))
 </pre>
 
 
@@ -852,7 +852,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Mon 12 Dec 2011 01:03:17 PM MST</span>
+Posted <span class="date">Mon 12 Dec 2011 12:03:17 PM PST</span>
 </span>
 
 
@@ -947,7 +947,7 @@ Tags:
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Thu 15 Dec 2011 11:28:05 AM MST</span>
+Posted <span class="date">Thu 15 Dec 2011 10:28:05 AM PST</span>
 </span>
 
 
@@ -1242,7 +1242,7 @@ to a brand new campsite just past the summit.
 <div class="inlinefooter">
 
 <span class="pagedate">
-Posted <span class="date">Sun 18 Dec 2011 05:44:34 PM MST</span>
+Posted <span class="date">Sun 18 Dec 2011 04:44:34 PM PST</span>
 </span>
 
 
@@ -1300,8 +1300,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Thu 10 Nov 2011 08:38:47 PM MST</span>
-<!-- Created <span class="date">Thu 10 Nov 2011 07:21:15 PM MST</span> -->
+Last edited <span class="date">Thu 10 Nov 2011 07:38:47 PM PST</span>
+<!-- Created <span class="date">Thu 10 Nov 2011 06:21:15 PM PST</span> -->
 </div>
 
 </div>

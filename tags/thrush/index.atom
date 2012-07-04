@@ -77,11 +77,11 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(||-&amp;gt;&amp;gt; data
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-       &lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;:merge&lt;/span&gt;
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(||-&amp;gt;&amp;gt; data
+       (map big-function)
+       (filter odd?)
+       :merge
+       (reduce +))
 &lt;/pre&gt;
 
 
@@ -91,10 +91,10 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; data
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;map&lt;/span&gt; big-function)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;filter&lt;/span&gt; odd?)
-     (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; +))
+&lt;pre class=&quot;example&quot;&gt;(-&amp;gt;&amp;gt; data
+     (map big-function)
+     (filter odd?)
+     (reduce +))
 &lt;/pre&gt;
 
 
@@ -128,8 +128,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map 4 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map 4 (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19}
 &lt;/pre&gt;
 
 
@@ -144,8 +144,8 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;apply&lt;/span&gt; lru-map-with 4 conj [] (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;range&lt;/span&gt; 20))
-&lt;span style=&quot;color: #708070;&quot;&gt;;&lt;/span&gt;&lt;span style=&quot;color: #7f9f7f;&quot;&gt;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(apply lru-map-with 4 conj [] (range 20))
+;=&amp;gt; {12 13, 14 15, 16 17, 18 19, :lru-state [[0 1] [2 3] [4 5] [6 7] [8 9] [10 11]]}
 &lt;/pre&gt;
 
 
@@ -210,16 +210,16 @@ enough for me to release as Clojure packages.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;luhn-check&lt;/span&gt;
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Takes a sequence of digits and determines whether they pass the Luhn test.&lt;/span&gt;
-&lt;span style=&quot;color: #8fb28f;&quot;&gt;   The sequence must be in order from right to left.&quot;&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defn luhn-check
+  &quot;Takes a sequence of digits and determines whether they pass the Luhn test.
+   The sequence must be in order from right to left.&quot;
   [digits]
-  (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;-&amp;gt;&amp;gt;&lt;/span&gt; digits
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;partition&lt;/span&gt; 2 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; 0))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mapcat&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;first&lt;/span&gt; %) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;*&lt;/span&gt; 2 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;second&lt;/span&gt; %))))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;reduce&lt;/span&gt; #(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; %1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; %2 10)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;int&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; %2 10))))
-       (#(&lt;span style=&quot;color: #f0dfaf;&quot;&gt;mod&lt;/span&gt; % 10))
-       (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; 0)))
+  (-&amp;gt;&amp;gt; digits
+       (partition 2 2 (repeat 0))
+       (mapcat #(vector (first %) (* 2 (second %))))
+       (reduce #(+ %1 (int (/ %2 10)) (int (mod %2 10))))
+       (#(mod % 10))
+       (= 0)))
 &lt;/pre&gt;
 
 

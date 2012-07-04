@@ -27,7 +27,7 @@
 	<category>time-series</category>
 
 
-	<pubDate>Thu, 15 Dec 2011 11:28:05 -0700</pubDate>
+	<pubDate>Thu, 15 Dec 2011 10:28:05 -0800</pubDate>
 	<dcterms:modified>2011-12-15T18:28:05Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
@@ -105,7 +105,7 @@
 	<category>time-series</category>
 
 
-	<pubDate>Sun, 13 Nov 2011 07:12:16 -0700</pubDate>
+	<pubDate>Sun, 13 Nov 2011 06:12:16 -0800</pubDate>
 	<dcterms:modified>2011-12-15T18:14:05Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
@@ -130,15 +130,15 @@
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defn&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;time-series&lt;/span&gt; [f init-state n num-iterations]
- (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [call-f (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;fn&lt;/span&gt; [state]
-                (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [retval (f state)
-                      num (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;count&lt;/span&gt; state)
-                      new-state (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vec&lt;/span&gt; (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;=&lt;/span&gt; num n) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;drop&lt;/span&gt; 1 (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;conj&lt;/span&gt; state retval)))]
+&lt;pre class=&quot;example&quot;&gt;(defn time-series [f init-state n num-iterations]
+ (let [call-f (fn [state]
+                (let [retval (f state)
+                      num (count state)
+                      new-state (vec (if (= num n) (drop 1 (conj state retval)) (conj state retval)))]
                   [retval new-state]))]
    ((with-monad state-m
-      (m-seq (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;repeat&lt;/span&gt; num-iterations call-f)))
-    (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;vector&lt;/span&gt; init-state))))
+      (m-seq (repeat num-iterations call-f)))
+    (vector init-state))))
 &lt;/pre&gt;
 
 
@@ -225,7 +225,7 @@
 	<category>time-series</category>
 
 
-	<pubDate>Sat, 12 Nov 2011 09:27:15 -0700</pubDate>
+	<pubDate>Sat, 12 Nov 2011 08:27:15 -0800</pubDate>
 	<dcterms:modified>2011-12-01T07:43:43Z</dcterms:modified>
 
 	<description>&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;

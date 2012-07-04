@@ -25,7 +25,7 @@
 	<category>macros</category>
 
 
-	<pubDate>Fri, 20 Apr 2012 16:47:21 -0600</pubDate>
+	<pubDate>Fri, 20 Apr 2012 15:47:21 -0700</pubDate>
 	<dcterms:modified>2012-04-20T23:18:48Z</dcterms:modified>
 
 	<description>
@@ -142,7 +142,7 @@ have been working on.
 	<category>macros</category>
 
 
-	<pubDate>Tue, 10 Apr 2012 23:36:33 -0600</pubDate>
+	<pubDate>Tue, 10 Apr 2012 22:36:33 -0700</pubDate>
 	<dcterms:modified>2012-04-11T06:33:51Z</dcterms:modified>
 
 	<description>
@@ -215,13 +215,13 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-clojure&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defmacro&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;unless&lt;/span&gt;
+&lt;pre class=&quot;example&quot;&gt;(defmacro unless
   [pred &amp;amp; body]
-  `(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;not&lt;/span&gt; ~pred)
-     (&lt;span style=&quot;color: #8cd0d3;&quot;&gt;do&lt;/span&gt; ~@body)
+  `(if (not ~pred)
+     (do ~@body)
      nil))
 
-(&lt;span style=&quot;color: #8cd0d3;&quot;&gt;let&lt;/span&gt; [a (unless true (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;/&lt;/span&gt; 1 0) (&lt;span style=&quot;color: #f0dfaf;&quot;&gt;+&lt;/span&gt; 1 1))]
+(let [a (unless true (/ 1 0) (+ 1 1))]
   a)
 &lt;/pre&gt;
 
@@ -232,9 +232,9 @@ details and other notes.
 
 
 
-&lt;pre class=&quot;src src-javascript&quot;&gt;&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;var&lt;/span&gt; &lt;span style=&quot;color: #f0dfaf;&quot;&gt;a__5799&lt;/span&gt; = (cljs.core.truth_(cljs.core.not.call(&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;,&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;true&lt;/span&gt;))?(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;function&lt;/span&gt; (){(1 / 0);
-&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;return&lt;/span&gt; (1 + 1);
-})():&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;null&lt;/span&gt;);
+&lt;pre class=&quot;example&quot;&gt;var a__5799 = (cljs.core.truth_(cljs.core.not.call(null,true))?(function (){(1 / 0);
+return (1 + 1);
+})():null);
 
 a__5799;
 &lt;/pre&gt;

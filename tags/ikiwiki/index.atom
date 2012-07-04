@@ -387,13 +387,13 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #8cd0d3;&quot;&gt;xml-find-nodes-matching&lt;/span&gt; (node name)
-  &lt;span style=&quot;color: #8fb28f;&quot;&gt;&quot;Returns all children of `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;node&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; that have an `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;xml-node-name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39; equal to `&lt;/span&gt;&lt;span style=&quot;color: #dca3a3; font-weight: bold;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #8fb28f;&quot;&gt;&#39;.&quot;&lt;/span&gt;
-  (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (or (eq node &#39;()) (not (listp node)))
+&lt;pre class=&quot;example&quot;&gt;(defun xml-find-nodes-matching (node name)
+  &quot;Returns all children of `node&#39; that have an `xml-node-name&#39; equal to `name&#39;.&quot;
+  (if (or (eq node &#39;()) (not (listp node)))
       &#39;()
-    (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;if&lt;/span&gt; (equal (xml-node-name node) name)
-        (cons node (delq nil (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
-      (delq nil (apply &#39;append (mapcar (&lt;span style=&quot;color: #f0dfaf; font-weight: bold;&quot;&gt;lambda&lt;/span&gt; (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
+    (if (equal (xml-node-name node) name)
+        (cons node (delq nil (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node))))
+      (delq nil (apply &#39;append (mapcar (lambda (nd) (xml-find-nodes-matching nd name)) (xml-node-children node)))))))
 &lt;/pre&gt;
 
 
@@ -480,7 +480,7 @@ some of them, in no particular order.
 
 
 
-&lt;pre class=&quot;src src-elisp&quot;&gt;(setq valtype (car (caddar xml-list))
+&lt;pre class=&quot;example&quot;&gt;(setq valtype (car (caddar xml-list))
       valvalue (caddr (caddar xml-list)))  
 &lt;/pre&gt;
 
