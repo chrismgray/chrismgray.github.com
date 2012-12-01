@@ -17,7 +17,65 @@
 
 <subtitle type="html">Hiking and Coding</subtitle>
 <generator uri="http://ikiwiki.info/" version="3.20120202">ikiwiki</generator>
-<updated>2012-12-01T18:12:01Z</updated>
+<updated>2012-12-01T19:35:20Z</updated>
+<entry>
+	<title>change to posts/hiking/sierras-03 on Hiking and Coding</title>
+
+	<id>http://chrismgray.github.com//recentchanges/change_cbc6e9aecd7fdf65a4bacbcd48f2611227485620/</id>
+
+	<link href="http://chrismgray.github.com/recentchanges/#change-cbc6e9aecd7fdf65a4bacbcd48f2611227485620"/>
+
+	<author><name>chrismgray</name></author>
+
+
+
+
+
+	<updated>2012-12-01T19:35:20Z</updated>
+	<published>2012-12-01T19:35:20Z</published>
+
+	<content type="html" xml:lang="en">
+	
+
+
+
+
+
+&lt;div id=&quot;change-cbc6e9aecd7fdf65a4bacbcd48f2611227485620&quot; class=&quot;metadata&quot;&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
+&lt;span class=&quot;pagelinks&quot;&gt;
+
+posts/hiking/sierras-03
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
+&lt;span class=&quot;committer&quot;&gt;
+
+chrismgray
+
+&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
+&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
+&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;11:35:20 AM 12/01/2012&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;changelog&quot;&gt;
+
+
+New hiking post&lt;br /&gt;
+
+
+&lt;/div&gt;
+
+&lt;!-- cbc6e9aecd7fdf65a4bacbcd48f2611227485620 --&gt;
+
+	</content>
+
+
+
+</entry>
 <entry>
 	<title>change to posts/hiking/sierras-02 on Hiking and Coding</title>
 
@@ -5802,64 +5860,6 @@ Removed the image&lt;br /&gt;
 &lt;/div&gt;
 
 &lt;!-- c6a8f3c564915dcf43400507590ddc13342a3447 --&gt;
-
-	</content>
-
-
-
-</entry>
-<entry>
-	<title>change to posts/time-series-2 on Hiking and Coding</title>
-
-	<id>http://chrismgray.github.com//recentchanges/change_a96f3c5ec60781db110799d2fb358054b055f4ed/</id>
-
-	<link href="http://chrismgray.github.com/recentchanges/#change-a96f3c5ec60781db110799d2fb358054b055f4ed"/>
-
-	<author><name>chrismgray</name></author>
-
-
-
-
-
-	<updated>2011-11-13T14:48:30Z</updated>
-	<published>2011-11-13T14:48:30Z</published>
-
-	<content type="html" xml:lang="en">
-	
-
-
-
-
-
-&lt;div id=&quot;change-a96f3c5ec60781db110799d2fb358054b055f4ed&quot; class=&quot;metadata&quot;&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed pages:&lt;/span&gt;
-&lt;span class=&quot;pagelinks&quot;&gt;
-
-posts/time-series-2
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Changed by:&lt;/span&gt;
-&lt;span class=&quot;committer&quot;&gt;
-
-chrismgray
-
-&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Commit type:&lt;/span&gt;
-&lt;span class=&quot;committype&quot;&gt;git&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;Date:&lt;/span&gt;
-&lt;span class=&quot;changedate&quot;&gt;&lt;span class=&quot;date&quot;&gt;06:48:30 AM 11/13/2011&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;desc&quot;&gt;&lt;br /&gt;&lt;/span&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;changelog&quot;&gt;
-
-
-Changed the picture link&lt;br /&gt;
-
-
-&lt;/div&gt;
-
-&lt;!-- a96f3c5ec60781db110799d2fb358054b055f4ed --&gt;
 
 	</content>
 
