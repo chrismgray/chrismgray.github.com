@@ -8,6 +8,211 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Tail-call optimization in emacs lisp</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/emacs-tco/</guid>
+
+	<link>http://chrismgray.github.com//posts/emacs-tco/</link>
+
+
+	<category>C</category>
+
+	<category>emacs</category>
+
+	<category>lab-notes</category>
+
+	<category>programming</category>
+
+
+	<pubDate>Sun, 09 Dec 2012 10:38:28 -0800</pubDate>
+	<dcterms:modified>2012-12-09T18:38:28Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;It&#39;s been a while since I wrote about any coding here.  Most of my
+coding lately has been done at my job, and while it has been
+interesting, it&#39;s not for public consumption.  However, I started a
+fun little project last weekend and finished it this weekend: adding
+tail-call optimization (TCO) to emacs lisp.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  If you&#39;re not familiar with TCO, it&#39;s not too complicated.  Most
+  programming language interpreters (including the CPU) use a stack to
+  keep track of the local variables in a function.  When a new
+  function is called, its arguments are pushed on the stack before the
+  call and read from the stack.  When the function returns, the
+  arguments are removed from the stack and the old local variables are
+  available just as they were before.  However, in the case where the
+  result of the function call is being returned unmodified, this is
+  somewhat wasteful: the old local variables are not going to be used
+  any more so we could just put the arguments on the stack where the
+  old variables were.  We can then just jump into the new function.
+&lt;/p&gt;
+&lt;p&gt;  
+  Using this technique, multiple tail-calls won&#39;t grow the stack, and
+  tail-recursive functions (that is, functions that only recurse when
+  they are about to return) become a good alternative to loops.  This
+  is heavily used in Scheme, where tail-call elimination is part of
+  the standard.  Note that the reason this is an optimization isn&#39;t
+  speed of execution; it&#39;s more about the amount of memory that is
+  used.
+&lt;/p&gt;
+&lt;p&gt;
+  Until recently, TCO was not possible at all in emacs lisp.  This is
+  because, until recently, all of emacs lisp was dynamically scoped.
+  Dynamic scoping essentially means that local variables shadow global
+  variables in functions that are called while the local variables are
+  in scope.  So if you have global variable &lt;code&gt;a&lt;/code&gt; and function &lt;code&gt;b&lt;/code&gt; does
+  something that depends on &lt;code&gt;a&lt;/code&gt;, then you can change the behavior of
+  &lt;code&gt;b&lt;/code&gt; when you call it from &lt;code&gt;c&lt;/code&gt; by setting the value of &lt;code&gt;a&lt;/code&gt; locally.
+  This rule, while unconventional, can be quite useful in configuring
+  the behavior of the editor.  Anyway, dynamic scoping means that
+  before any function returns, all the bound local variables must be
+  unbound so that they no longer affect other functions.  This means
+  that a function call is almost never followed by a return.
+&lt;/p&gt;
+&lt;p&gt;
+  However, emacs 24 added the option to compile files using lexical
+  scope (the more common scoping rule that you are probably already
+  familiar with if you&#39;ve gotten this far).  There is no need to
+  explicitly unbind variables before a return in lexical scope because
+  local variables aren&#39;t bound.  Thus we can do TCO on these
+  functions.  In short, this is what I added.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Implementation Challenges&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  The first thing to decide was where to add the TCO code.  Since
+  emacs byte-code doesn&#39;t have the ability to jump into a function, I
+  quickly decided that I needed to modify the byte-code interpreter
+  instead.  This means going into the C guts of emacs.
+&lt;/p&gt;
+&lt;p&gt;
+  The first thing I did was to follow the path that a call to a
+  lexically-bound function would make from the byte-code interpreter.
+  I added all this code plus a &lt;code&gt;goto&lt;/code&gt; statement in case the operation
+  that followed the call was a &lt;code&gt;return&lt;/code&gt;.  It wasn&#39;t a whole lot of
+  code, so I was feeling fairly good about things.
+&lt;/p&gt;
+&lt;p&gt;
+  The first problem with this approach is that the emacs stack could
+  be a different size from what was needed by the calling function.
+  Since the stack is allocated by &lt;code&gt;alloca&lt;/code&gt; (which allocates on the
+  processor&#39;s stack), and because there is only one &lt;code&gt;return&lt;/code&gt; from the
+  byte-code interpreter, I thought I would be fine changing the
+  &lt;code&gt;alloca&lt;/code&gt; to a combination of &lt;code&gt;malloc&lt;/code&gt; and &lt;code&gt;free&lt;/code&gt;.  Strangely, when I
+  went to recompile the emacs lisp files, I kept getting errors.  This
+  left me fairly befuddled.
+&lt;/p&gt;
+&lt;p&gt;
+  I finally figured it out when I realized the garbage collector was
+  looking at the processor&#39;s stack to find variables that are in use.
+  Thus to work properly, the emacs stack must be allocated on the
+  processor&#39;s stack.  That meant I had to go back to &lt;code&gt;alloca&lt;/code&gt; (or
+  modify the garbage collector &amp;ndash; something I was not likely to do
+  correctly).  Since the (emacs) stack size could change, the memory
+  allocated for it would also need to change.  I needed something that
+  let me blow away part of the (CPU) stack &amp;ndash; &lt;code&gt;goto&lt;/code&gt; keeps the stack
+  in place.
+&lt;/p&gt;
+&lt;p&gt;
+  In my spelunking in the emacs C code, I had seen functions &lt;code&gt;setjmp&lt;/code&gt;
+  and &lt;code&gt;longjmp&lt;/code&gt; used to implement emacs&#39;s exception mechanism.  I had
+  never used these functions before (and with good reason &amp;ndash; if you
+  think &lt;code&gt;goto&lt;/code&gt; creates spaghetti code, these functions are much
+  worse), but it seemed like they might do what I want.  That is, when
+  you call &lt;code&gt;longjmp&lt;/code&gt;, you get the effect of a &lt;code&gt;goto&lt;/code&gt;, but the
+  processor&#39;s stack is restored to the state that it was when you were
+  at the place that jumped to.  So by using a &lt;code&gt;longjmp&lt;/code&gt; within the
+  function, I could allocate the emacs stack on the processor&#39;s stack
+  and still do TCO without growing the amount of memory used for each
+  tail call.
+&lt;/p&gt;
+&lt;p&gt;
+  By the way, I also learned more about the &lt;code&gt;volatile&lt;/code&gt; keyword than I
+  wanted to know, including this beauty:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;funargs = *(volatile Lisp_Object *) &amp;amp;funargs;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  That means (as far as I understand it) &quot;put this in memory &lt;b&gt;right now&lt;/b&gt;&quot;.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Benefits / Limitations&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  There is an obvious benefit from this work: people can now write
+  tail-recursive functions and not worry about the the size of the
+  input causing the function to stop working.  It does, however, have
+  some limitations.  It
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;only works for lexically-bound functions,
+&lt;/li&gt;
+&lt;li&gt;only works for byte-compiled functions, and
+&lt;/li&gt;
+&lt;li&gt;could cause problems with debugging.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;    
+  I&#39;ve gone through the reasons for the first two, and the third
+  should be well known to people who are familiar with TCO.  The main
+  reason is that since the function call can&#39;t add to the memory
+  usage, it must also not add information about itself to the list of
+  function calls displayed in a backtrace.  
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+
+
+&lt;p&gt;
+  I am going to test this for a while longer before I release it.
+  However, I think it&#39;s really going to work, and it will allow an
+  entirely different style of programming in emacs lisp.  That&#39;s
+  pretty exciting for me.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/emacs-tco/#comments</comments>
+
+</item>
+<item>
+
 	<title>Org Plugin Rethink</title>
 
 

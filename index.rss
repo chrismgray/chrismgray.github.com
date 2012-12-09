@@ -8,6 +8,211 @@
 <description>Hiking and Coding</description>
 <item>
 
+	<title>Tail-call optimization in emacs lisp</title>
+
+
+	<guid isPermaLink="false">http://chrismgray.github.com//posts/emacs-tco/</guid>
+
+	<link>http://chrismgray.github.com//posts/emacs-tco/</link>
+
+
+	<category>C</category>
+
+	<category>emacs</category>
+
+	<category>lab-notes</category>
+
+	<category>programming</category>
+
+
+	<pubDate>Sun, 09 Dec 2012 10:38:28 -0800</pubDate>
+	<dcterms:modified>2012-12-09T18:38:28Z</dcterms:modified>
+
+	<description>
+&lt;p&gt;It&#39;s been a while since I wrote about any coding here.  Most of my
+coding lately has been done at my job, and while it has been
+interesting, it&#39;s not for public consumption.  However, I started a
+fun little project last weekend and finished it this weekend: adding
+tail-call optimization (TCO) to emacs lisp.
+&lt;/p&gt;
+
+&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+
+
+&lt;p&gt;
+  If you&#39;re not familiar with TCO, it&#39;s not too complicated.  Most
+  programming language interpreters (including the CPU) use a stack to
+  keep track of the local variables in a function.  When a new
+  function is called, its arguments are pushed on the stack before the
+  call and read from the stack.  When the function returns, the
+  arguments are removed from the stack and the old local variables are
+  available just as they were before.  However, in the case where the
+  result of the function call is being returned unmodified, this is
+  somewhat wasteful: the old local variables are not going to be used
+  any more so we could just put the arguments on the stack where the
+  old variables were.  We can then just jump into the new function.
+&lt;/p&gt;
+&lt;p&gt;  
+  Using this technique, multiple tail-calls won&#39;t grow the stack, and
+  tail-recursive functions (that is, functions that only recurse when
+  they are about to return) become a good alternative to loops.  This
+  is heavily used in Scheme, where tail-call elimination is part of
+  the standard.  Note that the reason this is an optimization isn&#39;t
+  speed of execution; it&#39;s more about the amount of memory that is
+  used.
+&lt;/p&gt;
+&lt;p&gt;
+  Until recently, TCO was not possible at all in emacs lisp.  This is
+  because, until recently, all of emacs lisp was dynamically scoped.
+  Dynamic scoping essentially means that local variables shadow global
+  variables in functions that are called while the local variables are
+  in scope.  So if you have global variable &lt;code&gt;a&lt;/code&gt; and function &lt;code&gt;b&lt;/code&gt; does
+  something that depends on &lt;code&gt;a&lt;/code&gt;, then you can change the behavior of
+  &lt;code&gt;b&lt;/code&gt; when you call it from &lt;code&gt;c&lt;/code&gt; by setting the value of &lt;code&gt;a&lt;/code&gt; locally.
+  This rule, while unconventional, can be quite useful in configuring
+  the behavior of the editor.  Anyway, dynamic scoping means that
+  before any function returns, all the bound local variables must be
+  unbound so that they no longer affect other functions.  This means
+  that a function call is almost never followed by a return.
+&lt;/p&gt;
+&lt;p&gt;
+  However, emacs 24 added the option to compile files using lexical
+  scope (the more common scoping rule that you are probably already
+  familiar with if you&#39;ve gotten this far).  There is no need to
+  explicitly unbind variables before a return in lexical scope because
+  local variables aren&#39;t bound.  Thus we can do TCO on these
+  functions.  In short, this is what I added.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;Implementation Challenges&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+
+
+&lt;p&gt;
+  The first thing to decide was where to add the TCO code.  Since
+  emacs byte-code doesn&#39;t have the ability to jump into a function, I
+  quickly decided that I needed to modify the byte-code interpreter
+  instead.  This means going into the C guts of emacs.
+&lt;/p&gt;
+&lt;p&gt;
+  The first thing I did was to follow the path that a call to a
+  lexically-bound function would make from the byte-code interpreter.
+  I added all this code plus a &lt;code&gt;goto&lt;/code&gt; statement in case the operation
+  that followed the call was a &lt;code&gt;return&lt;/code&gt;.  It wasn&#39;t a whole lot of
+  code, so I was feeling fairly good about things.
+&lt;/p&gt;
+&lt;p&gt;
+  The first problem with this approach is that the emacs stack could
+  be a different size from what was needed by the calling function.
+  Since the stack is allocated by &lt;code&gt;alloca&lt;/code&gt; (which allocates on the
+  processor&#39;s stack), and because there is only one &lt;code&gt;return&lt;/code&gt; from the
+  byte-code interpreter, I thought I would be fine changing the
+  &lt;code&gt;alloca&lt;/code&gt; to a combination of &lt;code&gt;malloc&lt;/code&gt; and &lt;code&gt;free&lt;/code&gt;.  Strangely, when I
+  went to recompile the emacs lisp files, I kept getting errors.  This
+  left me fairly befuddled.
+&lt;/p&gt;
+&lt;p&gt;
+  I finally figured it out when I realized the garbage collector was
+  looking at the processor&#39;s stack to find variables that are in use.
+  Thus to work properly, the emacs stack must be allocated on the
+  processor&#39;s stack.  That meant I had to go back to &lt;code&gt;alloca&lt;/code&gt; (or
+  modify the garbage collector &amp;ndash; something I was not likely to do
+  correctly).  Since the (emacs) stack size could change, the memory
+  allocated for it would also need to change.  I needed something that
+  let me blow away part of the (CPU) stack &amp;ndash; &lt;code&gt;goto&lt;/code&gt; keeps the stack
+  in place.
+&lt;/p&gt;
+&lt;p&gt;
+  In my spelunking in the emacs C code, I had seen functions &lt;code&gt;setjmp&lt;/code&gt;
+  and &lt;code&gt;longjmp&lt;/code&gt; used to implement emacs&#39;s exception mechanism.  I had
+  never used these functions before (and with good reason &amp;ndash; if you
+  think &lt;code&gt;goto&lt;/code&gt; creates spaghetti code, these functions are much
+  worse), but it seemed like they might do what I want.  That is, when
+  you call &lt;code&gt;longjmp&lt;/code&gt;, you get the effect of a &lt;code&gt;goto&lt;/code&gt;, but the
+  processor&#39;s stack is restored to the state that it was when you were
+  at the place that jumped to.  So by using a &lt;code&gt;longjmp&lt;/code&gt; within the
+  function, I could allocate the emacs stack on the processor&#39;s stack
+  and still do TCO without growing the amount of memory used for each
+  tail call.
+&lt;/p&gt;
+&lt;p&gt;
+  By the way, I also learned more about the &lt;code&gt;volatile&lt;/code&gt; keyword than I
+  wanted to know, including this beauty:
+&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;example&quot;&gt;funargs = *(volatile Lisp_Object *) &amp;amp;funargs;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+  That means (as far as I understand it) &quot;put this in memory &lt;b&gt;right now&lt;/b&gt;&quot;.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;Benefits / Limitations&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+
+
+&lt;p&gt;
+  There is an obvious benefit from this work: people can now write
+  tail-recursive functions and not worry about the the size of the
+  input causing the function to stop working.  It does, however, have
+  some limitations.  It
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;only works for lexically-bound functions,
+&lt;/li&gt;
+&lt;li&gt;only works for byte-compiled functions, and
+&lt;/li&gt;
+&lt;li&gt;could cause problems with debugging.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;    
+  I&#39;ve gone through the reasons for the first two, and the third
+  should be well known to people who are familiar with TCO.  The main
+  reason is that since the function call can&#39;t add to the memory
+  usage, it must also not add information about itself to the list of
+  function calls displayed in a backtrace.  
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-4&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+
+
+&lt;p&gt;
+  I am going to test this for a while longer before I release it.
+  However, I think it&#39;s really going to work, and it will allow an
+  entirely different style of programming in emacs lisp.  That&#39;s
+  pretty exciting for me.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+
+
+	<comments>/posts/emacs-tco/#comments</comments>
+
+</item>
+<item>
+
 	<title>Sierra (Part 3)</title>
 
 
@@ -15,8 +220,14 @@
 
 	<link>http://chrismgray.github.com//posts/hiking/sierras-03/</link>
 
+
+	<category>PCT</category>
+
+	<category>hiking</category>
+
+
 	<pubDate>Sat, 01 Dec 2012 11:35:51 -0800</pubDate>
-	<dcterms:modified>2012-12-01T19:35:51Z</dcterms:modified>
+	<dcterms:modified>2012-12-09T18:38:28Z</dcterms:modified>
 
 	<description>
 &lt;p&gt;The last post was getting a bit long, so I split it into two.  When I
@@ -229,7 +440,9 @@ left off, I had just finished the last big mountain pass on the hike.
 
 &lt;p&gt;
   I go out on my own again into Northern California.  
-&lt;/p&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
 
@@ -246,8 +459,14 @@ left off, I had just finished the last big mountain pass on the hike.
 
 	<link>http://chrismgray.github.com//posts/hiking/sierras-02/</link>
 
+
+	<category>PCT</category>
+
+	<category>hiking</category>
+
+
 	<pubDate>Sat, 01 Dec 2012 10:16:11 -0800</pubDate>
-	<dcterms:modified>2012-12-01T18:16:11Z</dcterms:modified>
+	<dcterms:modified>2012-12-09T18:38:28Z</dcterms:modified>
 
 	<description>
 &lt;p&gt;After my &lt;a href=&quot;http://chrismgray.github.com//./posts/hiking/sierras-01&quot;&gt;jaunt in Oregon&lt;/a&gt;, where I had only hiked 50 miles in about 10
@@ -506,7 +725,9 @@ central California.
 
 &lt;p&gt;
   Yosemite, and even harder river crossings.
-&lt;/p&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
 
@@ -2159,197 +2380,6 @@ have been working on.
 
 
 	<comments>/posts/cljs-macros-02/#comments</comments>
-
-</item>
-<item>
-
-	<title>California Section A</title>
-
-
-	<guid isPermaLink="false">http://chrismgray.github.com//posts/hiking/socal-01/</guid>
-
-	<link>http://chrismgray.github.com//posts/hiking/socal-01/</link>
-
-
-	<category>PCT</category>
-
-	<category>hiking</category>
-
-
-	<pubDate>Sun, 15 Apr 2012 12:16:46 -0700</pubDate>
-	<dcterms:modified>2012-04-15T19:21:52Z</dcterms:modified>
-
-	<description>
-&lt;p&gt;Here we go on the first post of my recap of my experience on the
-Pacific Crest Trail.  It&#39;s been nearly a year since I started, and I
-didn&#39;t keep records of where I stayed as well as on the &lt;a href=&quot;http://chrismgray.github.com//./tags/AT&quot;&gt;AT&lt;/a&gt;, so this
-recap will probably be a bit less detailed than that one (which might
-be a good thing).
-&lt;/p&gt;
-&lt;p&gt;
-Here&#39;s the obligatory &quot;before&quot; photo:
-&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&quot;https://lh5.googleusercontent.com/-4xYuJjCRfeo/TdkxHjmx2MI/AAAAAAAABXU/8_DU5RSDSio/s800/DSCF0494.JPG&quot;  alt=&quot;https://lh5.googleusercontent.com/-4xYuJjCRfeo/TdkxHjmx2MI/AAAAAAAABXU/8_DU5RSDSio/s800/DSCF0494.JPG&quot; /&gt;
-&lt;/p&gt;
-&lt;p&gt;
-Across the wall behind me is Mexico.  My shirt is clean, my pack&#39;s
-color is vivid, and my face is clean-shaven.  None of those things
-would be true for very long on this hike.  I had arrived at the border
-at around 6:30 PM, so I didn&#39;t plan to go very far that evening.  I
-passed the first mile-marker on my way to the small town near the
-trailhead:
-&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&quot;https://lh5.googleusercontent.com/-Ia1Kk0DJplw/TdkxihMR9VI/AAAAAAAABX0/fR580G6sFbQ/s640/DSCF0495.JPG&quot;  alt=&quot;https://lh5.googleusercontent.com/-Ia1Kk0DJplw/TdkxihMR9VI/AAAAAAAABX0/fR580G6sFbQ/s640/DSCF0495.JPG&quot; /&gt;
-&lt;/p&gt;
-&lt;p&gt;
-I had food with me, but no water.  The store owner (because the town
-was little more than a convenience store) made me buy water.  Since
-Southern California is mostly a desert, I felt it was the best idea to
-go along with it.  I walked a bit longer (I made maybe about three
-miles on the first evening), found a place to set up my hammock, made
-supper and went to bed.
-&lt;/p&gt;
-&lt;p&gt;
-The next day really showed the rigors of desert hiking.  With the sun
-beating down and hardly any shade, it wasn&#39;t long before things got
-really hot.  I heard my first rattlesnake in bushes nearby, but I just
-kept trudging on.  At lunchtime, though, I found a bit of shade at the
-bottom of a hill near a flowing stream.  There was another hiker there
-with the trail name Hikeaholic.  He had hiked the PCT before and had
-even been a maintainer of the trail in Washington, and he was quite
-encouraging about my chances.  After lunch, we parted ways, and I went
-on to the Lake Morena campsite for the first day of what is known as
-the Kickoff.
-&lt;/p&gt;
-&lt;p&gt;
-The &lt;a href=&quot;http://adzpctko.org&quot;&gt;Kickoff&lt;/a&gt; is an annual event where many of the northbound hikers
-(which is just about everyone on the PCT) get together.  Gear
-companies show up along with trail &quot;alumni&quot; who want to re-live the
-fun and scare the newbies.  There were a few hundred tents set up in
-the campsite by the evening, and the next morning I thought that I had
-seen enough.  I go hiking to avoid crowds of that size, so I started
-down the trail in the cool of the morning.
-&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&quot;https://lh5.googleusercontent.com/-GHRj21tyVm8/Tdkx1FUfjMI/AAAAAAAABYY/zH2C1pKtysk/s800/DSCF0499.JPG&quot;  alt=&quot;https://lh5.googleusercontent.com/-GHRj21tyVm8/Tdkx1FUfjMI/AAAAAAAABYY/zH2C1pKtysk/s800/DSCF0499.JPG&quot; /&gt;
-&lt;/p&gt;
-&lt;p&gt;
-I was on my own for most of the day, but I met two couples that I
-would later hike with for long distances: Raven and Lovebird, and
-Funyan and Meow-Meow.  Of course, they didn&#39;t have their trail names
-at that point, but after a while it becomes more natural to refer to
-people by their trail names than their actual names.  At the end of
-the day, I set up camp just above a dry creek bed with another person
-with whom I would hike most of Southern California: a tall guy who got
-the trail name Garby from his ability to clean everyone&#39;s plates
-like a garbage disposal.
-&lt;/p&gt;
-&lt;p&gt;
-The next day actually had some pine forest, which was a bit of a
-surprise.  I enjoyed the shade, but it didn&#39;t last long, and
-eventually I was back in the sun.  I ended the day in a campsite that
-was the last bit of green on the map for many miles.  I had gotten
-there minutes after Lovebird, Raven, and Garby.  There was another
-person that I hadn&#39;t met before, who introduced himself as Swope.  I
-told the group that my intention was to stay at the campsite so that I
-could be sure to find a place to hang my hammock.  I very quickly
-regretted it as Swope announced that that made us hiking buddies,
-because he was staying there as well.
-&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&quot;https://lh3.googleusercontent.com/-ZRMjGMQuBCo/TdkzIapsZWI/AAAAAAAABaQ/tmmio8Ram0w/s800/DSCF0510.JPG&quot;  alt=&quot;https://lh3.googleusercontent.com/-ZRMjGMQuBCo/TdkzIapsZWI/AAAAAAAABaQ/tmmio8Ram0w/s800/DSCF0510.JPG&quot; /&gt;
-&lt;/p&gt;
-&lt;p&gt;
-I could tell that Swope was a little off, and as the evening went on,
-it became even more clear.  He talked a mile a minute about some very
-strange topics, he clearly hadn&#39;t been long-distance hiking before,
-and he had a massive pack (around 50 pounds) whose weight he had
-reduced from about 80 pounds the day before.  He even had a satellite
-phone with him &amp;ndash; pretty strange for someone who wanted to get away
-from civilization.  Eventually, I had all that I could take and
-escaped to my hammock for some shuteye.  (Sorry Swope if you ever read
-this.  Some people are just not natural hiking companions.)  Swope got
-out of camp ahead of me the next morning, but given his huge pack, I
-had no trouble passing him very quickly.
-&lt;/p&gt;
-&lt;p&gt;
-The hiking was turning out to be slightly different than I had
-expected.  When I think of the desert, I imagine really sandy areas
-with almost no vegetation.  This was fairly rocky with shrubs and
-brushy trees.  Desert is actually a misnomer: the ecosystem is known
-as &lt;a href=&quot;https://en.wikipedia.org/wiki/Chaparral&quot;&gt;chaparral&lt;/a&gt;.  It was still hot, though, and when I got to a water
-tank at around noon, I decided to wait out the sun for a while.  While
-I was waiting, I met Skinny D.  We talked for a while, and then she
-went on ahead of me.
-&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&quot;https://lh6.googleusercontent.com/-Gj3_sGqRax4/Tdkzbwn54EI/AAAAAAAABaA/At4SK3R1Y5c/s800/DSCF0513.JPG&quot;  alt=&quot;https://lh6.googleusercontent.com/-Gj3_sGqRax4/Tdkzbwn54EI/AAAAAAAABaA/At4SK3R1Y5c/s800/DSCF0513.JPG&quot; /&gt;
-&lt;/p&gt;
-&lt;p&gt;
-We met again at Scissors Crossing &amp;ndash; an awkward intersection of roads
-&amp;ndash; where trail angels had left water, energy drinks, beer, and even a
-pie.  It was supper time, so we ate supper and then had the pie for
-desert.  Skinny D went a bit farther, but I found some trees near a
-dried creek bed, and hung out there.  It was surprisingly cold over
-night &amp;ndash; the lack of moisture in the air causes that to happen &amp;ndash; and
-I was glad to get moving the next morning so that I could get warm.
-&lt;/p&gt;
-&lt;p&gt;
-That day highlighted another big difference between the PCT and the
-AT.  The whole day was spent going over one big hill.  On the AT, the
-hills come thick and fast, but on the PCT they are much more gradual.
-The net effect is that you spend a long time going up and then a long
-time going down.  We finished the day just past mile 100, where I met
-up with many of the people I had met earlier as well as two new ones:
-Liz and Annie.  Annie had terrible blisters, but she was pushing
-through the pain, which eventually led to her trail name &quot;Push&quot;.
-&lt;/p&gt;
-&lt;p&gt;
-It was only about 7 miles to the first trail town &amp;ndash; Warner Springs.
-There&#39;s really not much more to the town than a small resort and a
-gas-station convenience store, where I picked up my first resupply.
-&lt;/p&gt;
-&lt;p&gt;
-After getting to Warner Springs nice and early, I got a room at the
-resort with Garby, and we had a lot of fun there with Raven and
-Lovebird as well.  While we were eating at the pub, a
-bedraggled-looking Swope walked in.  He was clearly the worse for
-wear, and had only hiked as far as Scissors Crossing (meaning that he
-had somehow gotten a day behind me despite starting at the same time
-two days earlier).  He then hitchhiked to Warner Springs and was
-intending to get a ride back to Scissors Crossing and return to Warner
-Springs by running.  It was, as always, an unconventional approach.
-It was the last I would see of him, but I did hear that he made it
-farther than I had expected (though I don&#39;t know if he finished).
-&lt;/p&gt;
-&lt;p&gt;
-Later that night, the four of us went for a dip in the hot pool that
-is fed by the hot springs.  It&#39;s debatable whether it hurt or helped
-our hiking, but it was nice and relaxing.
-&lt;/p&gt;
-
-&lt;div id=&quot;outline-container-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Next time&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-
-
-&lt;p&gt;
-  There will be fewer characters to introduce, so hopefully I can
-  write about more than one section.  The trail goes from chaparral to
-  mountains and back, and we have a snow storm in the mountains and a
-  rain storm in the desert.  Hopefully I&#39;ll be able to get to the part
-  where I get massively lost by walking down the wrong mountain
-  ridge.  That was fun.
-&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-
-
-	<comments>/posts/hiking/socal-01/#comments</comments>
 
 </item>
 
